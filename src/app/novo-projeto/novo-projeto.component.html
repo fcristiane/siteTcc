@@ -1,0 +1,239 @@
+<div class="row">
+  <div class="col-md-12 order-md-1">
+    <br> <h4 class="mb-3">Formulário de atividade de Extensão</h4>
+    <form class="needs-validation">
+      <div class="row">
+
+        <div class="col-md-12 mb-6">
+          <label for="name">Nome da atividade:</label>
+          <input type="text" class="form-control" id="name" name="name1" [(ngModel)]="novoProjeto.name" value="" required>
+          <div class="invalid-feedback">
+            Campo obrigatório.
+          </div>
+        </div>
+
+        <div class="col-md-12 mb-3">
+          <br> <label for="classficacao">Classificação: </label><br>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="classificacao1" value="projeto" [(ngModel)]="novoProjeto.classificacao">
+            <label class="form-check-label" for="classificacao">Projeto</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="classificacao2" value="curso" [(ngModel)]="novoProjeto.classificacao">
+            <label class="form-check-label" for="classificacao">Curso</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="classificacao3" value="encontro" [(ngModel)]="novoProjeto.classificacao">
+            <label class="form-check-label" for="classificacao">Encontro</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="classificacao4" value="jornada" [(ngModel)]="novoProjeto.classificacao">
+            <label class="form-check-label" for="classificacao">Jornada</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="classificacao5" value="exposição" [(ngModel)]="novoProjeto.classificacao">
+            <label class="form-check-label" for="classificacao">Exposição</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="classificacao6" value="oficina" [(ngModel)]="novoProjeto.classificacao">
+            <label class="form-check-label" for="classificacao">Oficina</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="classificacao7" value="seminario" [(ngModel)]="novoProjeto.classificacao">
+            <label class="form-check-label" for="classificacao">Seminário</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="classificacao8" value="palestra" [(ngModel)]="novoProjeto.classificacao">
+            <label class="form-check-label" for="classificacao">Palestra</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="classificacao9" value="simpósio" [(ngModel)]="novoProjeto.classificacao">
+            <label class="form-check-label" for="classificacao">Simpósio</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="classificacao10" value="workshop" [(ngModel)]="novoProjeto.classificacao">
+            <label class="form-check-label" for="classificacao">Workshop</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="classificacao11" value="publicação" [(ngModel)]="novoProjeto.classificacao">
+            <label class="form-check-label" for="classificacao">Publicação</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="classificacao12" value="concurso" [(ngModel)]="novoProjeto.classificacao">
+            <label class="form-check-label" for="classificacao">Concurso</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="classificacao13" value="viagem" [(ngModel)]="novoProjeto.classificacao">
+            <label class="form-check-label" for="classificacao">Viagem</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="firstName">Curso (Vínculo Acadêmico): </label>
+        <input type="text" class="form-control" name="curso" placeholder="Ex: Administração" [(ngModel)]="novoProjeto.curso" required>
+        <div class="invalid-feedback">
+          Campo obrigatório.
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <label for="coordenador">Coordenador:</label>
+        </div>
+        <div class="col-6">
+          <label for="responsavel">Responsável pelo projeto:</label>
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" required>
+          <div class="invalid-feedback">
+            Campo obrigatório.
+          </div>
+        </div>
+        <div class="col-6">
+          <input type="text" class="form-control" required>
+          <div class="invalid-feedback">
+            Campo obrigatório.
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-2">
+          <br><p>Campus:</p>
+        </div>
+        <div class="col-10">
+          <br> <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="fatima">
+            <label class="form-check-label" for="">Fátima</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="central">
+            <label class="form-check-label" for="">Central</label>
+          </div>
+        </div>
+        <div class="col-2">
+          <p>Área de atuação:</p>
+        </div>
+        <div class="col-10">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="cbio">
+            <label class="form-check-label" for="">Ciências Biológicas</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="educacao">
+            <label class="form-check-label" for="">Educação</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="cempr">
+            <label class="form-check-label" for="">Ciências Empresariais</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="cexa">
+            <label class="form-check-label" for="">Ciências Exatas</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="comunicacao">
+            <label class="form-check-label" for="">Comunicação</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="csaude" >
+            <label class="form-check-label" for="">Ciências da Saúde</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+         <label for="local">Local de Realização:</label>
+        <input type="text" class="form-control" id="local" required>
+        <div class="invalid-feedback">
+          Campo obrigatório.
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-2 align-self-center">
+            <label for="periodoDe">Período de:</label>
+        </div>
+        <div class="col-4">
+            <input type="date" class="form-control" required>
+            <div class="invalid-feedback">
+              Campo obrigatório.
+            </div>
+        </div>
+        <div class="col-2 align-self-center">
+           <label for="periodoAte">Até:</label>
+        </div>
+        <div class="col-4">
+            <input type="date" class="form-control" required>
+            <div class="invalid-feedback">
+              Campo obrigatório.
+            </div>
+        </div>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-2 align-self-center">
+          <label for="firstName">Horário (Início):</label>
+        </div>
+        <div class="col-4">
+            <input type="time" class="form-control" id="" placeholder="" value="" required>
+            <div class="invalid-feedback">
+              Campo obrigatório.
+            </div>
+        </div>
+        <div class="col-2 align-self-center">
+            <label for="firstName">Horário (Fim):</label>
+          </div>
+          <div class="col-4">
+              <input type="time" class="form-control" id="" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Campo obrigatório.
+              </div>
+          </div>
+      </div>
+
+      <div class="mb-3">
+        
+        
+      </div>
+
+      <div class="clas-12">
+        <p>Dias da semana:</p>
+        <div class="form-check form-check-inline mb-3">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+          <label class="form-check-label" for="inlineCheckbox1">Domingo</label>
+        </div>
+        <div class="form-check form-check-inline mb-3">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+          <label class="form-check-label" for="inlineCheckbox1">Segunda-feira</label>
+        </div>
+        <div class="form-check form-check-inline mb-3">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+          <label class="form-check-label" for="inlineCheckbox1">Terça-feira</label>
+        </div>
+        <div class="form-check form-check-inline mb-3">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+          <label class="form-check-label" for="inlineCheckbox1">Quarta-feira</label>
+        </div>
+        <div class="form-check form-check-inline mb-3">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+          <label class="form-check-label" for="inlineCheckbox1">Quinta-feira</label>
+        </div>
+        <div class="form-check form-check-inline mb-3">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+          <label class="form-check-label" for="inlineCheckbox1">Sexta-feira</label>
+        </div>
+        <div class="form-check form-check-inline mb-3">
+          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+          <label class="form-check-label" for="inlineCheckbox1">Sábado</label>
+        </div>
+      </div>
+
+
+      <hr class="mb-4">
+      <button class="btn btn-primary btn-lg btn-block" type="button" (click)="criar()">Finalizar</button><br>
+
+    </form>
+  </div>
+</div>
