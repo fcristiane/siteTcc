@@ -1,9 +1,11 @@
 <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
   <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Gerência de Projetos</a>
   <input class="form-control form-control-dark w-100" type="text" placeholder="Pesquisar" aria-label="Search">
+  <a class="navbar-brand col-sm-1 col-md-1 mr-0" href="#">Bem Vindo</a>
+  <a class="nav-link" href="#" [innerHTML]="'user' | feather:24:'#007FFF'"></a>
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
-      <a class="nav-link" href="#" [innerHTML]="'log-out' | feather:24:'#007FFF'" ></a>
+      <a class="nav-link" href="#" [innerHTML]="'log-out' | feather:24:'#007FFF'"></a>
     </li>
   </ul>
 </nav>
@@ -22,29 +24,26 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="/home/novo-projeto">
-              <span></span>
-              #
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="users"></span>
-              #
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="bar-chart-2"></span>
-              #
+              <span [innerHTML]="'file-plus' | feather:24:'#007FFF'"></span>
+              Cadastrar projeto
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="/home/profile">
-              <span data-feather="layers"></span>
+              <span [innerHTML]="'user' | feather:24:'#007FFF'"></span>
               Dados Pessoais
             </a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/home/profile">
+              <span [innerHTML]="'bar-chart-2' | feather:24:'#007FFF'"></span>
+              Relatórios
+            </a>
+          </li>
         </ul>
+
+        <div class="col-12"><br> </div>
+        <div class="col-12"><br> </div>
 
         <a class="nav-link active">
           <span [innerHTML]="'folder' | feather:24:'#007FFF'"></span>
@@ -75,19 +74,35 @@
               Rejeitados
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/home/novo-projeto">
-              <span [innerHTML]="'file-plus' | feather:24:'#007FFF'"></span>
-              Cadastrar projeto
+        </ul>
+        <div class="col-12"><br> </div>
+        <div class="col-12"><br> </div>
+        <div class="col-12"><br> </div>
+        <div class="col-12"><br> </div>
+        <div class="col-12"><br> </div>
+        <div class="col-12"><br> </div>
+
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/home/profile">
+              <span [innerHTML]="'settings' | feather:24:'#007FFF'"></span>
+              Configurações
             </a>
           </li>
-        </ul>
       </div>
     </nav>
 
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 row justify-content-md-center">
+      <div class="col-12"><br> </div>
+      <div class="col-12"><br> </div>
+      <div class="col-12"><br> </div>
+      <h1 class="cover-heading">Gerencie seus projetos.</h1>
+      <p class="lead">O Gerenciamento de projetos te ajuda a controlar melhor suas atividades já existentes, novas e encerradas,
+        além de facilitar na hora de requerir por um novo projeto</p>
+      <p class="lead">
+        <a href="#" class="btn btn-lg btn-secondary">Saiba mais</a>
+      </p>
       <router-outlet></router-outlet>
-      </main>
+    </main>
 
   </div>
 </div>

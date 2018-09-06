@@ -13,13 +13,15 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FeatherIconsPipe } from './feather-pipe';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     FeatherIconsPipe,
-    NovoProjetoComponent
+    NovoProjetoComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
