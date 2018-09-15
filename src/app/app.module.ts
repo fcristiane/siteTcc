@@ -14,6 +14,8 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FeatherIconsPipe } from './feather-pipe';
 import { LoginComponent } from './login/login.component';
+import { UserService } from './core/user.service';
+import { AuthGuard } from './core/auth.guard';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,7 @@ import { LoginComponent } from './login/login.component';
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
     AngularFireDatabaseModule // for database
   ],
-  providers: [],
+  providers: [UserService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

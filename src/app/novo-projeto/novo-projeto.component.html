@@ -1,15 +1,22 @@
 <div class="row">
   <div class="col-md-12 order-md-1">
-    <br> <h4 class="mb-3">Formulário de atividade de Extensão</h4>
+    <br>
+    <h2 class="mb-3" id="texto-centro">Formulário de atividade de Extensão</h2>
+    <hr class="mb-4">
+    <div class="col-12" id="texto-centro">
+      <h6>Missão da Univás</h6>
+      <p> Promover a interação transformadora entre a
+        instituição e a sociedade, integrando as artes e a ciência ao ensino, à pesquisa e ao desenvolvimento social.
+      </p>
+    </div>
+    <hr class="mb-4">
     <form class="needs-validation">
       <div class="row">
 
         <div class="col-md-12 mb-6">
-          <label for="name">Nome da atividade:</label>
-          <input type="text" class="form-control" id="name" name="name1" [(ngModel)]="novoProjeto.name" value="" required>
-          <div class="invalid-feedback">
-            Campo obrigatório.
-          </div>
+          <label>Nome da atividade:</label>
+          <input type="text" class="form-control" name="name1" [(ngModel)]="novoProjeto.name" required>
+          <span class="error" *ngIf="showMessageError">Campo obrigatórios</span>
         </div>
 
         <div class="col-md-12 mb-3">
@@ -70,8 +77,9 @@
       </div>
 
       <div class="mb-3">
-        <label for="firstName">Curso (Vínculo Acadêmico): </label>
-        <input type="text" class="form-control" name="curso" placeholder="Ex: Administração" [(ngModel)]="novoProjeto.curso" required>
+        <label>Curso (Vínculo Acadêmico): </label>
+        <input type="text" class="form-control" name="curso" placeholder="Ex: Administração" [(ngModel)]="novoProjeto.curso"
+          required>
         <div class="invalid-feedback">
           Campo obrigatório.
         </div>
@@ -85,151 +93,518 @@
           <label for="responsavel">Responsável pelo projeto:</label>
         </div>
         <div class="col-6">
-          <input type="text" class="form-control" required>
+          <input type="text" class="form-control" name="coordenador" [(ngModel)]="novoProjeto.coordenador" required>
           <div class="invalid-feedback">
             Campo obrigatório.
           </div>
         </div>
         <div class="col-6">
-          <input type="text" class="form-control" required>
+          <input type="text" class="form-control" name="responsavel" [(ngModel)]="novoProjeto.responsavel" required>
           <div class="invalid-feedback">
             Campo obrigatório.
           </div>
         </div>
       </div>
 
+      <br>
+
       <div class="row">
-        <div class="col-2">
-          <br><p>Campus:</p>
-        </div>
-        <div class="col-10">
-          <br> <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="fatima">
-            <label class="form-check-label" for="">Fátima</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="central">
-            <label class="form-check-label" for="">Central</label>
-          </div>
+
+        <div class="col-1 col-form-label">
+          <label>Campus:</label>
         </div>
         <div class="col-2">
+          <select class="form-control" name="campus" [(ngModel)]="novoProjeto.campus">
+            <option selected>Escolha...</option>
+            <option>Fátima</option>
+            <option>Central</option>
+          </select>
+        </div>
+        <div class="col-2 col-form-label">
           <p>Área de atuação:</p>
         </div>
-        <div class="col-10">
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="cbio">
-            <label class="form-check-label" for="">Ciências Biológicas</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="educacao">
-            <label class="form-check-label" for="">Educação</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="cempr">
-            <label class="form-check-label" for="">Ciências Empresariais</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="cexa">
-            <label class="form-check-label" for="">Ciências Exatas</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="comunicacao">
-            <label class="form-check-label" for="">Comunicação</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="csaude" >
-            <label class="form-check-label" for="">Ciências da Saúde</label>
-          </div>
-        </div>
-      </div>
 
-      <div class="mb-3">
-         <label for="local">Local de Realização:</label>
-        <input type="text" class="form-control" id="local" required>
-        <div class="invalid-feedback">
-          Campo obrigatório.
+        <div class="col-2">
+          <select class="form-control" name="areaAtuacao" [(ngModel)]="novoProjeto.areaAtuacao">
+            <option selected>Escolha...</option>
+            <option>Ciências Biológicas</option>
+            <option>Educação</option>
+            <option>Ciências Empresariais</option>
+            <option>Ciências Exatas</option>
+            <option>Ciências da Saúde</option>
+            <option>Comunicação</option>
+          </select>
         </div>
+
+        <div class="col-2 col-form-label">
+          <label>Local de Realização:</label>
+        </div>
+
+        <div class="col-3">
+          <input type="text" class="form-control" name="localRealizacao" [(ngModel)]="novoProjeto.local" required>
+          <div class="invalid-feedback">
+            Campo obrigatório.
+          </div>
+        </div>
+
       </div>
 
       <div class="row">
-        <div class="col-2 align-self-center">
-            <label for="periodoDe">Período de:</label>
+        <div class="col-1 align-self-center col-form-label negrito">
+          <label for="periodoDe">Período</label>
+        </div>
+        <div class="col-1 col-form-label" id="texto">
+          <label for="">De:</label>
         </div>
         <div class="col-4">
-            <input type="date" class="form-control" required>
-            <div class="invalid-feedback">
-              Campo obrigatório.
-            </div>
+          <input type="date" class="form-control" [(ngModel)]="novoProjeto.preriodoDe" required>
+          <div class="invalid-feedback">
+            Campo obrigatório.
+          </div>
         </div>
-        <div class="col-2 align-self-center">
-           <label for="periodoAte">Até:</label>
+        <div class="col-2 align-self-center col-form-label" id="texto">
+          <label for="periodoAte">Até:</label>
         </div>
         <div class="col-4">
-            <input type="date" class="form-control" required>
-            <div class="invalid-feedback">
-              Campo obrigatório.
-            </div>
+          <input type="date" class="form-control" [(ngModel)]="novoProjeto.periodoAte" required>
+          <div class="invalid-feedback">
+            Campo obrigatório.
+          </div>
         </div>
       </div>
       <br>
       <div class="row">
-        <div class="col-2 align-self-center">
+        <div class="col-2 align-self-center col-form-label">
           <label for="firstName">Horário (Início):</label>
         </div>
+        <div class="col-2">
+          <input type="time" class="form-control" [(ngModel)]="novoProjeto.horaInicio" required>
+          <div class="invalid-feedback">
+            Campo obrigatório.
+          </div>
+        </div>
+        <div class="col-2 align-self-center col-form-label">
+          <label for="firstName">Horário (Fim):</label>
+        </div>
+        <div class="col-2">
+          <input type="time" class="form-control" [(ngModel)]="novoProjeto.horaFim" required>
+          <div class="invalid-feedback">
+            Campo obrigatório.
+          </div>
+        </div>
+        <div class="col-2 align-self-center col-form-label" id="texto-centro">
+          <label for="">Carga Horária:</label>
+        </div>
+        <div class="col-2">
+          <input class="form-control" type="number" placeholder="Horas">
+        </div>
+      </div>
+
+      <br>
+      <div class="row">
+
+        <div class="col-2">
+          <p>Dias da semana:</p>
+        </div>
+
+        <div class="col-10">
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineCheckbox1">Domingo</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineCheckbox1">Segunda-feira</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineCheckbox1">Terça-feira</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineCheckbox1">Quarta-feira</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineCheckbox1">Quinta-feira</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineCheckbox1">Sexta-feira</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineCheckbox1">Sábado</label>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-2 col-form-label">
+          <label for="name">Ministrante (s):</label>
+        </div>
+        <div class="col-5">
+          <input class="form-control" type="text">
+        </div>
+        <div class="col-1 col-form-label" id="texto-centro">
+          <label for="name">CPF:</label>
+        </div>
         <div class="col-4">
-            <input type="time" class="form-control" id="" placeholder="" value="" required>
-            <div class="invalid-feedback">
-              Campo obrigatório.
-            </div>
+          <input class="form-control" type="number" placeholder="Ex: 123.456.789-000">
         </div>
-        <div class="col-2 align-self-center">
-            <label for="firstName">Horário (Fim):</label>
+      </div>
+
+      <br>
+      <div class="row">
+        <div class="col-2">
+          <label for="docenteInstituicao">Docente da instituição:</label>
+        </div>
+        <div class="col-1" id="texto-centro">
+          <input class="form-check-input" type="radio" name="docenteSim" value="sim" [(ngModel)]="novoProjeto.docenteInstituicao">
+          <label class="form-check-label" for="">Sim</label>
+        </div>
+        <div class="col-1" id="texto-centro">
+          <input class="form-check-input" type="radio" name="docenteNao" value="não" [(ngModel)]="novoProjeto.docenteInstituicao">
+          <label class="form-check-label" for="">Não</label>
+        </div>
+        <div class="col-2" id="texto">
+          <label for="name">Função/Cargo:</label>
+        </div>
+        <div class="col-6">
+          <input class="form-control" type="text" placeholder="Ex: Professor, Coordenador...">
+        </div>
+      </div>
+
+      <br>
+      <div class="row">
+        <div class="col-1 col-form-label">
+          <label for="titulacao">Titulação:</label>
+        </div>
+        <div class="col-1 col-form-label" id="texto-centro">
+          <input class="form-check-input" type="radio" name="titulacaoG" value="G" [(ngModel)]="novoProjeto.titulacao">
+          <label class="form-check-label" for="">G</label>
+        </div>
+        <div class="col-1 col-form-label" id="texto-centro">
+          <input class="form-check-input" type="radio" name="titulacaoE" value="E" [(ngModel)]="novoProjeto.titulacao">
+          <label class="form-check-label" for="">E</label>
+        </div>
+        <div class="col-1 col-form-label" id="texto-centro">
+          <input class="form-check-input" type="radio" name="titulacaoM" value="M" [(ngModel)]="novoProjeto.titulacao">
+          <label class="form-check-label" for="">M</label>
+        </div>
+        <div class="col-1 col-form-label" id="texto-centro">
+          <input class="form-check-input" type="radio" name="titulacaoDR" value="DR" [(ngModel)]="novoProjeto.titulacao">
+          <label class="form-check-label" for="">DR</label>
+        </div>
+        <div class="col-3 col-form-label">
+          <label for="publicoAlvo">Público alvo: Funcionários da Univás</label>
+        </div>
+        <div class="col-3 col-form-label">
+          <label for="publicoAlvo">Nº de pessoas que serão atendidas:</label>
+        </div>
+        <div class="col-1">
+          <input class="form-control" type="number" placeholder="">
+        </div>
+      </div>
+
+      <hr class="mb-4">
+
+      <div class="row">
+        <div class="col-1 col-form-label">
+          <label for="titulacao">Tipo:</label>
+        </div>
+        <div class="col-1 col-form-label">
+          <input class="form-check-input" type="radio" name="parceria" value="Parceria" [(ngModel)]="novoProjeto.parceria">
+          <label class="form-check-label" for="">Parceria</label>
+        </div>
+        <div class="col-1 col-form-label">
+          <input class="form-check-input" type="radio" name="parceria" value="Apoio" [(ngModel)]="novoProjeto.parceria">
+          <label class="form-check-label" for="">Apoio</label>
+        </div>
+        <div class="col-1 col-form-label">
+          <input class="form-check-input" type="radio" name="parceria" value="Convenio" [(ngModel)]="novoProjeto.parceria">
+          <label class="form-check-label" for="">Convênio</label>
+        </div>
+        <div class="col-3 col-form-label">
+          <label for="parceria">Nome da(s) instituição(s) ou empresa(s):</label>
+        </div>
+        <div class="col-5">
+          <input type="text" class="form-control" name="nomeApoio" [(ngModel)]="novoProjeto.nomeInstituicaoApoio"
+            required>
+        </div>
+      </div>
+
+      <hr class="mb-4">
+
+      <div class="row">
+        <div class="col-1 negrito" id="texto-centro">
+          <label>Objetivos:</label>
+        </div>
+        <div class="col-11" id="texto-centro">
+          <p>Proporcionar aos funcionários da Univás acesso a uma atividade que trabalha o desenvolvimento: motor,
+            físico e cognitivo.</p>
+        </div>
+        <div class="col-12" id="texto-centro">
+          <p>Discriminar os objetivos gerais e específicos em termos de contribuição esperada para o desenvolvimento da
+            comunidade,
+            bem como retornos esperados ao aluno, ao ensino e à pesquisa; Assegurar a coerência entre as instruções e a
+            justificativa do projeto.</p>
+        </div>
+      </div>
+
+      <hr class="mb-4">
+
+      <div class="row">
+        <div class="col-1 col-form-label" id="texto-centro">
+          <label>Justificativa:</label>
+        </div>
+        <div class="col-11" id="texto-centro">
+          <input class="form-control" type="text">
+        </div>
+        <div class="col-12" id="texto-centro">
+          <p>Explicitar as razões da realização do projeto; Situação – problema que originou a proposição do projeto;
+            Delimitação da proposta básica de trabalho e possibilidade de operar mudanças frente à problemática
+            descrita da comunidade; outros dados que julgar relevantes (ex. caracterização da comunidade, experiências
+            anteriores, ou vínculo com a pesquisa, etc.)</p>
+        </div>
+        <div class="col-12">
+          <div class="form-group">
+            <label for="">Metodologia / Procedimentos:</label>
+            <input type="text" class="form-control" placeholder="Descrever detalhadamente as atividades a serem desenvolvidas">
           </div>
-          <div class="col-4">
-              <input type="time" class="form-control" id="" placeholder="" value="" required>
-              <div class="invalid-feedback">
-                Campo obrigatório.
-              </div>
+        </div>
+      </div>
+
+      <hr class="mb-4">
+
+      <div class="row">
+        <div class="col-12" id="texto-centro">
+          <h5>Recursos Humanos</h5>
+        </div>
+
+        <div class="col-4">
+          <div class="form-group">
+            <label for="">Docente (s) envolvido (s):</label>
+            <input type="text" class="form-control" placeholder="(Nome completo sem abreviatura)">
+            <br>
+            <input type="text" class="form-control" placeholder="(Nome completo sem abreviatura)">
           </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="">Curso:</label>
+            <input type="text" class="form-control" placeholder="Ex: Administração">
+            <br>
+            <input type="text" class="form-control" placeholder="Ex: Administração">
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="">Função:</label>
+            <input type="text" class="form-control" placeholder="Ex: Apoio">
+            <br>
+            <input type="text" class="form-control" placeholder="Ex: Apoio">
+          </div>
+        </div>
+
+        <div class="col-4">
+          <div class="form-group">
+            <label for="">Discente (s) envolvido (s):</label>
+            <input type="text" class="form-control" placeholder="(Nome completo sem abreviatura)">
+            <br>
+            <input type="text" class="form-control" placeholder="(Nome completo sem abreviatura)">
+          </div>
+        </div>
+        <div class="col-4">
+          <div class="form-group">
+            <label for="">Curso:</label>
+            <input type="text" class="form-control" placeholder="Ex: Administração">
+            <br>
+            <input type="text" class="form-control" placeholder="Ex: Administração">
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="form-group">
+            <label for="inputState">Período:</label>
+            <select id="inputState" class="form-control">
+              <option selected>Escolha...</option>
+              <option>Primeiro (1º)</option>
+              <option>Segundo (2º)</option>
+              <option>Terceiro (3º)</option>
+              <option>Quarto (4º)</option>
+              <option>Quinto (5º)</option>
+              <option>Sexto (6º)</option>
+              <option>Sétimo (7º)</option>
+              <option>Oitavo (8º)</option>
+            </select>
+            <br>
+            <select id="inputState" class="form-control">
+              <option selected>Escolha...</option>
+              <option>Primeiro (1º)</option>
+              <option>Segundo (2º)</option>
+              <option>Terceiro (3º)</option>
+              <option>Quarto (4º)</option>
+              <option>Quinto (5º)</option>
+              <option>Sexto (6º)</option>
+              <option>Sétimo (7º)</option>
+              <option>Oitavo (8º)</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="form-group">
+            <label>Nº de Matrícula:</label>
+            <input type="text" class="form-control">
+            <br>
+            <input type="text" class="form-control">
+          </div>
+        </div>
+
+        <div class="col-1">
+          <label>Cronograma:</label>
+        </div>
+        <div class="col-11">
+          <textarea class="form-control" rows="2" placeholder="Atividades a serem realizadas durante o projeto"></textarea>
+        </div>
       </div>
 
-      <div class="mb-3">
-        
-        
-      </div>
+      <hr class="mb-4">
 
-      <div class="clas-12">
-        <p>Dias da semana:</p>
-        <div class="form-check form-check-inline mb-3">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-          <label class="form-check-label" for="inlineCheckbox1">Domingo</label>
+      <div class="row">
+        <div class="col-12" id="texto-centro">
+          <h5>Previsão da receita</h5>
+          <br>
         </div>
-        <div class="form-check form-check-inline mb-3">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-          <label class="form-check-label" for="inlineCheckbox1">Segunda-feira</label>
-        </div>
-        <div class="form-check form-check-inline mb-3">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-          <label class="form-check-label" for="inlineCheckbox1">Terça-feira</label>
-        </div>
-        <div class="form-check form-check-inline mb-3">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-          <label class="form-check-label" for="inlineCheckbox1">Quarta-feira</label>
-        </div>
-        <div class="form-check form-check-inline mb-3">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-          <label class="form-check-label" for="inlineCheckbox1">Quinta-feira</label>
-        </div>
-        <div class="form-check form-check-inline mb-3">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-          <label class="form-check-label" for="inlineCheckbox1">Sexta-feira</label>
-        </div>
-        <div class="form-check form-check-inline mb-3">
-          <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-          <label class="form-check-label" for="inlineCheckbox1">Sábado</label>
-        </div>
-      </div>
 
+        <div class="col-1 col-form-label">
+          <label>Inscrições:</label>
+        </div>
+        <div class="col-3">
+          <input class="form-control" type="number">
+        </div>
+
+        <div class="col-1 col-form-label">
+          <label>Início:</label>
+        </div>
+        <div class="col-3">
+          <input class="form-control" type="text">
+        </div>
+
+        <div class="col-1 col-form-label">
+          <label>Término:</label>
+        </div>
+        <div class="col-3">
+          <input class="form-control" type="date">
+        </div>
+
+        <div class="col-3 col-form-label">
+          <label>Número mínimo de inscrições:</label>
+        </div>
+        <div class="col-3">
+          <input class="form-control" type="number">
+        </div>
+        <div class="col-1 col-form-label">
+          <label>Total: R$</label>
+        </div>
+        <div class="col-5">
+          <input class="form-control" type="text" placeholder="R$">
+        </div>
+
+        <div class="col-3 col-form-label">
+          <label>Número máximo de inscrições:</label>
+        </div>
+        <div class="col-3">
+          <input class="form-control" type="number">
+        </div>
+        <div class="col-1 col-form-label">
+          <label>Total: R$</label>
+        </div>
+        <div class="col-5">
+          <input class="form-control" type="text" placeholder="R$">
+        </div>
+
+        <div class="col-3 col-form-label">
+          <label>Valor (Docentes e Discentes UNIVAS):</label>
+        </div>
+        <div class="col-3">
+          <input class="form-control" type="text" placeholder="R$">
+        </div>
+
+        <div class="col-1 col-form-label">
+          <label>Outros:</label>
+        </div>
+        <div class="col-5">
+          <input class="form-control" type="text" placeholder="R$">
+        </div>
+
+        <div class="col-2 col-form-label">
+          <label>TOTAL DA RECEITA:</label>
+        </div>
+        <div class="col-2 col-form-label">
+          <label>Nº mínimo de inscrições:</label>
+        </div>
+        <div class="col-3">
+          <input class="form-control" type="text" placeholder="">
+        </div>
+        <div class="col-2 col-form-label">
+          <label>Nº máximo de inscrições:</label>
+        </div>
+        <div class="col-3">
+          <input class="form-control" type="text" placeholder="">
+        </div>
+
+        <div class="col-12" id="texto-centro">
+          <br>
+          <h5>Recursos</h5>
+          <br>
+        </div>
+
+        <div class="col-6">
+          <div class="form-group">
+            <label for="">Especificação:</label>
+            <input type="text" class="form-control">
+            <br>
+            <input type="text" class="form-control">
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="form-group">
+            <label for="">Quantidade:</label>
+            <input type="number" class="form-control">
+            <br>
+            <input type="number" class="form-control">
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="form-group">
+            <label for="">Valor unitário:</label>
+            <input type="text" class="form-control" placeholder="R$">
+            <br>
+            <input type="text" class="form-control" placeholder="R$">
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="form-group">
+            <label for="">Total:</label>
+            <input type="text" class="form-control" placeholder="R$">
+            <br>
+            <input type="text" class="form-control" placeholder="R$">
+          </div>
+        </div>
+
+        <div class="col-3"></div>
+
+        <div class="col-3 col-form-label negrito" id="texto-centro">
+          <label>Total das despezas:</label>
+        </div>
+        <div class="col-3">
+          <input class="form-control" type="text" placeholder="R$">
+        </div>
+
+        <div class="col-3"></div>
+
+      </div>
 
       <hr class="mb-4">
       <button class="btn btn-primary btn-lg btn-block" type="button" (click)="criar()">Finalizar</button><br>

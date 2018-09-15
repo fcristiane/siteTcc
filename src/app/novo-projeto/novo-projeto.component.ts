@@ -14,6 +14,7 @@ export class NovoProjetoComponent implements OnInit {
   novoProjeto: NovoProjeto = {} as NovoProjeto;
   novoProjetoLista: Array<NovoProjeto> = [];
   user = firebase.auth().currentUser;
+  showMessageError : boolean;
 
   constructor(private db: AngularFirestore, private auth: AngularFireAuth) {
     if (firebase.auth().currentUser != null) {
@@ -22,6 +23,7 @@ export class NovoProjetoComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.showMessageError = false;
   }
 
   getLista() {
