@@ -16,6 +16,9 @@ import { FeatherIconsPipe } from './feather-pipe';
 import { LoginComponent } from './login/login.component';
 import { UserService } from './core/user.service';
 import { AuthGuard } from './core/auth.guard';
+import { InfoComponent } from './info/info.component';
+import { TodosProjetosComponent } from './todos-projetos/todos-projetos.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,10 @@ import { AuthGuard } from './core/auth.guard';
     HomeComponent,
     FeatherIconsPipe,
     NovoProjetoComponent,
-    LoginComponent
+    LoginComponent,
+    InfoComponent,
+    TodosProjetosComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

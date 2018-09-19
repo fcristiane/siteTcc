@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.authService.login(this.loginObject)
     .then(res => {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/home/info']);
     }, err => {
       console.log(err);
       this.errorMessage = err.message;

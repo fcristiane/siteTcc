@@ -15,7 +15,7 @@
 
         <div class="col-md-12 mb-6">
           <label>Nome da atividade:</label>
-          <input type="text" class="form-control" name="name1" [(ngModel)]="novoProjeto.name" required>
+          <input type="text" class="form-control" name="nomeAtv" [(ngModel)]="novoProjeto.nomeAtv" required>
           <span class="error" *ngIf="showMessageError">Campo obrigatórios</span>
         </div>
 
@@ -157,7 +157,7 @@
           <label for="">De:</label>
         </div>
         <div class="col-4">
-          <input type="date" class="form-control" [(ngModel)]="novoProjeto.preriodoDe" required>
+          <input type="date" class="form-control" name="periodoDe" [(ngModel)]="novoProjeto.preriodoDe" required>
           <div class="invalid-feedback">
             Campo obrigatório.
           </div>
@@ -166,7 +166,7 @@
           <label for="periodoAte">Até:</label>
         </div>
         <div class="col-4">
-          <input type="date" class="form-control" [(ngModel)]="novoProjeto.periodoAte" required>
+          <input type="date" class="form-control" name="periodoAte" [(ngModel)]="novoProjeto.periodoAte" required>
           <div class="invalid-feedback">
             Campo obrigatório.
           </div>
@@ -175,10 +175,10 @@
       <br>
       <div class="row">
         <div class="col-2 align-self-center col-form-label">
-          <label for="firstName">Horário (Início):</label>
+          <label>Horário (Início):</label>
         </div>
         <div class="col-2">
-          <input type="time" class="form-control" [(ngModel)]="novoProjeto.horaInicio" required>
+          <input type="time" class="form-control" name="horarioInicio" [(ngModel)]="novoProjeto.horaInicio" required>
           <div class="invalid-feedback">
             Campo obrigatório.
           </div>
@@ -187,7 +187,7 @@
           <label for="firstName">Horário (Fim):</label>
         </div>
         <div class="col-2">
-          <input type="time" class="form-control" [(ngModel)]="novoProjeto.horaFim" required>
+          <input type="time" class="form-control" name="horarioFim" [(ngModel)]="novoProjeto.horaFim" required>
           <div class="invalid-feedback">
             Campo obrigatório.
           </div>
@@ -196,7 +196,7 @@
           <label for="">Carga Horária:</label>
         </div>
         <div class="col-2">
-          <input class="form-control" type="number" placeholder="Horas">
+          <input class="form-control" type="number" placeholder="Horas" name="cargaHoraria" [(ngModel)]="novoProjeto.cargaHoraria">
         </div>
       </div>
 
@@ -209,31 +209,31 @@
 
         <div class="col-10">
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Domingo" name="diaDomingo" [(ngModel)]="novoProjeto.diasDaSemana">
             <label class="form-check-label" for="inlineCheckbox1">Domingo</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Segunda-feira" name="diaSegunda" [(ngModel)]="novoProjeto.diasDaSemana">
             <label class="form-check-label" for="inlineCheckbox1">Segunda-feira</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Terça-feira" name="diaTerca" [(ngModel)]="novoProjeto.diasDaSemana">
             <label class="form-check-label" for="inlineCheckbox1">Terça-feira</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Quarta-feira" name="diaQuarta" [(ngModel)]="novoProjeto.diasDaSemana">
             <label class="form-check-label" for="inlineCheckbox1">Quarta-feira</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Quinta-feira" name="diaQuinta" [(ngModel)]="novoProjeto.diasDaSemana">
             <label class="form-check-label" for="inlineCheckbox1">Quinta-feira</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Sexta-feira" name="diaSexta" [(ngModel)]="novoProjeto.diasDaSemana">
             <label class="form-check-label" for="inlineCheckbox1">Sexta-feira</label>
           </div>
           <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Sábado" name="diaSabado" [(ngModel)]="novoProjeto.diasDaSemana">
             <label class="form-check-label" for="inlineCheckbox1">Sábado</label>
           </div>
         </div>
@@ -242,16 +242,16 @@
 
       <div class="row">
         <div class="col-2 col-form-label">
-          <label for="name">Ministrante (s):</label>
+          <label>Ministrante (s):</label>
         </div>
         <div class="col-5">
-          <input class="form-control" type="text">
+          <input class="form-control" type="text" name="ministrante" [(ngModel)]="novoProjeto.ministrante">
         </div>
         <div class="col-1 col-form-label" id="texto-centro">
           <label for="name">CPF:</label>
         </div>
         <div class="col-4">
-          <input class="form-control" type="number" placeholder="Ex: 123.456.789-000">
+          <input class="form-control" type="number" placeholder="Ex: 123.456.789-000" name="cpf" [(ngModel)]="novoProjeto.cpf">
         </div>
       </div>
 
@@ -272,7 +272,7 @@
           <label for="name">Função/Cargo:</label>
         </div>
         <div class="col-6">
-          <input class="form-control" type="text" placeholder="Ex: Professor, Coordenador...">
+          <input class="form-control" type="text" placeholder="Ex: Professor, Coordenador..." name="funcaoCargo" [(ngModel)]="novoProjeto.funcaoCargo">
         </div>
       </div>
 
@@ -304,7 +304,7 @@
           <label for="publicoAlvo">Nº de pessoas que serão atendidas:</label>
         </div>
         <div class="col-1">
-          <input class="form-control" type="number" placeholder="">
+          <input class="form-control" type="number" placeholder="" name="numeroPessoas" [(ngModel)]="novoProjeto.numPessoasEnvolvidas">
         </div>
       </div>
 
@@ -319,11 +319,11 @@
           <label class="form-check-label" for="">Parceria</label>
         </div>
         <div class="col-1 col-form-label">
-          <input class="form-check-input" type="radio" name="parceria" value="Apoio" [(ngModel)]="novoProjeto.parceria">
+          <input class="form-check-input" type="radio" name="apoio" value="Apoio" [(ngModel)]="novoProjeto.parceria">
           <label class="form-check-label" for="">Apoio</label>
         </div>
         <div class="col-1 col-form-label">
-          <input class="form-check-input" type="radio" name="parceria" value="Convenio" [(ngModel)]="novoProjeto.parceria">
+          <input class="form-check-input" type="radio" name="convenio" value="Convenio" [(ngModel)]="novoProjeto.parceria">
           <label class="form-check-label" for="">Convênio</label>
         </div>
         <div class="col-3 col-form-label">
@@ -360,7 +360,7 @@
           <label>Justificativa:</label>
         </div>
         <div class="col-11" id="texto-centro">
-          <input class="form-control" type="text">
+          <input class="form-control" type="text" name="justificativa" [(ngModel)]="novoProjeto.justificativa">
         </div>
         <div class="col-12" id="texto-centro">
           <p>Explicitar as razões da realização do projeto; Situação – problema que originou a proposição do projeto;
@@ -371,7 +371,7 @@
         <div class="col-12">
           <div class="form-group">
             <label for="">Metodologia / Procedimentos:</label>
-            <input type="text" class="form-control" placeholder="Descrever detalhadamente as atividades a serem desenvolvidas">
+            <input type="text" class="form-control" placeholder="Descrever detalhadamente as atividades a serem desenvolvidas" name="metodologiasProcedimentos" [(ngModel)]="novoProjeto.metodologiaProcedimento">
           </div>
         </div>
       </div>
@@ -386,48 +386,48 @@
         <div class="col-4">
           <div class="form-group">
             <label for="">Docente (s) envolvido (s):</label>
-            <input type="text" class="form-control" placeholder="(Nome completo sem abreviatura)">
+            <input type="text" class="form-control" placeholder="(Nome completo sem abreviatura)" name="docenteEnvolvido1" [(ngModel)]="novoProjeto.docenteEnvolvido1">
             <br>
-            <input type="text" class="form-control" placeholder="(Nome completo sem abreviatura)">
+            <input type="text" class="form-control" placeholder="(Nome completo sem abreviatura)" name="docenteEnvolvido2" [(ngModel)]="novoProjeto.docenteEnvolvido2">
           </div>
         </div>
         <div class="col-4">
           <div class="form-group">
             <label for="">Curso:</label>
-            <input type="text" class="form-control" placeholder="Ex: Administração">
+            <input type="text" class="form-control" placeholder="Ex: Administração" name="cursoDocenteEnvolvido1" [(ngModel)]="novoProjeto.cursoDocenteEnvolvido1">
             <br>
-            <input type="text" class="form-control" placeholder="Ex: Administração">
+            <input type="text" class="form-control" placeholder="Ex: Administração" name="cursoDocenteEnvolvido2" [(ngModel)]="novoProjeto.cursoDocenteEnvolvido2">
           </div>
         </div>
         <div class="col-4">
           <div class="form-group">
             <label for="">Função:</label>
-            <input type="text" class="form-control" placeholder="Ex: Apoio">
+            <input type="text" class="form-control" placeholder="Ex: Apoio" name="funcaoDocenteEnvolvido1" [(ngModel)]="novoProjeto.funcaoDocenteEnvolvido1">
             <br>
-            <input type="text" class="form-control" placeholder="Ex: Apoio">
+            <input type="text" class="form-control" placeholder="Ex: Apoio" name="funcaoDocenteEnvolvido2" [(ngModel)]="novoProjeto.funcaoDocenteEnvolvido2">
           </div>
         </div>
 
         <div class="col-4">
           <div class="form-group">
             <label for="">Discente (s) envolvido (s):</label>
-            <input type="text" class="form-control" placeholder="(Nome completo sem abreviatura)">
+            <input type="text" class="form-control" placeholder="(Nome completo sem abreviatura)" name="discenteEnvolvido1" [(ngModel)]="novoProjeto.discenteEnvolvido1">
             <br>
-            <input type="text" class="form-control" placeholder="(Nome completo sem abreviatura)">
+            <input type="text" class="form-control" placeholder="(Nome completo sem abreviatura)" name="discenteEnvolvido2" [(ngModel)]="novoProjeto.discenteEnvolvido2">
           </div>
         </div>
         <div class="col-4">
           <div class="form-group">
             <label for="">Curso:</label>
-            <input type="text" class="form-control" placeholder="Ex: Administração">
+            <input type="text" class="form-control" placeholder="Ex: Administração" name="cursoDiscenteEnvolvido1" [(ngModel)]="novoProjeto.cursoDiscenteEnvolvido1">
             <br>
-            <input type="text" class="form-control" placeholder="Ex: Administração">
+            <input type="text" class="form-control" placeholder="Ex: Administração" name="cursoDiscenteEnvolvido2" [(ngModel)]="novoProjeto.cursoDiscenteEnvolvido2">
           </div>
         </div>
         <div class="col-2">
           <div class="form-group">
             <label for="inputState">Período:</label>
-            <select id="inputState" class="form-control">
+            <select id="inputState" class="form-control" name="periodoDiscenteEnvolvido1" [(ngModel)]="novoProjeto.periodoDiscenteEnvolvido1">
               <option selected>Escolha...</option>
               <option>Primeiro (1º)</option>
               <option>Segundo (2º)</option>
@@ -439,7 +439,7 @@
               <option>Oitavo (8º)</option>
             </select>
             <br>
-            <select id="inputState" class="form-control">
+            <select id="inputState" class="form-control" name="periodoDiscenteEnvolvido2" [(ngModel)]="novoProjeto.periodoDiscenteEnvolvido2">
               <option selected>Escolha...</option>
               <option>Primeiro (1º)</option>
               <option>Segundo (2º)</option>
@@ -455,9 +455,9 @@
         <div class="col-2">
           <div class="form-group">
             <label>Nº de Matrícula:</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="matriculaDiscenteEnvolvido1" [(ngModel)]="novoProjeto.matriculaDiscenteEnvolvido1">
             <br>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="matriculaDiscenteEnvolvido2" [(ngModel)]="novoProjeto.matriculaDiscenteEnvolvido2">
           </div>
         </div>
 
@@ -465,7 +465,7 @@
           <label>Cronograma:</label>
         </div>
         <div class="col-11">
-          <textarea class="form-control" rows="2" placeholder="Atividades a serem realizadas durante o projeto"></textarea>
+          <textarea class="form-control" rows="2" placeholder="Atividades a serem realizadas durante o projeto" name="cronograma" [(ngModel)]="novoProjeto.cronograma"></textarea>
         </div>
       </div>
 
@@ -481,61 +481,61 @@
           <label>Inscrições:</label>
         </div>
         <div class="col-3">
-          <input class="form-control" type="number">
+          <input class="form-control" type="number" name="inscricoes">
         </div>
 
         <div class="col-1 col-form-label">
           <label>Início:</label>
         </div>
         <div class="col-3">
-          <input class="form-control" type="text">
+          <input class="form-control" type="text" name="receitaInicio">
         </div>
 
         <div class="col-1 col-form-label">
           <label>Término:</label>
         </div>
         <div class="col-3">
-          <input class="form-control" type="date">
+          <input class="form-control" type="date" name="receitaTermino">
         </div>
 
         <div class="col-3 col-form-label">
           <label>Número mínimo de inscrições:</label>
         </div>
         <div class="col-3">
-          <input class="form-control" type="number">
+          <input class="form-control" type="number" name="numMinimoInscricoes">
         </div>
         <div class="col-1 col-form-label">
           <label>Total: R$</label>
         </div>
         <div class="col-5">
-          <input class="form-control" type="text" placeholder="R$">
+          <input class="form-control" type="text" placeholder="R$" name="totalReceita1">
         </div>
 
         <div class="col-3 col-form-label">
           <label>Número máximo de inscrições:</label>
         </div>
         <div class="col-3">
-          <input class="form-control" type="number">
+          <input class="form-control" type="number" name="numMaximoInscricoes">
         </div>
         <div class="col-1 col-form-label">
           <label>Total: R$</label>
         </div>
         <div class="col-5">
-          <input class="form-control" type="text" placeholder="R$">
+          <input class="form-control" type="text" placeholder="R$" name="totalReceita2">
         </div>
 
         <div class="col-3 col-form-label">
           <label>Valor (Docentes e Discentes UNIVAS):</label>
         </div>
         <div class="col-3">
-          <input class="form-control" type="text" placeholder="R$">
+          <input class="form-control" type="text" placeholder="R$" name="valorReceitaDocente">
         </div>
 
         <div class="col-1 col-form-label">
           <label>Outros:</label>
         </div>
         <div class="col-5">
-          <input class="form-control" type="text" placeholder="R$">
+          <input class="form-control" type="text" placeholder="R$" name="outrosValores">
         </div>
 
         <div class="col-2 col-form-label">
@@ -545,13 +545,13 @@
           <label>Nº mínimo de inscrições:</label>
         </div>
         <div class="col-3">
-          <input class="form-control" type="text" placeholder="">
+          <input class="form-control" type="text" placeholder="" name="receitaTotalMin">
         </div>
         <div class="col-2 col-form-label">
           <label>Nº máximo de inscrições:</label>
         </div>
         <div class="col-3">
-          <input class="form-control" type="text" placeholder="">
+          <input class="form-control" type="text" placeholder="" name="receitaTotalMax">
         </div>
 
         <div class="col-12" id="texto-centro">
@@ -563,33 +563,33 @@
         <div class="col-6">
           <div class="form-group">
             <label for="">Especificação:</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="recursosEsecificacao1">
             <br>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" name="recursosEsecificacao2">
           </div>
         </div>
         <div class="col-2">
           <div class="form-group">
             <label for="">Quantidade:</label>
-            <input type="number" class="form-control">
+            <input type="number" class="form-control" name="recursosQtd1">
             <br>
-            <input type="number" class="form-control">
+            <input type="number" class="form-control" name="recursosQtd2">
           </div>
         </div>
         <div class="col-2">
           <div class="form-group">
             <label for="">Valor unitário:</label>
-            <input type="text" class="form-control" placeholder="R$">
+            <input type="text" class="form-control" placeholder="R$" name="recursosValorUnitario1">
             <br>
-            <input type="text" class="form-control" placeholder="R$">
+            <input type="text" class="form-control" placeholder="R$" name="recursosValorUnitario2">
           </div>
         </div>
         <div class="col-2">
           <div class="form-group">
             <label for="">Total:</label>
-            <input type="text" class="form-control" placeholder="R$">
+            <input type="text" class="form-control" placeholder="R$" name="recursosTotal1">
             <br>
-            <input type="text" class="form-control" placeholder="R$">
+            <input type="text" class="form-control" placeholder="R$" name="recursosTotal2">
           </div>
         </div>
 
@@ -599,7 +599,7 @@
           <label>Total das despezas:</label>
         </div>
         <div class="col-3">
-          <input class="form-control" type="text" placeholder="R$">
+          <input class="form-control" type="text" placeholder="R$" name="totalDasDespezas">
         </div>
 
         <div class="col-3"></div>

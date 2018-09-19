@@ -2,7 +2,7 @@
   <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Gerência de Projetos</a>
   <input class="form-control form-control-dark w-100" type="text" placeholder="Pesquisar" aria-label="Search">
   <a class="navbar-brand col-sm-1 col-md-1 mr-0" href="#">Bem Vindo</a>
-  <a class="nav-link" href="#" [innerHTML]="'user' | feather:24:'#007FFF'"></a>
+  <a class="nav-link" [innerHTML]="'user' | feather:24:'#007FFF'" routerLink="/home/perfil" ></a>
   <ul class="navbar-nav px-3">
     <li class="nav-item text-nowrap">
       <a class="nav-link" href="#" [innerHTML]="'log-out' | feather:24:'#007FFF'"></a>
@@ -28,12 +28,7 @@
               Cadastrar projeto
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" routerLink="/home/profile">
-              <span [innerHTML]="'user' | feather:24:'#007FFF'"></span>
-              Dados Pessoais
-            </a>
-          </li>
+          
           <li class="nav-item">
             <a class="nav-link" routerLink="/home/profile">
               <span [innerHTML]="'bar-chart-2' | feather:24:'#007FFF'"></span>
@@ -51,7 +46,7 @@
         </a>
         <ul class="nav flex-column mb-2">
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" routerLink="/home/todos-projetos">
               <span [innerHTML]="'file-text' | feather:24:'#007FFF'"></span>
               Todos
             </a>
@@ -74,24 +69,36 @@
               Rejeitados
             </a>
           </li>
-        </ul>
-        <div class="col-12"><br> </div>
-        <div class="col-12"><br> </div>
-        <div class="col-12"><br> </div>
-        <div class="col-12"><br> </div>
-        <div class="col-12"><br> </div>
-        <div class="col-12"><br> </div>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
 
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/home/profile">
-              <span [innerHTML]="'settings' | feather:24:'#007FFF'"></span>
-              Configurações
-            </a>
-          </li>
+          <li class="nav-item">
+              <a class="nav-link" routerLink="/home/profile">
+                <span [innerHTML]="'user' | feather:24:'#007FFF'"></span>
+                Dados Pessoais
+              </a>
+            </li>
+          <li class="nav-item">
+              <a class="nav-link" routerLink="/home/profile">
+                <span [innerHTML]="'settings' | feather:24:'#007FFF'"></span>
+                Configurações
+              </a>
+            </li>
+        </ul>
+        
+
+        
       </div>
     </nav>
 
-    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 row justify-content-md-center">
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
       <!-- <div class="col-12"><br> </div>
       <div class="col-12"><br> </div>
       <div class="col-12"><br> </div>
