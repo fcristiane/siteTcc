@@ -1,4 +1,4 @@
-export interface NovoProjeto {
+export interface Projeto {
     id:string;
     userId: string;
     nomeAtv: string

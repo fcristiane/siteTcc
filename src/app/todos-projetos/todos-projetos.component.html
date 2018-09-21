@@ -16,16 +16,163 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
+          <tr *ngFor="let project of projetos | async">
             <td>1,001</td>
-            <td>Atividade 1</td>
-            <td>Projeto</td>
-            <td>Administração</td>
-            <td>Prof. Silva</td>
+            <td>{{ project.nomeAtv }}</td>
+            <td>{{ project.classificacao }}</td>
+            <td>{{ project.curso }}</td>
+            <td>{{ project.responsavel }}</td>
             <td><button type="button" class="btn btn-danger" disabled>Reprovado</button></td>
-            <td><button type="button" class="btn btn-info">+ Detalhes</button></td>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Detalhes</button>
+
+            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Dados do Projeto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-7">
+                          <p class="card-text"><strong>Nome da Atividade: </strong> {{ project.nomeAtv }}</p>
+                          <p class="card-text"><strong>Classificação: </strong> {{ project.classificacao }}</p>
+                          <p class="card-text"><strong>Área temática: </strong>Educação</p>
+                          <p class="card-text"><strong>Curso (Vínculo Acadêmico): </strong> {{ project.curso }}</p>
+                          <p class="card-text"><strong>Coordenador: </strong> {{ project.coordenador }}</p>
+                          <p class="card-text"><strong>Responsável pelo projeto: </strong> {{ project.responsavel }}</p>
+                          <p class="card-text"><strong>Área de Atuação: </strong> {{ project.areaAtuacao }}</p>
+                          <p class="card-text"><strong>Ministrante (s): </strong> {{ project.ministrante }} <strong>-
+                              CPF: </strong>{{ project.cpf }} </p>
+                          <p class="card-text"><strong>Docente da instituição: </strong>{{ project.docenteInstituicao
+                            }} <strong>- Função: </strong>{{ project.funcaoCargo }}</p>
+                          <p class="card-text"><strong>Titulação: </strong> {{ project.titulacao }}</p>
+                          <p class="card-text"><strong>Público alvo: </strong> Funcionários da Univás</p>
+                          <p class="card-text"><strong>Número de pessoas que serão atendidas: </strong> {{
+                            project.numPessoasEnvolvidas }}</p>
+                          <p class="card-text"><strong>Parceria, Apoio ou Convênio: </strong> {{ project.parceria }}</p>
+                          <p class="card-text"><strong>Nome das Instituições ou empresas: </strong> {{
+                            project.nomeInstituicaoApoio }}</p>
+
+                        </div>
+                        <div class="col-5">
+
+                          <p class="card-text"><strong>Período de: </strong>{{ project.periodoDe }}<strong> Até:</strong>{{
+                            project.periodoAte }} </p>
+                          <p class="card-text"><strong>Horário (Início): </strong>{{ project.horaInicio }} <strong>(Fim):
+                            </strong> {{ project.horaFim }} </p>
+                          <p class="card-text"><strong>Dia(s) da semana: </strong>{{ project.diasDaSemana }}</p>
+                          <p class="card-text"><strong>Carga Horária total: </strong>{{ project.cargaHoraria }} hora(s)</p>
+                          <p class="card-text"><strong>Campus: </strong> {{ project.campus }}</p>
+                          <p class="card-text"><strong>Local de realização: </strong> {{ project.local }}</p>
+
+                        </div>
+
+                        <div class="col-12">
+                          <hr class="mb-4">
+                          <p class="card-text"><strong>Objetivos: </strong>Proporcionar aos funcionários da Univás
+                            acesso a uma atividade que trabalha o desenvolvimento: motor, físico e cognitivo.</p>
+                          <p class="card-text"><strong>Justificativa: </strong> {{ project.justificativa }}</p>
+                          <p class="card-text"><strong>Metodologia / Procedimentos: </strong> {{
+                            project.metodologiaProcedimento }}</p>
+                        </div>
+
+                        <div class="col-12">
+                          <hr class="mb-4">
+                          <h5 class="modal-title" id="exampleModalCenterTitle">Recursos Humanos:</h5>
+                          <hr class="mb-4">
+                        </div>
+
+                        <div class="col-7">
+                          <p class="card-text"><strong>Docente (s) envolvido (s): </strong>{{ project.docenteEnvolvido1
+                            }}</p>
+                        </div>
+                        <div class="col-5">
+                          <p class="card-text"><strong>Curso: </strong>{{project.cursoDocenteEnvolvido1}}</p>
+                        </div>
+                        <div class="col-12">
+                          <p class="card-text"><strong>Função: </strong>{{ project.funcaoDocenteEnvolvido1 }}</p>
+                        </div>
+
+                        <div class="col-12">
+                          <hr class="mb-4">
+                        </div>
+
+                        <div class="col-7">
+                          <p class="card-text"><strong>Docente (s) envolvido (s): </strong>{{ project.docenteEnvolvido2
+                            }}</p>
+                        </div>
+                        <div class="col-5">
+                          <p class="card-text"><strong>Curso: </strong>{{project.cursoDocenteEnvolvido2}}</p>
+                        </div>
+                        <div class="col-12">
+                          <p class="card-text"><strong>Função: </strong>{{ project.funcaoDocenteEnvolvido2 }}</p>
+                        </div>
+
+                        <div class="col-12">
+                          <hr class="mb-4">
+                        </div>
+
+                        <div class="col-7">
+                          <p class="card-text"><strong>Discentes envolvidos: </strong>{{ project.discenteEnvolvido1 }}</p>
+                        </div>
+                        <div class="col-5">
+                          <p class="card-text"><strong>Curso: </strong>{{project.cursoDocenteEnvolvido1}}</p>
+                        </div>
+                        <div class="col-7">
+                          <p class="card-text"><strong>Série: </strong>{{ project.periodoDiscenteEnvolvido1 }} Período</p>
+                        </div>
+                        <div class="col-5">
+                          <p class="card-text"><strong>Nº Matrícula: </strong>{{ project.matriculaDiscenteEnvolvido1 }}</p>
+                        </div>
+
+                        <div class="col-12">
+                          <hr class="mb-4">
+                        </div>
+
+                        <div class="col-7">
+                          <p class="card-text"><strong>Discentes envolvidos: </strong>{{ project.discenteEnvolvido2 }}</p>
+                        </div>
+                        <div class="col-5">
+                          <p class="card-text"><strong>Curso: </strong>{{project.cursoDocenteEnvolvido2}}</p>
+                        </div>
+                        <div class="col-7">
+                          <p class="card-text"><strong>Série: </strong>{{ project.periodoDiscenteEnvolvido2 }}</p>
+                        </div>
+                        <div class="col-5">
+                          <p class="card-text"><strong>Nº Matrícula: </strong>{{ project.matriculaDiscenteEnvolvido2 }}</p>
+                        </div>
+
+                        <div class="col-12">
+                          <hr class="mb-4">
+                        </div>
+
+                        <div class="col-12">
+                          <p class="card-text"><strong>Cronograma: </strong> {{ project.cronograma }}</p>
+                        </div>
+
+                        <!-- <p class="card-text"><strong>: </strong> {{ project. }}</p>
+                        <p class="card-text"><strong>: </strong> {{ project. }}</p>
+                        <p class="card-text"><strong>: </strong> {{ project. }}</p> -->
+
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </tr>
-          <tr>
+
+
+
+
+          <!-- <tr>
             <td>1,002</td>
             <td>Atividade 2</td>
             <td>Curso</td>
@@ -114,7 +261,7 @@
             <td>Prof. Silva</td>
             <td><button type="button" class="btn btn-success" disabled>Aprovado</button></td>
             <td><button type="button" class="btn btn-info">+ Detalhes</button></td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
     </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NovoProjeto } from './novo-projeto.module';
+import { Projeto } from './projeto.module';
 import * as firebase from 'firebase/app';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { AngularFireAuth } from 'angularfire2/auth';
@@ -11,8 +11,8 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class NovoProjetoComponent implements OnInit {
 
-  novoProjeto: NovoProjeto = {} as NovoProjeto;
-  novoProjetoLista: Array<NovoProjeto> = [];
+  novoProjeto: Projeto = {} as Projeto;
+  novoProjetoLista: Array<Projeto> = [];
   user = firebase.auth().currentUser;
   showMessageError : boolean;
 
@@ -27,7 +27,7 @@ export class NovoProjetoComponent implements OnInit {
   }
 
   getLista() {
-    this.db.collection<NovoProjeto>('project').valueChanges().subscribe((data: NovoProjeto[]) => {
+    this.db.collection<Projeto>('project').valueChanges().subscribe((data: Projeto[]) => {
       this.novoProjetoLista = data;
       console.log(this.novoProjeto);
     })
@@ -38,16 +38,16 @@ export class NovoProjetoComponent implements OnInit {
     let id = this.db.createId();
     this.novoProjeto.id = id;
     this.novoProjeto.userId = this.user.uid;
-    this.db.collection<NovoProjeto>('project').doc(id).set(this.novoProjeto).then((success) => {
+    this.db.collection<Projeto>('project').doc(id).set(this.novoProjeto).then((success) => {
       console.log(success)
     }).catch((erro) => {
       console.log(erro)
     })
   }
 
-  update(novoProjeto: NovoProjeto) {
+  update(novoProjeto: Projeto) {
 
-    this.db.collection<NovoProjeto>('project').doc(novoProjeto.id).update(novoProjeto).then((success) => {
+    this.db.collection<Projeto>('project').doc(novoProjeto.id).update(novoProjeto).then((success) => {
       console.log(success)
     }).catch((erro) => {
       console.log(erro)
@@ -55,7 +55,7 @@ export class NovoProjetoComponent implements OnInit {
   }
 
   delete(id: string) {
-    this.db.collection<NovoProjeto>('project').doc(id).delete().then((success) => {
+    this.db.collection<Projeto>('project').doc(id).delete().then((success) => {
       console.log(success)
     }).catch((erro) => {
       console.log(erro)
