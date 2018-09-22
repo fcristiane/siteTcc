@@ -22,7 +22,7 @@
             <td>{{ project.classificacao }}</td>
             <td>{{ project.curso }}</td>
             <td>{{ project.responsavel }}</td>
-            <td><button type="button" class="btn btn-danger" disabled>Reprovado</button></td>
+            <td *ngIf="project.funcaoCargo == Coordenador"><button type="button" class="btn btn-danger" disabled>Reprovado</button></td>
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Detalhes</button>
 
             <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
@@ -154,11 +154,6 @@
                         <div class="col-12">
                           <p class="card-text"><strong>Cronograma: </strong> {{ project.cronograma }}</p>
                         </div>
-
-                        <!-- <p class="card-text"><strong>: </strong> {{ project. }}</p>
-                        <p class="card-text"><strong>: </strong> {{ project. }}</p>
-                        <p class="card-text"><strong>: </strong> {{ project. }}</p> -->
-
                       </div>
 
                     </div>

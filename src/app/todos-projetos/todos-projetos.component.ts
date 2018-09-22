@@ -4,6 +4,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Projeto } from '../novo-projeto/projeto.module';
 import { Observable } from 'rxjs';
+import { Perfil } from '../perfil/perfil.module';
 
 
 @Component({
@@ -13,11 +14,12 @@ import { Observable } from 'rxjs';
 })
 export class TodosProjetosComponent implements OnInit {
 
-  project: Projeto = {} as Projeto;
   user = firebase.auth().currentUser;
 
-  private projetosCollection: AngularFirestoreCollection<Projeto>;
+  project: Projeto = {} as Projeto;
   projetos: Observable<Projeto[]>;
+  private projetosCollection: AngularFirestoreCollection<Projeto>;
+  
 
   showMessageError : boolean;
 
@@ -26,7 +28,8 @@ export class TodosProjetosComponent implements OnInit {
       console.log("user id: " + firebase.auth().currentUser.uid)
     }
 
-    this.projetosCollection = db.collection<Projeto>('project');
+    let userId = firebase.auth().currentUser.uid;
+    this.projetosCollection = db.collection<Projeto>('project', ref => ref.where('userId', '==', userId));
     this.projetos = this.projetosCollection.valueChanges();
   }
 
@@ -37,6 +40,10 @@ export class TodosProjetosComponent implements OnInit {
   getProjetos() {
     this.projetosCollection = this.db.collection('project');
     this.projetos = this.projetosCollection.valueChanges()
+  }
+
+  permissao(){
+    
   }
 
 }

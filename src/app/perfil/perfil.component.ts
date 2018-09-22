@@ -12,18 +12,19 @@ import { Observable } from 'rxjs';
 })
 export class PerfilComponent implements OnInit {
 
-  perfil: Perfil = {} as Perfil;
   user = firebase.auth().currentUser;
 
-  private perfilColection: AngularFirestoreCollection<Perfil>;
+  perfil: Perfil = {} as Perfil;
   perfils: Observable<Perfil[]>;
+  private perfilColection: AngularFirestoreCollection<Perfil>;
 
   constructor(private db: AngularFirestore, private auth: AngularFireAuth) {
     if (firebase.auth().currentUser != null) {
       console.log("User id: " + firebase.auth().currentUser.uid);
     }
-    
-    this.perfilColection = db.collection<Perfil>('perfil');
+
+    let userId = firebase.auth().currentUser.uid;
+    this.perfilColection = db.collection<Perfil>('perfil', ref => ref.where('userId', '==', userId));
     this.perfils = this.perfilColection.valueChanges();
   }
 
@@ -32,11 +33,12 @@ export class PerfilComponent implements OnInit {
 
   
 
-  // getPerfil(userId: string) {
-  //   if (firebase.auth().currentUser.uid == ){
-  //     return this.perfilColection.valueChanges();
-  //   }
-  // }
+  getPerfil() {
+    let userId = firebase.auth().currentUser.uid;
+    this.perfilColection = this.db.collection<Perfil>('perfil', ref => ref.where('userId', '==', userId));
+    this.perfils = this.perfilColection.valueChanges();
+    return this.perfils;
+  }
 
   salvar() {
     let id = this.db.createId();
