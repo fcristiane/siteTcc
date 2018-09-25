@@ -40,5 +40,6 @@ export interface Projeto {
     matriculaDiscenteEnvolvido1: string;
     matriculaDiscenteEnvolvido2: string;
     cronograma: string;
+    situacao: number;
 
 }   

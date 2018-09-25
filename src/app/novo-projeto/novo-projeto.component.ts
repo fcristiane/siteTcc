@@ -38,6 +38,7 @@ export class NovoProjetoComponent implements OnInit {
     let id = this.db.createId();
     this.novoProjeto.id = id;
     this.novoProjeto.userId = this.user.uid;
+    this.novoProjeto.situacao = 1;
     this.db.collection<Projeto>('project').doc(id).set(this.novoProjeto).then((success) => {
       console.log(success)
     }).catch((erro) => {

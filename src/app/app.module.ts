@@ -19,6 +19,8 @@ import { AuthGuard } from './core/auth.guard';
 import { InfoComponent } from './info/info.component';
 import { TodosProjetosComponent } from './todos-projetos/todos-projetos.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { ProjetoService } from './projeto.service';
+import { ProjetoDetalheComponent } from './projeto-detalhe/projeto-detalhe.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { PerfilComponent } from './perfil/perfil.component';
     LoginComponent,
     InfoComponent,
     TodosProjetosComponent,
-    PerfilComponent
+    PerfilComponent,
+    ProjetoDetalheComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,7 @@ import { PerfilComponent } from './perfil/perfil.component';
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
     AngularFireDatabaseModule // for database
   ],
-  providers: [UserService, AuthGuard],
+  providers: [UserService, AuthGuard, ProjetoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

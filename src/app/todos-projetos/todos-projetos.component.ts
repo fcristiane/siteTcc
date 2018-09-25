@@ -4,7 +4,6 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Projeto } from '../novo-projeto/projeto.module';
 import { Observable } from 'rxjs';
-import { Perfil } from '../perfil/perfil.module';
 
 
 @Component({
@@ -15,6 +14,8 @@ import { Perfil } from '../perfil/perfil.module';
 export class TodosProjetosComponent implements OnInit {
 
   user = firebase.auth().currentUser;
+
+  
 
   project: Projeto = {} as Projeto;
   projetos: Observable<Projeto[]>;
@@ -28,18 +29,39 @@ export class TodosProjetosComponent implements OnInit {
       console.log("user id: " + firebase.auth().currentUser.uid)
     }
 
+    
     let userId = firebase.auth().currentUser.uid;
-    this.projetosCollection = db.collection<Projeto>('project', ref => ref.where('userId', '==', userId));
+    this.projetosCollection = db.collection<Projeto>('project', ref => ref.where('userId', '==', userId ));
     this.projetos = this.projetosCollection.valueChanges();
+    let index = 1;
   }
 
   ngOnInit() {
     this.showMessageError = false;
   }
 
-  getProjetos() {
-    this.projetosCollection = this.db.collection('project');
-    this.projetos = this.projetosCollection.valueChanges()
+  getId(project: Projeto) {
+    let id = project.id;
+    console.log("ID: " + id);
+    return id;
+
+    // let x = this.db.collection<Projeto>('project').doc(project.id);
+    // return x;
+    // this.projetosCollection = this.db.collection('project');
+    // this.projetos = this.projetosCollection.valueChanges()
+  }
+
+  getProjeto(project: Projeto) {
+    let id = project.id;
+    console.log("ID: " + id);
+    console.log("Dados " + project)
+    return this.projetosCollection = this.db.collection<Projeto>('project', ref => ref.where('id', '==', id));
+    
+
+    // let x = this.db.collection<Projeto>('project').doc(project.id);
+    // return x;
+    // this.projetosCollection = this.db.collection('project');
+    // this.projetos = this.projetosCollection.valueChanges()
   }
 
   permissao(){

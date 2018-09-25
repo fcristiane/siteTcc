@@ -6,6 +6,7 @@ import { AuthGuard } from './core/auth.guard';
 import { InfoComponent } from './info/info.component';
 import { TodosProjetosComponent } from './todos-projetos/todos-projetos.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { ProjetoDetalheComponent } from './projeto-detalhe/projeto-detalhe.component';
 
 export const rootRouterConfig: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -16,7 +17,8 @@ export const rootRouterConfig: Routes = [
         { path: 'novo-projeto', component: NovoProjetoComponent },
         { path: 'info', component: InfoComponent },
         { path: 'todos-projetos', component: TodosProjetosComponent },
-        { path: 'perfil', component: PerfilComponent }
+        { path: 'perfil', component: PerfilComponent },
+        { path: 'projeto-detalhe', component: ProjetoDetalheComponent }
       ]
     },
     { path: 'login', component: LoginComponent },
