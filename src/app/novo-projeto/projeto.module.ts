@@ -14,7 +14,7 @@ export interface Projeto {
     horaInicio: string;
     horaFim: string;
     cargaHoraria: string;
-    diasDaSEmana: string;
+    diasDaSemana: string;
     ministrante: string;
     cpf: string;
     docenteInstituicao: string;

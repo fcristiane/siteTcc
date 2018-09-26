@@ -25,7 +25,7 @@
             <td *ngIf="project.situacao == 1"><button type="button" class="btn btn-warning btn-sm" disabled>Em Analize</button></td>
             <td *ngIf="project.situacao == 2"><button type="button" class="btn btn-success btn-sm" disabled>Aprovado</button></td>
             <td *ngIf="project.situacao == 3"><button type="button" class="btn btn-danger btn-sm" disabled>Rejeitado</button></td>
-            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" (click)="getProjeto(project)">Detalhes</button></td>
+            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" (click)="getById(project.id)">Detalhes</button></td>
 
             <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
               aria-hidden="true">
@@ -169,3 +169,4 @@
     </div>
   </div>
 </div>
+

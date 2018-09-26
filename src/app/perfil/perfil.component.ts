@@ -23,12 +23,14 @@ export class PerfilComponent implements OnInit {
       console.log("User id: " + firebase.auth().currentUser.uid);
     }
 
-    let userId = firebase.auth().currentUser.uid;
-    this.perfilColection = db.collection<Perfil>('perfil', ref => ref.where('userId', '==', userId));
-    this.perfils = this.perfilColection.valueChanges();
+
+    // let userId = firebase.auth().currentUser.uid;
+    // this.perfilColection = db.collection<Perfil>('perfil', ref => ref.where('userId', '==', userId));
+    // this.perfils = this.perfilColection.valueChanges();
   }
 
   ngOnInit() {
+    this.getPerfil();
   }
 
   
