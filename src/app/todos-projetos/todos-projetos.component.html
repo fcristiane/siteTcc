@@ -12,10 +12,12 @@
             <th>Curso</th>
             <th>Responsável</th>
             <th>Situação</th>
+            <th>Detalhes</th>
+            <th></th>
             <th></th>
           </tr>
         </thead>
-        <tbody>
+        <tbody *ngFor="let perfil of perfils | async">
           <tr *ngFor="let project of projetos | async; let i = index;">
             <td>{{ i + 1 }}</td>
             <td>{{ project.nomeAtv }}</td>
@@ -25,7 +27,10 @@
             <td *ngIf="project.situacao == 1"><button type="button" class="btn btn-warning btn-sm" disabled>Em Analize</button></td>
             <td *ngIf="project.situacao == 2"><button type="button" class="btn btn-success btn-sm" disabled>Aprovado</button></td>
             <td *ngIf="project.situacao == 3"><button type="button" class="btn btn-danger btn-sm" disabled>Rejeitado</button></td>
-            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" (click)="getById(project.id)">Detalhes</button></td>
+            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg" (click)="getById(project)">Detalhes</button></td>
+            <td *ngIf="perfil.permissao == 4"><button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCentro" >Aprovar</button></td>
+            <td *ngIf="perfil.permissao == 4"><button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCentro">Rejeitar</button></td>
+
 
             <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
               aria-hidden="true">
@@ -164,8 +169,30 @@
               </div>
             </div>
           </tr>
+          
         </tbody>
       </table>
+       <!-- Modal -->
+       <div class="modal fade" id="exampleModalCentro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+       aria-hidden="true">
+       <div class="modal-dialog modal-dialog-centered" role="document">
+         <div class="modal-content">
+           <div class="modal-header">
+             <h5 class="modal-title" id="exampleModalCenterTitle">Aprovação ou Reprovação do projeto</h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
+           </div>
+           <div class="modal-body">
+               Tem certeza disso?
+           </div>
+           <div class="modal-footer">
+             <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+             <button type="button" class="btn btn-primary" (click)="update(project)">Sim</button>
+           </div>
+         </div>
+       </div>
+     </div>
     </div>
   </div>
 </div>

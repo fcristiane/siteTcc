@@ -16,15 +16,19 @@ export class TodosProjetosComponent implements OnInit {
 
   user = firebase.auth().currentUser;
   project: Projeto = {} as Projeto;
+  projetosCollection: AngularFirestoreCollection<Projeto>;
   projetos: Observable<Projeto[]>;
-  private projetosCollection: AngularFirestoreCollection<Projeto>;
 
   perfil: Perfil = {} as Perfil;
+  perfilColection: AngularFirestoreCollection<Perfil>;
   perfils: Observable<Perfil[]>;
-  private perfilColection: AngularFirestoreCollection<Perfil>;
 
+  projeto: Projeto = {} as Projeto;
 
   showMessageError: boolean;
+
+  perfilDoc: AngularFirestoreDocument<Perfil>;
+  perfilPro: Observable<Perfil>;
 
   constructor(private db: AngularFirestore, private auth: AngularFireAuth) {
     if (firebase.auth().currentUser != null) {
@@ -36,15 +40,13 @@ export class TodosProjetosComponent implements OnInit {
     let userId = firebase.auth().currentUser.uid;
     this.perfilColection = this.db.collection<Perfil>('perfil', ref => ref.where('userId', '==', userId));
     this.perfils = this.perfilColection.valueChanges();
-    let x = this.db.collection<Perfil>('perfil').doc('permissao');
     
-    if (x) {
-      console.log("Retornou By Id" + x)
-      console.log("Retornou By Id")
-      return this.getByUserId();
-    } else {
-      console.log("Falhou")
+    if (userId == 'WAJ7zsFtAUYq7qXv4tKNC6w9cnZ2') {
+      console.log("Retornou projetos")
       return this.getProjeto();
+    } else {
+      console.log("Retornou por id")
+      return this.getByUserId();
     }
 
   }
@@ -53,7 +55,6 @@ export class TodosProjetosComponent implements OnInit {
     let userId = firebase.auth().currentUser.uid;
     this.projetosCollection = this.db.collection<Projeto>('project', ref => ref.where('userId', '==', userId));
     this.projetos = this.projetosCollection.valueChanges();
-
     // let x = this.db.collection<Projeto>('project').doc(project.id);
     // return x;
     // this.projetosCollection = this.db.collection('project');
@@ -69,6 +70,15 @@ export class TodosProjetosComponent implements OnInit {
     // return x;
     // this.projetosCollection = this.db.collection('project');
     // this.projetos = this.projetosCollection.valueChanges()
+  }
+
+  update(projeto: Projeto) {
+    this.projeto.situacao = 2;
+    this.db.collection<Projeto>('project').doc(projeto.id).update(projeto.situacao).then((success) => {
+      console.log(success)
+    }).catch((erro) => {
+      console.log(erro)
+    })
   }
 
 }
