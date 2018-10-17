@@ -1,9 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
-import { NovoProjetoComponent } from './novo-projeto/novo-projeto.component';
+
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { rootRouterConfig } from './app.routes';
@@ -13,14 +11,18 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { FeatherIconsPipe } from './feather-pipe';
-import { LoginComponent } from './login/login.component';
-import { UserService } from './core/user.service';
-import { AuthGuard } from './core/auth.guard';
-import { InfoComponent } from './info/info.component';
-import { TodosProjetosComponent } from './todos-projetos/todos-projetos.component';
-import { PerfilComponent } from './perfil/perfil.component';
-import { ProjetoService } from './projeto.service';
-import { ProjetoDetalheComponent } from './projeto-detalhe/projeto-detalhe.component';
+import { UserService } from './core/users/user.service';
+import { AuthGuard } from './core/users/auth.guard';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from './components/home/home.component';
+import { NovoProjetoComponent } from './components/novo-projeto/novo-projeto.component';
+import { TodosProjetosComponent } from './components/todos-projetos/todos-projetos.component';
+import { InfoComponent } from './components/info/info.component';
+import { LoginComponent } from './components/login/login.component';
+import { ProjetoDetalheComponent } from './components/projeto-detalhe/projeto-detalhe.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
+import { ProjetoService } from './core/projetos/projeto.service';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { ProjetoDetalheComponent } from './projeto-detalhe/projeto-detalhe.compo
     InfoComponent,
     TodosProjetosComponent,
     PerfilComponent,
-    ProjetoDetalheComponent
+    ProjetoDetalheComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

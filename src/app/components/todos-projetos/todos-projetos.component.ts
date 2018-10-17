@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase/app';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { Projeto } from '../novo-projeto/projeto.module';
+import { Projeto } from '../../core/projetos/projeto.module';
 import { Observable } from 'rxjs';
 import { Perfil } from '../perfil/perfil.module';
+import { ProjetoService } from '../../core/projetos/projeto.service';
 
 
 @Component({
@@ -30,7 +31,7 @@ export class TodosProjetosComponent implements OnInit {
   perfilDoc: AngularFirestoreDocument<Perfil>;
   perfilPro: Observable<Perfil>;
 
-  constructor(private db: AngularFirestore, private auth: AngularFireAuth) {
+  constructor(private db: AngularFirestore, private auth: AngularFireAuth, private projetoService: ProjetoService) {
     if (firebase.auth().currentUser != null) {
       console.log("user id: " + firebase.auth().currentUser.uid)
     }
@@ -43,42 +44,12 @@ export class TodosProjetosComponent implements OnInit {
     
     if (userId == 'WAJ7zsFtAUYq7qXv4tKNC6w9cnZ2') {
       console.log("Retornou projetos")
-      return this.getProjeto();
+      return this.projetoService.getProjetos();
     } else {
       console.log("Retornou por id")
-      return this.getByUserId();
+      return this.projetoService.getByUserId();
     }
 
-  }
-
-  getByUserId() {
-    let userId = firebase.auth().currentUser.uid;
-    this.projetosCollection = this.db.collection<Projeto>('project', ref => ref.where('userId', '==', userId));
-    this.projetos = this.projetosCollection.valueChanges();
-    // let x = this.db.collection<Projeto>('project').doc(project.id);
-    // return x;
-    // this.projetosCollection = this.db.collection('project');
-    // this.projetos = this.projetosCollection.valueChanges()
-  }
-
-  getProjeto() {
-    this.projetosCollection = this.db.collection<Projeto>('project');
-    this.projetos = this.projetosCollection.valueChanges();
-
-
-    // let x = this.db.collection<Projeto>('project').doc(project.id);
-    // return x;
-    // this.projetosCollection = this.db.collection('project');
-    // this.projetos = this.projetosCollection.valueChanges()
-  }
-
-  update(projeto: Projeto) {
-    this.projeto.situacao = 2;
-    this.db.collection<Projeto>('project').doc(projeto.id).update(projeto.situacao).then((success) => {
-      console.log(success)
-    }).catch((erro) => {
-      console.log(erro)
-    })
   }
 
 }

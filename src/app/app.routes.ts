@@ -1,12 +1,13 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { NovoProjetoComponent } from './novo-projeto/novo-projeto.component';
-import { LoginComponent } from './login/login.component';
-import { AuthGuard } from './core/auth.guard';
-import { InfoComponent } from './info/info.component';
-import { TodosProjetosComponent } from './todos-projetos/todos-projetos.component';
-import { PerfilComponent } from './perfil/perfil.component';
-import { ProjetoDetalheComponent } from './projeto-detalhe/projeto-detalhe.component';
+import { AuthGuard } from './core/users/auth.guard';
+import { HomeComponent } from './components/home/home.component';
+import { NovoProjetoComponent } from './components/novo-projeto/novo-projeto.component';
+import { InfoComponent } from './components/info/info.component';
+import { TodosProjetosComponent } from './components/todos-projetos/todos-projetos.component';
+import { ProjetoDetalheComponent } from './components/projeto-detalhe/projeto-detalhe.component';
+import { PerfilComponent } from './components/perfil/perfil.component';
+import { LoginComponent } from './components/login/login.component';
+
 
 export const rootRouterConfig: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },

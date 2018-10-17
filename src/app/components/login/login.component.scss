@@ -1,7 +1,12 @@
-$topnav-background-color: #222;
+$topnav-background-color: rgb(94, 92, 92);
 :host {
     display: block;
 }
+
+.centro{
+    text-align: center;
+}
+
 .login-page {
     position: absolute;
     top: 0;

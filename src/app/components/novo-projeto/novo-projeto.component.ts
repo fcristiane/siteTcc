@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Projeto } from './projeto.module';
+import { Projeto } from '../../core/projetos/projeto.module';
 import * as firebase from 'firebase/app';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { ProjetoService } from '../../core/projetos/projeto.service';
 
 @Component({
   selector: 'app-novo-projeto',
@@ -16,7 +17,7 @@ export class NovoProjetoComponent implements OnInit {
   user = firebase.auth().currentUser;
   showMessageError : boolean;
 
-  constructor(private db: AngularFirestore, private auth: AngularFireAuth) {
+  constructor(private db: AngularFirestore, private auth: AngularFireAuth, private projetoService: ProjetoService) {
     if (firebase.auth().currentUser != null) {
       console.log("user id: " + firebase.auth().currentUser.uid);
     }
@@ -33,21 +34,11 @@ export class NovoProjetoComponent implements OnInit {
     })
   }
 
-  criar() {
-
-    let id = this.db.createId();
-    this.novoProjeto.id = id;
-    this.novoProjeto.userId = this.user.uid;
-    this.novoProjeto.situacao = 1;
-    this.db.collection<Projeto>('project').doc(id).set(this.novoProjeto).then((success) => {
-      console.log(success)
-    }).catch((erro) => {
-      console.log(erro)
-    })
+  save() {
+    this.projetoService.create();
   }
 
   update(novoProjeto: Projeto) {
-
     this.db.collection<Projeto>('project').doc(novoProjeto.id).update(novoProjeto).then((success) => {
       console.log(success)
     }).catch((erro) => {

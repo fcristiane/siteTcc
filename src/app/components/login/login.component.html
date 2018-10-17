@@ -1,16 +1,16 @@
 <div class="login-page">
     <div class="row justify-content-md-center">
         <div class="col-md-4">
-            <img src="/src/app/assets/images/logo.png" width="150px" class="user-avatar" />
+            <img src="/src/assets/images/logo.png" width="150px" class="user-avatar" />
             <h1>Gerenciamento de Projetos</h1>
             <form role="form" >
                 <div class="form-content">
                     <div class="form-group">
-                        <input type="text" [(ngModel)]="loginObject.email" class="form-control input-underline input-lg" name="email" placeholder="Email">
+                        <input type="text" [(ngModel)]="loginObject.email" class="form-control input-underline input-lg centro" name="email" placeholder="Email">
                     </div>
 
                     <div class="form-group">
-                        <input type="password" [(ngModel)]="loginObject.password" class="form-control input-underline input-lg" name="password" placeholder="Senha">
+                        <input type="password" [(ngModel)]="loginObject.password" class="form-control input-underline input-lg centro" name="password" placeholder="Senha">
                     </div>
                 </div>
                 <a class="btn rounded-btn" (click)="login()"> Entrar </a>
