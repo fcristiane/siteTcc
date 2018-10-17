@@ -7,7 +7,6 @@ import { Observable } from 'rxjs';
 import { Perfil } from '../perfil/perfil.module';
 import { ProjetoService } from '../../core/projetos/projeto.service';
 
-
 @Component({
   selector: 'app-todos-projetos',
   templateUrl: './todos-projetos.component.html',
@@ -18,7 +17,7 @@ export class TodosProjetosComponent implements OnInit {
   user = firebase.auth().currentUser;
   project: Projeto = {} as Projeto;
   projetosCollection: AngularFirestoreCollection<Projeto>;
-  projetos: Observable<Projeto[]>;
+  projetos: Observable<Projeto[]>
 
   perfil: Perfil = {} as Perfil;
   perfilColection: AngularFirestoreCollection<Perfil>;
@@ -31,25 +30,58 @@ export class TodosProjetosComponent implements OnInit {
   perfilDoc: AngularFirestoreDocument<Perfil>;
   perfilPro: Observable<Perfil>;
 
-  constructor(private db: AngularFirestore, private auth: AngularFireAuth, private projetoService: ProjetoService) {
+  constructor(private db: AngularFirestore, 
+              private auth: AngularFireAuth, 
+              private projetoService: ProjetoService
+  ) {
     if (firebase.auth().currentUser != null) {
       console.log("user id: " + firebase.auth().currentUser.uid)
     }
+    
   }
 
   ngOnInit() {
     let userId = firebase.auth().currentUser.uid;
     this.perfilColection = this.db.collection<Perfil>('perfil', ref => ref.where('userId', '==', userId));
     this.perfils = this.perfilColection.valueChanges();
-    
+
     if (userId == 'WAJ7zsFtAUYq7qXv4tKNC6w9cnZ2') {
-      console.log("Retornou projetos")
-      return this.projetoService.getProjetos();
+      console.log("Retornou projetos");
+      return this.getProjetos();
     } else {
       console.log("Retornou por id")
-      return this.projetoService.getByUserId();
+      return this.getByUserId();
     }
 
+  }
+
+  getProjetoById(){
+  }
+
+   getProjetos(){
+    this.projetosCollection = this.db.collection<Projeto>('project');
+    return this.projetos = this.projetosCollection.valueChanges();
+  //   return this.projetoService.getProjetos()
+  //    .subscribe(
+  //      projetos => {
+  //        console.log(projetos);
+  //        this.projetos = projetos
+  //      }
+  //    )
+   }
+
+  getByUserId(){
+    let userId = firebase.auth().currentUser.uid;
+    this.projetosCollection = this.db.collection<Projeto>('project', ref => ref.where('userId', '==', userId));
+    console.log("Passou!");
+    this.projetos = this.projetosCollection.valueChanges();
+    // return this.projetoService.getByUserId()
+    // .subscribe(
+    //   projetos => {
+    //     console.log(projetos);
+    //     this.projetos = projetos
+    //   }
+    // )
   }
 
 }

@@ -23,21 +23,29 @@
 </nav> -->
 
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-  <ul class="navbar-nav">
-    <li class="nav-item">
-      <a class="navbar-brand" routerLink="/home/info">Gerência de Projetos</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Disabled</a>
-    </li>
-  </ul>
-  <ul class="nav justify-content-end">
+  <a routerLink="/home/info">
+    <h5 style="margin:0; color: #e8edff" title="Início">Gerência de Projetos</h5>
+  </a>
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="#" title="#"></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="#" title="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="#" title="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="#" title="#">Link</a>
+      </li>
+    </ul>
+  </div>
+  <form class="form-inline my-2 my-lg-0">
+    <a><button type="button" class="btn btn-outline-light my-2 my-sm-0 botao">Sair</button></a>
+  </form>
+  <!-- <ul class="nav justify-content-end">
     <li class="nav-item">
       <a class="navbar-brand col-sm-1 col-md-1 mr-0" href="#">Bem Vindo</a>
     </li>
@@ -48,7 +56,7 @@
     <li class="nav-item">
       <a class="nav-link" href="#" [innerHTML]="'log-out' | feather:24:'#007FFF'"></a>
     </li>
-  </ul>
+  </ul> -->
 </nav>
 
 <div class="container-fluid">
@@ -56,78 +64,68 @@
     <nav class="col-md-2 d-none d-md-block bg-light sidebar">
       <div class="sidebar-sticky">
         <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link active">
-              <span data-feather="home"></span>
-              Início <span class="sr-only">(current)</span>
-            </a>
+          <li class="nav-item centralizar" style="margin-top:10%">
+            <h4><strong>Início</strong></h4>
+            <hr>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="/home/novo-projeto">
-              <span [innerHTML]="'file-plus' | feather:24:'#007FFF'"></span>
+              <span [innerHTML]="'file-plus' | feather:24:'#212529'"></span>
               Cadastrar projeto
             </a>
           </li>
 
           <li class="nav-item">
-            <a class="nav-link" routerLink="/home/projeto-detalhe">
-              <span [innerHTML]="'bar-chart-2' | feather:24:'#007FFF'"></span>
+            <a class="nav-link" routerLink="#">
+              <span [innerHTML]="'bar-chart-2' | feather:24:'#212529'"></span>
               Relatórios
             </a>
           </li>
         </ul>
 
-        <div class="col-12"><br> </div>
-        <div class="col-12"><br> </div>
+        <div class="col-12">
+          <hr>
+        </div>
 
-        <a class="nav-link active">
-          <span [innerHTML]="'folder' | feather:24:'#007FFF'"></span>
+        <label class="inactive" style="margin-left:8%">
+          <span [innerHTML]="'folder' | feather:24:'#212529'"></span>
           Seus projetos<span class="sr-only">(current)</span>
-        </a>
+        </label>
         <ul class="nav flex-column mb-2">
           <li class="nav-item">
             <a class="nav-link" routerLink="/home/todos-projetos">
-              <span [innerHTML]="'file-text' | feather:24:'#007FFF'"></span>
+              <span [innerHTML]="'file-text' | feather:24:'#212529'"></span>
               Todos
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
-              <span [innerHTML]="'check' | feather:24:'#007FFF'"></span>
+              <span [innerHTML]="'check' | feather:24:'#212529'"></span>
               Aceitos
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
-              <span [innerHTML]="'refresh-cw' | feather:24:'#007FFF'"></span>
-              Em anlálise
+              <span [innerHTML]="'refresh-cw' | feather:24:'#212529'"></span>
+              Em análise
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">
-              <span [innerHTML]="'x-square' | feather:24:'#007FFF'"></span>
-              Rejeitados
+              <span [innerHTML]="'x-square' | feather:24:'#212529'"></span>
+              Rreprovados
             </a>
           </li>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
-          <br>
 
           <li class="nav-item">
             <a class="nav-link" routerLink="/home/perfil">
-              <span [innerHTML]="'user' | feather:24:'#007FFF'" routerLink="/home/perfil"></span>
+              <span [innerHTML]="'user' | feather:24:'#212529'" routerLink="/home/perfil"></span>
               Dados Pessoais
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" routerLink="/home/profile">
-              <span [innerHTML]="'settings' | feather:24:'#007FFF'"></span>
+              <span [innerHTML]="'settings' | feather:24:'#212529'"></span>
               Configurações
             </a>
           </li>
@@ -137,6 +135,25 @@
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
       <router-outlet></router-outlet>
+      <footer class="page-footer font-small cyan darken-3">
+          <!-- Footer Elements -->
+          <!-- Copyright -->
+          <div class="footer-copyright text-center py-3 mt-5 mb-3 text-muted alinhar">
+                <!-- <a class="nav-link">
+                        <span [innerHTML]="'twitter' | feather:24:'#818181'" title="Twitter"></span>
+                      </a>
+                      <a class="nav-link">
+                        <span [innerHTML]="'facebook' | feather:24:'#818181'" title="Facebook"></span>
+                      </a>
+                      <a class="nav-link">
+                        <span [innerHTML]="'instagram' | feather:24:'#818181'" title="Instagram"></span>
+                      </a> -->
+            © 2018 Copyright:
+        
+          </div>
+          <!-- Copyright -->
+        
+      </footer>
     </main>
 
   </div>

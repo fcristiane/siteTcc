@@ -24,14 +24,15 @@ export class ProjetoService {
     private auth: AngularFireAuth,
   ) { }
 
-  getProjetos() {
+  getProjetos(): Observable<Projeto[]> {
     this.projetosCollection = this.db.collection<Projeto>('project');
     return this.projetos = this.projetosCollection.valueChanges();
   }
 
-  getByUserId() {
+  getByUserId(): Observable<Projeto[]> {
     let userId = firebase.auth().currentUser.uid;
     this.projetosCollection = this.db.collection<Projeto>('project', ref => ref.where('userId', '==', userId));
+    console.log("Passou!");
     return this.projetos = this.projetosCollection.valueChanges();
     // let x = this.db.collection<Projeto>('project').doc(project.id);
     // return x;

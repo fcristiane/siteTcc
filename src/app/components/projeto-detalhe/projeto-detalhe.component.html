@@ -1,5 +1,61 @@
-<div class="container">
+<div class="container mt-4">
   <div class="row">
-    
+
+    <div class="col-12">
+      <h2>Detalhes do projeto: <i> {{ project.nomeAtv }} </i></h2>
+      <hr>
+    </div>
+    <div class="col-8">
+      <div class="media border p-3">
+        <div class="media-body">
+          <h4><strong> Responsável: </strong>{{ project.responsavel }}</h4>
+          <hr>
+          <h6><strong>Classificação: </strong>{{ project.classificacao }}</h6>
+          <h6><strong>Área temática: </strong>Educação</h6>
+          <h6><strong>Curso (Vínculo Acadêmico): </strong>{{ project.curso }}</h6>
+          <h6><strong>Coordenador: </strong>{{ project.coordenador }}</h6>
+          <h6><strong>Área de atuação: </strong>{{ project.areaAtuacao }}</h6>
+          <h6><strong>Ministrante (s): </strong>{{ project.ministrante }}<strong> - CPF: </strong>{{ project.cpf }}</h6>
+          <hr>
+          <h6><strong>Docente da Instituição: </strong>{{ project.docenteInstituicao }}</h6>
+          <h6><strong>Função: </strong>{{ project.funcaoCargo }}</h6>
+          <hr>
+          <h6><strong>Titulação: </strong>{{ project.titulacao }}</h6>
+          <h6><strong>Público alvo: </strong>Funcionários da Univás</h6>
+          <h6><strong>Número de pessoas atendidas: </strong>{{ project.numPessoasEnvolvidas }}</h6>
+          <h6><strong>Parceria/Apoio/Convênio: </strong>{{ project.parceria }}</h6>
+          <h6><strong>Nome das instituições ou empresas: </strong>{{project.nomeInstituicaoApoio}}</h6>
+          <hr>
+          <h4 class="centro"><strong>Recursos Humanos</strong></h4>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-4">
+      <div class="media border p-3">
+        <div class="media-body">
+          <h6><strong>Período de: </strong>{{project.periodoDe}}</h6>
+          <h6><strong>Até: </strong>{{project.periodoAte}}</h6>
+          <hr>
+          <h6><strong>Horário (Início): </strong>{{project.horaInicio}}<strong> (Fim): </strong>{{project.horaFim}}</h6>
+          <h6><strong>Dia(s) da semana: </strong>{{project.diasDaSemana}}</h6>
+          <h6><strong>Carga horária total: </strong>{{project.cargaHoraria}}</h6>
+          <h6><strong>Campus: </strong>{{project.campus}}</h6>
+          <h6><strong>Local de realização: </strong>{{project.local}}</h6>
+          <hr>
+          <h6><strong>Objetivos: </strong></h6>
+          <h6>Proporcionar aos funcionários da Univás acesso a uma atividade que trabalha o
+            desenvolvimento: motor,
+            físico e cognitivo.</h6>
+          <hr>
+          <h6><strong>Justificativa: </strong></h6>
+          <h6>{{project.justificativa}}</h6>
+          <hr>
+          <h6><strong>Metodologia/Procedimentos: </strong></h6>
+          <h6>{{project.metodologiaProcedimentob}}</h6>
+        </div>
+      </div>
+    </div>
+
   </div>
 </div>
