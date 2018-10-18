@@ -21,43 +21,46 @@
     </li>
   </ul>
 </nav> -->
+<header>
+    <ng2-slim-loading-bar color="green"></ng2-slim-loading-bar>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+    <a routerLink="/home/info">
+      <h5 style="margin:0; color: #e8edff" title="Início">Gerência de Projetos</h5>
+    </a>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="#" title="#"></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="#" title="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="#" title="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="#" title="#">Link</a>
+        </li>
+      </ul>
+    </div>
+    <form class="form-inline my-2 my-lg-0">
+      <a><button type="button" class="btn btn-outline-light my-2 my-sm-0 botao">Sair</button></a>
+    </form>
+    <!-- <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="navbar-brand col-sm-1 col-md-1 mr-0" href="#">Bem Vindo</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [innerHTML]="'user' | feather:24:'#007FFF'" routerLink="/home/perfil" title="Perfil"
+          data-toggle="tooltip"></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" [innerHTML]="'log-out' | feather:24:'#007FFF'"></a>
+      </li>
+    </ul> -->
+  </nav>
+</header>
 
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
-  <a routerLink="/home/info">
-    <h5 style="margin:0; color: #e8edff" title="Início">Gerência de Projetos</h5>
-  </a>
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="#" title="#"></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="#" title="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="#" title="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="#" title="#">Link</a>
-      </li>
-    </ul>
-  </div>
-  <form class="form-inline my-2 my-lg-0">
-    <a><button type="button" class="btn btn-outline-light my-2 my-sm-0 botao">Sair</button></a>
-  </form>
-  <!-- <ul class="nav justify-content-end">
-    <li class="nav-item">
-      <a class="navbar-brand col-sm-1 col-md-1 mr-0" href="#">Bem Vindo</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" [innerHTML]="'user' | feather:24:'#007FFF'" routerLink="/home/perfil" title="Perfil"
-        data-toggle="tooltip"></a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#" [innerHTML]="'log-out' | feather:24:'#007FFF'"></a>
-    </li>
-  </ul> -->
-</nav>
 
 <div class="container-fluid">
   <div class="row">
@@ -113,7 +116,7 @@
           <li class="nav-item">
             <a class="nav-link" href="#">
               <span [innerHTML]="'x-square' | feather:24:'#212529'"></span>
-              Rreprovados
+              Reprovados
             </a>
           </li>
 
@@ -136,10 +139,10 @@
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
       <router-outlet></router-outlet>
       <footer class="page-footer font-small cyan darken-3">
-          <!-- Footer Elements -->
-          <!-- Copyright -->
-          <div class="footer-copyright text-center py-3 mt-5 mb-3 text-muted alinhar">
-                <!-- <a class="nav-link">
+        <!-- Footer Elements -->
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3 mt-5 mb-3 text-muted alinhar">
+          <!-- <a class="nav-link">
                         <span [innerHTML]="'twitter' | feather:24:'#818181'" title="Twitter"></span>
                       </a>
                       <a class="nav-link">
@@ -148,11 +151,11 @@
                       <a class="nav-link">
                         <span [innerHTML]="'instagram' | feather:24:'#818181'" title="Instagram"></span>
                       </a> -->
-            © 2018 Copyright:
-        
-          </div>
-          <!-- Copyright -->
-        
+          © 2018 Copyright:
+
+        </div>
+        <!-- Copyright -->
+
       </footer>
     </main>
 

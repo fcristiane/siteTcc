@@ -23,6 +23,9 @@ import { LoginComponent } from './components/login/login.component';
 import { ProjetoDetalheComponent } from './components/projeto-detalhe/projeto-detalhe.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { ProjetoService } from './core/projetos/projeto.service';
+import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
+import { CpfPipe } from './cpf.pipe';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +39,8 @@ import { ProjetoService } from './core/projetos/projeto.service';
     PerfilComponent,
     ProjetoDetalheComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    CpfPipe
   ],
   imports: [
     BrowserModule,
@@ -46,7 +50,9 @@ import { ProjetoService } from './core/projetos/projeto.service';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
-    AngularFireDatabaseModule // for database
+    AngularFireDatabaseModule, // for database
+    SlimLoadingBarModule
+    
   ],
   providers: [UserService, AuthGuard, ProjetoService],
   bootstrap: [AppComponent]

@@ -4,8 +4,8 @@
     <h2 class="mb-3" id="texto-centro">Seus projetos</h2>
     <div class="table-responsive">
       <table class="table table-striped table-sm">
-        <thead>
-          <tr class="centro">
+        <thead *ngFor="let perfil of perfils | async">
+          <tr>
             <th>Nº</th>
             <th>Nome da Atividade</th>
             <th>Classificação</th>
@@ -13,23 +13,23 @@
             <th>Responsável</th>
             <th>Situação</th>
             <th>Detalhes</th>
-            <th><span [innerHTML]="'thumbs-up' | feather:24:'#212529'"></span></th>
-            <th><span [innerHTML]="'thumbs-down' | feather:24:'#212529'"></span></th>
+            <th *ngIf="perfil.permissao == 4"><span [innerHTML]="'thumbs-up' | feather:24:'#212529'"></span></th>
+            <th *ngIf="perfil.permissao == 4"><span [innerHTML]="'thumbs-down' | feather:24:'#212529'"></span></th>
           </tr>
         </thead>
-        <tbody *ngFor="let perfil of perfils | async" class="centro">
+        <tbody *ngFor="let perfil of perfils | async">
           <tr *ngFor="let project of projetos | async; let i = index;">
             <td>{{ i + 1 }}</td>
             <td>{{ project.nomeAtv }}</td>
             <td>{{ project.classificacao }}</td>
             <td>{{ project.curso }}</td>
             <td>{{ project.responsavel }}</td>
-            <td *ngIf="project.situacao == 1"><button type="button" class="btn btn-warning btn-sm" disabled>Em Analize</button></td>
-            <td *ngIf="project.situacao == 2"><button type="button" class="btn btn-success btn-sm" disabled>Aprovado</button></td>
-            <td *ngIf="project.situacao == 3"><button type="button" class="btn btn-danger btn-sm" disabled>Reprovado</button></td>
-            <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target=".bd-example-modal-sm" routerLink="/home/projeto-detalhe">Detalhes</button></td>
-            <td *ngIf="perfil.permissao == 4"><button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#exampleModalCentro" >Aprovar</button></td>
-            <td *ngIf="perfil.permissao == 4"><button type="button" class="btn btn-danger btn-sm" btn-sm data-toggle="modal" data-target="#exampleModalCentro">Reprovar</button></td>
+            <td *ngIf="project.situacao == 1"><button type="button" class="btn btn-warning btn-sm centro medio" disabled>Em Análize</button></td>
+            <td *ngIf="project.situacao == 2"><button type="button" class="btn btn-success btn-md centro medio" disabled>Aprovado</button></td>
+            <td *ngIf="project.situacao == 3"><button type="button" class="btn btn-danger btn-sm centro medio" disabled>Reprovado</button></td>
+            <td><button type="button" class="btn btn-primary btn-sm centro" data-toggle="modal" data-target=".bd-example-modal-sm" routerLink="/home/projeto-detalhe">Detalhes</button></td>
+            <td *ngIf="perfil.permissao == 4 && project.situacao != 3 && project.situacao != 2"><button type="button" class="btn btn-success btn-sm centro" data-toggle="modal" data-target="#exampleModalCentro" >Aprovar</button></td>
+            <td *ngIf="perfil.permissao == 4 && project.situacao != 3 && project.situacao != 2"><button type="button" class="btn btn-danger btn-sm centro" btn-sm data-toggle="modal" data-target="#exampleModalCentro">Reprovar</button></td>
 
 
             <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"

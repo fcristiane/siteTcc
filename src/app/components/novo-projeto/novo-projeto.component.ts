@@ -4,6 +4,7 @@ import * as firebase from 'firebase/app';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { ProjetoService } from '../../core/projetos/projeto.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-novo-projeto',
@@ -12,19 +13,57 @@ import { ProjetoService } from '../../core/projetos/projeto.service';
 })
 export class NovoProjetoComponent implements OnInit {
 
+  
   novoProjeto: Projeto = {} as Projeto;
   novoProjetoLista: Array<Projeto> = [];
   user = firebase.auth().currentUser;
   showMessageError : boolean;
 
-  constructor(private db: AngularFirestore, private auth: AngularFireAuth, private projetoService: ProjetoService) {
+  registerForm: FormGroup;
+  submitted = false;
+
+  constructor(private db: AngularFirestore, private auth: AngularFireAuth, private projetoService: ProjetoService, private formBuilder: FormBuilder) {
     if (firebase.auth().currentUser != null) {
       console.log("user id: " + firebase.auth().currentUser.uid);
     }
+
   }
 
   ngOnInit() {
     this.showMessageError = false;
+    this.registerForm = this.formBuilder.group({
+      nomeAtv: ['', Validators.required],
+      curso: ['', Validators.required],
+      coordenador: ['', Validators.required],
+      responsavel: ['', Validators.required],
+      campus: ['', Validators.required],
+      areaAtuacao: ['', Validators.required],
+      horaInicio: ['', Validators.required],
+      horaFim: ['', Validators.required],
+      periodoDe: ['', Validators.required],
+      periodoAte: ['', Validators.required],
+      local: ['', Validators.required],
+      diasDaSemana: ['', Validators.required],
+      cargaHoraria: ['', Validators.required],
+      classificacao: ['', Validators.required],
+      areaTematica: ['', Validators.required],
+      ministrante: ['', Validators.required],
+      cpf: ['', Validators.required, Validators.minLength(11)],
+
+
+    });
+  }
+
+  get f() { return this.registerForm.controls; }
+
+  onSubmit() {
+    this.submitted = true;
+
+    if (this.registerForm.invalid) {
+      return;
+    }
+
+    alert('SUCESSO!!')
   }
 
   getLista() {
