@@ -41,5 +41,5 @@ export interface Projeto {
     matriculaDiscenteEnvolvido2: string;
     cronograma: string;
     situacao: number;
-
+    areaTematica: string;
 }   
