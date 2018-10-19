@@ -7,6 +7,10 @@ import { TodosProjetosComponent } from './components/todos-projetos/todos-projet
 import { ProjetoDetalheComponent } from './components/projeto-detalhe/projeto-detalhe.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { LoginComponent } from './components/login/login.component';
+import { Error404Component } from './components/error404/error404.component';
+import { TodosProjetosAnaliseComponent } from './components/todos-projetos-analise/todos-projetos-analise.component';
+import { TodosProjetosAceitosComponent } from './components/todos-projetos-aceitos/todos-projetos-aceitos.component';
+import { TodosProjetosReprovadosComponent } from './components/todos-projetos-reprovados/todos-projetos-reprovados.component';
 
 
 export const rootRouterConfig: Routes = [
@@ -16,8 +20,11 @@ export const rootRouterConfig: Routes = [
     ],
       children: [
         { path: 'novo-projeto', component: NovoProjetoComponent },
-        { path: 'info', component: InfoComponent },
+        { path: '', component: InfoComponent },
         { path: 'todos-projetos', component: TodosProjetosComponent },
+        { path: 'todos-analise', component: TodosProjetosAnaliseComponent },
+        { path: 'todos-aceitos', component: TodosProjetosAceitosComponent },
+        { path: 'todos-reprovados', component: TodosProjetosReprovadosComponent },
         { path: 'perfil', component: PerfilComponent },
         { path: 'projeto-detalhe', component: ProjetoDetalheComponent }
       ]

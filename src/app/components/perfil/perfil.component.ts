@@ -4,6 +4,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Perfil } from './perfil.module';
 import { Observable } from 'rxjs';
+import { PerfilService } from 'src/app/core/perfil.service';
 
 @Component({
   selector: 'app-perfil',
@@ -18,7 +19,7 @@ export class PerfilComponent implements OnInit {
   perfils: Observable<Perfil[]>;
   private perfilColection: AngularFirestoreCollection<Perfil>;
 
-  constructor(private db: AngularFirestore, private auth: AngularFireAuth) {
+  constructor(private db: AngularFirestore, private auth: AngularFireAuth, public perfilService: PerfilService) {
     if (firebase.auth().currentUser != null) {
       console.log("User id: " + firebase.auth().currentUser.uid);
     }
@@ -30,7 +31,7 @@ export class PerfilComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getPerfil();
+    this.perfilService.getPerfil();
   }
 
   

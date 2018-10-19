@@ -1,4 +1,4 @@
-$topnav-background-color: rgb(94, 92, 92);
+$topnav-background-color: rgb(153, 153, 153);
 :host {
     display: block;
 }
@@ -16,7 +16,7 @@ $topnav-background-color: rgb(94, 92, 92);
     overflow: auto;
     background: $topnav-background-color;
     text-align: center;
-    color: #fff;
+    color: #333;
     padding: 3em;
     .col-lg-4 {
         padding: 0;
@@ -32,14 +32,23 @@ $topnav-background-color: rgb(94, 92, 92);
         background: 0 0;
         border: none;
         box-shadow: none;
-        border-bottom: 2px solid rgba(255, 255, 255, 0.5);
-        color: #fff;
+        border-bottom: 2px solid #333;
+        color: #333;
         border-radius: 0;
     }
     .input-underline:focus {
-        border-bottom: 2px solid #fff;
+        border-bottom: 2px solid #333;
         box-shadow: none;
     }
+
+    input {
+        color: #333;
+    }
+
+    .input:placeholder{
+        color: #333;
+    }
+
     .rounded-btn {
         -webkit-border-radius: 50px;
         border-radius: 50px;
@@ -54,8 +63,8 @@ $topnav-background-color: rgb(94, 92, 92);
     .rounded-btn:focus,
     .rounded-btn:active,
     .rounded-btn:visited {
-        color: rgba(255, 255, 255, 1);
-        border: 2px solid rgba(255, 255, 255, 1);
+        color: #333;
+        border: 2px solid #333;
         outline: none;
     }
 
@@ -95,6 +104,18 @@ $topnav-background-color: rgb(94, 92, 92);
     .user-avatar {
         -webkit-border-radius: 50%;
         border-radius: 50%;
-        border: 2px solid #fff;
+        border: 2px solid #333;
+    }
+
+    .botao:hover{
+        color: #212529;
+        background-color: #2cbc59;
+        border-color: #212529;
+    }
+
+    .botao{
+        color: #ffffff;
+        background-color: #212529;
+        border-color: #212529;
     }
 }

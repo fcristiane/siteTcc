@@ -26,8 +26,8 @@
       </div>
 
       <div class="form-group col-md-2 mb-2">
-        <label for="horario">Horário (Início):</label>
-        <input type="time" class="form-control" formControlName="horaInicio" name="horarioInicio" [(ngModel)]="novoProjeto.horaInicio"
+        <label for="horaInicio">Horário (Início):</label>
+        <input type="string" class="form-control" formControlName="horaInicio" name="horaInicio" [(ngModel)]="novoProjeto.horaInicio"
           [ngClass]="{ 'is-invalid': submitted && f.horaInicio.errors }">
         <div *ngIf="submitted && f.horaInicio.errors" class="invalid-feedback">
           <div *ngIf="f.horaInicio.errors.required">Campo inválido!</div>
@@ -35,9 +35,9 @@
       </div>
 
       <div class="form-group col-md-2 mb-2">
-        <label for="horario">Horário (Fim):</label>
-        <input type="time" class="form-control" formControlName="horaFim" name="horarioFim" [(ngModel)]="novoProjeto.horaFim"
-          [ngClass]="{ 'is-invalid': submitted && f.horaInicio.errors }">
+        <label for="horaFim">Horário (Fim):</label>
+        <input type="string" class="form-control" formControlName="horaFim" name="horaFim" [(ngModel)]="novoProjeto.horaFim"
+          [ngClass]="{ 'is-invalid': submitted && f.horaFim.errors }">
         <div *ngIf="submitted && f.horaFim.errors" class="invalid-feedback">
           <div *ngIf="f.horaFim.errors.required">Campo inválido!</div>
         </div>
@@ -107,7 +107,7 @@
 
       <div class="form-group col-md-2 mb-2">
         <label for="diasDaSemana">Dias da semana:</label>
-        <input type="text" class="form-control" formControlName="diasDaSemana" name="diasDaSEmana" [(ngModel)]="novoProjeto.diasDaSemana"
+        <input type="text" class="form-control" formControlName="diasDaSemana" name="diasDaSemana" [(ngModel)]="novoProjeto.diasDaSemana"
           placeholder="Ex: Segunda-feira" [ngClass]="{ 'is-invalid': submitted && f.diasDaSemana.errors }">
         <div *ngIf="submitted && f.diasDaSemana.errors" class="invalid-feedback">
           <div *ngIf="f.diasDaSemana.errors.required">Campo inválido!</div>
@@ -130,126 +130,87 @@
         <label for="classficacao"><strong>Classificação: </strong></label>
         <br>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="classificacao" name="classificacao12" id="inlineCheckbox12"
-            value="concurso" [(ngModel)]="novoProjeto.classificacao12" [ngClass]="{ 'is-invalid': submitted && f.classficacao.errors }">
-          <div *ngIf="submitted && f.classificacao.errors" class="invalid-feedback">
-            <div *ngIf="f.classficacao.errors.required">Campo inválido!</div>
-          </div>
+          <input class="form-check-input" type="checkbox" name="classificacao12" id="inlineCheckbox12"
+            value="concurso" [(ngModel)]="novoProjeto.classificacao">
           <label class="form-check-label" for="classificacao">Concurso</label>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="classificacao" name="classificacao2" id="inlineCheckbox2"
-            value="curso" [(ngModel)]="novoProjeto.classificacao2" [ngClass]="{ 'is-invalid': submitted && f.classficacao.errors }">
+          <input class="form-check-input" type="checkbox" name="classificacao2" id="inlineCheckbox2"
+            value="curso" [(ngModel)]="novoProjeto.classificacao">
           <label class="form-check-label" for="classificacao">Curso</label>
-          <div *ngIf="submitted && f.classificacao.errors" class="invalid-feedback">
-            <div *ngIf="f.classficacao.errors.required">Campo inválido!</div>
-          </div>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="classificacao" name="classificacao3" id="inlineCheckbox3"
-            value="encontro" [(ngModel)]="novoProjeto.classificacao3" [ngClass]="{ 'is-invalid': submitted && f.classficacao.errors }">
-          <label class="form-check-label" for="classificacao">Encontro</label>
-          <div *ngIf="submitted && f.classificacao.errors" class="invalid-feedback">
-            <div *ngIf="f.classficacao.errors.required">Campo inválido!</div>
-          </div>
+          <input class="form-check-input" type="checkbox" name="classificacao3" id="inlineCheckbox3"
+            value="encontro" [(ngModel)]="novoProjeto.classificacao">
+          <label class="form-check-label">Encontro</label>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="classificacao" name="classificacao5" id="inlineCheckbox5"
-            value="exposição" [(ngModel)]="novoProjeto.classificacao5" [ngClass]="{ 'is-invalid': submitted && f.classficacao.errors }">
+          <input class="form-check-input" type="checkbox" name="classificacao5" id="inlineCheckbox5"
+            value="exposição" [(ngModel)]="novoProjeto.classificacao">
           <label class="form-check-label" for="classificacao">Exposição</label>
-          <div *ngIf="submitted && f.classificacao.errors" class="invalid-feedback">
-            <div *ngIf="f.classficacao.errors.required">Campo inválido!</div>
-          </div>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="classificacao" name="classificacao4" id="inlineCheckbox4"
-            value="jornada" [(ngModel)]="novoProjeto.classificacao4" [ngClass]="{ 'is-invalid': submitted && f.classficacao.errors }">
+          <input class="form-check-input" type="checkbox" name="classificacao4" id="inlineCheckbox4"
+            value="jornada" [(ngModel)]="novoProjeto.classificacao">
           <label class="form-check-label" for="classificacao">Jornada</label>
-          <div *ngIf="submitted && f.classificacao.errors" class="invalid-feedback">
-            <div *ngIf="f.classficacao.errors.required">Campo inválido!</div>
-          </div>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="classificacao" name="classificacao6" id="inlineCheckbox6"
-            value="oficina" [(ngModel)]="novoProjeto.classificacao6" [ngClass]="{ 'is-invalid': submitted && f.classficacao.errors }">
+          <input class="form-check-input" type="checkbox" name="classificacao6" id="inlineCheckbox6"
+            value="oficina" [(ngModel)]="novoProjeto.classificacao">
           <label class="form-check-label" for="classificacao">Oficina</label>
-          <div *ngIf="submitted && f.classificacao.errors" class="invalid-feedback">
-            <div *ngIf="f.classficacao.errors.required">Campo inválido!</div>
-          </div>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="classificacao" name="classificacao8" id="inlineCheckbox8"
-            value="palestra" [(ngModel)]="novoProjeto.classificacao8" [ngClass]="{ 'is-invalid': submitted && f.classficacao.errors }">
+          <input class="form-check-input" type="checkbox" name="classificacao8" id="inlineCheckbox8"
+            value="palestra" [(ngModel)]="novoProjeto.classificacao">
           <label class="form-check-label" for="classificacao">Palestra</label>
-          <div *ngIf="submitted && f.classificacao.errors" class="invalid-feedback">
-            <div *ngIf="f.classficacao.errors.required">Campo inválido!</div>
-          </div>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="classificacao" name="classificacao1" id="inlineCheckbox1"
-            value="projeto" [(ngModel)]="novoProjeto.classificacao1" [ngClass]="{ 'is-invalid': submitted && f.classficacao.errors }">
+          <input class="form-check-input" type="checkbox" name="classificacao1" id="inlineCheckbox1"
+            value="projeto" [(ngModel)]="novoProjeto.classificacao">
           <label class="form-check-label" for="classificacao">Projeto</label>
-          <div *ngIf="submitted && f.classificacao.errors" class="invalid-feedback">
-            <div *ngIf="f.classficacao.errors.required">Campo inválido!</div>
-          </div>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="classificacao" name="classificacao11" id="inlineCheckbox11"
-            value="publicação" [(ngModel)]="novoProjeto.classificacao11" [ngClass]="{ 'is-invalid': submitted && f.classficacao.errors }">
+          <input class="form-check-input" type="checkbox" name="classificacao11" id="inlineCheckbox1"
+            value="publicacao" [(ngModel)]="novoProjeto.classificacao">
           <label class="form-check-label" for="classificacao">Publicação</label>
-          <div *ngIf="submitted && f.classificacao.errors" class="invalid-feedback">
-            <div *ngIf="f.classficacao.errors.required">Campo inválido!</div>
-          </div>
-        </div>
+        </div>        
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="classificacao" name="classificacao7" id="inlineCheckbox7"
-            value="seminario" [(ngModel)]="novoProjeto.classificacao7" [ngClass]="{ 'is-invalid': submitted && f.classficacao.errors }">
+          <input class="form-check-input" type="checkbox" name="classificacao7" id="inlineCheckbox7"
+            value="seminario" [(ngModel)]="novoProjeto.classificacao">
           <label class="form-check-label" for="classificacao">Seminário</label>
-          <div *ngIf="submitted && f.classificacao.errors" class="invalid-feedback">
-            <div *ngIf="f.classficacao.errors.required">Campo inválido!</div>
-          </div>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="classificacao" name="classificacao9" id="inlineCheckbox9"
-            value="simpósio" [(ngModel)]="novoProjeto.classificacao9" [ngClass]="{ 'is-invalid': submitted && f.classficacao.errors }">
+          <input class="form-check-input" type="checkbox" name="classificacao9" id="inlineCheckbox9"
+            value="simpósio" [(ngModel)]="novoProjeto.classificacao">
           <label class="form-check-label" for="classificacao">Simpósio</label>
-          <div *ngIf="submitted && f.classificacao.errors" class="invalid-feedback">
-            <div *ngIf="f.classficacao.errors.required">Campo inválido!</div>
-          </div>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="classificacao" name="classificacao13" id="inlineCheckbox13"
-            value="viagem" [(ngModel)]="novoProjeto.classificacao13" [ngClass]="{ 'is-invalid': submitted && f.classficacao.errors }">
+          <input class="form-check-input" type="checkbox" name="classificacao13" id="inlineCheckbox13"
+            value="viagem" [(ngModel)]="novoProjeto.classificacao">
           <label class="form-check-label" for="classificacao">Viagem</label>
-          <div *ngIf="submitted && f.classificacao.errors" class="invalid-feedback">
-            <div *ngIf="f.classficacao.errors.required">Campo inválido!</div>
-          </div>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="classificacao" name="classificacao10" id="inlineCheckbox10"
-            value="workshop" [(ngModel)]="novoProjeto.classificacao10" [ngClass]="{ 'is-invalid': submitted && f.classficacao.errors }">
+          <input class="form-check-input" type="checkbox" name="classificacao10" id="inlineCheckbox10"
+            value="workshop" [(ngModel)]="novoProjeto.classificacao">
           <label class="form-check-label" for="classificacao">Workshop</label>
-          <div *ngIf="submitted && f.classificacao.errors" class="invalid-feedback">
-            <div *ngIf="f.classficacao.errors.required">Campo inválido!</div>
-          </div>
         </div>
 
       </div>
 
       <div class="form-group col-md-4">
-        <label for="local"><strong>Local de Realização:</strong></label>
+        <label><strong>Local de Realização:</strong></label>
         <input type="text" class="form-control" formControlName="local" name="local" [(ngModel)]="novoProjeto.local"
           [ngClass]="{ 'is-invalid': submitted && f.local.errors }">
         <div *ngIf="submitted && f.local.errors" class="invalid-feedback">
@@ -264,69 +225,47 @@
       <div class="form-group col-md-8">
         <label for="areaTematica"><strong>Área temática: </strong></label><br>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" formControlName="areaTematica" name="areaTematica2" value="Cultura"
-            [(ngModel)]="novoProjeto.areaTematica" [ngClass]="{ 'is-invalid': submitted && f.areaTematica.errors }">
-          <label class="form-check-label" for="areaTematica">Curso</label>
-          <div *ngIf="submitted && f.areaTematica.errors" class="invalid-feedback">
-            <div *ngIf="f.areaTematica.errors.required">Campo inválido!</div>
-          </div>
+          <input class="form-check-input" type="radio" name="areaTematica1" value="comunicação"
+            [(ngModel)]="novoProjeto.areaTematica" checked>
+          <label class="form-check-label" for="areaTematica">Comunicação</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" formControlName="areaTematica" name="areaTematica3" value="Direitos Humanos"
-            [(ngModel)]="novoProjeto.areaTematica" [ngClass]="{ 'is-invalid': submitted && f.areaTematica.errors }">
-          <label class="form-check-label" for="areaTematica">Encontro</label>
-          <div *ngIf="submitted && f.areaTematica.errors" class="invalid-feedback">
-            <div *ngIf="f.areaTematica.errors.required">Campo inválido!</div>
-          </div>
+          <input class="form-check-input" type="radio" name="areaTematica2" value="Cultura"
+            [(ngModel)]="novoProjeto.areaTematica">
+          <label class="form-check-label" for="areaTematica">Cultura</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" formControlName="areaTematica" name="areaTematica5" value="Meio Ambiente"
-            [(ngModel)]="novoProjeto.areaTematica" [ngClass]="{ 'is-invalid': submitted && f.areaTematica.errors }">
-          <label class="form-check-label" for="areaTematica">Exposição</label>
-          <div *ngIf="submitted && f.areaTematica.errors" class="invalid-feedback">
-            <div *ngIf="f.areaTematica.errors.required">Campo inválido!</div>
-          </div>
+          <input class="form-check-input" type="radio" name="areaTematica3" value="Direitos Humanos"
+            [(ngModel)]="novoProjeto.areaTematica">
+          <label class="form-check-label" for="areaTematica">Direitos Humanos</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" formControlName="areaTematica" name="areaTematica4" value="Educação"
-            [(ngModel)]="novoProjeto.areaTematica" [ngClass]="{ 'is-invalid': submitted && f.areaTematica.errors }">
-          <label class="form-check-label" for="areaTematica">Jornada</label>
-          <div *ngIf="submitted && f.areaTematica.errors" class="invalid-feedback">
-            <div *ngIf="f.areaTematica.errors.required">Campo inválido!</div>
-          </div>
+          <input class="form-check-input" type="radio" name="areaTematica4" value="Educação"
+            [(ngModel)]="novoProjeto.areaTematica">
+          <label class="form-check-label" for="areaTematica">Educação</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" formControlName="areaTematica" name="areaTematica6" value="Saúde"
-            [(ngModel)]="novoProjeto.areaTematica" [ngClass]="{ 'is-invalid': submitted && f.areaTematica.errors }">
-          <label class="form-check-label" for="areaTematica">Oficina</label>
-          <div *ngIf="submitted && f.areaTematica.errors" class="invalid-feedback">
-            <div *ngIf="f.areaTematica.errors.required">Campo inválido!</div>
-          </div>
+          <input class="form-check-input" type="radio" name="areaTematica5" value="Meio Ambiente"
+            [(ngModel)]="novoProjeto.areaTematica">
+          <label class="form-check-label" for="areaTematica">Meio Ambiente</label>
+        </div>
+        
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="radio" name="areaTematica6" value="Saúde"
+            [(ngModel)]="novoProjeto.areaTematica">
+          <label class="form-check-label" for="areaTematica">Saúde</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" formControlName="areaTematica" name="areaTematica8" value="Trabalho"
-            [(ngModel)]="novoProjeto.areaTematica" [ngClass]="{ 'is-invalid': submitted && f.areaTematica.errors }">
-          <label class="form-check-label" for="areaTematica">Palestra</label>
-          <div *ngIf="submitted && f.areaTematica.errors" class="invalid-feedback">
-            <div *ngIf="f.areaTematica.errors.required">Campo inválido!</div>
-          </div>
+          <input class="form-check-input" type="radio" name="areaTematica7" value="Tecnologia"
+            [(ngModel)]="novoProjeto.areaTematica">
+          <label class="form-check-label" for="areaTematica">Tecnologia</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" formControlName="areaTematica" name="areaTematica1" value="comunicação"
-            [(ngModel)]="novoProjeto.areaTematica" [ngClass]="{ 'is-invalid': submitted && f.areaTematica.errors }">
-          <label class="form-check-label" for="areaTematica">Projeto</label>
-          <div *ngIf="submitted && f.areaTematica.errors" class="invalid-feedback">
-            <div *ngIf="f.areaTematica.errors.required">Campo inválido!</div>
-          </div>
+          <input class="form-check-input" type="radio" name="areaTematica8" value="Trabalho"
+            [(ngModel)]="novoProjeto.areaTematica">
+          <label class="form-check-label" for="areaTematica">Trabalho</label>
         </div>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" formControlName="areaTematica" name="areaTematica7" value="Tecnologia"
-            [(ngModel)]="novoProjeto.areaTematica" [ngClass]="{ 'is-invalid': submitted && f.areaTematica.errors }">
-          <label class="form-check-label" for="areaTematica">Seminário</label>
-          <div *ngIf="submitted && f.areaTematica.errors" class="invalid-feedback">
-            <div *ngIf="f.areaTematica.errors.required">Campo inválido!</div>
-          </div>
-        </div>
+        
       </div>
 
       <div class="form-group col-md-4">
@@ -417,11 +356,11 @@
     <div class="form-row">
 
       <div class="form-group col-md-5">
-        <label for="name">Número de pessoas que serão envolvidas:</label>
-        <input class="form-control" type="number" placeholder="" name="" [(ngModel)]="novoProjeto.cpf">
+        <label>Número de pessoas que serão envolvidas:</label>
+        <input class="form-control" type="number" placeholder="" name="numPessoasEnvolvidas" [(ngModel)]="novoProjeto.numPessoasEnvolvidas">
       </div>
 
-      <div class="form-group col-md-7 texto-centro2">
+      <div class="col-md-7 texto-centro2">
         <label><strong>Público alvo: Funcionários da Univás.</strong></label>
       </div>
 
@@ -433,7 +372,7 @@
 
       <div class="form-group col-md-8">
         <label for="name">Nome da(s) instituição(s) ou empresa: Parceria, apoiadora ou conveniada:</label>
-        <input class="form-control" type="number" name="" [(ngModel)]="novoProjeto.cpf">
+        <input class="form-control" type="text" name="nomeInstituicaoApoio" [(ngModel)]="novoProjeto.nomeInstituicaoApoio">
       </div>
 
       <div class="form-group col-md-4">
@@ -445,8 +384,8 @@
           <option>Apoio</option>
           <option>Convênio</option>
         </select>
-        <div *ngIf="submitted && f.titulacao.errors" class="invalid-feedback">
-          <div *ngIf="f.titulacao.errors.required">Campo inválido!</div>
+        <div *ngIf="submitted && f.tipoParceria.errors" class="invalid-feedback">
+          <div *ngIf="f.tipoParceria.errors.required">Campo inválido!</div>
         </div>
       </div>
 
@@ -465,12 +404,12 @@
     </div>
     <hr m-0>
     <div class="form-row">
-      <div class="form-group col-md-8">
+      <div class="col-md-8">
         <label><strong>Justificativa:</strong></label>
         <textarea class="form-control" rows="4" name="justificativa" [(ngModel)]="novoProjeto.justificativa"></textarea>
       </div>
 
-      <div class="form-group col-md-4">
+      <div class="col-md-4">
         <p><i>Explicitar as razões do projeto; Situação/problema que originou a proposição do projeto; Delimitação da
             proposta básica de trabalho e possibilidade de operar mudanças frente à problemática descrita da
             comunidade; outros dados que julgar relevantes (ex, caracterização da comunidade, experiências anteriores,
@@ -480,12 +419,12 @@
     </div>
 
     <div class="form-row">
-      <div class="form-group col-md-8">
+      <div class="col-md-8">
         <label><strong>Metodologia / Procedimentos:</strong></label>
         <textarea class="form-control" rows="4" name="metodologiasProcedimentos" [(ngModel)]="novoProjeto.metodologiaProcedimento"></textarea>
         <p><i>Descrever detalhadamente as atividades a serem desenvolvidas.</i></p>
       </div>
-      <div class="form-group col-md-4">
+      <div class="col-md-4">
 
       </div>
     </div>
@@ -500,41 +439,51 @@
     </div>
 
     <div class="form-row">
-      <div class="form-group col-md-4">
+      <div class="col-md-4">
         <label for="name">Docente (s) envolvido (s):</label>
         <input class="form-control" type="text" name="docenteEnvolvido1" [(ngModel)]="novoProjeto.docenteEnvolvido1">
         <p><i>Nome completo sem abreviatura.</i></p>
       </div>
 
-      <div class="form-group col-md-4">
+      <div class="col-md-4">
         <label for="name">Curso:</label>
         <input class="form-control" type="text" name="cursoDocenteEnvolvido1" [(ngModel)]="novoProjeto.cursoDocenteEnvolvido1">
       </div>
 
-      <div class="form-group col-md-4">
+      <div class="col-md-4">
         <label for="name">Função:</label>
         <input class="form-control" type="text" name="funcaoDocenteEnvolvido1" [(ngModel)]="novoProjeto.funcaoDocenteEnvolvido1">
       </div>
     </div>
 
     <div class="form-row">
-      <div class="form-group col-md-5">
+      <div class="col-md-5">
         <label for="name">Discente (s) envolvido (s):</label>
         <input class="form-control" type="text" name="discenteEnvolvido1" [(ngModel)]="novoProjeto.discenteEnvolvido1">
         <p><i>Nome completo sem abreviatura.</i></p>
       </div>
 
-      <div class="form-group col-md-3">
+      <div class="col-md-3">
         <label for="name">Curso:</label>
         <input class="form-control" type="text" name="cursoDiscenteEnvolvido1" [(ngModel)]="novoProjeto.cursoDiscenteEnvolvido1">
       </div>
 
-      <div class="form-group col-md-2">
+      <div class="col-md-2">
         <label for="name">Série:</label>
-        <input class="form-control" type="text" name="funcaoDiscenteEnvolvido1" [(ngModel)]="novoProjeto.funcaoDiscenteEnvolvido1">
+        <select id="inputState" class="form-control" name="periodoDiscenteEnvolvido1" [(ngModel)]="novoProjeto.periodoDiscenteEnvolvido1">
+          <option selected>Escolha...</option>
+          <option>Primeiro (1º)</option>
+          <option>Segundo (2º)</option>
+          <option>Terceiro (3º)</option>
+          <option>Quarto (4º)</option>
+          <option>Quinto (5º)</option>
+          <option>Sexto (6º)</option>
+          <option>Sétimo (7º)</option>
+          <option>Oitavo (8º)</option>
+        </select>
       </div>
 
-      <div class="form-group col-md-2">
+      <div class="col-md-2">
         <label for="name">Nº de matrícula:</label>
         <input class="form-control" type="text" name="funcaoDiscenteEnvolvido1" [(ngModel)]="novoProjeto.funcaoDiscenteEnvolvido1">
       </div>
@@ -542,7 +491,7 @@
     </div>
 
     <div class="form-row">
-      <div class="form-group col-md-12">
+      <div class="col-md-12">
         <label>Cronograma: </label>
         <textarea class="form-control" rows="2" name="cronograma" [(ngModel)]="novoProjeto.cronograma"></textarea>
         <p><i>Atividades a serem realizadas durante o projeto.</i></p>
@@ -550,8 +499,8 @@
     </div>
 
     <div class="form-row">
-      <div class="form-group">
-        <button [disabled]="loading" class="btn btn-primary btn-lg btn-block" type="submit">Finalizar</button>
+      <div>
+        <button [disabled]="loading" class="btn btn-primary btn-lg btn-block" type="submit" (click)="save()">Finalizar</button>
       </div>
     </div>
 

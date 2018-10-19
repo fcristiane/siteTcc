@@ -8,6 +8,7 @@ import {
   NavigationStart,
   Router
 } from '@angular/router';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,7 @@ import {
 export class AppComponent {
   title = 'siteTcc';
 
-  constructor(private _loadingBar: SlimLoadingBarService, private _router: Router) {
+  constructor(private _loadingBar: SlimLoadingBarService, private _router: Router, private spinner: NgxSpinnerService) {
     this._router.events.subscribe((event: Event) => {
       this.navigationInterceptor(event);
     });
@@ -36,4 +37,15 @@ export class AppComponent {
       this._loadingBar.stop();
     }
   }
+
+  ngOnInit(){
+    /** spinner starts on init */
+    this.spinner.show();
+ 
+    setTimeout(() => {
+        /** spinner ends after 5 seconds */
+        this.spinner.hide();
+    }, 5000);
+  }
+
 }

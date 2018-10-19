@@ -21,10 +21,24 @@
 }
 
 .centro{
-    align-items: center;
-    text-align: center;
+    align-items: center!important;
+    text-align: center!important;
 }
 
 .medio {
     width: 100%;
 }
+
+a:link,
+a:visited {
+  color: #212529;
+  text-decoration: none;
+  font-family: ubuntu;
+  
+}
+
+h2{
+    font-family: Ubuntu;
+}
+
+#customers tr:nth-child(even){background-color: rgb(255, 250, 250);}

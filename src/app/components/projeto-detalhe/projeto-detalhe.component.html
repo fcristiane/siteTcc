@@ -1,11 +1,11 @@
 <div class="container mt-4">
   <div class="row">
 
-    <div class="col-12">
+    <div class="col-md-12">
       <h2>Detalhes do projeto: <i> {{ project.nomeAtv }} </i></h2>
       <hr>
     </div>
-    <div class="col-8">
+    <div class="col-md-8">
       <div class="media border p-3">
         <div class="media-body">
           <h4><strong> Responsável: </strong>{{ project.responsavel }}</h4>
@@ -31,7 +31,7 @@
       </div>
     </div>
 
-    <div class="col-4">
+    <div class="col-md-4">
       <div class="media border p-3">
         <div class="media-body">
           <h6><strong>Período de: </strong>{{project.periodoDe}}</h6>
@@ -57,5 +57,14 @@
       </div>
     </div>
 
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <a class="nav-link" routerLink="/home/todos-projetos">
+        <span [innerHTML]="'arrow-left' | feather:35:'#212529'"></span>
+        <strong>Voltar</strong>
+      </a>
+    </div>
   </div>
 </div>

@@ -1,31 +1,8 @@
-<!-- <nav class="navbar navbar-dark fixed-top bg-dark shadow">
-  <ul class="navbar-nav">
-    <li class="nav-item active">
-      <a class="navbar-brand" routerLink="/home/info">Gerência de Projetos</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#">Link</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link disabled" href="#">Disabled</a>
-    </li>
-  </ul>
-  <a class="navbar-brand col-sm-1 col-md-1 mr-0" href="#">Bem Vindo</a>
-  <a class="nav-link" [innerHTML]="'user' | feather:24:'#007FFF'" routerLink="/home/perfil" title="Perfil" data-toggle="tooltip"></a>
-  <ul class="navbar-nav px-3">
-    <li class="nav-item text-nowrap">
-      <a class="nav-link" href="#" [innerHTML]="'log-out' | feather:24:'#007FFF'"></a>
-    </li>
-  </ul>
-</nav> -->
 <header>
     <ng2-slim-loading-bar color="green"></ng2-slim-loading-bar>
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
     <a routerLink="/home/info">
-      <h5 style="margin:0; color: #e8edff" title="Início">Gerência de Projetos</h5>
+      <h5 style="margin:0; color: #e8edff" title="Início" routerLink="/home">Gerência de Projetos</h5>
     </a>
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
@@ -33,18 +10,19 @@
           <a class="nav-link" routerLink="#" title="#"></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="#" title="#">Link</a>
+          <a class="nav-link" routerLink="/home" title="#">Início</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="#" title="#">Link</a>
+          <a class="nav-link" routerLink="#" title="#">Contatos</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="#" title="#">Link</a>
+          <a class="nav-link" routerLink="#" title="#">Sobre o Site</a>
         </li>
       </ul>
     </div>
     <form class="form-inline my-2 my-lg-0">
-      <a><button type="button" class="btn btn-outline-light my-2 my-sm-0 botao">Sair</button></a>
+      <h6 id="bv" class="mr-3">Bem vindo, Daniel</h6>
+      <a><button type="button" class="btn btn-outline-light my-2 my-sm-0 botao" (click)="logout()" routerLink="">Sair</button></a>
     </form>
     <!-- <ul class="nav justify-content-end">
       <li class="nav-item">
@@ -102,23 +80,31 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" routerLink="/home/todos-aceitos">
               <span [innerHTML]="'check' | feather:24:'#212529'"></span>
               Aceitos
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" routerLink="/home/todos-analise">
               <span [innerHTML]="'refresh-cw' | feather:24:'#212529'"></span>
               Em análise
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" routerLink="/home/todos-reprovados">
               <span [innerHTML]="'x-square' | feather:24:'#212529'"></span>
               Reprovados
             </a>
           </li>
+          
+        </ul>
+
+        <div class="col-12">
+          <hr>
+        </div>
+
+        <ul class="nav flex-column mb-2">
 
           <li class="nav-item">
             <a class="nav-link" routerLink="/home/perfil">
@@ -127,7 +113,13 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/home/profile">
+            <a class="nav-link" routerLink="#">
+              <span [innerHTML]="'book-open' | feather:24:'#212529'" routerLink="/home/perfil"></span>
+              Manual do Usuário
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="#">
               <span [innerHTML]="'settings' | feather:24:'#212529'"></span>
               Configurações
             </a>
