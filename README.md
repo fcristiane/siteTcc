@@ -1,4 +1,4 @@
-# SiteTcc
+# Site Gerenciamento de Projetos de Extensão
 
 Trabalho para Desenvolvimento do Site de Gerenciamento de Projetos da Universidade do Vale do Sapucaí, com o intuito de concluir o Trabalho de Conclusão de Curso pelo curso de Sistemas de Informação.
 __________________________________________________________________________________
