@@ -11,6 +11,7 @@ import { Error404Component } from './components/error404/error404.component';
 import { TodosProjetosAnaliseComponent } from './components/todos-projetos-analise/todos-projetos-analise.component';
 import { TodosProjetosAceitosComponent } from './components/todos-projetos-aceitos/todos-projetos-aceitos.component';
 import { TodosProjetosReprovadosComponent } from './components/todos-projetos-reprovados/todos-projetos-reprovados.component';
+import { ManualDoUsuarioComponent } from './components/manual-do-usuario/manual-do-usuario.component';
 
 
 export const rootRouterConfig: Routes = [
@@ -26,7 +27,8 @@ export const rootRouterConfig: Routes = [
         { path: 'todos-aceitos', component: TodosProjetosAceitosComponent },
         { path: 'todos-reprovados', component: TodosProjetosReprovadosComponent },
         { path: 'perfil', component: PerfilComponent },
-        { path: 'projeto-detalhe', component: ProjetoDetalheComponent }
+        { path: 'projeto-detalhe', component: ProjetoDetalheComponent },
+        { path: 'manual-do-usuario', component: ManualDoUsuarioComponent }
       ]
     },
     { path: 'login', component: LoginComponent },

@@ -73,29 +73,30 @@ $topnav-background-color: rgb(153, 153, 153);
         margin-top: 20px;
         margin-bottom: 10px;
         font-size: 36px;
+        font-family: Ubuntu;
         small {
-            color: rgba(255, 255, 255, 0.7);
+            color: #333;
         }
     }
 
     .form-group {
         padding: 8px 0;
         input::-webkit-input-placeholder {
-            color: rgba(255, 255, 255, 0.6) !important;
+            color: #333 !important;
         }
 
         input:-moz-placeholder {
             /* Firefox 18- */
-            color: rgba(255, 255, 255, 0.6) !important;
+            color: #333 !important;
         }
 
         input::-moz-placeholder {
             /* Firefox 19+ */
-            color: rgba(255, 255, 255, 0.6) !important;
+            color: #333 !important;
         }
 
         input:-ms-input-placeholder {
-            color: rgba(255, 255, 255, 0.6) !important;
+            color: #333 !important;
         }
     }
     .form-content {

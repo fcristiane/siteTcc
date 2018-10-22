@@ -9,4 +9,5 @@ export interface Perfil{
     formacao: string;
     titulação: string;
     permissao: string;
+    cargo: string;
 }

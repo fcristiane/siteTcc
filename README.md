@@ -1,6 +1,6 @@
 # Site Gerenciamento de Projetos de Extensão
 
-Trabalho para Desenvolvimento do Site de Gerenciamento de Projetos da Universidade do Vale do Sapucaí, com o intuito de concluir o Trabalho de Conclusão de Curso pelo curso de Sistemas de Informação.
+Trabalho para Desenvolvimento do Site de Gerenciamento de Projetos pela Universidade do Vale do Sapucaí, com o intuito de concluir o Trabalho de Conclusão de Curso pelo curso de Sistemas de Informação.
 __________________________________________________________________________________
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.

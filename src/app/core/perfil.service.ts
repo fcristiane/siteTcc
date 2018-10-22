@@ -22,7 +22,6 @@ export class PerfilService {
   }
 
   ngOnInit(){
-    this.getPerfil();
   }
 
   getPerfil(): Observable<Perfil[]>{

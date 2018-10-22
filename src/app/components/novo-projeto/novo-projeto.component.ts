@@ -36,8 +36,6 @@ export class NovoProjetoComponent implements OnInit {
       curso: ['', Validators.required],
       coordenador: ['', Validators.required],
       responsavel: ['', Validators.required],
-      campus: ['', Validators.required],
-      areaAtuacao: ['', Validators.required],
       horaInicio: ['', Validators.required],
       horaFim: ['', Validators.required],
       periodoDe: ['', Validators.required],
@@ -45,9 +43,8 @@ export class NovoProjetoComponent implements OnInit {
       local: ['', Validators.required],
       diasDaSemana: ['', Validators.required],
       cargaHoraria: ['', Validators.required],
-      areaTematica: ['', Validators.required],
       ministrante: ['', Validators.required],
-      cpf: ['', Validators.required, Validators.minLength(11)],
+      cpf: ['', Validators.required],
 
 
     });

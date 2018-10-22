@@ -1,17 +1,10 @@
 <div class="row">
-
-  <div class="col-md-12 mt-4">
-    <div class="row">
-      <div class="col-md-12">
-          <h2 class="mb-1" id="texto-centro">Seus Projetos</h2>
-      </div>
-    </div>
-    <hr>
-  </div>
-
   <div class="col-md-12 order-md-1">
+    <br>
+    <h2 class="mb-3" id="texto-centro">Seus Projetos</h2>
+    <hr>
     <div class="table-responsive">
-      <table class="table table-striped table-sm table-bordered table-hover" >
+      <table class="table table-striped table-sm table-bordered table-hover">
         <thead *ngFor="let perfil of perfils | async">
           <tr>
             <th class="centro">Nº</th>
@@ -32,14 +25,18 @@
             <td>{{ project.classificacao }}</td>
             <td>{{ project.curso }}</td>
             <td>{{ project.responsavel }}</td>
-            <td *ngIf="project.situacao == 1"><button type="button" class="btn btn-warning btn-sm centro medio" disabled>Em Análize</button></td>
-            <td *ngIf="project.situacao == 2"><button type="button" class="btn btn-success btn-md centro medio" disabled>Aprovado</button></td>
+            <td *ngIf="project.situacao == 1"><button type="button" class="btn btn-warning btn-sm centro medio"
+                disabled>Em Análize</button></td>
+            <td *ngIf="project.situacao == 2"><button type="button" class="btn btn-success btn-md centro medio"
+                disabled>Aprovado</button></td>
             <td *ngIf="project.situacao == 3"><button type="button" class="btn btn-danger btn-sm centro medio" disabled>Reprovado</button></td>
-            <td><button type="button" class="btn btn-primary btn-sm centro" routerLink="/home/projeto-detalhe" >Detalhes</button></td>
-            <td *ngIf="perfil.permissao == 4 && project.situacao != 3 && project.situacao != 2"><button type="button" class="btn btn-success btn-sm centro" (click)="aprovar(project)">Aprovar</button></td>
-            <td *ngIf="perfil.permissao == 4 && project.situacao != 3 && project.situacao != 2"><button type="button" class="btn btn-danger btn-sm centro" (click)="reprovar(project)">Reprovar</button></td>
-            <td *ngIf="perfil.permissao == 4 && project.situacao != 1"><button type="button" class="btn btn-primary btn-sm centro" (click)="reentrada(project)">Reentrada</button></td>
-
+            <td><button type="button" class="btn btn-primary btn-sm centro" routerLink="/home/projeto-detalhe" (click)="getProjetoById(project)">Detalhes</button></td>
+            <td *ngIf="perfil.permissao == 4 && project.situacao != 3 && project.situacao != 2"><button type="button"
+                class="btn btn-success btn-sm centro" (click)="aprovar(project)">Aprovar</button></td>
+            <td *ngIf="perfil.permissao == 4 && project.situacao != 3 && project.situacao != 2"><button type="button"
+                class="btn btn-danger btn-sm centro" (click)="reprovar(project)">Reprovar</button></td>
+            <td *ngIf="perfil.permissao == 4 && project.situacao != 1"><button type="button" class="btn btn-secondary btn-sm centro"
+                (click)="reentrada(project)">Redefinir</button></td>
 
             <!-- routerLink="/home/projeto-detalhe" -->
             <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
@@ -179,40 +176,43 @@
               </div>
             </div>
           </tr>
-          
+
         </tbody>
       </table>
 
       <div class="col-md-12">
         <div class="row">
-            <a class="nav-link" routerLink="/home">
-              <span [innerHTML]="'arrow-left' | feather:35:'#212529'"></span>
-              <strong>Voltar</strong>
-            </a>
+          <a class="nav-link" routerLink="/home">
+            <span [innerHTML]="'arrow-left' | feather:35:'#212529'"></span>
+            <strong>Voltar</strong>
+          </a>
         </div>
       </div>
-       <!-- Modal -->
-       <div class="modal fade" id="exampleModalCentro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-       aria-hidden="true">
-       <div class="modal-dialog modal-dialog-centered" role="document">
-         <div class="modal-content">
-           <div class="modal-header">
-             <h5 class="modal-title" id="exampleModalCenterTitle">Aprovação ou Reprovação do projeto</h5>
-             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-               <span aria-hidden="true">&times;</span>
-             </button>
-           </div>
-           <div class="modal-body">
-               Tem certeza disso?
-           </div>
-           <div class="modal-footer">
-             <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-             <button type="button" class="btn btn-primary" (click)="update(project)">Sim</button>
-           </div>
-         </div>
-       </div>
-     </div>
+      <hr>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalCentro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Aprovação ou Reprovação do projeto</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Tem certeza disso?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+              <button type="button" class="btn btn-primary" (click)="update(project)">Sim</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+    
   </div>
-</div>
 
+
+</div>

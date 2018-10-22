@@ -27,7 +27,7 @@
 
       <div class="form-group col-md-2 mb-2">
         <label for="horaInicio">Horário (Início):</label>
-        <input type="string" class="form-control" formControlName="horaInicio" name="horaInicio" [(ngModel)]="novoProjeto.horaInicio"
+        <input type="text" class="form-control" formControlName="horaInicio" name="horaInicio" mask="00:00" placeholder="hh:mm" [(ngModel)]="novoProjeto.horaInicio"
           [ngClass]="{ 'is-invalid': submitted && f.horaInicio.errors }">
         <div *ngIf="submitted && f.horaInicio.errors" class="invalid-feedback">
           <div *ngIf="f.horaInicio.errors.required">Campo inválido!</div>
@@ -36,7 +36,7 @@
 
       <div class="form-group col-md-2 mb-2">
         <label for="horaFim">Horário (Fim):</label>
-        <input type="string" class="form-control" formControlName="horaFim" name="horaFim" [(ngModel)]="novoProjeto.horaFim"
+        <input type="text" class="form-control" formControlName="horaFim" name="horaFim" mask="00:00" placeholder="hh:mm" [(ngModel)]="novoProjeto.horaFim"
           [ngClass]="{ 'is-invalid': submitted && f.horaFim.errors }">
         <div *ngIf="submitted && f.horaFim.errors" class="invalid-feedback">
           <div *ngIf="f.horaFim.errors.required">Campo inválido!</div>
@@ -66,7 +66,7 @@
 
       <div class="form-group col-md-2 mb-2">
         <label for="periodoDe">Período de:</label>
-        <input type="date" class="form-control" formControlName="periodoDe" name="periodoDe" [(ngModel)]="novoProjeto.preriodoDe"
+        <input type="text" class="form-control" formControlName="periodoDe" name="periodoDe" mask="00/00/0000" placeholder="dd/mm/aaaa" [(ngModel)]="novoProjeto.preriodoDe"
           [(ngModel)]="novoProjeto.periodoDe" [ngClass]="{ 'is-invalid': submitted && f.periodoDe.errors }">
         <div *ngIf="submitted && f.periodoDe.errors" class="invalid-feedback">
           <div *ngIf="f.periodoDe.errors.required">Campo inválido!</div>
@@ -75,7 +75,7 @@
 
       <div class="form-group col-md-2 mb-2">
         <label for="periodoAte">Até:</label>
-        <input type="date" class="form-control" formControlName="periodoAte" name="periodoAte" [(ngModel)]="novoProjeto.periodoAte"
+        <input type="text" class="form-control" formControlName="periodoAte" name="periodoAte" mask="00/00/0000" placeholder="dd/mm/aaaa" [(ngModel)]="novoProjeto.periodoAte"
           [(ngModel)]="novoProjeto.periodoAte" [ngClass]="{ 'is-invalid': submitted && f.periodoAte.errors }">
         <div *ngIf="submitted && f.periodoAte.errors" class="invalid-feedback">
           <div *ngIf="f.periodoAte.errors.required">Campo inválido!</div>
@@ -94,15 +94,12 @@
       </div>
 
       <div class="form-group col-md-3">
-        <label><strong>Campus: </strong></label>
-        <select class="form-control" formControlName="campus" name="campus" [(ngModel)]="novoProjeto.campus" [ngClass]="{ 'is-invalid': submitted && f.campus.errors }">
+        <label for="campus"><strong>Campus: </strong></label>
+        <select class="form-control" name="campus" [(ngModel)]="novoProjeto.campus">
           <option selected>Escolha...</option>
           <option>Fátima</option>
           <option>Central</option>
         </select>
-        <div *ngIf="submitted && f.campus.errors" class="invalid-feedback">
-          <div *ngIf="f.campus.errors.required">Campo inválido!</div>
-        </div>
       </div>
 
       <div class="form-group col-md-2 mb-2">
@@ -130,80 +127,80 @@
         <label for="classficacao"><strong>Classificação: </strong></label>
         <br>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="classificacao12" id="inlineCheckbox12"
-            value="concurso" [(ngModel)]="novoProjeto.classificacao">
+          <input class="form-check-input" type="checkbox" name="classificacao12" id="inlineCheckbox12" value="concurso"
+            [(ngModel)]="novoProjeto.classificacao">
           <label class="form-check-label" for="classificacao">Concurso</label>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="classificacao2" id="inlineCheckbox2"
-            value="curso" [(ngModel)]="novoProjeto.classificacao">
+          <input class="form-check-input" type="checkbox" name="classificacao2" id="inlineCheckbox2" value="curso"
+            [(ngModel)]="novoProjeto.classificacao">
           <label class="form-check-label" for="classificacao">Curso</label>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="classificacao3" id="inlineCheckbox3"
-            value="encontro" [(ngModel)]="novoProjeto.classificacao">
+          <input class="form-check-input" type="checkbox" name="classificacao3" id="inlineCheckbox3" value="encontro"
+            [(ngModel)]="novoProjeto.classificacao">
           <label class="form-check-label">Encontro</label>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="classificacao5" id="inlineCheckbox5"
-            value="exposição" [(ngModel)]="novoProjeto.classificacao">
+          <input class="form-check-input" type="checkbox" name="classificacao5" id="inlineCheckbox5" value="exposição"
+            [(ngModel)]="novoProjeto.classificacao">
           <label class="form-check-label" for="classificacao">Exposição</label>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="classificacao4" id="inlineCheckbox4"
-            value="jornada" [(ngModel)]="novoProjeto.classificacao">
+          <input class="form-check-input" type="checkbox" name="classificacao4" id="inlineCheckbox4" value="jornada"
+            [(ngModel)]="novoProjeto.classificacao">
           <label class="form-check-label" for="classificacao">Jornada</label>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="classificacao6" id="inlineCheckbox6"
-            value="oficina" [(ngModel)]="novoProjeto.classificacao">
+          <input class="form-check-input" type="checkbox" name="classificacao6" id="inlineCheckbox6" value="oficina"
+            [(ngModel)]="novoProjeto.classificacao">
           <label class="form-check-label" for="classificacao">Oficina</label>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="classificacao8" id="inlineCheckbox8"
-            value="palestra" [(ngModel)]="novoProjeto.classificacao">
+          <input class="form-check-input" type="checkbox" name="classificacao8" id="inlineCheckbox8" value="palestra"
+            [(ngModel)]="novoProjeto.classificacao">
           <label class="form-check-label" for="classificacao">Palestra</label>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="classificacao1" id="inlineCheckbox1"
-            value="projeto" [(ngModel)]="novoProjeto.classificacao">
+          <input class="form-check-input" type="checkbox" name="classificacao1" id="inlineCheckbox1" value="projeto"
+            [(ngModel)]="novoProjeto.classificacao">
           <label class="form-check-label" for="classificacao">Projeto</label>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="classificacao11" id="inlineCheckbox1"
-            value="publicacao" [(ngModel)]="novoProjeto.classificacao">
+          <input class="form-check-input" type="checkbox" name="classificacao11" id="inlineCheckbox1" value="publicacao"
+            [(ngModel)]="novoProjeto.classificacao">
           <label class="form-check-label" for="classificacao">Publicação</label>
-        </div>        
+        </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="classificacao7" id="inlineCheckbox7"
-            value="seminario" [(ngModel)]="novoProjeto.classificacao">
+          <input class="form-check-input" type="checkbox" name="classificacao7" id="inlineCheckbox7" value="seminario"
+            [(ngModel)]="novoProjeto.classificacao">
           <label class="form-check-label" for="classificacao">Seminário</label>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="classificacao9" id="inlineCheckbox9"
-            value="simpósio" [(ngModel)]="novoProjeto.classificacao">
+          <input class="form-check-input" type="checkbox" name="classificacao9" id="inlineCheckbox9" value="simpósio"
+            [(ngModel)]="novoProjeto.classificacao">
           <label class="form-check-label" for="classificacao">Simpósio</label>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="classificacao13" id="inlineCheckbox13"
-            value="viagem" [(ngModel)]="novoProjeto.classificacao">
+          <input class="form-check-input" type="checkbox" name="classificacao13" id="inlineCheckbox13" value="viagem"
+            [(ngModel)]="novoProjeto.classificacao">
           <label class="form-check-label" for="classificacao">Viagem</label>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="classificacao10" id="inlineCheckbox10"
-            value="workshop" [(ngModel)]="novoProjeto.classificacao">
+          <input class="form-check-input" type="checkbox" name="classificacao10" id="inlineCheckbox10" value="workshop"
+            [(ngModel)]="novoProjeto.classificacao">
           <label class="form-check-label" for="classificacao">Workshop</label>
         </div>
 
@@ -225,53 +222,45 @@
       <div class="form-group col-md-8">
         <label for="areaTematica"><strong>Área temática: </strong></label><br>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="areaTematica1" value="comunicação"
-            [(ngModel)]="novoProjeto.areaTematica" checked>
+          <input class="form-check-input" type="radio" name="areaTematica" value="comunicação" [(ngModel)]="novoProjeto.areaTematica"
+            checked>
           <label class="form-check-label" for="areaTematica">Comunicação</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="areaTematica2" value="Cultura"
-            [(ngModel)]="novoProjeto.areaTematica">
+          <input class="form-check-input" type="radio" name="areaTematica" value="Cultura" [(ngModel)]="novoProjeto.areaTematica">
           <label class="form-check-label" for="areaTematica">Cultura</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="areaTematica3" value="Direitos Humanos"
-            [(ngModel)]="novoProjeto.areaTematica">
+          <input class="form-check-input" type="radio" name="areaTematica" value="Direitos Humanos" [(ngModel)]="novoProjeto.areaTematica">
           <label class="form-check-label" for="areaTematica">Direitos Humanos</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="areaTematica4" value="Educação"
-            [(ngModel)]="novoProjeto.areaTematica">
+          <input class="form-check-input" type="radio" name="areaTematica" value="Educação" [(ngModel)]="novoProjeto.areaTematica">
           <label class="form-check-label" for="areaTematica">Educação</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="areaTematica5" value="Meio Ambiente"
-            [(ngModel)]="novoProjeto.areaTematica">
+          <input class="form-check-input" type="radio" name="areaTematica" value="Meio Ambiente" [(ngModel)]="novoProjeto.areaTematica">
           <label class="form-check-label" for="areaTematica">Meio Ambiente</label>
         </div>
-        
+
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="areaTematica6" value="Saúde"
-            [(ngModel)]="novoProjeto.areaTematica">
+          <input class="form-check-input" type="radio" name="areaTematica" value="Saúde" [(ngModel)]="novoProjeto.areaTematica">
           <label class="form-check-label" for="areaTematica">Saúde</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="areaTematica7" value="Tecnologia"
-            [(ngModel)]="novoProjeto.areaTematica">
+          <input class="form-check-input" type="radio" name="areaTematica" value="Tecnologia" [(ngModel)]="novoProjeto.areaTematica">
           <label class="form-check-label" for="areaTematica">Tecnologia</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="areaTematica8" value="Trabalho"
-            [(ngModel)]="novoProjeto.areaTematica">
+          <input class="form-check-input" type="radio" name="areaTematica" value="Trabalho" [(ngModel)]="novoProjeto.areaTematica">
           <label class="form-check-label" for="areaTematica">Trabalho</label>
         </div>
-        
+
       </div>
 
       <div class="form-group col-md-4">
-        <label><strong>Área de atuação: </strong></label>
-        <select class="form-control" formControlName="areaAtuacao" name="areaAtuacao" [(ngModel)]="novoProjeto.areaAtuacao"
-          [ngClass]="{ 'is-invalid': submitted && f.areaAtuacao.errors }">
+        <label for="areaAtuacao" ><strong>Área de atuação: </strong></label>
+        <select class="form-control" name="areaAtuacao" [(ngModel)]="novoProjeto.areaAtuacao">
           <option selected>Escolha...</option>
           <option>Ciências Biológicas</option>
           <option>Ciências da Saúde</option>
@@ -280,9 +269,6 @@
           <option>Comunicação</option>
           <option>Educação</option>
         </select>
-        <div *ngIf="submitted && f.areaAtuacao.errors" class="invalid-feedback">
-          <div *ngIf="f.areaAtuacao.errors.required">Campo inválido!</div>
-        </div>
       </div>
 
     </div>
@@ -300,8 +286,8 @@
 
       <div class="form-group col-md-4">
         <label>CPF:</label>
-        <input class="form-control" type="text" formControlName="cpf" name="cpf" [(ngModel)]="novoProjeto.cpf"
-          [ngClass]="{ 'is-invalid': submitted && f.cpf.errors }" maxlength="11">
+        <input type="text" class="form-control" formControlName="cpf" name="cpf" mask="000.000.000-00" placeholder="123.456.789-00" [(ngModel)]="novoProjeto.cpf"
+          [ngClass]="{ 'is-invalid': submitted && f.cpf.errors }">
         <div *ngIf="submitted && f.cpf.errors" class="invalid-feedback">
           <div *ngIf="f.cpf.errors.required">Campo inválido!</div>
         </div>
@@ -317,13 +303,15 @@
       <div class="form-group col-md-3">
         <label><strong>Docente da Instituição? </strong></label><br>
         <div class="form-check form-check-inline">
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="docenteInstituicaoSim" value="Sim" [(ngModel)]="novoProjeto.docenteInstituicao">
-            <label class="form-check-label">Sim</label>
+          <div class="custom-control custom-radio">
+            <input type="radio" name="docenteInstituicao" id="customRadio1" class="custom-control-input" value="Sim"
+              [(ngModel)]="novoProjeto.docenteInstituicao">
+            <label class="custom-control-label" for="customRadio1">Sim    </label>
           </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="docenteInstituicaoNao" value="Não" [(ngModel)]="novoProjeto.docenteInstituicao">
-            <label class="form-check-label">Não</label>
+          <div class="custom-control custom-radio">
+            <input type="radio" name="docenteInstituicao" id="customRadio2" class="custom-control-input" value="Não"
+              [(ngModel)]="novoProjeto.docenteInstituicao">
+            <label class="custom-control-label" for="customRadio2">Não</label>
           </div>
         </div>
       </div>
@@ -511,6 +499,10 @@
 
 
 </div>
+
+<script type="text/javascript">
+  $("#horaInicio, #horaFim").mask("00:00");
+</script>
 
 
 

@@ -28,7 +28,10 @@ import { TodosProjetosAceitosComponent } from './components/todos-projetos-aceit
 import { TodosProjetosReprovadosComponent } from './components/todos-projetos-reprovados/todos-projetos-reprovados.component';
 import { TodosProjetosAnaliseComponent } from './components/todos-projetos-analise/todos-projetos-analise.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
-
+import { PerfilService } from './core/perfil.service';
+import { ManualDoUsuarioComponent } from './components/manual-do-usuario/manual-do-usuario.component';
+import {NgxMaskModule} from 'ngx-mask';
+import { NovoPerfilComponent } from './components/novo-perfil/novo-perfil.component'
 
 @NgModule({
   declarations: [
@@ -46,6 +49,8 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     TodosProjetosAnaliseComponent,
     TodosProjetosAceitosComponent,
     TodosProjetosReprovadosComponent,
+    ManualDoUsuarioComponent,
+    NovoPerfilComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,10 +62,11 @@ import { NgxSpinnerModule } from 'ngx-spinner';
     AngularFireAuthModule, // imports firebase/auth, only needed for auth features
     AngularFireDatabaseModule, // for database
     SlimLoadingBarModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    NgxMaskModule.forRoot()
     
   ],
-  providers: [UserService, AuthGuard, ProjetoService],
+  providers: [UserService, AuthGuard, ProjetoService, PerfilService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

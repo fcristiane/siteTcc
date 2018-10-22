@@ -31,17 +31,17 @@ export class PerfilComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.perfilService.getPerfil();
+    this.perfils = this.perfilService.getPerfil();
   }
 
-  
 
-  getPerfil() {
-    let userId = firebase.auth().currentUser.uid;
-    this.perfilColection = this.db.collection<Perfil>('perfil', ref => ref.where('userId', '==', userId));
-    this.perfils = this.perfilColection.valueChanges();
-    return this.perfils;
-  }
+
+  // getPerfil() {
+  //   let userId = firebase.auth().currentUser.uid;
+  //   this.perfilColection = this.db.collection<Perfil>('perfil', ref => ref.where('userId', '==', userId));
+  //   this.perfils = this.perfilColection.valueChanges();
+  //   return this.perfils;
+  // }
 
   salvar() {
     let id = this.db.createId();

@@ -40,6 +40,43 @@ export class ProjetoService {
     // this.projetos = this.projetosCollection.valueChanges()
   }
 
+  getProjetoById(){
+    
+  }
+
+  filterByAceitos(): Observable<Projeto[]> {
+    let userId = firebase.auth().currentUser.uid;
+    this.projetosCollection = this.db.collection<Projeto>('project', ref => ref.where('situacao', '==', 2).where('userId', '==', userId));
+    return this.projetos = this.projetosCollection.valueChanges();
+  }
+
+  filterByAnalise(): Observable<Projeto[]> {
+    let userId = firebase.auth().currentUser.uid;
+    this.projetosCollection = this.db.collection<Projeto>('project', ref => ref.where('situacao', '==', 1).where('userId', '==', userId));
+    return this.projetos = this.projetosCollection.valueChanges();
+  }
+
+  filterByReprovados(): Observable<Projeto[]> {
+    let userId = firebase.auth().currentUser.uid;
+    this.projetosCollection = this.db.collection<Projeto>('project', ref => ref.where('situacao', '==', 3).where('userId', '==', userId));
+    return this.projetos = this.projetosCollection.valueChanges();
+  }
+
+  filterByAceitosTodos(): Observable<Projeto[]> {
+    this.projetosCollection = this.db.collection<Projeto>('project', ref => ref.where('situacao', '==', 2));
+    return this.projetos = this.projetosCollection.valueChanges();
+  }
+
+  filterByAnaliseTodos(): Observable<Projeto[]> {
+    this.projetosCollection = this.db.collection<Projeto>('project', ref => ref.where('situacao', '==', 1));
+    return this.projetos = this.projetosCollection.valueChanges();
+  }
+
+  filterByReprovadosTodos(): Observable<Projeto[]> {
+    this.projetosCollection = this.db.collection<Projeto>('project', ref => ref.where('situacao', '==', 3));
+    return this.projetos = this.projetosCollection.valueChanges();
+  }
+
   create() {
     let id = this.db.createId();
     this.novoProjeto.id = id;
@@ -60,5 +97,40 @@ export class ProjetoService {
       console.log(erro)
     })
   }
+
+  aprovar(project: Projeto){
+    project.situacao = 2;
+    this.db.collection<Projeto>('project').doc(project.id).update(project).then((success) => {
+      console.log(success);
+      alert('Projeto aceito com sucesso!!!');
+    }).catch((erro) => {
+      console.log(erro);
+      alert('Erro ao aceitar projeto!!!');
+    })
+  }
+
+  reprovar(project: Projeto) {
+    project.situacao = 3;
+    this.db.collection<Projeto>('project').doc(project.id).update(project).then((success) => {
+      console.log(success);
+      alert('Projeto reprovado!!!');
+    }).catch((erro) => {
+      console.log(erro);
+      alert('Erro ao reprovar projeto!!!');
+    })
+  }
+
+  reentrada(project: Projeto) {
+    project.situacao = 1;
+    this.db.collection<Projeto>('project').doc(project.id).update(project).then((success) => {
+      console.log(success);
+      alert('Projeto movido para reanálise!!!');
+    }).catch((erro) => {
+      console.log(erro);
+      alert('Erro!!!');
+    })
+  }
+
+  
 
 }

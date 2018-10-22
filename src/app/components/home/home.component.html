@@ -1,5 +1,5 @@
 <header>
-    <ng2-slim-loading-bar color="green"></ng2-slim-loading-bar>
+  <ng2-slim-loading-bar color="green"></ng2-slim-loading-bar>
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
     <a routerLink="/home/info">
       <h5 style="margin:0; color: #e8edff" title="Início" routerLink="/home">Gerência de Projetos</h5>
@@ -21,7 +21,8 @@
       </ul>
     </div>
     <form class="form-inline my-2 my-lg-0">
-      <h6 id="bv" class="mr-3">Bem vindo, Daniel</h6>
+      <h6 id="bv" class="mr-2" *ngFor="let perfil of perfils | async">Bem vindo, {{ perfil.nome }}</h6>
+      <a routerLink="/home/perfil" title="Perfil"><span [innerHTML]="'user' | feather:24:'#2cbc59'" class="mr-2"></span></a>
       <a><button type="button" class="btn btn-outline-light my-2 my-sm-0 botao" (click)="logout()" routerLink="">Sair</button></a>
     </form>
     <!-- <ul class="nav justify-content-end">
@@ -97,7 +98,7 @@
               Reprovados
             </a>
           </li>
-          
+
         </ul>
 
         <div class="col-12">
@@ -113,7 +114,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="#">
+            <a class="nav-link" routerLink="/home/manual-do-usuario">
               <span [innerHTML]="'book-open' | feather:24:'#212529'" routerLink="/home/perfil"></span>
               Manual do Usuário
             </a>
@@ -130,25 +131,7 @@
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
       <router-outlet></router-outlet>
-      <footer class="page-footer font-small cyan darken-3">
-        <!-- Footer Elements -->
-        <!-- Copyright -->
-        <div class="footer-copyright text-center py-3 mt-5 mb-3 text-muted alinhar">
-          <!-- <a class="nav-link">
-                        <span [innerHTML]="'twitter' | feather:24:'#818181'" title="Twitter"></span>
-                      </a>
-                      <a class="nav-link">
-                        <span [innerHTML]="'facebook' | feather:24:'#818181'" title="Facebook"></span>
-                      </a>
-                      <a class="nav-link">
-                        <span [innerHTML]="'instagram' | feather:24:'#818181'" title="Instagram"></span>
-                      </a> -->
-          © 2018 Copyright:
-
-        </div>
-        <!-- Copyright -->
-
-      </footer>
+      
     </main>
 
   </div>
@@ -163,3 +146,24 @@
       <p class="lead">
         <a href="#" class="btn btn-lg btn-secondary">Saiba mais</a>
       </p> -->
+<!-- 
+      <footer class="page-footer font-small cyan darken-3">
+        
+          <div class="footer-copyright text-center py-3 mt-5 mb-0 text-muted alinhar">
+            
+            © 2018 Copyright:
+  
+          </div>
+        
+  
+        </footer> -->
+
+        <!-- <a class="nav-link">
+                          <span [innerHTML]="'twitter' | feather:24:'#818181'" title="Twitter"></span>
+                        </a>
+                        <a class="nav-link">
+                          <span [innerHTML]="'facebook' | feather:24:'#818181'" title="Facebook"></span>
+                        </a>
+                        <a class="nav-link">
+                          <span [innerHTML]="'instagram' | feather:24:'#818181'" title="Instagram"></span>
+                        </a> -->

@@ -4,48 +4,14 @@
     <h2 class="mb-3" id="texto-centro">Perfil</h2>
     <div class="col-12" id="texto-centro">
       <p>
-        Preencha as informações abaixo para que sua identificação seja mais fácil!
+        Manter seus dados atualizados é extremamente importante!
       </p>
     </div>
     <hr class="mb-4">
     <form>
       <div class="row justify-content-center">
 
-        <div class="col-8">
-          <div class="col-12">
-            <label>Nome:</label>
-            <input type="text" class="form-control" name="perfilNome" [(ngModel)]="perfil.nome">
-          </div>
-          <div class="col-12">
-            <label>Sobrenome:</label>
-            <input type="text" class="form-control" name="perfilSobrenome" [(ngModel)]="perfil.sobrenome">
-          </div>
-          <div class="col-12">
-            <label>Data de Nascimento:</label>
-            <input type="date" class="form-control" name="perfilDataNascimento" [(ngModel)]="perfil.dataNascimento">
-          </div>
-          <div class="col-12">
-            <label>Telefone para contato:</label>
-            <input type="phone" class="form-control" name="perfilTelefone" [(ngModel)]="perfil.telefone">
-          </div>
-          <div class="col-12">
-            <label>Identificação Universitária:</label>
-            <input type="text" class="form-control" name="perfilIdentificacao" [(ngModel)]="perfil.identificacao">
-          </div>
-          <div class="col-12">
-            <label>Formação:</label>
-            <input type="text" class="form-control" name="perfilFormacao" [(ngModel)]="perfil.formacao">
-          </div>
-          <div class="col-12">
-            <label>Outra Titulação:</label>
-            <input type="text" class="form-control" name="perfilTitulacao" [(ngModel)]="perfil.titulacao">
-          </div>
-          <hr class="mb-4">
-          <button class="btn btn-primary btn-lg btn-block" type="button" data-toggle="modal" data-target="#exampleModalCenter">Salvar</button><br>
-          
-        </div>
-
-        <div class="col-4" *ngFor="let perfil of perfils | async">
+        <div class="col-md-5" *ngFor="let perfil of perfils | async">
 
           <div class="card border-dark mb-3" style="max-width: 100%">
             <div class="card-header">Dados pessoais:</div>
@@ -62,6 +28,82 @@
 
         </div>
 
+        <div class="col-md-7" *ngFor="let perfil of perfils | async">
+          <h6><strong>Preencha os campos abaixo para manter seus dados atualizados:</strong></h6>
+          <hr mb-1>
+          <div class="form-group row">
+            <label for="perfilNome" class="col-md-3 col-form-label">Nome:</label>
+            <div class="col-md-9">
+              <input type="text" class="form-control" name="perfilNome" [(ngModel)]="perfil.nome">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="perfilSobrenome" class="col-sm-3 col-form-label">Sobrenome:</label>
+            <div class="col-md-9">
+              <input type="text" class="form-control" name="perfilSobrenome" [(ngModel)]="perfil.sobrenome">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="identificacao" class="col-sm-3 col-form-label">Identificação:</label>
+            <div class="col-md-9">
+              <input type="text" class="form-control" name="identificacao" [(ngModel)]="perfil.identificacao">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="dataNascimento" class="col-sm-4 col-form-label">Data de nascimento:</label>
+            <div class="col-md-8">
+              <input type="text" class="form-control" name="dataNascimento" [(ngModel)]="perfil.dataNascimento">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="celular" class="col-sm-4 col-form-label">Celular:</label>
+            <div class="col-md-8">
+              <input type="text" class="form-control" name="celular" [(ngModel)]="perfil.telefone">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="cargo" class="col-sm-4 col-form-label">Cargo:</label>
+            <div class="col-md-8">
+              <input type="text" class="form-control" name="cargo" [(ngModel)]="perfil.cargo">
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="formacao" class="col-sm-4 col-form-label">Formação:</label>
+            <div class="col-md-8">
+              <input type="text" class="form-control" name="formacao" [(ngModel)]="perfil.formacao">
+            </div>
+          </div>
+
+          <div class="form-group row">
+            <label for="titulacao" class="col-sm-4 col-form-label">Outra titulação:</label>
+            <div class="col-md-8">
+              <input type="text" class="form-control" name="titulacao" [(ngModel)]="perfil.titulacao">
+            </div>
+          </div>
+
+          <hr class="col-mb-2">
+
+          <div class="row justify-content-md-center">
+
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-6">
+              <button class="btn btn-primary btn-lg btn-block" type="button">Atualizar
+                Dados</button><br>
+            </div>
+            <div class="col-md-3">
+            </div>
+
+          </div>
+
+        </div>
+
+        <hr>
+
+        <div class="col-md-12">
+
+        </div>
+
         <!-- Modal -->
         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
           aria-hidden="true">
@@ -74,7 +116,7 @@
                 </button>
               </div>
               <div class="modal-body">
-                  Tem certeza que deseja atualizar seus dados?
+                Tem certeza que deseja atualizar seus dados?
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
