@@ -28,7 +28,7 @@ import { TodosProjetosAceitosComponent } from './components/todos-projetos-aceit
 import { TodosProjetosReprovadosComponent } from './components/todos-projetos-reprovados/todos-projetos-reprovados.component';
 import { TodosProjetosAnaliseComponent } from './components/todos-projetos-analise/todos-projetos-analise.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { PerfilService } from './core/perfil.service';
+import { PerfilService } from './core/perfils/perfil.service';
 import { ManualDoUsuarioComponent } from './components/manual-do-usuario/manual-do-usuario.component';
 import {NgxMaskModule} from 'ngx-mask';
 import { NovoPerfilComponent } from './components/novo-perfil/novo-perfil.component'

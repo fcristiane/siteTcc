@@ -3,7 +3,7 @@ import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { AuthService } from 'src/app/core/users/auth.service';
-import { PerfilService } from 'src/app/core/perfil.service';
+import { PerfilService } from 'src/app/core/perfils/perfil.service';
 import { Observable } from 'rxjs';
 import { Perfil } from '../perfil/perfil.module';
 

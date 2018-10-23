@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import * as firebase from 'firebase/app';
-import { Perfil } from '../components/perfil/perfil.module';
+import { Perfil } from '../../components/perfil/perfil.module';
 import { Observable } from 'rxjs';
 import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
 
@@ -30,4 +30,28 @@ export class PerfilService {
     this.perfils = this.perfilColection.valueChanges();
     return this.perfils;
   }
+
+  salvar(perfil: Perfil) {
+    let id = this.db.createId();
+    perfil.email = this.user.email;
+    perfil.id = id;
+    perfil.userId = this.user.uid;
+    this.db.collection<Perfil>('perfil').doc(id).set(this.perfil).then((sucess) => {
+      console.log(sucess)
+    }).catch((erro) => {
+      console.log(erro)
+    })
+  }
+
+  update(perfil: Perfil){
+    perfil.email = this.user.email;
+    this.db.collection<Perfil>('perfil').doc(perfil.id).update(perfil).then((sucess) => {
+      console.log(sucess);
+      alert('Atualizado com sucesso!!')
+    }).catch((erro) => {
+      console.log(erro);
+      alert('Ocorreu algum erro!!')
+    })
+  }
+
 }

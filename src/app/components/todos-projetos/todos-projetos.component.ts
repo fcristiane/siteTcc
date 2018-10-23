@@ -76,8 +76,8 @@ export class TodosProjetosComponent implements OnInit {
     this.projeto = this.projetoDoc.valueChanges();
   }
 
-  getProjetoById(project: Projeto){
-
+  getProjetoById(project){
+    
   }
 
   // getProjetoById() {

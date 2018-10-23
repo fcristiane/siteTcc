@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PerfilService } from 'src/app/core/perfil.service';
+import { PerfilService } from 'src/app/core/perfils/perfil.service';
 import { Perfil } from '../perfil/perfil.module';
 import { Router } from '@angular/router';
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';

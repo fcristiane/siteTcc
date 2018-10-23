@@ -26,7 +26,7 @@
             <td>{{ project.curso }}</td>
             <td>{{ project.responsavel }}</td>
             <td *ngIf="project.situacao == 1"><button type="button" class="btn btn-warning btn-sm centro medio"
-                disabled>Em Análize</button></td>
+                disabled>Em Análise</button></td>
             <td><button type="button" class="btn btn-primary btn-sm centro" data-toggle="modal" data-target=".bd-example-modal-sm"
                 (click)="detalhes(project.id)">Detalhes</button></td>
             <td *ngIf="perfil.permissao == 4 && project.situacao != 3 && project.situacao != 2"><button type="button"
@@ -34,7 +34,7 @@
             <td *ngIf="perfil.permissao == 4 && project.situacao != 3 && project.situacao != 2"><button type="button"
                 class="btn btn-danger btn-sm centro" (click)="reprovar(project)">Reprovar</button></td>
             <td *ngIf="perfil.permissao == 4 && project.situacao != 1"><button type="button" class="btn btn-secondary btn-sm centro"
-                (click)="reentrada(project)">Reanálise</button></td>
+                (click)="reentrada(project)">Redefinir</button></td>
 
 
             <!-- routerLink="/home/projeto-detalhe" -->

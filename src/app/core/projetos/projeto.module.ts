@@ -1,5 +1,7 @@
 export interface Projeto {
-    id:string;
+    id: string;
+
+    dataCadastro: Date;
     userId: string;
     nomeAtv: string
     classificacao: string;

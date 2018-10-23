@@ -1,8 +1,8 @@
 export interface Perfil{
     id: string;
     userId: string;
+    email: string;
     nome: string;
-    sobrenome: string;
     dataNascimento: string;
     telefone: string;
     identificacao: string;

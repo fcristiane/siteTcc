@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ProjetoService } from 'src/app/core/projetos/projeto.service';
+import { Projeto } from 'src/app/core/projetos/projeto.module';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-projeto-detalhe',
@@ -7,9 +11,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjetoDetalheComponent implements OnInit {
 
-  constructor() { }
+ 
+  project : Projeto = {} as Projeto;
+
+  constructor(
+    private route: ActivatedRoute,
+    private projetoService: ProjetoService,
+  ) {
+    const id = this.route.snapshot.paramMap.get('id');
+    if(id) {
+      debugger
+      this.projetoService.getProjetoById(id);
+      console.log("!!!!!")
+    }
+   }
 
   ngOnInit() {
+    
+    
   }
+
+  // getProjeto(){
+  //   const id = +this.route.snapshot.paramMap.get('id');
+  //   this.projetoService.getProjetoById(id)
+  //     .subscribe(project => this.project = project);
+  // }
 
 }

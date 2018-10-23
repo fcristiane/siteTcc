@@ -19,10 +19,8 @@ export class ProjetoService {
 
   user = firebase.auth().currentUser;
 
-
   constructor(private db: AngularFirestore,
-    private auth: AngularFireAuth,
-  ) { }
+    private auth: AngularFireAuth) { }
 
   getProjetos(): Observable<Projeto[]> {
     this.projetosCollection = this.db.collection<Projeto>('project');
@@ -40,8 +38,73 @@ export class ProjetoService {
     // this.projetos = this.projetosCollection.valueChanges()
   }
 
-  getProjetoById(){
-    
+  getProjetoById(id) {
+    this.projetosCollection = this.db.collection<Projeto>('project', ref => ref.where('id', '==', id));
+    return this.projetos = this.projetosCollection.valueChanges();
+  }
+
+  create() {
+    let id = this.db.createId();
+    this.novoProjeto.id = id;
+    this.novoProjeto.dataCadastro = new Date();
+    this.novoProjeto.userId = this.user.uid;
+    this.novoProjeto.situacao = 1;
+    this.db.collection<Projeto>('project').doc(id).set(this.novoProjeto).then((success) => {
+      console.log(success)
+    }).catch((erro) => {
+      console.log(erro)
+    })
+  }
+
+  update(projeto: Projeto) {
+    this.projeto.situacao = 2;
+    this.db.collection<Projeto>('project').doc(projeto.id).update(projeto.situacao).then((success) => {
+      console.log(success)
+    }).catch((erro) => {
+      console.log(erro)
+    })
+  }
+  
+  delete(id: string) {
+    this.db.collection<Projeto>('project').doc(id).delete().then((success) => {
+      console.log(success)
+    }).catch((erro) => {
+      console.log(erro)
+    })
+    console.log(this.novoProjeto)
+  }
+
+  aprovar(project: Projeto) {
+    project.situacao = 2;
+    this.db.collection<Projeto>('project').doc(project.id).update(project).then((success) => {
+      console.log(success);
+      alert('Projeto aceito com sucesso!!!');
+    }).catch((erro) => {
+      console.log(erro);
+      alert('Erro ao aceitar projeto!!!');
+    })
+  }
+
+  reprovar(project: Projeto) {
+    project.situacao = 3;
+    this.db.collection<Projeto>('project').doc(project.id).update(project).then((success) => {
+      console.log(success);
+      alert('Projeto reprovado!!!');
+    }).catch((erro) => {
+      console.log(erro);
+      alert('Erro ao reprovar projeto!!!');
+    })
+  }
+
+  reentrada(project: Projeto) {
+    project.situacao = 1;
+    this.db.collection<Projeto>('project').doc(project.id).update(project).then((success) => {
+      console.log(success);
+      alert('Projeto movido para reanálise!!!');
+    }).catch((erro) => {
+      console.log(erro);
+      alert('Erro!!!');
+    })
   }
 
   filterByAceitos(): Observable<Projeto[]> {
@@ -76,61 +139,5 @@ export class ProjetoService {
     this.projetosCollection = this.db.collection<Projeto>('project', ref => ref.where('situacao', '==', 3));
     return this.projetos = this.projetosCollection.valueChanges();
   }
-
-  create() {
-    let id = this.db.createId();
-    this.novoProjeto.id = id;
-    this.novoProjeto.userId = this.user.uid;
-    this.novoProjeto.situacao = 1;
-    this.db.collection<Projeto>('project').doc(id).set(this.novoProjeto).then((success) => {
-      console.log(success)
-    }).catch((erro) => {
-      console.log(erro)
-    })
-  }
-
-  update(projeto: Projeto) {
-    this.projeto.situacao = 2;
-    this.db.collection<Projeto>('project').doc(projeto.id).update(projeto.situacao).then((success) => {
-      console.log(success)
-    }).catch((erro) => {
-      console.log(erro)
-    })
-  }
-
-  aprovar(project: Projeto){
-    project.situacao = 2;
-    this.db.collection<Projeto>('project').doc(project.id).update(project).then((success) => {
-      console.log(success);
-      alert('Projeto aceito com sucesso!!!');
-    }).catch((erro) => {
-      console.log(erro);
-      alert('Erro ao aceitar projeto!!!');
-    })
-  }
-
-  reprovar(project: Projeto) {
-    project.situacao = 3;
-    this.db.collection<Projeto>('project').doc(project.id).update(project).then((success) => {
-      console.log(success);
-      alert('Projeto reprovado!!!');
-    }).catch((erro) => {
-      console.log(erro);
-      alert('Erro ao reprovar projeto!!!');
-    })
-  }
-
-  reentrada(project: Projeto) {
-    project.situacao = 1;
-    this.db.collection<Projeto>('project').doc(project.id).update(project).then((success) => {
-      console.log(success);
-      alert('Projeto movido para reanálise!!!');
-    }).catch((erro) => {
-      console.log(erro);
-      alert('Erro!!!');
-    })
-  }
-
-  
 
 }

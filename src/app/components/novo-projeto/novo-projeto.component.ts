@@ -53,6 +53,7 @@ export class NovoProjetoComponent implements OnInit {
   get f() { return this.registerForm.controls; }
 
   onSubmit() {
+
     this.submitted = true;
 
     if (this.registerForm.invalid) {
@@ -70,34 +71,16 @@ export class NovoProjetoComponent implements OnInit {
     })
   }
 
-  save() {
-    let id = this.db.createId();
-    this.novoProjeto.id = id;
-    this.novoProjeto.userId = this.user.uid;
-    this.novoProjeto.situacao = 1;
-    this.db.collection<Projeto>('project').doc(id).set(this.novoProjeto).then((success) => {
-      console.log(success)
-    }).catch((erro) => {
-      console.log(erro)
-    })
+  salvar() {
+    this.projetoService.create();
   }
 
   update(novoProjeto: Projeto) {
-    this.novoProjeto.situacao = 3;
-    this.db.collection<Projeto>('project').doc(novoProjeto.id).update(novoProjeto).then((success) => {
-      console.log(success)
-    }).catch((erro) => {
-      console.log(erro)
-    })
+    this.projetoService.update(novoProjeto);
   }
 
   delete(id: string) {
-    this.db.collection<Projeto>('project').doc(id).delete().then((success) => {
-      console.log(success)
-    }).catch((erro) => {
-      console.log(erro)
-    })
-    console.log(this.novoProjeto)
+    this.projetoService.delete(id);
   }
 
 }

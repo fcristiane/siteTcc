@@ -4,7 +4,6 @@ import { HomeComponent } from './components/home/home.component';
 import { NovoProjetoComponent } from './components/novo-projeto/novo-projeto.component';
 import { InfoComponent } from './components/info/info.component';
 import { TodosProjetosComponent } from './components/todos-projetos/todos-projetos.component';
-import { ProjetoDetalheComponent } from './components/projeto-detalhe/projeto-detalhe.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
 import { LoginComponent } from './components/login/login.component';
 import { Error404Component } from './components/error404/error404.component';
@@ -12,6 +11,7 @@ import { TodosProjetosAnaliseComponent } from './components/todos-projetos-anali
 import { TodosProjetosAceitosComponent } from './components/todos-projetos-aceitos/todos-projetos-aceitos.component';
 import { TodosProjetosReprovadosComponent } from './components/todos-projetos-reprovados/todos-projetos-reprovados.component';
 import { ManualDoUsuarioComponent } from './components/manual-do-usuario/manual-do-usuario.component';
+import { ProjetoDetalheComponent } from './components/projeto-detalhe/projeto-detalhe.component';
 
 
 export const rootRouterConfig: Routes = [

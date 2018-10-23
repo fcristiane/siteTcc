@@ -4,7 +4,7 @@ import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument 
 import { AngularFireAuth } from 'angularfire2/auth';
 import { Perfil } from './perfil.module';
 import { Observable } from 'rxjs';
-import { PerfilService } from 'src/app/core/perfil.service';
+import { PerfilService } from 'src/app/core/perfils/perfil.service';
 
 @Component({
   selector: 'app-perfil',
@@ -17,41 +17,24 @@ export class PerfilComponent implements OnInit {
 
   perfil: Perfil = {} as Perfil;
   perfils: Observable<Perfil[]>;
-  private perfilColection: AngularFirestoreCollection<Perfil>;
 
   constructor(private db: AngularFirestore, private auth: AngularFireAuth, public perfilService: PerfilService) {
     if (firebase.auth().currentUser != null) {
       console.log("User id: " + firebase.auth().currentUser.uid);
+      console.log("Email: " + firebase.auth().currentUser.email);
     }
-
-
-    // let userId = firebase.auth().currentUser.uid;
-    // this.perfilColection = db.collection<Perfil>('perfil', ref => ref.where('userId', '==', userId));
-    // this.perfils = this.perfilColection.valueChanges();
   }
 
   ngOnInit() {
     this.perfils = this.perfilService.getPerfil();
   }
 
+  salvar(perfil: Perfil) {
+    this.perfilService.salvar(perfil);
+  }
 
-
-  // getPerfil() {
-  //   let userId = firebase.auth().currentUser.uid;
-  //   this.perfilColection = this.db.collection<Perfil>('perfil', ref => ref.where('userId', '==', userId));
-  //   this.perfils = this.perfilColection.valueChanges();
-  //   return this.perfils;
-  // }
-
-  salvar() {
-    let id = this.db.createId();
-    this.perfil.id = id;
-    this.perfil.userId = this.user.uid;
-    this.db.collection<Perfil>('perfil').doc(id).set(this.perfil).then((sucess) => {
-      console.log(sucess)
-    }).catch((erro) => {
-      console.log(erro)
-    })
+  update(perfil: Perfil){
+    this.perfilService.update(perfil);
   }
 
 }

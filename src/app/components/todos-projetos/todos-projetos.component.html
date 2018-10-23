@@ -26,11 +26,11 @@
             <td>{{ project.curso }}</td>
             <td>{{ project.responsavel }}</td>
             <td *ngIf="project.situacao == 1"><button type="button" class="btn btn-warning btn-sm centro medio"
-                disabled>Em Análize</button></td>
+                disabled>Em Análise</button></td>
             <td *ngIf="project.situacao == 2"><button type="button" class="btn btn-success btn-md centro medio"
                 disabled>Aprovado</button></td>
             <td *ngIf="project.situacao == 3"><button type="button" class="btn btn-danger btn-sm centro medio" disabled>Reprovado</button></td>
-            <td><button type="button" class="btn btn-primary btn-sm centro" routerLink="/home/projeto-detalhe" (click)="getProjetoById(project)">Detalhes</button></td>
+            <td> <a [routerLink]="['/home/projeto-detalhe', project.id]"><button type="button" class="btn btn-primary btn-sm centro">Detalhes</button></a> </td>
             <td *ngIf="perfil.permissao == 4 && project.situacao != 3 && project.situacao != 2"><button type="button"
                 class="btn btn-success btn-sm centro" (click)="aprovar(project)">Aprovar</button></td>
             <td *ngIf="perfil.permissao == 4 && project.situacao != 3 && project.situacao != 2"><button type="button"
@@ -179,6 +179,8 @@
 
         </tbody>
       </table>
+
+      <!-- [routerLink]="[home/projeto-detalhe', project.id]" -->
 
       <div class="col-md-12">
         <div class="row">
