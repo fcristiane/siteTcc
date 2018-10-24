@@ -3,40 +3,48 @@
     <br>
     <h2 class="mb-3" id="texto-centro">Seus Projetos</h2>
     <hr>
-    <div class="table-responsive">
+    <!-- <input class="form-control mb-2" name="searchString" type="text" placeholder="Search.." [(ngModel)]="searchString"> -->
+    <div class="table-responsive-sm">
       <table class="table table-striped table-sm table-bordered table-hover">
         <thead *ngFor="let perfil of perfils | async">
-          <tr>
+          <tr class="thead-dark">
             <th class="centro">Nº</th>
             <th class="centro">Nome da Atividade</th>
+            <th class="centro" *ngIf="perfil.permissao != 1 && perfil.permissao != 2">Responsável</th>
             <th class="centro">Classificação</th>
             <th class="centro">Curso</th>
-            <th class="centro">Responsável</th>
             <th class="centro">Situação</th>
             <th class="centro">Detalhes</th>
-            <th class="centro" *ngIf="perfil.permissao == 4"><span [innerHTML]="'thumbs-up' | feather:24:'#212529'"></span></th>
-            <th class="centro" *ngIf="perfil.permissao == 4"><span [innerHTML]="'thumbs-down' | feather:24:'#212529'"></span></th>
+            <th class="centro" *ngIf="perfil.permissao == 4"><span [innerHTML]="'thumbs-up' | feather:24:'#f1f1f1'"></span></th>
+            <th class="centro" *ngIf="perfil.permissao == 4"><span [innerHTML]="'thumbs-down' | feather:24:'#f1f1f1'"></span></th>
+            <th class="centro" *ngIf="perfil.permissao == 4"><span [innerHTML]="'x-circle' | feather:24:'#f1f1f1'"></span></th>
           </tr>
         </thead>
+        <!-- | filter : 'nome da atividade' : searchString; -->
         <tbody *ngFor="let perfil of perfils | async">
-          <tr *ngFor="let project of projetos | async; let i = index;">
-            <td>{{ i + 1 }}</td>
-            <td>{{ project.nomeAtv }}</td>
-            <td>{{ project.classificacao }}</td>
-            <td>{{ project.curso }}</td>
-            <td>{{ project.responsavel }}</td>
-            <td *ngIf="project.situacao == 1"><button type="button" class="btn btn-warning btn-sm centro medio"
+          <tr *ngFor="let project of projetos | async; let i = index">
+            <td class="centro"><strong>{{ i + 1 }}</strong></td>
+            <td class="centro">{{ project.nomeAtv }}</td>
+            <td *ngIf="perfil.permissao != 1 && perfil.permissao != 2" class="centro">{{ project.responsavel }}</td>
+            <td class="centro">{{ project.classificacao }}</td>
+            <td class="centro">{{ project.curso }}</td>
+            <td class="centro" *ngIf="project.situacao == 1"><button type="button" class="btn btn-warning btn-sm centro medio"
                 disabled>Em Análise</button></td>
-            <td *ngIf="project.situacao == 2"><button type="button" class="btn btn-success btn-md centro medio"
+            <td class="centro" *ngIf="project.situacao == 2"><button type="button" class="btn btn-success btn-md centro medio"
                 disabled>Aprovado</button></td>
-            <td *ngIf="project.situacao == 3"><button type="button" class="btn btn-danger btn-sm centro medio" disabled>Reprovado</button></td>
-            <td> <a [routerLink]="['/home/projeto-detalhe',project.id]"><button type="button" class="btn btn-primary btn-sm centro">Detalhes</button></a> </td>
-            <td *ngIf="perfil.permissao == 4 && project.situacao != 3 && project.situacao != 2"><button type="button"
-                class="btn btn-success btn-sm centro" (click)="aprovar(project)">Aprovar</button></td>
-            <td *ngIf="perfil.permissao == 4 && project.situacao != 3 && project.situacao != 2"><button type="button"
-                class="btn btn-danger btn-sm centro" (click)="reprovar(project)">Reprovar</button></td>
-            <td *ngIf="perfil.permissao == 4 && project.situacao != 1"><button type="button" class="btn btn-secondary btn-sm centro"
+            <td class="centro" *ngIf="project.situacao == 3"><button type="button" class="btn btn-danger btn-sm centro medio"
+                disabled>Reprovado</button></td>
+            <td class="centro"> <a [routerLink]="['/home/projeto-detalhe',project.id]"><button type="button" class="btn btn-primary btn-sm centro">Detalhes</button></a>
+            </td>
+            <td class="centro" *ngIf="perfil.permissao == 4 && project.situacao != 3 && project.situacao != 2"><button
+                type="button" class="btn btn-success btn-sm centro" (click)="aprovar(project)">Aprovar</button></td>
+            <td class="centro" *ngIf="perfil.permissao == 4 && project.situacao == 1"><button type="button" class="btn btn-danger btn-sm centro"
+                (click)="reprovar(project)">Reprovar</button></td>
+            <td class="centro" *ngIf="perfil.permissao == 4 && project.situacao != 1"><button type="button" class="btn btn-secondary btn-sm centro"
                 (click)="reentrada(project)">Redefinir</button></td>
+            <td class="centro" *ngIf="perfil.permissao == 4 && project.situacao != 1"> --- </td>
+            <td class="centro" *ngIf="perfil.permissao == 4"><button type="button" class="btn btn-dark btn-sm centro"
+              (click)="deletar(project.id)">Deletar</button></td>
 
             <!-- routerLink="/home/projeto-detalhe" -->
             <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
@@ -213,7 +221,7 @@
         </div>
       </div>
     </div>
-    
+
   </div>
 
 

@@ -18,7 +18,7 @@
     <div class="form-row">
       <div class="form-group col-md-8 mb-2">
         <label><strong>Nome da atividade:</strong></label>
-        <input type="text" class="form-control" formControlName="nomeAtv" name="nomeAtv" [(ngModel)]="novoProjeto.nomeAtv"
+        <input type="text" class="form-control" formControlName="nomeAtv" [(ngModel)]="novoProjeto.nomeAtv"
           [ngClass]="{ 'is-invalid': submitted && f.nomeAtv.errors }">
         <div *ngIf="submitted && f.nomeAtv.errors" class="invalid-feedback">
           <div *ngIf="f.nomeAtv.errors.required">Campo inválido!</div>
@@ -26,18 +26,18 @@
       </div>
 
       <div class="form-group col-md-2 mb-2">
-        <label for="horaInicio">Horário (Início):</label>
-        <input type="text" class="form-control" formControlName="horaInicio" name="horaInicio" mask="00:00" placeholder="hh:mm" [(ngModel)]="novoProjeto.horaInicio"
-          [ngClass]="{ 'is-invalid': submitted && f.horaInicio.errors }">
+        <label for="horaInicio"><strong>Horário (Início): </strong></label>
+        <input type="text" class="form-control" formControlName="horaInicio" name="horaInicio" mask="00:00" placeholder="hh:mm"
+          [(ngModel)]="novoProjeto.horaInicio" [ngClass]="{ 'is-invalid': submitted && f.horaInicio.errors }">
         <div *ngIf="submitted && f.horaInicio.errors" class="invalid-feedback">
           <div *ngIf="f.horaInicio.errors.required">Campo inválido!</div>
         </div>
       </div>
 
       <div class="form-group col-md-2 mb-2">
-        <label for="horaFim">Horário (Fim):</label>
-        <input type="text" class="form-control" formControlName="horaFim" name="horaFim" mask="00:00" placeholder="hh:mm" [(ngModel)]="novoProjeto.horaFim"
-          [ngClass]="{ 'is-invalid': submitted && f.horaFim.errors }">
+        <label for="horaFim"><strong>Horário (Fim):</strong></label>
+        <input type="text" class="form-control" formControlName="horaFim" name="horaFim" mask="00:00" placeholder="hh:mm"
+          [(ngModel)]="novoProjeto.horaFim" [ngClass]="{ 'is-invalid': submitted && f.horaFim.errors }">
         <div *ngIf="submitted && f.horaFim.errors" class="invalid-feedback">
           <div *ngIf="f.horaFim.errors.required">Campo inválido!</div>
         </div>
@@ -65,18 +65,18 @@
       </div>
 
       <div class="form-group col-md-2 mb-2">
-        <label for="periodoDe">Período de:</label>
-        <input type="text" class="form-control" formControlName="periodoDe" name="periodoDe" mask="00/00/0000" placeholder="dd/mm/aaaa" [(ngModel)]="novoProjeto.preriodoDe"
-          [(ngModel)]="novoProjeto.periodoDe" [ngClass]="{ 'is-invalid': submitted && f.periodoDe.errors }">
+        <label for="periodoDe"><strong>Período de: </strong></label>
+        <input type="text" class="form-control" formControlName="periodoDe" name="periodoDe" mask="00/00/0000"
+          placeholder="dd/mm/aaaa" [(ngModel)]="novoProjeto.preriodoDe" [(ngModel)]="novoProjeto.periodoDe" [ngClass]="{ 'is-invalid': submitted && f.periodoDe.errors }">
         <div *ngIf="submitted && f.periodoDe.errors" class="invalid-feedback">
           <div *ngIf="f.periodoDe.errors.required">Campo inválido!</div>
         </div>
       </div>
 
       <div class="form-group col-md-2 mb-2">
-        <label for="periodoAte">Até:</label>
-        <input type="text" class="form-control" formControlName="periodoAte" name="periodoAte" mask="00/00/0000" placeholder="dd/mm/aaaa" [(ngModel)]="novoProjeto.periodoAte"
-          [(ngModel)]="novoProjeto.periodoAte" [ngClass]="{ 'is-invalid': submitted && f.periodoAte.errors }">
+        <label for="periodoAte"><strong>Até:</strong></label>
+        <input type="text" class="form-control" formControlName="periodoAte" mask="00/00/0000" placeholder="dd/mm/aaaa"
+          [(ngModel)]="novoProjeto.periodoAte" [(ngModel)]="novoProjeto.periodoAte" [ngClass]="{ 'is-invalid': submitted && f.periodoAte.errors }">
         <div *ngIf="submitted && f.periodoAte.errors" class="invalid-feedback">
           <div *ngIf="f.periodoAte.errors.required">Campo inválido!</div>
         </div>
@@ -86,8 +86,8 @@
     <div class="form-row">
       <div class="form-group col-md-5 mb-2">
         <label for="responsavel"><strong>Responsável pelo projeto:</strong></label>
-        <input type="text" class="form-control" formControlName="responsavel" name="responsavel" [(ngModel)]="novoProjeto.responsavel"
-          [ngClass]="{ 'is-invalid': submitted && f.responsavel.errors }">
+        <input type="text" class="form-control" formControlName="responsavel" [(ngModel)]="novoProjeto.responsavel"
+          placeholder="Nome completo" [ngClass]="{ 'is-invalid': submitted && f.responsavel.errors }">
         <div *ngIf="submitted && f.responsavel.errors" class="invalid-feedback">
           <div *ngIf="f.responsavel.errors.required">Campo inválido!</div>
         </div>
@@ -95,30 +95,73 @@
 
       <div class="form-group col-md-3">
         <label for="campus"><strong>Campus: </strong></label>
-        <select class="form-control" name="campus" [(ngModel)]="novoProjeto.campus">
+        <select class="form-control" [(ngModel)]="novoProjeto.campus">
           <option selected>Escolha...</option>
           <option>Fátima</option>
           <option>Central</option>
         </select>
       </div>
 
-      <div class="form-group col-md-2 mb-2">
-        <label for="diasDaSemana">Dias da semana:</label>
-        <input type="text" class="form-control" formControlName="diasDaSemana" name="diasDaSemana" [(ngModel)]="novoProjeto.diasDaSemana"
-          placeholder="Ex: Segunda-feira" [ngClass]="{ 'is-invalid': submitted && f.diasDaSemana.errors }">
-        <div *ngIf="submitted && f.diasDaSemana.errors" class="invalid-feedback">
-          <div *ngIf="f.diasDaSemana.errors.required">Campo inválido!</div>
-        </div>
-      </div>
-
-      <div class="form-group col-md-2 mb-2">
-        <label for="cargaHoraria">Carga horária total:</label>
-        <input type="number" class="form-control" formControlName="cargaHoraria" name="cargaHoraria" [(ngModel)]="novoProjeto.cargaHoraria"
+      <div class="form-group col-md-4 mb-2">
+        <label for="cargaHoraria"><strong>Carga horária total:</strong></label>
+        <input type="number" class="form-control" formControlName="cargaHoraria" [(ngModel)]="novoProjeto.cargaHoraria"
           placeholder="Hora(s)" [ngClass]="{ 'is-invalid': submitted && f.cargaHoraria.errors }">
         <div *ngIf="submitted && f.cargaHoraria.errors" class="invalid-feedback">
           <div *ngIf="f.cargaHoraria.errors.required">Campo inválido!</div>
         </div>
       </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-group col-md-8">
+        <label for="diasDaSemana"><strong>Dias da semana: </strong></label>
+        <br>
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="segunda" id="segunda" value="Segunda-feira" [(ngModel)]="novoProjeto.diasDaSemana">
+          <label class="form-check-label" for="diasDaSemana">Segunda-feira</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="terca" id="terca" value="Terça-feira" [(ngModel)]="novoProjeto.diasDaSemana">
+          <label class="form-check-label" for="diasDaSemana">Terça-feira</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="quarta" id="quarta" value="Quarta-feira" [(ngModel)]="novoProjeto.diasDaSemana">
+          <label class="form-check-label">Quarta-feira</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="quinta" id="quinta" value="Quinta-feira" [(ngModel)]="novoProjeto.diasDaSemana">
+          <label class="form-check-label" for="diasDaSemana">Quinta-feira</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="sexta" id="sexta" value="Sexta-feira" [(ngModel)]="novoProjeto.diasDaSemana">
+          <label class="form-check-label" for="diasDaSemana">Sexta-feira</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="sabado" id="sabado" value="Sábado" [(ngModel)]="novoProjeto.diasDaSemana">
+          <label class="form-check-label" for="diasDaSemana">Sábado</label>
+        </div>
+
+        <div class="form-check form-check-inline">
+          <input class="form-check-input" type="checkbox" name="domingo" id="domingo" value="Domingo" [(ngModel)]="novoProjeto.diasDaSemana">
+          <label class="form-check-label" for="diasDaSemana">Domingo</label>
+        </div>
+
+      </div>
+
+      <div class="form-group col-md-4">
+        <label><strong>Local de Realização:</strong></label>
+        <input type="text" class="form-control" formControlName="local" [(ngModel)]="novoProjeto.local" [ngClass]="{ 'is-invalid': submitted && f.local.errors }">
+        <div *ngIf="submitted && f.local.errors" class="invalid-feedback">
+          <div *ngIf="f.local.errors.required">Campo inválido!</div>
+        </div>
+      </div>
+
+
     </div>
 
     <div class="form-row">
@@ -207,12 +250,16 @@
       </div>
 
       <div class="form-group col-md-4">
-        <label><strong>Local de Realização:</strong></label>
-        <input type="text" class="form-control" formControlName="local" name="local" [(ngModel)]="novoProjeto.local"
-          [ngClass]="{ 'is-invalid': submitted && f.local.errors }">
-        <div *ngIf="submitted && f.local.errors" class="invalid-feedback">
-          <div *ngIf="f.local.errors.required">Campo inválido!</div>
-        </div>
+        <label for="areaAtuacao"><strong>Área de atuação: </strong></label>
+        <select class="form-control" name="areaAtuacao" [(ngModel)]="novoProjeto.areaAtuacao">
+          <option selected>Escolha...</option>
+          <option>Ciências Biológicas</option>
+          <option>Ciências da Saúde</option>
+          <option>Ciências Empresariais</option>
+          <option>Ciências Exatas</option>
+          <option>Comunicação</option>
+          <option>Educação</option>
+        </select>
       </div>
 
     </div>
@@ -258,26 +305,15 @@
 
       </div>
 
-      <div class="form-group col-md-4">
-        <label for="areaAtuacao" ><strong>Área de atuação: </strong></label>
-        <select class="form-control" name="areaAtuacao" [(ngModel)]="novoProjeto.areaAtuacao">
-          <option selected>Escolha...</option>
-          <option>Ciências Biológicas</option>
-          <option>Ciências da Saúde</option>
-          <option>Ciências Empresariais</option>
-          <option>Ciências Exatas</option>
-          <option>Comunicação</option>
-          <option>Educação</option>
-        </select>
-      </div>
-
     </div>
+
+    <hr>
 
     <div class="form-row">
 
       <div class="form-group col-md-8">
-        <label>Ministrante (s):</label>
-        <input class="form-control" type="text" formControlName="ministrante" name="ministrante" [(ngModel)]="novoProjeto.ministrante"
+        <label for="ministrante"><strong>Ministrante (s):</strong></label>
+        <input class="form-control" type="text" formControlName="ministrante" [(ngModel)]="novoProjeto.ministrante"
           [ngClass]="{ 'is-invalid': submitted && f.ministrante.errors }">
         <div *ngIf="submitted && f.ministrante.errors" class="invalid-feedback">
           <div *ngIf="f.ministrante.errors.required">Campo inválido!</div>
@@ -285,16 +321,15 @@
       </div>
 
       <div class="form-group col-md-4">
-        <label>CPF:</label>
-        <input type="text" class="form-control" formControlName="cpf" name="cpf" mask="000.000.000-00" placeholder="123.456.789-00" [(ngModel)]="novoProjeto.cpf"
-          [ngClass]="{ 'is-invalid': submitted && f.cpf.errors }">
+        <label for="cpf"><strong>CPF:</strong></label>
+        <input type="text" class="form-control" formControlName="cpf" mask="000.000.000-00" placeholder="123.456.789-00"
+          [(ngModel)]="novoProjeto.cpf" [ngClass]="{ 'is-invalid': submitted && f.cpf.errors }">
         <div *ngIf="submitted && f.cpf.errors" class="invalid-feedback">
           <div *ngIf="f.cpf.errors.required">Campo inválido!</div>
         </div>
       </div>
 
     </div>
-
 
     <!-- Parei de validar aqui! -->
 
@@ -305,10 +340,10 @@
         <div class="form-check form-check-inline">
           <div class="custom-control custom-radio">
             <input type="radio" name="docenteInstituicao" id="customRadio1" class="custom-control-input" value="Sim"
-              [(ngModel)]="novoProjeto.docenteInstituicao">
-            <label class="custom-control-label" for="customRadio1">Sim    </label>
+              [(ngModel)]="novoProjeto.docenteInstituicao" checked>
+            <label class="custom-control-label" for="customRadio1">Sim</label>
           </div>
-          <div class="custom-control custom-radio">
+          <div class="custom-control custom-radio ml-2">
             <input type="radio" name="docenteInstituicao" id="customRadio2" class="custom-control-input" value="Não"
               [(ngModel)]="novoProjeto.docenteInstituicao">
             <label class="custom-control-label" for="customRadio2">Não</label>
@@ -317,7 +352,7 @@
       </div>
 
       <div class="form-group col-md-5">
-        <label>Função/Cargo: </label>
+        <label for="funcaoCargo"><strong>Função/Cargo: </strong></label>
         <input class="form-control" type="text" name="funcaoCargo" [(ngModel)]="novoProjeto.funcaoCargo">
         <div class="invalid-feedback">
           Campo obrigatório.
@@ -326,8 +361,7 @@
 
       <div class="form-group col-md-4">
         <label for="titulacao"><strong>Titulação: </strong></label>
-        <select class="form-control" formControlName="titulacao" name="titulacao" [(ngModel)]="novoProjeto.titulacao"
-          [ngClass]="{ 'is-invalid': submitted && f.titulacao.errors }">
+        <select class="form-control" formControlName="titulacao" [(ngModel)]="novoProjeto.titulacao" [ngClass]="{ 'is-invalid': submitted && f.titulacao.errors }">
           <option selected>Escolha...</option>
           <option>G</option>
           <option>E</option>
@@ -341,10 +375,12 @@
 
     </div>
 
+    <hr>
+
     <div class="form-row">
 
       <div class="form-group col-md-5">
-        <label>Número de pessoas que serão envolvidas:</label>
+        <label for="numPessoasEnvolvidas"><strong>Número de pessoas que serão envolvidas: </strong></label>
         <input class="form-control" type="number" placeholder="" name="numPessoasEnvolvidas" [(ngModel)]="novoProjeto.numPessoasEnvolvidas">
       </div>
 
@@ -359,14 +395,14 @@
     <div class="form-row">
 
       <div class="form-group col-md-8">
-        <label for="name">Nome da(s) instituição(s) ou empresa: Parceria, apoiadora ou conveniada:</label>
+        <label for="nomeInstituicaoApoio"><strong>Nome da(s) instituição(s) ou empresa: Parceria, apoiadora ou
+            conveniada: </strong></label>
         <input class="form-control" type="text" name="nomeInstituicaoApoio" [(ngModel)]="novoProjeto.nomeInstituicaoApoio">
       </div>
 
       <div class="form-group col-md-4">
         <label for="tipoParceria"><strong>Tipo: </strong></label>
-        <select class="form-control" formControlName="tipoParceria" name="tipoParceria" [(ngModel)]="novoProjeto.tipoParceria"
-          [ngClass]="{ 'is-invalid': submitted && f.tipoParceria.errors }">
+        <select class="form-control" formControlName="tipoParceria" [(ngModel)]="novoProjeto.tipoParceria" [ngClass]="{ 'is-invalid': submitted && f.tipoParceria.errors }">
           <option selected>Escolha...</option>
           <option>Parceria</option>
           <option>Apoio</option>
@@ -393,7 +429,7 @@
     <hr m-0>
     <div class="form-row">
       <div class="col-md-8">
-        <label><strong>Justificativa:</strong></label>
+        <label for="justificativa"><strong>Justificativa:</strong></label>
         <textarea class="form-control" rows="4" name="justificativa" [(ngModel)]="novoProjeto.justificativa"></textarea>
       </div>
 
@@ -408,8 +444,8 @@
 
     <div class="form-row">
       <div class="col-md-8">
-        <label><strong>Metodologia / Procedimentos:</strong></label>
-        <textarea class="form-control" rows="4" name="metodologiasProcedimentos" [(ngModel)]="novoProjeto.metodologiaProcedimento"></textarea>
+        <label for="metodologiaProcedimento"><strong>Metodologia / Procedimentos:</strong></label>
+        <textarea class="form-control" rows="4" name="metodologiaProcedimento" [(ngModel)]="novoProjeto.metodologiaProcedimento"></textarea>
         <p><i>Descrever detalhadamente as atividades a serem desenvolvidas.</i></p>
       </div>
       <div class="col-md-4">
@@ -421,43 +457,43 @@
 
     <div class="form-row">
       <div class="col-md-12" id="texto-centro">
-        <h4>Recursos Humanos</h4>
+        <h4><strong>Recursos Humanos</strong></h4>
         <hr>
       </div>
     </div>
 
     <div class="form-row">
       <div class="col-md-4">
-        <label for="name">Docente (s) envolvido (s):</label>
+        <label for="name"><strong>Docente (s) envolvido (s): </strong></label>
         <input class="form-control" type="text" name="docenteEnvolvido1" [(ngModel)]="novoProjeto.docenteEnvolvido1">
         <p><i>Nome completo sem abreviatura.</i></p>
       </div>
 
       <div class="col-md-4">
-        <label for="name">Curso:</label>
+        <label for="name"><strong>Curso: </strong></label>
         <input class="form-control" type="text" name="cursoDocenteEnvolvido1" [(ngModel)]="novoProjeto.cursoDocenteEnvolvido1">
       </div>
 
       <div class="col-md-4">
-        <label for="name">Função:</label>
+        <label for="name"><strong>Função: </strong></label>
         <input class="form-control" type="text" name="funcaoDocenteEnvolvido1" [(ngModel)]="novoProjeto.funcaoDocenteEnvolvido1">
       </div>
     </div>
 
     <div class="form-row">
       <div class="col-md-5">
-        <label for="name">Discente (s) envolvido (s):</label>
+        <label for="name"><strong>Discente (s) envolvido (s): </strong></label>
         <input class="form-control" type="text" name="discenteEnvolvido1" [(ngModel)]="novoProjeto.discenteEnvolvido1">
         <p><i>Nome completo sem abreviatura.</i></p>
       </div>
 
       <div class="col-md-3">
-        <label for="name">Curso:</label>
+        <label for="name"><strong>Curso: </strong></label>
         <input class="form-control" type="text" name="cursoDiscenteEnvolvido1" [(ngModel)]="novoProjeto.cursoDiscenteEnvolvido1">
       </div>
 
       <div class="col-md-2">
-        <label for="name">Série:</label>
+        <label for="name"><strong>Período: </strong></label>
         <select id="inputState" class="form-control" name="periodoDiscenteEnvolvido1" [(ngModel)]="novoProjeto.periodoDiscenteEnvolvido1">
           <option selected>Escolha...</option>
           <option>Primeiro (1º)</option>
@@ -472,23 +508,23 @@
       </div>
 
       <div class="col-md-2">
-        <label for="name">Nº de matrícula:</label>
-        <input class="form-control" type="text" name="funcaoDiscenteEnvolvido1" [(ngModel)]="novoProjeto.funcaoDiscenteEnvolvido1">
+        <label for="name"><strong>Nº de matrícula: </strong></label>
+        <input class="form-control" type="text" name="matriculaDiscenteEnvolvido1" [(ngModel)]="novoProjeto.matriculaDiscenteEnvolvido1">
       </div>
 
     </div>
 
     <div class="form-row">
       <div class="col-md-12">
-        <label>Cronograma: </label>
+        <label><strong>Cronograma: </strong></label>
         <textarea class="form-control" rows="2" name="cronograma" [(ngModel)]="novoProjeto.cronograma"></textarea>
         <p><i>Atividades a serem realizadas durante o projeto.</i></p>
       </div>
     </div>
 
-    <div class="form-row">
-      <div>
-        <button [disabled]="loading" class="btn btn-primary btn-lg btn-block" type="submit" (click)="salvar()">Finalizar</button>
+    <div class="form-row mt-2 mb-5 item">
+      <div class="col-md-12">
+        <button [disabled]="loading" class="btn btn-primary btn-lg btn-block" type="submit">Finalizar</button>
       </div>
     </div>
 
@@ -499,277 +535,3 @@
 
 
 </div>
-
-<script type="text/javascript">
-  $("#horaInicio, #horaFim").mask("00:00");
-</script>
-
-
-
-
-
-
-
-
-<!-- 
-      <div class="form-group">
-        <button [disabled]="loading" class="btn btn-primary btn-lg btn-block" type="submit">Finalizar</button>
-      </div>
-
-
-
-<br>
-<div class="row">
-
-  <div class="col-10">
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Domingo" name="diaDomingo"
-        [(ngModel)]="novoProjeto.diasDaSemana">
-      <label class="form-check-label" for="inlineCheckbox1">Domingo</label>
-    </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Segunda-feira" name="diaSegunda"
-        [(ngModel)]="novoProjeto.diasDaSemana">
-      <label class="form-check-label" for="inlineCheckbox1">Segunda-feira</label>
-    </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Terça-feira" name="diaTerca"
-        [(ngModel)]="novoProjeto.diasDaSemana">
-      <label class="form-check-label" for="inlineCheckbox1">Terça-feira</label>
-    </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Quarta-feira" name="diaQuarta"
-        [(ngModel)]="novoProjeto.diasDaSemana">
-      <label class="form-check-label" for="inlineCheckbox1">Quarta-feira</label>
-    </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Quinta-feira" name="diaQuinta"
-        [(ngModel)]="novoProjeto.diasDaSemana">
-      <label class="form-check-label" for="inlineCheckbox1">Quinta-feira</label>
-    </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Sexta-feira" name="diaSexta"
-        [(ngModel)]="novoProjeto.diasDaSemana">
-      <label class="form-check-label" for="inlineCheckbox1">Sexta-feira</label>
-    </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="Sábado" name="diaSabado" [(ngModel)]="novoProjeto.diasDaSemana">
-      <label class="form-check-label" for="inlineCheckbox1">Sábado</label>
-    </div>
-  </div>
-
-</div>
-
-
-
-
-
-
-  <div class="col-4">
-    <div class="form-group">
-      <label for="">Discente (s) envolvido (s):</label>
-      <input type="text" class="form-control" placeholder="(Nome completo sem abreviatura)" name="discenteEnvolvido1"
-        [(ngModel)]="novoProjeto.discenteEnvolvido1">
-      <br>
-      <input type="text" class="form-control" placeholder="(Nome completo sem abreviatura)" name="discenteEnvolvido2"
-        [(ngModel)]="novoProjeto.discenteEnvolvido2">
-    </div>
-  </div>
-  <div class="col-4">
-    <div class="form-group">
-      <label for="">Curso:</label>
-      <input type="text" class="form-control" placeholder="Ex: Administração" name="cursoDiscenteEnvolvido1"
-        [(ngModel)]="novoProjeto.cursoDiscenteEnvolvido1">
-      <br>
-      <input type="text" class="form-control" placeholder="Ex: Administração" name="cursoDiscenteEnvolvido2"
-        [(ngModel)]="novoProjeto.cursoDiscenteEnvolvido2">
-    </div>
-  </div>
-  <div class="col-2">
-    <div class="form-group">
-      <label for="inputState">Período:</label>
-      <select id="inputState" class="form-control" name="periodoDiscenteEnvolvido1" [(ngModel)]="novoProjeto.periodoDiscenteEnvolvido1">
-        <option selected>Escolha...</option>
-        <option>Primeiro (1º)</option>
-        <option>Segundo (2º)</option>
-        <option>Terceiro (3º)</option>
-        <option>Quarto (4º)</option>
-        <option>Quinto (5º)</option>
-        <option>Sexto (6º)</option>
-        <option>Sétimo (7º)</option>
-        <option>Oitavo (8º)</option>
-      </select>
-      <br>
-      <select id="inputState" class="form-control" name="periodoDiscenteEnvolvido2" [(ngModel)]="novoProjeto.periodoDiscenteEnvolvido2">
-        <option selected>Escolha...</option>
-        <option>Primeiro (1º)</option>
-        <option>Segundo (2º)</option>
-        <option>Terceiro (3º)</option>
-        <option>Quarto (4º)</option>
-        <option>Quinto (5º)</option>
-        <option>Sexto (6º)</option>
-        <option>Sétimo (7º)</option>
-        <option>Oitavo (8º)</option>
-      </select>
-    </div>
-  </div>
-  <div class="col-2">
-    <div class="form-group">
-      <label>Nº de Matrícula:</label>
-      <input type="text" class="form-control" name="matriculaDiscenteEnvolvido1" [(ngModel)]="novoProjeto.matriculaDiscenteEnvolvido1">
-      <br>
-      <input type="text" class="form-control" name="matriculaDiscenteEnvolvido2" [(ngModel)]="novoProjeto.matriculaDiscenteEnvolvido2">
-    </div>
-  </div>
-
-  <div class="col-1">
-    <label>Cronograma:</label>
-  </div>
-  <div class="col-11">
-    <textarea class="form-control" rows="2" placeholder="Atividades a serem realizadas durante o projeto" name="cronograma"
-      [(ngModel)]="novoProjeto.cronograma"></textarea>
-  </div>
-</div>
-
-<hr class="mb-4">
-
-<div class="row">
-  <div class="col-12" id="texto-centro">
-    <h5>Previsão da receita</h5>
-    <br>
-  </div>
-
-  <div class="col-1 col-form-label">
-    <label>Inscrições:</label>
-  </div>
-  <div class="col-3">
-    <input class="form-control" type="number" name="inscricoes">
-  </div>
-
-  <div class="col-1 col-form-label">
-    <label>Início:</label>
-  </div>
-  <div class="col-3">
-    <input class="form-control" type="text" name="receitaInicio">
-  </div>
-
-  <div class="col-1 col-form-label">
-    <label>Término:</label>
-  </div>
-  <div class="col-3">
-    <input class="form-control" type="date" name="receitaTermino">
-  </div>
-
-  <div class="col-3 col-form-label">
-    <label>Número mínimo de inscrições:</label>
-  </div>
-  <div class="col-3">
-    <input class="form-control" type="number" name="numMinimoInscricoes">
-  </div>
-  <div class="col-1 col-form-label">
-    <label>Total: R$</label>
-  </div>
-  <div class="col-5">
-    <input class="form-control" type="text" placeholder="R$" name="totalReceita1">
-  </div>
-
-  <div class="col-3 col-form-label">
-    <label>Número máximo de inscrições:</label>
-  </div>
-  <div class="col-3">
-    <input class="form-control" type="number" name="numMaximoInscricoes">
-  </div>
-  <div class="col-1 col-form-label">
-    <label>Total: R$</label>
-  </div>
-  <div class="col-5">
-    <input class="form-control" type="text" placeholder="R$" name="totalReceita2">
-  </div>
-
-  <div class="col-3 col-form-label">
-    <label>Valor (Docentes e Discentes UNIVAS):</label>
-  </div>
-  <div class="col-3">
-    <input class="form-control" type="text" placeholder="R$" name="valorReceitaDocente">
-  </div>
-
-  <div class="col-1 col-form-label">
-    <label>Outros:</label>
-  </div>
-  <div class="col-5">
-    <input class="form-control" type="text" placeholder="R$" name="outrosValores">
-  </div>
-
-  <div class="col-2 col-form-label">
-    <label>TOTAL DA RECEITA:</label>
-  </div>
-  <div class="col-2 col-form-label">
-    <label>Nº mínimo de inscrições:</label>
-  </div>
-  <div class="col-3">
-    <input class="form-control" type="text" placeholder="" name="receitaTotalMin">
-  </div>
-  <div class="col-2 col-form-label">
-    <label>Nº máximo de inscrições:</label>
-  </div>
-  <div class="col-3">
-    <input class="form-control" type="text" placeholder="" name="receitaTotalMax">
-  </div>
-
-  <div class="col-12" id="texto-centro">
-    <br>
-    <h5>Recursos</h5>
-    <br>
-  </div>
-
-  <div class="col-6">
-    <div class="form-group">
-      <label for="">Especificação:</label>
-      <input type="text" class="form-control" name="recursosEsecificacao1">
-      <br>
-      <input type="text" class="form-control" name="recursosEsecificacao2">
-    </div>
-  </div>
-  <div class="col-2">
-    <div class="form-group">
-      <label for="">Quantidade:</label>
-      <input type="number" class="form-control" name="recursosQtd1">
-      <br>
-      <input type="number" class="form-control" name="recursosQtd2">
-    </div>
-  </div>
-  <div class="col-2">
-    <div class="form-group">
-      <label for="">Valor unitário:</label>
-      <input type="text" class="form-control" placeholder="R$" name="recursosValorUnitario1">
-      <br>
-      <input type="text" class="form-control" placeholder="R$" name="recursosValorUnitario2">
-    </div>
-  </div>
-  <div class="col-2">
-    <div class="form-group">
-      <label for="">Total:</label>
-      <input type="text" class="form-control" placeholder="R$" name="recursosTotal1">
-      <br>
-      <input type="text" class="form-control" placeholder="R$" name="recursosTotal2">
-    </div>
-  </div>
-
-  <div class="col-3"></div>
-
-  <div class="col-3 col-form-label negrito" id="texto-centro">
-    <label>Total das despezas:</label>
-  </div>
-  <div class="col-3">
-    <input class="form-control" type="text" placeholder="R$" name="totalDasDespezas">
-  </div>
-
-  <div class="col-3"></div>
-
-</div>
-
-<hr class="mb-4">
-<button class="btn btn-primary btn-lg btn-block" type="button" (click)="save()">Finalizar</button><br>
-
-</form>
-</div> -->

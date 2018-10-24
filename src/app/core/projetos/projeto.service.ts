@@ -46,13 +46,14 @@ export class ProjetoService {
   create() {
     let id = this.db.createId();
     this.novoProjeto.id = id;
-    this.novoProjeto.dataCadastro = new Date();
     this.novoProjeto.userId = this.user.uid;
     this.novoProjeto.situacao = 1;
     this.db.collection<Projeto>('project').doc(id).set(this.novoProjeto).then((success) => {
-      console.log(success)
+      console.log(success);
+      console.log('Salvo');
     }).catch((erro) => {
-      console.log(erro)
+      console.log(erro);
+      console.log('Erro ao salvar')
     })
   }
 
@@ -67,9 +68,11 @@ export class ProjetoService {
   
   delete(id: string) {
     this.db.collection<Projeto>('project').doc(id).delete().then((success) => {
-      console.log(success)
+      console.log(success);
+      alert('Projeto deletado com sucesso!!!');
     }).catch((erro) => {
-      console.log(erro)
+      console.log(erro);
+      alert('Erro ao deletar projeto!!!');
     })
     console.log(this.novoProjeto)
   }

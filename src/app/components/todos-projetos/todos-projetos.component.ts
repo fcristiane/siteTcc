@@ -38,6 +38,9 @@ export class TodosProjetosComponent implements OnInit {
 
   showMessageError: boolean;
 
+  public dadosItem: Projeto;
+  public searchString: string;
+
   constructor(public router: Router,private db: AngularFirestore,
     private auth: AngularFireAuth,
     private projetoService: ProjetoService,
@@ -60,7 +63,7 @@ export class TodosProjetosComponent implements OnInit {
     setTimeout(() => {
         /** spinner ends after 5 seconds */
         this.spinner.hide();
-    }, 5000);
+    }, 2500);
     
     if (userId == 'WAJ7zsFtAUYq7qXv4tKNC6w9cnZ2') {
       console.log("Retornou projetos");
@@ -75,10 +78,7 @@ export class TodosProjetosComponent implements OnInit {
     this.projetoDoc = this.db.doc('project/'+projectId);
     this.projeto = this.projetoDoc.valueChanges();
   }
-
-  getProjetoById(project){
-    
-  }
+  
 
   // getProjetoById() {
   //   this.projetosCollection = this.db.collection<Projeto>('project');
@@ -91,6 +91,10 @@ export class TodosProjetosComponent implements OnInit {
   //   )
 
   // }
+
+  deletar(id: string){
+    this.projetoService.delete(id);
+  }
 
   aprovar(project: Projeto) {
     this.projetoService.aprovar(project);

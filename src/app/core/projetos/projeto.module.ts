@@ -1,38 +1,48 @@
 export interface Projeto {
+    
     id: string;
-
-    dataCadastro: Date;
     userId: string;
+    situacao: number;
+
     nomeAtv: string
+    responsavel: string;
+    dataCadastro: Date;
     classificacao: string;
+    areaTematica: string;
     curso: string;
     coordenador: string;
-    responsavel: string;
-    campus: string;
     areaAtuacao: string;
-    local: string;
+
+    ministrante: string;
+    cpf: string;
+
+    docenteInstituicao: string;
+    funcaoCargo: string;
+    titulacao: string;
+
+    numPessoasEnvolvidas: number;
+    tipoParceria: string;
+    nomeInstituicaoApoio: string;
+
     periodoDe: Date;
     periodoAte: Date;
     horaInicio: string;
     horaFim: string;
-    cargaHoraria: number;
     diasDaSemana: string;
-    ministrante: string;
-    cpf: string;
-    funcaoCargo: string;
-    titulacao: string;
-    numPessoasEnvolvidas: number;
-    tipoParceria: string;
-    nomeInstituicaoApoio: string;
+    cargaHoraria: number;
+    campus: string;
+    local: string;
+
     justificativa: string;
     metodologiaProcedimento: string;
-    docenteInstituicao: string;
+    
     docenteEnvolvido1: string;
     docenteEnvolvido2: string;
     cursoDocenteEnvolvido1: string;
     cursoDocenteEnvolvido2: string;
     funcaoDocenteEnvolvido1: string;
     funcaoDocenteEnvolvido2: string;
+    
     discenteEnvolvido1: string;
     discenteEnvolvido2: string;
     cursoDiscenteEnvolvido1: string;
@@ -42,6 +52,13 @@ export interface Projeto {
     matriculaDiscenteEnvolvido1: string;
     matriculaDiscenteEnvolvido2: string;
     cronograma: string;
-    situacao: number;
-    areaTematica: string;
+
+    receitaIncricao: string;
+    receitaInicio: string;
+    receitaTermino: string;
+    receitaNumMinInsc: string;
+    receitaNumMinInscTotal: string;
+    receitaNumMaxInsc: string;
+    receitaNumMaxInscTotal: string;
+    valorDiscenteDoscente: string;
 }   

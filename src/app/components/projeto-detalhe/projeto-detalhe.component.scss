@@ -1,13 +1,21 @@
-.borda{
-    border-radius: 5px;
-    border: 1px groove #979797;
-    
+.borda {
+  border-radius: 5px;
+  border: 1px groove #979797;
+
 }
 
-.centro{
-    text-align: center;
+.centro {
+  text-align: center;
 }
 
-.alinhar{
-    align-items: center;
-  }
+.alinhar {
+  align-items: center;
+}
+
+a:link,
+a:visited {
+  color: #212529;
+  text-decoration: none;
+  font-family: ubuntu;
+
+}

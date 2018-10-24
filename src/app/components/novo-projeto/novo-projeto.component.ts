@@ -13,11 +13,11 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class NovoProjetoComponent implements OnInit {
 
-  
+
   novoProjeto: Projeto = {} as Projeto;
   novoProjetoLista: Array<Projeto> = [];
   user = firebase.auth().currentUser;
-  showMessageError : boolean;
+  showMessageError: boolean;
 
   registerForm: FormGroup;
   submitted = false;
@@ -41,10 +41,11 @@ export class NovoProjetoComponent implements OnInit {
       periodoDe: ['', Validators.required],
       periodoAte: ['', Validators.required],
       local: ['', Validators.required],
-      diasDaSemana: ['', Validators.required],
       cargaHoraria: ['', Validators.required],
       ministrante: ['', Validators.required],
       cpf: ['', Validators.required],
+      tipoParceria: ['', Validators.required],
+      titulacao: ['', Validators.required]
 
 
     });
@@ -60,8 +61,6 @@ export class NovoProjetoComponent implements OnInit {
       alert('Preencha todos os campos corretamente!');
       return;
     }
-
-    alert('SUCESSO!!')
   }
 
   getLista() {

@@ -15,4 +15,8 @@ a:visited {
 .centro{
   align-items: center!important;
   text-align: center!important;
+  margin: 0 auto;
+  justify-content: center;
+  position: relative;
+  vertical-align: middle;
 }

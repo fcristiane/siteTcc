@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase/app';
 import { Perfil } from '../perfil/perfil.module';
-import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestoreCollection, AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
 import { Projeto } from 'src/app/core/projetos/projeto.module';
 import { Router } from '@angular/router';
@@ -23,6 +23,9 @@ export class TodosProjetosReprovadosComponent implements OnInit {
   perfils: Observable<Perfil[]>;
 
   projetos: Observable<Projeto[]>
+
+  projetoDoc: AngularFirestoreDocument<Projeto>;
+  projeto: Observable<Projeto>;
 
 
   constructor(public router: Router, private db: AngularFirestore,
@@ -47,6 +50,11 @@ export class TodosProjetosReprovadosComponent implements OnInit {
       return this.projetos = this.projetoService.filterByReprovados();
     }
 
+  }
+
+  detalhes(projectId) {
+    this.projetoDoc = this.db.doc('project/'+projectId);
+    this.projeto = this.projetoDoc.valueChanges();
   }
 
   reentrada(project: Projeto) {

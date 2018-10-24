@@ -2,44 +2,44 @@
   <div class="row">
 
     <div class="col-md-12">
-      <h2>Detalhes do projeto: <i> {{ project.nomeAtv }} </i></h2>
+      <h2>Detalhes do projeto: "{{ project.nomeAtv }}"</h2>
       <hr>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-7">
       <div class="media border p-3">
         <div class="media-body">
           <h4><strong> Responsável: </strong>{{ project.responsavel }}</h4>
           <hr>
+          <h6><strong>Data de criação: </strong>{{ project.dataCadastro }}</h6>
           <h6><strong>Classificação: </strong>{{ project.classificacao }}</h6>
           <h6><strong>Área temática: </strong>{{ project.areaTematica }}</h6>
           <h6><strong>Curso (Vínculo Acadêmico): </strong>{{ project.curso }}</h6>
           <h6><strong>Coordenador: </strong>{{ project.coordenador }}</h6>
           <h6><strong>Área de atuação: </strong>{{ project.areaAtuacao }}</h6>
-          <h6><strong>Ministrante (s): </strong>{{ project.ministrante }}<strong> - CPF: </strong>{{ project.cpf }}</h6>
           <hr>
+          <h6><strong>Ministrante (s): </strong>{{ project.ministrante }}<strong> - CPF: </strong>{{ project.cpf |
+            mask: '000.000.000-00' }}</h6>
           <h6><strong>Docente da Instituição: </strong>{{ project.docenteInstituicao }}</h6>
           <h6><strong>Função: </strong>{{ project.funcaoCargo }}</h6>
-          <hr>
           <h6><strong>Titulação: </strong>{{ project.titulacao }}</h6>
+          <hr>
           <h6><strong>Público alvo: </strong>Funcionários da Univás</h6>
           <h6><strong>Número de pessoas atendidas: </strong>{{ project.numPessoasEnvolvidas }}</h6>
           <h6><strong>Parceria/Apoio/Convênio: </strong>{{ project.parceria }}</h6>
-          <h6><strong>Nome das instituições ou empresas: </strong>{{project.nomeInstituicaoApoio}}</h6>
-          <hr>
-          <h4 class="centro"><strong>Recursos Humanos</strong></h4>
+          <h6><strong>Nome das instituições / empresas envolvidas: </strong>{{project.nomeInstituicaoApoio}}</h6>
         </div>
       </div>
     </div>
-
-    <div class="col-md-4">
+    <hr>
+    <div class="col-md-5">
       <div class="media border p-3">
         <div class="media-body">
-          <h6><strong>Período de: </strong>{{project.periodoDe}}</h6>
-          <h6><strong>Até: </strong>{{project.periodoAte}}</h6>
+          <h6><strong>Período de: </strong>{{project.periodoDe | mask: '00/00/0000'}}<strong> até </strong>{{project.periodoAte
+            | mask: '00/00/0000'}}</h6>
           <hr>
-          <h6><strong>Horário (Início): </strong>{{project.horaInicio}}<strong> (Fim): </strong>{{project.horaFim}}</h6>
-          <h6><strong>Dia(s) da semana: </strong>{{project.diasDaSemana}}</h6>
-          <h6><strong>Carga horária total: </strong>{{project.cargaHoraria}}</h6>
+          <h6><strong>Horário (Início): </strong>{{project.horaInicio | mask: '00:00'}}<strong> (Fim): </strong>{{project.horaFim}}</h6>
+          <h6><strong>Dia (s) da semana: </strong>{{project.diasDaSemana | mask: '00:00'}}</h6>
+          <h6><strong>Carga horária total: </strong>{{project.cargaHoraria}} hora (s)</h6>
           <h6><strong>Campus: </strong>{{project.campus}}</h6>
           <h6><strong>Local de realização: </strong>{{project.local}}</h6>
           <hr>
@@ -51,20 +51,65 @@
           <h6><strong>Justificativa: </strong></h6>
           <h6>{{project.justificativa}}</h6>
           <hr>
-          <h6><strong>Metodologia/Procedimentos: </strong></h6>
-          <h6>{{project.metodologiaProcedimentob}}</h6>
+          <h6><strong>Metodologia / Procedimentos: </strong></h6>
+          <h6>{{project.metodologiaProcedimento}}</h6>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-7 mt-2">
+      <div class="media border p-3">
+        <div class="media-body">
+          <h4 class="centro"><strong>Recursos Humanos</strong></h4>
+          <hr>
+          <h6><strong>Docente (s) envolvido (s): </strong>{{ project.docenteEnvolvido1 }}</h6>
+          <h6><strong>Curso: </strong>{{ project.cursoDocenteEnvolvido1}}</h6>
+          <h6><strong>Função: </strong>{{ project.funcaoDocenteEnvolvido1 }}</h6>
+          <hr>
+          <h6><strong>Discente (s) envolvido (s): </strong>{{ project.discenteEnvolvido1 }}</h6>
+          <h6><strong>Curso: </strong>{{ project.cursoDiscenteEnvolvido1}}</h6>
+          <h6><strong>Período: </strong>{{ project.periodoDiscenteEnvolvido1 }}</h6>
+          <h6><strong>Nº de matrícula: </strong>{{ project.matriculaDiscenteEnvolvido1 }}</h6>
+          <h6><strong>Cronograma: </strong>{{project.cronograma}}</h6>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5 mt-2">
+      <div class="media border p-3">
+        <div class="media-body">
+          <h4 class="centro"><strong>Previsão da Receita</strong></h4>
+          <hr>
+          <h6><strong>Inscrições: </strong>{{ project.receitaIncricao }}</h6>
+          <h6><strong>Início: </strong>{{ project.receitaInicio }}</h6>
+          <h6><strong>Término: </strong>{{ project.receitaTermino }}</h6>
+          <h6><strong>Nº mínimo de inscrições: </strong>{{ project.receitaNumMinInsc }}</h6>
+          <h6><strong>Total: </strong>R$ {{ project.receitaNumMinInscTotal }}</h6>
+          <h6><strong>Nº máximo de inscrições: </strong>{{ project.receitaNumMaxInsc }}</h6>
+          <h6><strong>Total: </strong>R$ {{ project.receitaNumMaxInscTotal }}</h6>
+          <hr>
+          <h6><strong>Valor (Docentes e Discentes Univás): </strong>{{ project.valorDiscenteDoscente }}</h6>
+          <h6><strong>Total de receita:</strong></h6>
+          <h6>Nº mínimo de inscrições: {{ project.receitaNumMinInscTotal }}</h6>
+          <h6>Nº máximo de inscrições: {{ project.receitaNumMaxInscTotal }}</h6>
+          <hr>
+          <h4 class="centro"><strong>Recursos</strong></h4>
+
+
+
         </div>
       </div>
     </div>
 
   </div>
 
-  <div class="row">
-    <div class="col-md-12">
-      <a class="nav-link" routerLink="/home/todos-projetos">
-        <span [innerHTML]="'arrow-left' | feather:35:'#212529'"></span>
-        <strong>Voltar</strong>
-      </a>
+  <div class="col-md-12">
+    <hr>
+      <div class="row">
+        <a class="nav-link" routerLink="/home/todos-projetos">
+          <span [innerHTML]="'arrow-left' | feather:35:'#212529'"></span>
+          <strong>Voltar</strong>
+        </a>
+      </div>
     </div>
-  </div>
+    <hr>
 </div>

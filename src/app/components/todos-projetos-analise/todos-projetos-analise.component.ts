@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Perfil } from '../perfil/perfil.module';
-import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
+import { AngularFirestoreCollection, AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 import { Observable } from 'rxjs';
 import { Projeto } from 'src/app/core/projetos/projeto.module';
 import { Router } from '@angular/router';
@@ -23,6 +23,9 @@ export class TodosProjetosAnaliseComponent implements OnInit {
   perfils: Observable<Perfil[]>;
 
   projetos: Observable<Projeto[]>
+
+  projetoDoc: AngularFirestoreDocument<Projeto>;
+  projeto: Observable<Projeto>;
 
 
   constructor(public router: Router, private db: AngularFirestore,
@@ -47,6 +50,11 @@ export class TodosProjetosAnaliseComponent implements OnInit {
       return this.projetos = this.projetoService.filterByAnalise();
     }
 
+  }
+
+  detalhes(projectId) {
+    this.projetoDoc = this.db.doc('project/'+projectId);
+    this.projeto = this.projetoDoc.valueChanges();
   }
 
   aprovar(project: Projeto) {
