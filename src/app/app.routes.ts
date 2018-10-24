@@ -27,7 +27,7 @@ export const rootRouterConfig: Routes = [
         { path: 'todos-aceitos', component: TodosProjetosAceitosComponent },
         { path: 'todos-reprovados', component: TodosProjetosReprovadosComponent },
         { path: 'perfil', component: PerfilComponent },
-        { path: 'projeto-detalhe', component: ProjetoDetalheComponent },
+        { path: 'projeto-detalhe/:id', component: ProjetoDetalheComponent },
         { path: 'manual-do-usuario', component: ManualDoUsuarioComponent }
       ]
     },

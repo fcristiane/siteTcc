@@ -30,7 +30,7 @@
             <td *ngIf="project.situacao == 2"><button type="button" class="btn btn-success btn-md centro medio"
                 disabled>Aprovado</button></td>
             <td *ngIf="project.situacao == 3"><button type="button" class="btn btn-danger btn-sm centro medio" disabled>Reprovado</button></td>
-            <td> <a [routerLink]="['/home/projeto-detalhe', project.id]"><button type="button" class="btn btn-primary btn-sm centro">Detalhes</button></a> </td>
+            <td> <a [routerLink]="['/home/projeto-detalhe',project.id]"><button type="button" class="btn btn-primary btn-sm centro">Detalhes</button></a> </td>
             <td *ngIf="perfil.permissao == 4 && project.situacao != 3 && project.situacao != 2"><button type="button"
                 class="btn btn-success btn-sm centro" (click)="aprovar(project)">Aprovar</button></td>
             <td *ngIf="perfil.permissao == 4 && project.situacao != 3 && project.situacao != 2"><button type="button"

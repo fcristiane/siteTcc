@@ -11,7 +11,6 @@ import { Observable } from 'rxjs';
 })
 export class ProjetoDetalheComponent implements OnInit {
 
- 
   project : Projeto = {} as Projeto;
 
   constructor(
@@ -20,8 +19,9 @@ export class ProjetoDetalheComponent implements OnInit {
   ) {
     const id = this.route.snapshot.paramMap.get('id');
     if(id) {
-      debugger
-      this.projetoService.getProjetoById(id);
+      this.projetoService.getProjetoById(id).subscribe((data) => {
+        this.project = data[0];
+      })
       console.log("!!!!!")
     }
    }
