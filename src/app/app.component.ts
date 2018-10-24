@@ -45,7 +45,7 @@ export class AppComponent {
     setTimeout(() => {
         /** spinner ends after 5 seconds */
         this.spinner.hide();
-    }, 3000);
+    }, 2000);
   }
 
 }
