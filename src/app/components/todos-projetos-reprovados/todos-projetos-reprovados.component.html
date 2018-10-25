@@ -25,7 +25,8 @@
               project.responsavel }}</td>
             <td class="centro">{{ project.classificacao }}</td>
             <td class="centro">{{ project.curso }}</td>
-            <td class="centro" *ngIf="project.situacao == 3"><button type="button" class="btn btn-danger btn-sm centro medio" disabled>Reprovado</button></td>
+            <td class="centro td-vermelho" *ngIf="project.situacao == 3">
+              <strong>Indeferido</strong></td>
             <td class="centro"> <a [routerLink]="['/home/projeto-detalhe',project.id]"><button type="button" class="btn btn-primary btn-sm centro">Detalhes</button></a>
             <td class="centro" *ngIf="perfil.permissao == 4 && project.situacao != 1"><button type="button" class="btn btn-secondary btn-sm centro"
                 (click)="reentrada(project)">Redefinir</button></td>

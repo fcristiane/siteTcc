@@ -8,6 +8,22 @@
     position: relative;
 }
 
+.td-verde{
+    background-color: rgb(0, 194, 0);
+}
+
+.td-vermelho{
+    background-color: rgb(255, 31, 31);
+}
+
+.td-amarelo{
+    background-color: rgb(255, 172, 17);
+}
+
+.border-white{
+    border-color: aliceblue;
+}
+
 #borda{
     height: 100px;
     border-left: 5px solid black;

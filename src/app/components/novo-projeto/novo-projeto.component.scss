@@ -9,8 +9,9 @@
     position: relative;
 }
 
-.texto-right{
-    
+.hr-edit{
+    border-width: 2px;
+    border-color: #3c443f;
 }
 
 .texto-centro2{
@@ -20,6 +21,10 @@
 
 .item{
     align-items: flex-end;
+}
+
+.item-centro{
+    align-items: center;
 }
 
 #borda{

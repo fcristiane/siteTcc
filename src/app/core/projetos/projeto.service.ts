@@ -43,11 +43,11 @@ export class ProjetoService {
     return this.projetos = this.projetosCollection.valueChanges();
   }
 
-  create() {
+  create(novoProjeto: Projeto) {
     let id = this.db.createId();
-    this.novoProjeto.id = id;
-    this.novoProjeto.userId = this.user.uid;
-    this.novoProjeto.situacao = 1;
+    novoProjeto.id = id;
+    novoProjeto.userId = this.user.uid;
+    novoProjeto.situacao = 1;
     this.db.collection<Projeto>('project').doc(id).set(this.novoProjeto).then((success) => {
       console.log(success);
       console.log('Salvo');

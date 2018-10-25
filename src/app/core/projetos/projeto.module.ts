@@ -15,10 +15,10 @@ export interface Projeto {
 
     ministrante: string;
     cpf: string;
-
     docenteInstituicao: string;
     funcaoCargo: string;
     titulacao: string;
+    publicoAlvo: string;
 
     numPessoasEnvolvidas: number;
     tipoParceria: string;
@@ -33,6 +33,7 @@ export interface Projeto {
     campus: string;
     local: string;
 
+    objetivos: string;
     justificativa: string;
     metodologiaProcedimento: string;
     
