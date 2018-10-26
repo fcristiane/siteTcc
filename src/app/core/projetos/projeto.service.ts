@@ -48,7 +48,7 @@ export class ProjetoService {
     novoProjeto.id = id;
     novoProjeto.userId = this.user.uid;
     novoProjeto.situacao = 1;
-    this.db.collection<Projeto>('project').doc(id).set(this.novoProjeto).then((success) => {
+    this.db.collection<Projeto>('project').doc(id).set(novoProjeto).then((success) => {
       console.log(success);
       console.log('Salvo');
     }).catch((erro) => {

@@ -13,7 +13,7 @@
     </p>
   </div>
 
-  <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" *ngFor="let perfil of perfils | async" novalidate>
+  <form *ngFor="let perfil of perfils | async">
     <hr class="mb-3 hr-edit mt-5">
     <div class="form-row">
       <div class="col-md-12" id="texto-centro">
@@ -25,10 +25,7 @@
     <div class="form-row">
       <div class="form-group col-md-8 mb-2">
         <label for="nomeAtv"><strong>Nome da atividade:</strong></label>
-        <input type="text" class="form-control" name="nomeAtv" [(ngModel)]="novoProjeto.nomeAtv" #nomeAtv="ngModel" [ngClass]="{ 'is-invalid': f.submitted && nomeAtv.invalid }" required />
-        <div *ngIf="f.submitted && nomeAtv.invalid" class="invalid-feedback">
-          <div *ngIf="nomeAtv.errors.required">Campo inválido!</div>
-        </div>
+        <input type="text" class="form-control" name="nomeAtv" [(ngModel)]="novoProjeto.nomeAtv">
       </div>
 
       <div class="form-group col-md-4 mb-2">
@@ -74,18 +71,13 @@
 
       <div class="form-group col-md-4 mb-2">
         <label for="responsavel"><strong>Responsável pelo projeto:</strong></label>
-        <input type="text" class="form-control" name="nome" [(ngModel)]="perfil.nome"
-          disabled>
-        
+        <input type="text" class="form-control" name="nome" [(ngModel)]="perfil.nome">
+
       </div>
 
       <div class="form-group col-md-4 mb-2">
         <label for="coordenador"><strong>Coordenador:</strong></label>
-        <input type="text" class="form-control" name="coordenador" [(ngModel)]="novoProjeto.coordenador"
-        #coordenador="ngModel" [ngClass]="{ 'is-invalid': f.submitted && coordenador.invalid }" required />
-        <div *ngIf="f.submitted && coordenador.invalid" class="invalid-feedback">
-            <div *ngIf="coordenador.errors.required">Campo inválido!</div>
-          </div>
+        <input type="text" class="form-control" name="coordenador" [(ngModel)]="novoProjeto.coordenador">
       </div>
 
       <div class="form-group col-md-4 mb-2">
@@ -188,10 +180,7 @@
 
       <div class="form-group col-md-4">
         <label><strong>Local de Realização:</strong></label>
-        <input type="text" class="form-control" name="local" [(ngModel)]="novoProjeto.local" #local="ngModel" [ngClass]="{ 'is-invalid': f.submitted && local.invalid }" required />
-        <div *ngIf="f.submitted && local.invalid" class="invalid-feedback">
-          <div *ngIf="local.errors.required">Campo inválido!</div>
-        </div>
+        <input type="text" class="form-control" name="local" [(ngModel)]="novoProjeto.local">
       </div>
 
     </div>
@@ -271,38 +260,23 @@
 
       <div class="form-group col-md-3 mb-2">
         <label for="horaInicio"><strong>Horário (Início): </strong></label>
-        <input type="text" class="form-control" name="horaInicio" mask="00:00" placeholder="hh:mm"
-          [(ngModel)]="novoProjeto.horaInicio" #horaInicio="ngModel" [ngClass]="{ 'is-invalid': f.submitted && horaInicio.invalid }" required />
-          <div *ngIf="f.submitted && horaInicio.invalid" class="invalid-feedback">
-            <div *ngIf="horaInicio.errors.required">Campo inválido!</div>
-          </div>
+        <input type="text" class="form-control" name="horaInicio" mask="00:00" placeholder="hh:mm" [(ngModel)]="novoProjeto.horaInicio">
       </div>
 
       <div class="form-group col-md-3 mb-2">
         <label for="horaFim"><strong>Horário (Fim):</strong></label>
-        <input type="text" class="form-control" name="horaFim" mask="00:00" placeholder="hh:mm"
-          [(ngModel)]="novoProjeto.horaFim" #horaFim="ngModel" [ngClass]="{ 'is-invalid': f.submitted && horaFim.invalid }" required />
-          <div *ngIf="f.submitted && horaFim.invalid" class="invalid-feedback">
-            <div *ngIf="horaFim.errors.required">Campo inválido!</div>
-          </div>
+        <input type="text" class="form-control" name="horaFim" mask="00:00" placeholder="hh:mm" [(ngModel)]="novoProjeto.horaFim">
       </div>
 
       <div class="form-group col-md-3 mb-2">
         <label for="periodoDe"><strong>Período de: </strong></label>
-        <input type="text" class="form-control" name="periodoDe" mask="00/00/0000"
-          placeholder="dd/mm/aaaa" [(ngModel)]="novoProjeto.preriodoDe" [(ngModel)]="novoProjeto.periodoDe" #periodoDe="ngModel" [ngClass]="{ 'is-invalid': f.submitted && periodoDe.invalid }" required />
-        <div *ngIf="submitted && f.periodoDe.errors" class="invalid-feedback">
-          <div *ngIf="f.periodoDe.errors.required">Campo inválido!</div>
-        </div>
+        <input type="text" class="form-control" name="periodoDe" mask="00/00/0000" placeholder="dd/mm/aaaa" [(ngModel)]="novoProjeto.preriodoDe">
       </div>
 
       <div class="form-group col-md-3 mb-2">
         <label for="periodoAte"><strong>Até:</strong></label>
         <input type="text" class="form-control" mask="00/00/0000" placeholder="dd/mm/aaaa" name="periodoAte"
-          [(ngModel)]="novoProjeto.periodoAte" #periodoAte="ngModel" [ngClass]="{ 'is-invalid': f.submitted && periodoAte.invalid }" required />
-          <div *ngIf="f.submitted && periodoAte.invalid" class="invalid-feedback">
-            <div *ngIf="periodoAte.errors.required">Campo inválido!</div>
-          </div>
+          [(ngModel)]="novoProjeto.periodoAte">
       </div>
 
     </div>
@@ -311,10 +285,7 @@
       <div class="form-group col-md-3 mb-2">
         <label for="cargaHoraria"><strong>Carga horária total:</strong></label>
         <input type="number" class="form-control" name="cargaHoraria" [(ngModel)]="novoProjeto.cargaHoraria"
-          placeholder="Hora(s)" #cargaHoraria="ngModel" [ngClass]="{ 'is-invalid': f.submitted && cargaHoraria.invalid }" required />
-          <div *ngIf="f.submitted && cargaHoraria.invalid" class="invalid-feedback">
-            <div *ngIf="cargaHoraria.errors.required">Campo inválido!</div>
-          </div>
+          placeholder="Hora(s)">
       </div>
 
       <div class="form-group col-md-3 mb-2">
@@ -373,20 +344,13 @@
 
       <div class="form-group col-md-8">
         <label for="ministrante"><strong>Ministrante:</strong></label>
-        <input class="form-control" type="text" name="ministrante" [(ngModel)]="novoProjeto.ministrante"
-        #ministrante="ngModel" [ngClass]="{ 'is-invalid': f.submitted && ministrante.invalid }" required />
-        <div *ngIf="f.submitted && ministrante.invalid" class="invalid-feedback">
-          <div *ngIf="ministrante.errors.required">Campo inválido!</div>
-        </div>
+        <input class="form-control" type="text" name="ministrante" [(ngModel)]="novoProjeto.ministrante">
       </div>
 
       <div class="form-group col-md-4">
         <label for="cpf"><strong>CPF:</strong></label>
         <input type="text" class="form-control" name="cpf" mask="000.000.000-00" placeholder="123.456.789-00"
-          [(ngModel)]="novoProjeto.cpf" #cpf="ngModel" [ngClass]="{ 'is-invalid': f.submitted && cpf.invalid }" required />
-          <div *ngIf="f.submitted && cpf.invalid" class="invalid-feedback">
-            <div *ngIf="cpf.errors.required">Campo inválido!</div>
-          </div>
+          [(ngModel)]="novoProjeto.cpf">
       </div>
 
     </div>
@@ -414,9 +378,6 @@
       <div class="form-group col-md-5">
         <label for="funcaoCargo"><strong>Função/Cargo: </strong></label>
         <input class="form-control" type="text" name="funcaoCargo" [(ngModel)]="novoProjeto.funcaoCargo">
-        <div class="invalid-feedback">
-          Campo obrigatório.
-        </div>
       </div>
 
       <div class="form-group col-md-4">
@@ -474,13 +435,15 @@
 
     <div class="form-row">
 
-        <div class="col-md-12" id="texto-centro">
-            <h2>Dados Específicos</h2>
-            <hr class="mb-4">
-          </div>
+      <div class="col-md-12" id="texto-centro">
+        <h2>Dados Específicos</h2>
+        <hr class="mb-4">
+      </div>
 
       <div class="col-md-12">
-        <label><h5><strong>Objetivos:</strong></h5></label>
+        <label>
+          <h5><strong>Objetivos:</strong></h5>
+        </label>
         <textarea class="form-control" rows="4" name="objetivos" [(ngModel)]="novoProjeto.objetivos"></textarea>
         <p><i>Discriminar os objetivos gerais e específicos em termos de contribuição esperada para o desenvolvimento
             da comunidade, bem como retornos esperados ao aluno, ao ensino e à pesquisa; Assegurar a coerência entre
@@ -494,7 +457,9 @@
     <div class="form-row">
 
       <div class="col-md-12">
-        <label for="justificativa"><h5><strong>Justificativa:</strong></h5></label>
+        <label for="justificativa">
+          <h5><strong>Justificativa:</strong></h5>
+        </label>
         <textarea class="form-control" rows="4" name="justificativa" [(ngModel)]="novoProjeto.justificativa"></textarea>
         <p><i>Explicitar as razões do projeto; Situação/problema que originou a proposição do projeto; Delimitação da
             proposta básica de trabalho e possibilidade de operar mudanças frente à problemática descrita da
@@ -509,7 +474,9 @@
     <div class="form-row">
 
       <div class="col-md-12">
-        <label for="metodologiaProcedimento"><h5><strong>Metodologia / Procedimentos:</strong></h5></label>
+        <label for="metodologiaProcedimento">
+          <h5><strong>Metodologia / Procedimentos:</strong></h5>
+        </label>
         <textarea class="form-control" rows="4" name="metodologiaProcedimento" [(ngModel)]="novoProjeto.metodologiaProcedimento"></textarea>
         <p><i>Descrever detalhadamente as atividades a serem desenvolvidas.</i></p>
       </div>
@@ -585,36 +552,36 @@
       <div class="col-md-3">
         <label for="name"><strong>Curso: </strong></label>
         <select class="form-control" name="cursoDiscenteEnvolvido1" [(ngModel)]="novoProjeto.cursoDiscenteEnvolvido1">
-            <option selected>Escolha...</option>
-            <option>Administração</option>
-            <option>Artes Visuais</option>
-            <option>Ciências Biológicas - Bacharelado</option>
-            <option>Ciências Biológicas - Licenciatura</option>
-            <option>Ciências Contábeis</option>
-            <option>Educação Física</option>
-            <option>Enfermagem</option>
-            <option>Engenharia Ambiental</option>
-            <option>Engenharia de Automação e Controle</option>
-            <option>Engenharia de Produção</option>
-            <option>Engenharia Elétrica</option>
-            <option>Engenharia Mecânica</option>
-            <option>Farmácia</option>
-            <option>Fisioterapia</option>
-            <option>História</option>
-            <option>Jornalismo</option>
-            <option>Letras</option>
-            <option>Medicina</option>
-            <option>Nutrição</option>
-            <option>Pedagogia</option>
-            <option>Psicologia</option>
-            <option>Publicidade e Propaganda</option>
-            <option>Sistemas de Informação</option>
-            <option>Superior de Tecnologia em Gastronomia</option>
-            <option>Superior de Tecnologia em Gestão da Produção Industrial</option>
-            <option>Superior de Tecnologia em Gestão da Qualidade</option>
-            <option>Superior de Tecnologia em Gestão de Recursos Humanos</option>
-            <option>Superior de Tecnologia em Logística</option>
-          </select>
+          <option selected>Escolha...</option>
+          <option>Administração</option>
+          <option>Artes Visuais</option>
+          <option>Ciências Biológicas - Bacharelado</option>
+          <option>Ciências Biológicas - Licenciatura</option>
+          <option>Ciências Contábeis</option>
+          <option>Educação Física</option>
+          <option>Enfermagem</option>
+          <option>Engenharia Ambiental</option>
+          <option>Engenharia de Automação e Controle</option>
+          <option>Engenharia de Produção</option>
+          <option>Engenharia Elétrica</option>
+          <option>Engenharia Mecânica</option>
+          <option>Farmácia</option>
+          <option>Fisioterapia</option>
+          <option>História</option>
+          <option>Jornalismo</option>
+          <option>Letras</option>
+          <option>Medicina</option>
+          <option>Nutrição</option>
+          <option>Pedagogia</option>
+          <option>Psicologia</option>
+          <option>Publicidade e Propaganda</option>
+          <option>Sistemas de Informação</option>
+          <option>Superior de Tecnologia em Gastronomia</option>
+          <option>Superior de Tecnologia em Gestão da Produção Industrial</option>
+          <option>Superior de Tecnologia em Gestão da Qualidade</option>
+          <option>Superior de Tecnologia em Gestão de Recursos Humanos</option>
+          <option>Superior de Tecnologia em Logística</option>
+        </select>
       </div>
 
       <div class="col-md-2">
@@ -649,7 +616,7 @@
 
     <div class="form-row mt-2 mb-5 item">
       <div class="col-md-12">
-        <button [disabled]="loading" class="btn btn-primary btn-lg btn-block" type="submit" (click)="onSubmit(novoProjeto)">Finalizar</button>
+        <button class="btn btn-primary btn-lg btn-block" type="button" (click)="salvar(novoProjeto)">Finalizar</button>
       </div>
     </div>
 

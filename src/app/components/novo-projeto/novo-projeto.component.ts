@@ -25,10 +25,8 @@ export class NovoProjetoComponent implements OnInit {
   novoProjetoLista: Array<Projeto> = [];
   showMessageError: boolean;
 
-  registerForm: FormGroup;
-  submitted = false;
 
-  constructor(private db: AngularFirestore, private auth: AngularFireAuth, private projetoService: ProjetoService, private formBuilder: FormBuilder, public perfilService: PerfilService) {
+  constructor(private db: AngularFirestore, private auth: AngularFireAuth, private projetoService: ProjetoService, public perfilService: PerfilService) {
     if (firebase.auth().currentUser != null) {
       console.log("user id: " + firebase.auth().currentUser.uid);
     }
@@ -61,22 +59,6 @@ export class NovoProjetoComponent implements OnInit {
   // get f() { return this.registerForm.controls; }
 
 
-  onSubmit(novoProjeto) {
-
-    // this.submitted = true;
-
-    // if (this.registerForm.invalid) {
-    //   alert('Preencha todos os campos corretamente!');
-    //   return;
-    // }else {
-    //   this.salvar();
-    // }
-
-    alert('Sucesso!');
-    this.salvar(novoProjeto);
-
-  }
-
   getLista() {
     this.db.collection<Projeto>('project').valueChanges().subscribe((data: Projeto[]) => {
       this.novoProjetoLista = data;
@@ -85,8 +67,10 @@ export class NovoProjetoComponent implements OnInit {
   }
 
   salvar(novoProjeto : Projeto) {
+    console.log(novoProjeto);
     this.projetoService.create(novoProjeto);
   }
+
 
   update(novoProjeto: Projeto) {
     this.projetoService.update(novoProjeto);
