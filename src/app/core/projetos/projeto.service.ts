@@ -4,6 +4,8 @@ import { Projeto } from './projeto.module';
 import { Observable } from 'rxjs';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
+import { PerfilService } from '../perfils/perfil.service';
+import { Perfil } from 'src/app/components/perfil/perfil.module';
 
 
 @Injectable({
@@ -17,10 +19,17 @@ export class ProjetoService {
   projeto: Projeto = {} as Projeto;
   showMessageError: boolean;
 
+  perfils: Observable<Perfil[]>;
+
   user = firebase.auth().currentUser;
 
   constructor(private db: AngularFirestore,
-    private auth: AngularFireAuth) { }
+    private auth: AngularFireAuth,
+    public perfil: PerfilService) { }
+
+  ngOnInit(){
+    this.perfils = this.perfil.getPerfil();
+  }
 
   getProjetos(): Observable<Projeto[]> {
     this.projetosCollection = this.db.collection<Projeto>('project');
@@ -44,7 +53,9 @@ export class ProjetoService {
   }
 
   create(novoProjeto: Projeto) {
+    let today: number = Date.now();
     let id = this.db.createId();
+    novoProjeto.dataCadastro = today;
     novoProjeto.id = id;
     novoProjeto.userId = this.user.uid;
     novoProjeto.situacao = 1;
@@ -78,6 +89,8 @@ export class ProjetoService {
   }
 
   aprovar(project: Projeto) {
+    let today: number = Date.now();
+    project.atualizacaoAprovado = today;
     project.situacao = 2;
     this.db.collection<Projeto>('project').doc(project.id).update(project).then((success) => {
       console.log(success);
@@ -89,6 +102,8 @@ export class ProjetoService {
   }
 
   reprovar(project: Projeto) {
+    let today: number = Date.now();
+    project.atualizacaoIndeferido = today;
     project.situacao = 3;
     this.db.collection<Projeto>('project').doc(project.id).update(project).then((success) => {
       console.log(success);
@@ -100,10 +115,25 @@ export class ProjetoService {
   }
 
   reentrada(project: Projeto) {
+    let today: number = Date.now();
+    project.atualizacaoEditado = today;
     project.situacao = 1;
     this.db.collection<Projeto>('project').doc(project.id).update(project).then((success) => {
       console.log(success);
       alert('Projeto movido para reanálise!!!');
+    }).catch((erro) => {
+      console.log(erro);
+      alert('Erro!!!');
+    })
+  }
+
+  cancelado(project: Projeto) {
+    let today: number = Date.now();
+    project.atualizacaoCancelado = today;
+    project.situacao = 5;
+    this.db.collection<Projeto>('project').doc(project.id).update(project).then((success) => {
+      console.log(success);
+      alert('Projeto movido para cancelado!!!');
     }).catch((erro) => {
       console.log(erro);
       alert('Erro!!!');

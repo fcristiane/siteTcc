@@ -71,7 +71,7 @@
 
       <div class="form-group col-md-4 mb-2">
         <label for="responsavel"><strong>Responsável pelo projeto:</strong></label>
-        <input type="text" class="form-control" name="nome" [(ngModel)]="perfil.nome">
+        <input type="text" class="form-control" name="nome" [(ngModel)]="perfil.nome" disabled>
 
       </div>
 
@@ -270,7 +270,7 @@
 
       <div class="form-group col-md-3 mb-2">
         <label for="periodoDe"><strong>Período de: </strong></label>
-        <input type="text" class="form-control" name="periodoDe" mask="00/00/0000" placeholder="dd/mm/aaaa" [(ngModel)]="novoProjeto.preriodoDe">
+        <input type="text" class="form-control" name="periodoDe" mask="00/00/0000" placeholder="dd/mm/aaaa" [(ngModel)]="novoProjeto.periodoDe">
       </div>
 
       <div class="form-group col-md-3 mb-2">
@@ -292,43 +292,59 @@
 
       </div>
 
-      <div class="form-group col-md-6 mb-2">
+      <div class="form-check col-md-6 mb-2">
         <label for="diasDaSemana"><strong>Dias da semana: </strong></label>
         <br>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="segunda" id="segunda" value="Segunda-feira" [(ngModel)]="novoProjeto.diasDaSemana">
-          <label class="form-check-label" for="diasDaSemana">Segunda-feira</label>
+          <input class="form-check-input" type="checkbox" name="diasDaSemana7" id="inlineCheckbox7" value="Segunda-feira" [(ngModel)]="novoProjeto.diasDaSemana">
+          <label class="form-check-label" for="inlineCheckbox7">Segunda-feira</label>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="terca" id="terca" value="Terça-feira" [(ngModel)]="novoProjeto.diasDaSemana">
-          <label class="form-check-label" for="diasDaSemana">Terça-feira</label>
+          <input class="form-check-input" type="checkbox" name="diasDaSemana6" id="inlineCheckbox6" value="Terça-feira" [(ngModel)]="novoProjeto.diasDaSemana">
+          <label class="form-check-label" for="inlineCheckbox6">Terça-feira</label>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="quarta" id="quarta" value="Quarta-feira" [(ngModel)]="novoProjeto.diasDaSemana">
-          <label class="form-check-label">Quarta-feira</label>
+          <input class="form-check-input" type="checkbox" name="diasDaSemana5" id="inlineCheckbox5" value="Quarta-feira" [(ngModel)]="novoProjeto.diasDaSemana">
+          <label class="form-check-label" for="inlineCheckbox5">Quarta-feira</label>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="quinta" id="quinta" value="Quinta-feira" [(ngModel)]="novoProjeto.diasDaSemana">
-          <label class="form-check-label" for="diasDaSemana">Quinta-feira</label>
+          <input class="form-check-input" type="checkbox" name="diasDaSemana4" id="inlineCheckbox4" value="Quinta-feira" [(ngModel)]="novoProjeto.diasDaSemana">
+          <label class="form-check-label" for="inlineCheckbox4">Quinta-feira</label>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="sexta" id="sexta" value="Sexta-feira" [(ngModel)]="novoProjeto.diasDaSemana">
-          <label class="form-check-label" for="diasDaSemana">Sexta-feira</label>
+          <input class="form-check-input" type="checkbox" name="diasDaSemana3" id="inlineCheckbox3" value="Sexta-feira" [(ngModel)]="novoProjeto.diasDaSemana">
+          <label class="form-check-label" for="inlineCheckbox3">Sexta-feira</label>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="sabado" id="sabado" value="Sábado" [(ngModel)]="novoProjeto.diasDaSemana">
-          <label class="form-check-label" for="diasDaSemana">Sábado</label>
+          <input class="form-check-input" type="checkbox" name="diasDaSemana2" id="inlineCheckbox2" value="Sábado" [(ngModel)]="novoProjeto.diasDaSemana">
+          <label class="form-check-label" for="inlineCheckbox2">Sábado</label>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="domingo" id="domingo" value="Domingo" [(ngModel)]="novoProjeto.diasDaSemana">
-          <label class="form-check-label" for="diasDaSemana">Domingo</label>
+          <input class="form-check-input" type="checkbox" name="diasDaSemana1" id="inlineCheckbox1" value="Domingo" [(ngModel)]="novoProjeto.diasDaSemana">
+          <label class="form-check-label" for="inlineCheckbox1">Domingo</label>
         </div>
+
+        <!-- <div class="form-group col-md-3">
+          <label><strong>Docente da Instituição? </strong></label><br>
+          <div class="form-check form-check-inline">
+            <div class="custom-control custom-radio">
+              <input type="radio" name="docenteInstituicao" id="customRadio1" class="custom-control-input" value="Sim"
+                [(ngModel)]="novoProjeto.docenteInstituicao" checked>
+              <label class="custom-control-label" for="customRadio1">Sim</label>
+            </div>
+            <div class="custom-control custom-radio ml-2">
+              <input type="radio" name="docenteInstituicao" id="customRadio2" class="custom-control-input" value="Não"
+                [(ngModel)]="novoProjeto.docenteInstituicao">
+              <label class="custom-control-label" for="customRadio2">Não</label>
+            </div>
+          </div>
+        </div> -->
 
       </div>
     </div>

@@ -4,9 +4,14 @@ export interface Projeto {
     userId: string;
     situacao: number;
 
+    atualizacaoAprovado: number;
+    atualizacaoIndeferido: number;
+    atualizacaoEditado: number;
+    atualizacaoCancelado:number;
+
     nomeAtv: string
     responsavel: string;
-    dataCadastro: Date;
+    dataCadastro: number;
     classificacao: string;
     areaTematica: string;
     curso: string;

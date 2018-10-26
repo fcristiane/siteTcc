@@ -14,16 +14,17 @@
         <div class="col-md-5" *ngFor="let perfil of perfils | async">
 
           <div class="card border-dark mb-3" style="max-width: 100%">
-            <div class="card-header mb-0"><h5><strong>Dados pessoais: </strong></h5></div>
+            <div class="card-header mb-0">
+              <h5><strong>Dados pessoais: </strong></h5>
+            </div>
             <div class="card-body text-dark">
               <p class="card-text"><strong>Nome:</strong> {{perfil.nome}}</p>
-              <p class="card-text"><strong>Data de nascimento:</strong> {{ perfil.dataNascimento | mask: '00/00/0000' }}</p>
               <p class="card-text"><strong>Celular:</strong> {{ perfil.telefone | mask: '(00) 00000-0000' }}</p>
               <p class="card-text"><strong>Email:</strong> {{perfil.email}} </p>
-              <p class="card-text"><strong>Identificação Universitária:</strong> {{ perfil.identificacao }}</p>
-              <p class="card-text"><strong>Formação:</strong> {{ perfil.formacao }}</p>
+              <p class="card-text"><strong>Curso de atuação:</strong> {{ perfil.formacao }}</p>
               <p class="card-text"><strong>Cargo:</strong> {{ perfil.cargo }}</p>
               <p class="card-text"><strong>Outra titulação:</strong> {{ perfil.titulacao }}</p>
+              <p class="card-text"><strong>Data da última atualização: </strong>{{ perfil.dataAtualizacao | date:'d/M/y, H:mm' }}</p>
             </div>
           </div>
 
@@ -33,46 +34,57 @@
           <h6><strong>Preencha os campos abaixo para manter seus dados atualizados:</strong></h6>
           <hr mb-1>
           <div class="form-group row">
-            <label for="perfilNome" class="col-md-3 col-form-label">Nome completo:</label>
-            <div class="col-md-9">
+            <label for="perfilNome" class="col-md-4 col-form-label">
+              <h5>Nome completo:</h5>
+            </label>
+            <div class="col-md-8">
               <input type="text" class="form-control" name="perfilNome" [(ngModel)]="perfil.nome">
             </div>
           </div>
-          <div class="form-group row">
+          <!-- <div class="form-group row">
             <label for="identificacao" class="col-sm-3 col-form-label">Identificação:</label>
             <div class="col-md-9">
               <input type="text" class="form-control" name="identificacao" [(ngModel)]="perfil.identificacao">
             </div>
-          </div>
+          </div> -->
           <div class="form-group row">
-            <label for="dataNascimento" class="col-sm-4 col-form-label">Data de nascimento:</label>
+            <label for="celular" class="col-sm-4 col-form-label">
+              <h5>Celular:</h5>
+            </label>
             <div class="col-md-8">
-              <input type="text" class="form-control" name="dataNascimento" mask="00/00/0000" [(ngModel)]="perfil.dataNascimento">
-            </div>
-          </div>
-          <div class="form-group row">
-            <label for="celular" class="col-sm-3 col-form-label">Celular:</label>
-            <div class="col-md-9">
               <input type="text" class="form-control" name="celular" mask="(00) 00000-0000" [(ngModel)]="perfil.telefone">
             </div>
           </div>
           <div class="form-group row">
-            <label for="cargo" class="col-sm-3 col-form-label">Cargo:</label>
-            <div class="col-md-9">
+            <label for="cargo" class="col-sm-4 col-form-label">
+              <h5>Cargo:</h5>
+            </label>
+            <div class="col-md-8">
               <input type="text" class="form-control" name="cargo" [(ngModel)]="perfil.cargo" disabled>
             </div>
           </div>
           <div class="form-group row">
-            <label for="formacao" class="col-sm-3 col-form-label">Formação:</label>
-            <div class="col-md-9">
+            <label for="formacao" class="col-sm-4 col-form-label">
+              <h5>Curso de atuação:</h5>
+            </label>
+            <div class="col-md-8">
               <input type="text" class="form-control" name="formacao" [(ngModel)]="perfil.formacao">
             </div>
           </div>
 
           <div class="form-group row">
-            <label for="titulacao" class="col-sm-3 col-form-label">Outra titulação:</label>
-            <div class="col-md-9">
-              <input type="text" class="form-control" name="titulacao" [(ngModel)]="perfil.titulacao">
+            <label for="titulacao" class="col-sm-4 col-form-label">
+              <h5>Titulação:</h5>
+            </label>
+            <div class="col-sm-8">
+              <select class="form-control" name="titulacao" [(ngModel)]="perfil.titulacao">
+                <option selected>Escolha...</option>
+                <option>Graduado</option>
+                <option>Especializado</option>
+                <option>Mestrado</option>
+                <option>Doutorado</option>
+                <option>Pós-Doutorado</option>
+              </select>
             </div>
           </div>
 
@@ -83,7 +95,7 @@
             <div class="col-md-3">
             </div>
             <div class="col-md-6">
-              <button class="btn btn-primary btn-lg btn-block" type="button" (click)="update(perfil)" >Atualizar
+              <button class="btn btn-primary btn-lg btn-block" type="button" (click)="update(perfil)">Atualizar
                 Dados</button><br>
             </div>
             <div class="col-md-3">

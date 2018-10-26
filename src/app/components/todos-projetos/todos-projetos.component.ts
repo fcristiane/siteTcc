@@ -108,4 +108,8 @@ export class TodosProjetosComponent implements OnInit {
     this.projetoService.reentrada(project);
   }
 
+  cancelado(project: Projeto){
+    this.projetoService.cancelado(project);
+  }
+
 }

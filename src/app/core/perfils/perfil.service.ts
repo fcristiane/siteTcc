@@ -32,18 +32,24 @@ export class PerfilService {
   }
 
   salvar(perfil: Perfil) {
+    let today: number = Date.now();
     let id = this.db.createId();
+    perfil.dataAtualizacao = today;
     perfil.email = this.user.email;
     perfil.id = id;
     perfil.userId = this.user.uid;
     this.db.collection<Perfil>('perfil').doc(id).set(this.perfil).then((sucess) => {
-      console.log(sucess)
+      console.log(sucess);
+      console.log('Atualizado com sucesso');
     }).catch((erro) => {
-      console.log(erro)
+      console.log(erro);
+      console.log('Erro ao atualizar');
     })
   }
 
   update(perfil: Perfil){
+    let today: number = Date.now();
+    perfil.dataAtualizacao = today;
     perfil.email = this.user.email;
     this.db.collection<Perfil>('perfil').doc(perfil.id).update(perfil).then((sucess) => {
       console.log(sucess);

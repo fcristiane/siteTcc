@@ -20,7 +20,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row" *ngFor="let perfil of perfils | async">
 
     <div class="col-md-12 mt-0">
       <hr>
@@ -32,8 +32,8 @@
           <h4 class="centro"><strong>Dados Gerais</strong></h4>
           <hr>
           <h6><strong>Nome: </strong>{{ project.nomeAtv }}</h6>
-          <h6><strong>Responsável: </strong>{{ project.responsavel }}</h6>
-          <h6><strong>Data de criação: </strong>{{ project.dataCadastro }}</h6>
+          <h6><strong>Responsável: </strong>{{ perfil.nome }}</h6>
+          <h6><strong>Data de criação: </strong>{{ project.dataCadastro | date: 'd/M/y, h:mm a' }}</h6>
           <h6><strong>Coordenador: </strong>{{ project.coordenador }}</h6>
           <h6><strong>Curso (Vínculo Acadêmico): </strong>{{ project.curso }}</h6>
           <h6><strong>Campus: </strong>{{project.campus}}</h6>
@@ -44,14 +44,14 @@
           <hr>
           <h4><strong>Dados ...</strong></h4>
           <hr>
-          <h6><strong>Ministrante: </strong>{{ project.ministrante }}<strong>  -  CPF: </strong>{{ project.cpf |
+          <h6><strong>Ministrante: </strong>{{ project.ministrante }}<strong>    CPF: </strong>{{ project.cpf |
             mask: '000.000.000-00' }}</h6>
-          <h6><strong>Docente da Instituição: </strong>{{ project.docenteInstituicao }}<strong>  -  Função: </strong>{{ project.funcaoCargo }}</h6>
+          <h6><strong>Docente da Instituição: </strong>{{ project.docenteInstituicao }}<strong>    Função: </strong>{{ project.funcaoCargo }}</h6>
           <h6><strong>Titulação: </strong>{{ project.titulacao }}</h6>
           <h6><strong>Público alvo: </strong>{{ project.publicoAlvo }}</h6>
           <h6><strong>Número de pessoas atendidas: </strong>{{ project.numPessoasEnvolvidas }}</h6>
           <h6><strong>Nome das instituições / empresas envolvidas: </strong>{{project.nomeInstituicaoApoio}}</h6>
-          <h6><strong>Parceria / Apoio / Convênio: </strong>{{ project.parceria }}</h6>
+          <h6><strong>Parceria / Apoio / Convênio: </strong>{{ project.tipoParceria }}</h6>
         </div>
       </div>
     </div>
@@ -69,6 +69,7 @@
           <h6><strong>Carga horária total: </strong>{{project.cargaHoraria}} hora (s)</h6>
           <hr>
           <h6><strong>Objetivos: </strong></h6>
+          <h6>{{ project.objetivos }}</h6>
           <hr>
           <h6><strong>Justificativa: </strong></h6>
           <h6>{{project.justificativa}}</h6>
@@ -84,11 +85,11 @@
         <div class="media-body">
           <h4 class="centro"><strong>Recursos Humanos</strong></h4>
           <hr>
-          <h6><strong>Docente (s) envolvido (s): </strong>{{ project.docenteEnvolvido1 }}</h6>
+          <h6><strong>Docente envolvido: </strong>{{ project.docenteEnvolvido1 }}</h6>
           <h6><strong>Curso: </strong>{{ project.cursoDocenteEnvolvido1}}</h6>
           <h6><strong>Função: </strong>{{ project.funcaoDocenteEnvolvido1 }}</h6>
           <hr>
-          <h6><strong>Discente (s) envolvido (s): </strong>{{ project.discenteEnvolvido1 }}</h6>
+          <h6><strong>Discente envolvido: </strong>{{ project.discenteEnvolvido1 }}</h6>
           <h6><strong>Curso: </strong>{{ project.cursoDiscenteEnvolvido1}}</h6>
           <h6><strong>Período: </strong>{{ project.periodoDiscenteEnvolvido1 }}</h6>
           <h6><strong>Nº de matrícula: </strong>{{ project.matriculaDiscenteEnvolvido1 }}</h6>
@@ -116,9 +117,19 @@
           <h6>Nº máximo de inscrições: {{ project.receitaNumMaxInscTotal }}</h6>
           <hr>
           <h4 class="centro"><strong>Recursos</strong></h4>
+        </div>
+      </div>
+    </div>
 
-
-
+    <div class="col-md-7">
+      <div class="media border p-3">
+        <div class="media-body">
+          <h4 class="centro"><strong>Dados de Atualização</strong></h4>
+          <hr>
+          <h6 *ngIf=(project.atualizacaoAprovado)><strong>Aprovado em: </strong>{{ project.atualizacaoAprovado | date: 'd/M/y, H:mm' }}</h6>
+          <h6 *ngIf=(project.atualizacaoIndeferido)><strong>Indeferido em: </strong>{{ project.atualizacaoIndeferido | date: 'd/M/y, H:mm'}}</h6>
+          <h6 *ngIf=(project.atualizacaoEditado)><strong>Editado em: </strong>{{ project.atualizacaoEditado | date: 'd/M/y, H:mm'}}</h6>
+          <h6 *ngIf=(project.atualizacaoCancelado)><strong>Cancelado em: </strong>{{ project.atualizacaoCancelado | date: 'd/M/y, H:mm'}}</h6>
         </div>
       </div>
     </div>

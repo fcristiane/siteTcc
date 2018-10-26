@@ -33,7 +33,7 @@ import { ManualDoUsuarioComponent } from './components/manual-do-usuario/manual-
 import {NgxMaskModule} from 'ngx-mask';
 import { NovoPerfilComponent } from './components/novo-perfil/novo-perfil.component';
 import { FilterPipe } from './filter.pipe';
-import { NovoProjetoAuxComponent } from './components/novo-projeto-aux/novo-projeto-aux.component'
+import { NovoProjetoAuxComponent } from './components/novo-projeto-aux/novo-projeto-aux.component';
 
 @NgModule({
   declarations: [

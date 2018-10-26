@@ -17,6 +17,7 @@ export class PerfilComponent implements OnInit {
 
   perfil: Perfil = {} as Perfil;
   perfils: Observable<Perfil[]>;
+  today: number = Date.now();
 
   constructor(private db: AngularFirestore, private auth: AngularFireAuth, public perfilService: PerfilService) {
     if (firebase.auth().currentUser != null) {
@@ -30,10 +31,12 @@ export class PerfilComponent implements OnInit {
   }
 
   salvar(perfil: Perfil) {
+    console.log(perfil);
     this.perfilService.salvar(perfil);
   }
 
   update(perfil: Perfil){
+    console.log(perfil);
     this.perfilService.update(perfil);
   }
 

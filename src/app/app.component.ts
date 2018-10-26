@@ -17,6 +17,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
 })
 export class AppComponent {
   title = 'siteTcc';
+  
 
   constructor(private _loadingBar: SlimLoadingBarService, private _router: Router, private spinner: NgxSpinnerService) {
     this._router.events.subscribe((event: Event) => {
