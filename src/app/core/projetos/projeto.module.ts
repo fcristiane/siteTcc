@@ -29,11 +29,35 @@ export interface Projeto {
     tipoParceria: string;
     nomeInstituicaoApoio: string;
 
+    addMinistrante2: string;
+    ministrante2: string;
+    cpf2: string;
+    docenteInstituicao2: string;
+    funcaoCargo2: string;
+    titulacao2: string;
+    publicoAlvo2: string;
+
+    numPessoasEnvolvidas2: number;
+    tipoParceria2: string;
+    nomeInstituicaoApoio2: string;
+
+    addMinistrante3: string;
+    ministrante3: string;
+    cpf3: string;
+    docenteInstituicao3: string;
+    funcaoCargo3: string;
+    titulacao3: string;
+    publicoAlvo3: string;
+
+    numPessoasEnvolvidas3: number;
+    tipoParceria3: string;
+    nomeInstituicaoApoio3: string;
+
     periodoDe: Date;
     periodoAte: Date;
     horaInicio: string;
     horaFim: string;
-    diasDaSemana: string;
+    diasDaSemana: Array<string>;
     cargaHoraria: number;
     campus: string;
     local: string;
@@ -67,4 +91,29 @@ export interface Projeto {
     receitaNumMaxInsc: string;
     receitaNumMaxInscTotal: string;
     valorDiscenteDoscente: string;
+    outrosValores: string;
+
+    especificacaoRecursos1: string;
+    quantidadeRecursos1: string;
+    valorUnitarioRecursos1: string;
+    totalRecursos1: string;
+
+    especificacaoRecursos2: string;
+    quantidadeRecursos2: string;
+    valorUnitarioRecursos2: string;
+    totalRecursos2: string;
+
+    especificacaoRecursos3: string;
+    quantidadeRecursos3: string;
+    valorUnitarioRecursos3: string;
+    totalRecursos3: string;
+
+    especificacaoRecursos4: string;
+    quantidadeRecursos4: string;
+    valorUnitarioRecursos4: string;
+    totalRecursos4: string;
+
+    totalDespesas: string;
+
+
 }   

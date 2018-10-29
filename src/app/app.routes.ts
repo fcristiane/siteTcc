@@ -12,6 +12,8 @@ import { TodosProjetosAceitosComponent } from './components/todos-projetos-aceit
 import { TodosProjetosReprovadosComponent } from './components/todos-projetos-reprovados/todos-projetos-reprovados.component';
 import { ManualDoUsuarioComponent } from './components/manual-do-usuario/manual-do-usuario.component';
 import { ProjetoDetalheComponent } from './components/projeto-detalhe/projeto-detalhe.component';
+import { ProjetoEditandoComponent } from './components/projeto-editando/projeto-editando.component';
+import { NovoProjetoEditandoComponent } from './components/novo-projeto-editando/novo-projeto-editando.component';
 
 
 export const rootRouterConfig: Routes = [
@@ -28,7 +30,10 @@ export const rootRouterConfig: Routes = [
         { path: 'todos-reprovados', component: TodosProjetosReprovadosComponent },
         { path: 'perfil', component: PerfilComponent },
         { path: 'projeto-detalhe/:id', component: ProjetoDetalheComponent },
-        { path: 'manual-do-usuario', component: ManualDoUsuarioComponent }
+        { path: 'manual-do-usuario', component: ManualDoUsuarioComponent },
+        { path: 'projeto-editando', component: ProjetoEditandoComponent },
+        { path: 'novo-projeto-editando/:id', component: NovoProjetoEditandoComponent }
+
       ]
     },
     { path: 'login', component: LoginComponent },

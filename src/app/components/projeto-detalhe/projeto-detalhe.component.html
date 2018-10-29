@@ -100,7 +100,7 @@
     </div>
     <div class="col-md-5 mt-2">
       <div class="media border p-3">
-        <div class="media-body">
+        <div class="media-body b">
           <h4 class="centro"><strong>Previsão da Receita</strong></h4>
           <hr>
           <h6><strong>Inscrições: </strong>{{ project.receitaIncricao }}</h6>
@@ -115,24 +115,48 @@
           <h6><strong>Total de receita:</strong></h6>
           <h6>Nº mínimo de inscrições: {{ project.receitaNumMinInscTotal }}</h6>
           <h6>Nº máximo de inscrições: {{ project.receitaNumMaxInscTotal }}</h6>
-          <hr>
-          <h4 class="centro"><strong>Recursos</strong></h4>
         </div>
       </div>
     </div>
 
-    <div class="col-md-7">
-      <div class="media border p-3">
-        <div class="media-body">
-          <h4 class="centro"><strong>Dados de Atualização</strong></h4>
-          <hr>
-          <h6 *ngIf=(project.atualizacaoAprovado)><strong>Aprovado em: </strong>{{ project.atualizacaoAprovado | date: 'd/M/y, H:mm' }}</h6>
-          <h6 *ngIf=(project.atualizacaoIndeferido)><strong>Indeferido em: </strong>{{ project.atualizacaoIndeferido | date: 'd/M/y, H:mm'}}</h6>
-          <h6 *ngIf=(project.atualizacaoEditado)><strong>Editado em: </strong>{{ project.atualizacaoEditado | date: 'd/M/y, H:mm'}}</h6>
-          <h6 *ngIf=(project.atualizacaoCancelado)><strong>Cancelado em: </strong>{{ project.atualizacaoCancelado | date: 'd/M/y, H:mm'}}</h6>
+    <div class="col-md-7 mt-2">
+        <div class="media border p-3">
+          
+          <div class="media-body">
+              <h4 class="centro"><strong>Recursos</strong></h4>
+              <hr>
+              <h6><strong>Especificações:</strong></h6>
+              <h6><strong>1) </strong>{{ project.especificacaoRecursos1 }}</h6>
+              <h6><strong>Quantidade: </strong>{{ project.QuantidadeRecursos1 }} - <strong>Valor unitário: </strong>{{ project.valorUnitarioRecursos1 }} - <strong>Total: </strong>{{ project.totalRecursos1 }}</h6>
+              <hr [hidden]="project.especificacaoRecursos2 == ''">
+              <h6 [hidden]="project.especificacaoRecursos2 == ''"><strong>2)</strong>{{ project.especificacaoRecursos2 }}</h6>
+              <h6 [hidden]="project.especificacaoRecursos2 == ''"><strong>Quantidade: </strong>{{ project.quantidadeRecursos2 }} <strong>Valor unitário: </strong>{{ project.valorUnitarioRecursos2 }} <strong>Total: </strong>{{ project.totalRecursos2 }}</h6>
+              <hr [hidden]="project.especificacaoRecursos3 == ''">
+              <h6 [hidden]="project.especificacaoRecursos3 == ''"><strong>3)</strong>{{ project.especificacaoRecursos3 }}</h6>
+              <h6 [hidden]="project.especificacaoRecursos3 == ''"><strong>Quantidade: </strong>{{ project.quantidadeRecursos3 }} <strong>Valor unitário: </strong>{{ project.valorUnitarioRecursos3 }} <strong>Total: </strong>{{ project.totalRecursos3 }}</h6>
+              <hr [hidden]="project.especificacaoRecursos4 == ''">
+              <h6 [hidden]="project.especificacaoRecursos4 == ''"><strong>4)</strong>{{ project.especificacaoRecursos4 }}</h6>
+              <h6 [hidden]="project.especificacaoRecursos4 == ''"><strong>Quantidade: </strong>{{ project.quantidadeRecursos4 }} <strong>Valor unitário: </strong>{{ project.valorUnitarioRecursos4 }} <strong>Total: </strong>{{ project.totalRecursos4 }}</h6>
+          </div>
+
         </div>
       </div>
-    </div>
+
+    <div class="col-md-5 mt-2">
+        <div class="media border p-3">
+          <div class="media-body">
+            <h4 class="centro"><strong>Dados de Atualização</strong></h4>
+            <hr>
+            <h6 *ngIf=(project.atualizacaoAprovado)><strong>Aprovado em: </strong>{{ project.atualizacaoAprovado | date: 'd/M/y, H:mm' }}</h6>
+            <h6 *ngIf=(project.atualizacaoIndeferido)><strong>Indeferido em: </strong>{{ project.atualizacaoIndeferido | date: 'd/M/y, H:mm'}}</h6>
+            <h6 *ngIf=(project.atualizacaoEditado)><strong>Editado em: </strong>{{ project.atualizacaoEditado | date: 'd/M/y, H:mm'}}</h6>
+            <h6 *ngIf=(project.atualizacaoCancelado)><strong>Cancelado em: </strong>{{ project.atualizacaoCancelado | date: 'd/M/y, H:mm'}}</h6>
+          </div>
+        </div>
+      </div>
+  
+  
+      
 
   </div>
 

@@ -31,9 +31,10 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { PerfilService } from './core/perfils/perfil.service';
 import { ManualDoUsuarioComponent } from './components/manual-do-usuario/manual-do-usuario.component';
 import {NgxMaskModule} from 'ngx-mask';
-import { NovoPerfilComponent } from './components/novo-perfil/novo-perfil.component';
 import { FilterPipe } from './filter.pipe';
 import { NovoProjetoAuxComponent } from './components/novo-projeto-aux/novo-projeto-aux.component';
+import { ProjetoEditandoComponent } from './components/projeto-editando/projeto-editando.component';
+import { NovoProjetoEditandoComponent } from './components/novo-projeto-editando/novo-projeto-editando.component';
 
 @NgModule({
   declarations: [
@@ -52,9 +53,10 @@ import { NovoProjetoAuxComponent } from './components/novo-projeto-aux/novo-proj
     TodosProjetosAceitosComponent,
     TodosProjetosReprovadosComponent,
     ManualDoUsuarioComponent,
-    NovoPerfilComponent,
     FilterPipe,
-    NovoProjetoAuxComponent
+    NovoProjetoAuxComponent,
+    ProjetoEditandoComponent,
+    NovoProjetoEditandoComponent
   ],
   imports: [
     BrowserModule,

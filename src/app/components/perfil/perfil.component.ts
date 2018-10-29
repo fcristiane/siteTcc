@@ -5,6 +5,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { Perfil } from './perfil.module';
 import { Observable } from 'rxjs';
 import { PerfilService } from 'src/app/core/perfils/perfil.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-perfil',
@@ -28,6 +29,7 @@ export class PerfilComponent implements OnInit {
 
   ngOnInit() {
     this.perfils = this.perfilService.getPerfil();
+
   }
 
   salvar(perfil: Perfil) {

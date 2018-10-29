@@ -27,12 +27,12 @@ export class ProjetoService {
     private auth: AngularFireAuth,
     public perfil: PerfilService) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.perfils = this.perfil.getPerfil();
   }
 
   getProjetos(): Observable<Projeto[]> {
-    this.projetosCollection = this.db.collection<Projeto>('project');
+    this.projetosCollection = this.db.collection<Projeto>('project', ref => ref.where('situacao', '<', 5));
     return this.projetos = this.projetosCollection.valueChanges();
   }
 
@@ -68,15 +68,76 @@ export class ProjetoService {
     })
   }
 
+  emEdicao(novoProjeto: Projeto) {
+    if (novoProjeto.id == null && novoProjeto.userId == null) {
+      let id = this.db.createId();
+      novoProjeto.id = id;
+      let today: number = Date.now();
+      novoProjeto.dataCadastro = today;
+      novoProjeto.userId = this.user.uid;
+      novoProjeto.situacao = 5;
+      this.db.collection<Projeto>('project').doc(id).set(novoProjeto).then((success) => {
+        console.log(success);
+        console.log('Salvo');
+      }).catch((erro) => {
+        console.log(erro);
+        console.log('Erro ao salvar')
+      })
+    }else {
+      let today: number = Date.now();
+      novoProjeto.dataCadastro = today;
+      novoProjeto.situacao = 5;
+      this.db.collection<Projeto>('project').doc(novoProjeto.id).update(novoProjeto).then((success) => {
+        console.log(success);
+        console.log('Salvo');
+      }).catch((erro) => {
+        console.log(erro);
+        console.log('Erro ao salvar')
+      })
+    }
+  }
+
+  updateEdicao(project: Projeto) {
+    if (project.id == null && project.userId == null) {
+      let id = this.db.createId();
+      project.id = id;
+      let today: number = Date.now();
+      project.dataCadastro = today;
+      project.userId = this.user.uid;
+      project.situacao = 5;
+      this.db.collection<Projeto>('project').doc(id).set(project).then((success) => {
+        console.log(success);
+        console.log('Salvo');
+      }).catch((erro) => {
+        console.log(erro);
+        console.log('Erro ao salvar')
+      })
+    }else {
+      let today: number = Date.now();
+      project.dataCadastro = today;
+      project.situacao = 5;
+      this.db.collection<Projeto>('project').doc(project.id).update(project).then((success) => {
+        console.log(success);
+        console.log('Salvo');
+      }).catch((erro) => {
+        console.log(erro);
+        console.log('Erro ao salvar')
+      })
+    }
+  }
+
   update(projeto: Projeto) {
-    this.projeto.situacao = 2;
-    this.db.collection<Projeto>('project').doc(projeto.id).update(projeto.situacao).then((success) => {
-      console.log(success)
+    let today: number = Date.now();
+    projeto.dataCadastro = today;
+    projeto.situacao = 1;
+    this.db.collection<Projeto>('project').doc(projeto.id).update(projeto).then((success) => {
+      console.log(success);
+      console.log('Update success')
     }).catch((erro) => {
       console.log(erro)
     })
   }
-  
+
   delete(id: string) {
     this.db.collection<Projeto>('project').doc(id).delete().then((success) => {
       console.log(success);
@@ -170,6 +231,16 @@ export class ProjetoService {
 
   filterByReprovadosTodos(): Observable<Projeto[]> {
     this.projetosCollection = this.db.collection<Projeto>('project', ref => ref.where('situacao', '==', 3));
+    return this.projetos = this.projetosCollection.valueChanges();
+  }
+
+  filterByEditando(): Observable<Projeto[]> {
+    this.projetosCollection = this.db.collection<Projeto>('project', ref => ref.where('situacao', '==', 5));
+    return this.projetos = this.projetosCollection.valueChanges();
+  }
+
+  filterByEditandoTodos(): Observable<Projeto[]> {
+    this.projetosCollection = this.db.collection<Projeto>('project', ref => ref.where('situacao', '==', 5));
     return this.projetos = this.projetosCollection.valueChanges();
   }
 

@@ -24,10 +24,6 @@ td{
     background-color: rgb(255, 172, 17);
 }
 
-.td-edicao{
-    background-color: rgb(6, 189, 196);
-}
-
 .border-white{
     border-color: aliceblue;
 }
@@ -67,6 +63,10 @@ a:visited {
 
 h2{
     font-family: Ubuntu;
+}
+
+.td-edicao{
+    background-color: rgb(6, 189, 196);
 }
 
 #customers tr:nth-child(even){background-color: rgb(255, 250, 250);}

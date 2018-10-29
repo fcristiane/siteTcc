@@ -1,3 +1,4 @@
+
 #texto{
     position: relative;
     text-align: right;
@@ -6,6 +7,24 @@
 #texto-centro{
     text-align: center;
     position: relative;
+}
+
+.hr-edit{
+    border-width: 2px;
+    border-color: #3c443f;
+}
+
+.texto-centro2{
+    text-align: center;
+    padding: 40px 0;
+}
+
+.item{
+    align-items: flex-end;
+}
+
+.item-centro{
+    align-items: center;
 }
 
 #borda{

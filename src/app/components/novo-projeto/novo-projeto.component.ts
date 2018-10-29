@@ -8,6 +8,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Perfil } from '../perfil/perfil.module';
 import { Observable } from 'rxjs';
 import { PerfilService } from 'src/app/core/perfils/perfil.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-novo-projeto',
@@ -25,8 +26,7 @@ export class NovoProjetoComponent implements OnInit {
   novoProjetoLista: Array<Projeto> = [];
   showMessageError: boolean;
 
-
-  constructor(private db: AngularFirestore, private auth: AngularFireAuth, private projetoService: ProjetoService, public perfilService: PerfilService) {
+  constructor(private db: AngularFirestore, private auth: AngularFireAuth, private projetoService: ProjetoService, public perfilService: PerfilService, public router: Router) {
     if (firebase.auth().currentUser != null) {
       console.log("user id: " + firebase.auth().currentUser.uid);
     }
@@ -69,6 +69,7 @@ export class NovoProjetoComponent implements OnInit {
   salvar(novoProjeto : Projeto) {
     console.log(novoProjeto);
     this.projetoService.create(novoProjeto);
+    this.router.navigate(['/home/todos-projetos']);
   }
 
 
@@ -78,6 +79,11 @@ export class NovoProjetoComponent implements OnInit {
 
   delete(id: string) {
     this.projetoService.delete(id);
+  }
+
+  emEdicao(novoProjeto: Projeto){
+    this.projetoService.emEdicao(novoProjeto);
+    this.router.navigate(['/home/todos-projetos']);
   }
 
 }
