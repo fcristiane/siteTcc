@@ -296,44 +296,37 @@
         <label><strong>Dias da semana: </strong></label>
         <br>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="diasDaSemana" value="Segunda-feira"
-          >
+          <input class="form-check-input" type="checkbox" name="diasDaSemana" value="Segunda-feira">
           <label class="form-check-label">Segunda-feira</label>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="diasDaSemana" value="Terça-feira"
-          >
+          <input class="form-check-input" type="checkbox" name="diasDaSemana" value="Terça-feira">
           <label class="form-check-label">Terça-feira</label>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="diasDaSemana" value="Quarta-feira"
-          >
+          <input class="form-check-input" type="checkbox" name="diasDaSemana" value="Quarta-feira">
           <label class="form-check-label">Quarta-feira</label>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="diasDaSemana" value="Quinta-feira"
-           >
+          <input class="form-check-input" type="checkbox" name="diasDaSemana" value="Quinta-feira">
           <label class="form-check-label">Quinta-feira</label>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="diasDaSemana" value="Sexta-feira"
-          >
+          <input class="form-check-input" type="checkbox" name="diasDaSemana" value="Sexta-feira">
           <label class="form-check-label">Sexta-feira</label>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="diasDaSemana" value="Sábado"
-          >
+          <input class="form-check-input" type="checkbox" name="diasDaSemana" value="Sábado">
           <label class="form-check-label">Sábado</label>
         </div>
 
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="diasDaSemana" value="Domingo"
-            >
+          <input class="form-check-input" type="checkbox" name="diasDaSemana" value="Domingo">
           <label class="form-check-label">Domingo</label>
         </div>
 
@@ -411,14 +404,14 @@
         <label><strong>Docente da Instituição? </strong></label><br>
         <div class="form-check form-check-inline">
           <div class="custom-control custom-radio">
-            <input type="radio" name="docenteInstituicao" id="customRadio1" class="custom-control-input" value="Sim"
+            <input type="radio" name="docenteInstituicao" id="radio1" class="custom-control-input" value="Sim"
               [(ngModel)]="novoProjeto.docenteInstituicao" checked>
-            <label class="custom-control-label" for="customRadio1">Sim</label>
+            <label class="custom-control-label" for="radio1">Sim</label>
           </div>
           <div class="custom-control custom-radio ml-2">
-            <input type="radio" name="docenteInstituicao" id="customRadio2" class="custom-control-input" value="Não"
+            <input type="radio" name="docenteInstituicao" id="radio2" class="custom-control-input" value="Não"
               [(ngModel)]="novoProjeto.docenteInstituicao">
-            <label class="custom-control-label" for="customRadio2">Não</label>
+            <label class="custom-control-label" for="radio2">Não</label>
           </div>
         </div>
       </div>
@@ -438,6 +431,156 @@
           <option>Doutorado</option>
           <option>Pós-Doutorado</option>
         </select>
+      </div>
+
+      <div class="col-md-12">
+        <hr>
+      </div>
+
+      <div class="col-md-6"></div>
+      <div class="col-md-6">
+        <!-- Add Ministrante
+        <input type="radio" value="Sim" [(ngModel)]="novoProjeto.addMinistrante2" name="addMinistrante2"> -->
+        <label><strong>Adicionar Segundo Ministrante? </strong></label>
+        <div class="form-check form-check-inline ml-5">
+          <input class="form-check-input" type="radio" id="addMinistrante1" value="Sim" [(ngModel)]="novoProjeto.addMinistrante2"
+            name="addMinistrante2">
+          <label class="form-check-label" for="addMinistrante1">Sim</label>
+        </div>
+        <div class="form-check form-check-inline ml-5">
+          <input class="form-check-input" type="radio" id="addMinistrante2" value="Não" [(ngModel)]="novoProjeto.addMinistrante2"
+            name="addMinistrante2">
+          <label class="form-check-label" for="addMinistrante2">Não</label>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <hr>
+      </div>
+
+      <div class="form-row" [hidden]="novoProjeto.addMinistrante2 != 'Sim'">
+
+        <div class="form-group col-md-8">
+          <label for="ministrante2"><strong>Ministrante 2:</strong></label>
+          <input class="form-control" type="text" name="ministrante2" [(ngModel)]="novoProjeto.ministrante2">
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="cpf2"><strong>CPF:</strong></label>
+          <input type="text" class="form-control" name="cpf2" mask="000.000.000-00" placeholder="123.456.789-00"
+            [(ngModel)]="novoProjeto.cpf2">
+        </div>
+
+        <div class="form-group col-md-3">
+          <label><strong>Docente da Instituição? </strong></label><br>
+          <div class="form-check form-check-inline">
+            <div class="custom-control custom-radio">
+              <input type="radio" name="docenteInstituicao2" id="radio3" class="custom-control-input" value="Sim"
+                [(ngModel)]="novoProjeto.docenteInstituicao2" checked>
+              <label class="custom-control-label" for="radio3">Sim</label>
+            </div>
+            <div class="custom-control custom-radio ml-2">
+              <input type="radio" name="docenteInstituicao2" id="radio4" class="custom-control-input" value="Não"
+                [(ngModel)]="novoProjeto.docenteInstituicao2">
+              <label class="custom-control-label" for="radio4">Não</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group col-md-5">
+          <label for="funcaoCargo2"><strong>Função/Cargo: </strong></label>
+          <input class="form-control" type="text" name="funcaoCargo2" [(ngModel)]="novoProjeto.funcaoCargo2">
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="titulacao2"><strong>Titulação: </strong></label>
+          <select class="form-control" name="titulacao2" [(ngModel)]="novoProjeto.titulacao2">
+            <option selected>Escolha...</option>
+            <option>Graduado</option>
+            <option>Especializado</option>
+            <option>Mestrado</option>
+            <option>Doutorado</option>
+            <option>Pós-Doutorado</option>
+          </select>
+        </div>
+
+        <div class="col-md-12">
+          <hr>
+        </div>
+
+        <div class="col-md-6"></div>
+        <div class="col-md-6">
+          <!-- Add Ministrante
+          <input type="radio" value="Sim" [(ngModel)]="novoProjeto.addMinistrante2" name="addMinistrante2"> -->
+          <label><strong>Adicionar Terceiro Ministrante? </strong></label>
+          <div class="form-check form-check-inline ml-5">
+            <input class="form-check-input" type="radio" id="addMinistrante" value="Sim" [(ngModel)]="novoProjeto.addMinistrante3"
+              name="addMinistrante3">
+            <label class="form-check-label" for="addMinistrante3">Sim</label>
+          </div>
+          <div class="form-check form-check-inline ml-5">
+            <input class="form-check-input" type="radio" id="addMinistrante1" value="Não" [(ngModel)]="novoProjeto.addMinistrante3"
+              name="addMinistrante3">
+            <label class="form-check-label" for="addMinistrante3">Não</label>
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <hr>
+        </div>
+
+      </div>
+
+      <div class="form-row" [hidden]="novoProjeto.addMinistrante3 != 'Sim'">
+
+        <div class="form-group col-md-8">
+          <label for="ministrante3"><strong>Ministrante 3:</strong></label>
+          <input class="form-control" type="text" name="ministrante3" [(ngModel)]="novoProjeto.ministrante3">
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="cpf3"><strong>CPF:</strong></label>
+          <input type="text" class="form-control" name="cpf3" mask="000.000.000-00" placeholder="123.456.789-00"
+            [(ngModel)]="novoProjeto.cpf3">
+        </div>
+
+        <div class="form-group col-md-3">
+          <label><strong>Docente da Instituição? </strong></label><br>
+          <div class="form-check form-check-inline">
+            <div class="custom-control custom-radio">
+              <input type="radio" name="docenteInstituicao3" id="radio5" class="custom-control-input" value="Sim"
+                [(ngModel)]="novoProjeto.docenteInstituicao3" checked>
+              <label class="custom-control-label" for="radio5">Sim</label>
+            </div>
+            <div class="custom-control custom-radio ml-2">
+              <input type="radio" name="docenteInstituicao3" id="radio6" class="custom-control-input" value="Não"
+                [(ngModel)]="novoProjeto.docenteInstituicao3">
+              <label class="custom-control-label" for="radio6">Não</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group col-md-5">
+          <label for="funcaoCargo3"><strong>Função/Cargo: </strong></label>
+          <input class="form-control" type="text" name="funcaoCargo3" [(ngModel)]="novoProjeto.funcaoCargo3">
+        </div>
+
+        <div class="form-group col-md-4">
+          <label for="titulacao3"><strong>Titulação: </strong></label>
+          <select class="form-control" name="titulacao3" [(ngModel)]="novoProjeto.titulacao3">
+            <option selected>Escolha...</option>
+            <option>Graduado</option>
+            <option>Especializado</option>
+            <option>Mestrado</option>
+            <option>Doutorado</option>
+            <option>Pós-Doutorado</option>
+          </select>
+        </div>
+
+        <div class="col-md-12">
+          <hr>
+        </div>
+
       </div>
 
       <div class="col-md-7">
@@ -469,195 +612,7 @@
         </select>
       </div>
 
-      <div class="col-md-7"></div>
-      <div class="col-md-5">
-        <!-- Add Ministrante
-        <input type="radio" value="Sim" [(ngModel)]="novoProjeto.addMinistrante2" name="addMinistrante2"> -->
-        <label><strong>Adicionar Ministrante? </strong></label>
-        <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addMinistrante1" value="Sim" [(ngModel)]="novoProjeto.addMinistrante2"
-            name="addMinistrante2">
-          <label class="form-check-label" for="addMinistrante1">Sim</label>
-        </div>
-        <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addMinistrante2" value="Não" [(ngModel)]="novoProjeto.addMinistrante2"
-            name="addMinistrante2">
-          <label class="form-check-label" for="addMinistrante2">Não</label>
-        </div>
-      </div>
-
     </div>
-
-    <div class="form-row" [hidden]="novoProjeto.addMinistrante2 != 'Sim'">
-
-      <div class="form-group col-md-8">
-        <label for="ministrante2"><strong>Ministrante 2:</strong></label>
-        <input class="form-control" type="text" name="ministrante2" [(ngModel)]="novoProjeto.ministrante2">
-      </div>
-
-      <div class="form-group col-md-4">
-        <label for="cpf2"><strong>CPF:</strong></label>
-        <input type="text" class="form-control" name="cpf2" mask="000.000.000-00" placeholder="123.456.789-00"
-          [(ngModel)]="novoProjeto.cpf2">
-      </div>
-
-      <div class="form-group col-md-3">
-        <label><strong>Docente da Instituição? </strong></label><br>
-        <div class="form-check form-check-inline">
-          <div class="custom-control custom-radio">
-            <input type="radio" name="docenteInstituicao2" id="customRadio1" class="custom-control-input" value="Sim"
-              [(ngModel)]="novoProjeto.docenteInstituicao2" checked>
-            <label class="custom-control-label" for="customRadio1">Sim</label>
-          </div>
-          <div class="custom-control custom-radio ml-2">
-            <input type="radio" name="docenteInstituicao2" id="customRadio2" class="custom-control-input" value="Não"
-              [(ngModel)]="novoProjeto.docenteInstituicao2">
-            <label class="custom-control-label" for="customRadio2">Não</label>
-          </div>
-        </div>
-      </div>
-
-      <div class="form-group col-md-5">
-        <label for="funcaoCargo2"><strong>Função/Cargo: </strong></label>
-        <input class="form-control" type="text" name="funcaoCargo2" [(ngModel)]="novoProjeto.funcaoCargo2">
-      </div>
-
-      <div class="form-group col-md-4">
-        <label for="titulacao2"><strong>Titulação: </strong></label>
-        <select class="form-control" name="titulacao2" [(ngModel)]="novoProjeto.titulacao2">
-          <option selected>Escolha...</option>
-          <option>Graduado</option>
-          <option>Especializado</option>
-          <option>Mestrado</option>
-          <option>Doutorado</option>
-          <option>Pós-Doutorado</option>
-        </select>
-      </div>
-
-      <div class="col-md-7">
-        <label><strong>Público alvo: </strong></label>
-        <input class="form-control" type="text" name="publicoAlvo2" [(ngModel)]="novoProjeto.publicoAlvo2">
-        <div class="invalid-feedback">
-          Campo obrigatório.
-        </div>
-      </div>
-
-      <div class="form-group col-md-5">
-        <label for="numPessoasEnvolvidas2"><strong>Número de pessoas que serão envolvidas: </strong></label>
-        <input class="form-control" type="number" name="numPessoasEnvolvidas2" [(ngModel)]="novoProjeto.numPessoasEnvolvidas2">
-      </div>
-
-      <div class="form-group col-md-8">
-        <label for="nomeInstituicaoApoio2"><strong>Nome da(s) instituição(s) ou empresa: Parceria, apoiadora ou
-            conveniada: </strong></label>
-        <input class="form-control" type="text" name="nomeInstituicaoApoio2" [(ngModel)]="novoProjeto.nomeInstituicaoApoio2">
-      </div>
-
-      <div class="form-group col-md-4">
-        <label for="tipoParceria2"><strong>Tipo: </strong></label>
-        <select class="form-control" name="tipoParceria2" [(ngModel)]="novoProjeto.tipoParceria2">
-          <option selected>Escolha...</option>
-          <option>Parceria</option>
-          <option>Apoio</option>
-          <option>Convênio</option>
-        </select>
-      </div>
-
-      <div class="col-md-7"></div>
-      <div class="col-md-5">
-        <!-- Add Ministrante
-        <input type="radio" value="Sim" [(ngModel)]="novoProjeto.addMinistrante2" name="addMinistrante2"> -->
-        <label><strong>Adicionar Ministrante? </strong></label>
-        <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addMinistrante" value="Sim" [(ngModel)]="novoProjeto.addMinistrante3"
-            name="addMinistrante3">
-          <label class="form-check-label" for="addMinistrante3">Sim</label>
-        </div>
-        <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addMinistrante1" value="Não" [(ngModel)]="novoProjeto.addMinistrante3"
-            name="addMinistrante3">
-          <label class="form-check-label" for="addMinistrante3">Não</label>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="form-row" [hidden]="novoProjeto.addMinistrante3 != 'Sim'">
-
-        <div class="form-group col-md-8">
-          <label for="ministrante3"><strong>Ministrante 3:</strong></label>
-          <input class="form-control" type="text" name="ministrante3" [(ngModel)]="novoProjeto.ministrante3">
-        </div>
-  
-        <div class="form-group col-md-4">
-          <label for="cpf3"><strong>CPF:</strong></label>
-          <input type="text" class="form-control" name="cpf3" mask="000.000.000-00" placeholder="123.456.789-00"
-            [(ngModel)]="novoProjeto.cpf3">
-        </div>
-  
-        <div class="form-group col-md-3">
-          <label><strong>Docente da Instituição? </strong></label><br>
-          <div class="form-check form-check-inline">
-            <div class="custom-control custom-radio">
-              <input type="radio" name="docenteInstituicao3" id="customRadio1" class="custom-control-input" value="Sim"
-                [(ngModel)]="novoProjeto.docenteInstituicao3" checked>
-              <label class="custom-control-label" for="customRadio1">Sim</label>
-            </div>
-            <div class="custom-control custom-radio ml-2">
-              <input type="radio" name="docenteInstituicao3" id="customRadio2" class="custom-control-input" value="Não"
-                [(ngModel)]="novoProjeto.docenteInstituicao3">
-              <label class="custom-control-label" for="customRadio2">Não</label>
-            </div>
-          </div>
-        </div>
-  
-        <div class="form-group col-md-5">
-          <label for="funcaoCargo3"><strong>Função/Cargo: </strong></label>
-          <input class="form-control" type="text" name="funcaoCargo3" [(ngModel)]="novoProjeto.funcaoCargo3">
-        </div>
-  
-        <div class="form-group col-md-4">
-          <label for="titulacao3"><strong>Titulação: </strong></label>
-          <select class="form-control" name="titulacao3" [(ngModel)]="novoProjeto.titulacao3">
-            <option selected>Escolha...</option>
-            <option>Graduado</option>
-            <option>Especializado</option>
-            <option>Mestrado</option>
-            <option>Doutorado</option>
-            <option>Pós-Doutorado</option>
-          </select>
-        </div>
-  
-        <div class="col-md-7">
-          <label><strong>Público alvo: </strong></label>
-          <input class="form-control" type="text" name="publicoAlvo3" [(ngModel)]="novoProjeto.publicoAlvo3">
-          <div class="invalid-feedback">
-            Campo obrigatório.
-          </div>
-        </div>
-  
-        <div class="form-group col-md-5">
-          <label for="numPessoasEnvolvidas3"><strong>Número de pessoas que serão envolvidas: </strong></label>
-          <input class="form-control" type="number" name="numPessoasEnvolvidas3" [(ngModel)]="novoProjeto.numPessoasEnvolvidas3">
-        </div>
-  
-        <div class="form-group col-md-8">
-          <label for="nomeInstituicaoApoio3"><strong>Nome da(s) instituição(s) ou empresa: Parceria, apoiadora ou
-              conveniada: </strong></label>
-          <input class="form-control" type="text" name="nomeInstituicaoApoio3" [(ngModel)]="novoProjeto.nomeInstituicaoApoio3">
-        </div>
-  
-        <div class="form-group col-md-4">
-          <label for="tipoParceria3"><strong>Tipo: </strong></label>
-          <select class="form-control" name="tipoParceria3" [(ngModel)]="novoProjeto.tipoParceria3">
-            <option selected>Escolha...</option>
-            <option>Parceria</option>
-            <option>Apoio</option>
-            <option>Convênio</option>
-          </select>
-        </div>
-  
-      </div>
 
     <hr class="hr-edit">
 
@@ -766,11 +721,164 @@
         <label for="name"><strong>Função: </strong></label>
         <input class="form-control" type="text" name="funcaoDocenteEnvolvido1" [(ngModel)]="novoProjeto.funcaoDocenteEnvolvido1">
       </div>
+
+      <div class="col-md-12">
+        <hr>
+      </div>
+
+      <div class="col-md-6"></div>
+      <div class="col-md-6">
+        <!-- Add Ministrante
+          <input type="radio" value="Sim" [(ngModel)]="novoProjeto.addMinistrante2" name="addMinistrante2"> -->
+        <label><strong>Adicionar outro Docente? </strong></label>
+        <div class="form-check form-check-inline ml-5">
+          <input class="form-check-input" type="radio" id="addDocente2s" value="Sim" [(ngModel)]="novoProjeto.addDocente2"
+            name="addDocente2">
+          <label class="form-check-label" for="addDocente2s">Sim</label>
+        </div>
+        <div class="form-check form-check-inline ml-5">
+          <input class="form-check-input" type="radio" id="addDocente2n" value="Não" [(ngModel)]="novoProjeto.addDocente2"
+            name="addDocente2">
+          <label class="form-check-label" for="addDocente2n">Não</label>
+        </div>
+      </div>
+
     </div>
 
-    <hr>
+    <div class="form-row" [hidden]="novoProjeto.addDocente2 != 'Sim'">
+
+      <div class="col-md-12">
+        <hr>
+      </div>
+
+      <div class="col-md-4">
+        <label for="name"><strong>Docente envolvido (2): </strong></label>
+        <input class="form-control" type="text" name="docenteEnvolvido2" [(ngModel)]="novoProjeto.docenteEnvolvido2">
+        <p><i>Nome completo sem abreviatura.</i></p>
+      </div>
+
+      <div class="col-md-4">
+        <label for="cursoDocenteEnvolvido2"><strong>Curso: </strong></label>
+        <select class="form-control" name="cursoDocenteEnvolvido2" [(ngModel)]="novoProjeto.cursoDocenteEnvolvido2">
+          <option selected>Escolha...</option>
+          <option>Administração</option>
+          <option>Artes Visuais</option>
+          <option>Ciências Biológicas - Bacharelado</option>
+          <option>Ciências Biológicas - Licenciatura</option>
+          <option>Ciências Contábeis</option>
+          <option>Educação Física</option>
+          <option>Enfermagem</option>
+          <option>Engenharia Ambiental</option>
+          <option>Engenharia de Automação e Controle</option>
+          <option>Engenharia de Produção</option>
+          <option>Engenharia Elétrica</option>
+          <option>Engenharia Mecânica</option>
+          <option>Farmácia</option>
+          <option>Fisioterapia</option>
+          <option>História</option>
+          <option>Jornalismo</option>
+          <option>Letras</option>
+          <option>Medicina</option>
+          <option>Nutrição</option>
+          <option>Pedagogia</option>
+          <option>Psicologia</option>
+          <option>Publicidade e Propaganda</option>
+          <option>Sistemas de Informação</option>
+          <option>Superior de Tecnologia em Gastronomia</option>
+          <option>Superior de Tecnologia em Gestão da Produção Industrial</option>
+          <option>Superior de Tecnologia em Gestão da Qualidade</option>
+          <option>Superior de Tecnologia em Gestão de Recursos Humanos</option>
+          <option>Superior de Tecnologia em Logística</option>
+        </select>
+      </div>
+
+      <div class="col-md-4">
+        <label for="name"><strong>Função: </strong></label>
+        <input class="form-control" type="text" name="funcaoDocenteEnvolvido2" [(ngModel)]="novoProjeto.funcaoDocenteEnvolvido2">
+      </div>
+
+      <div class="col-md-12">
+        <hr>
+      </div>
+
+      <div class="col-md-6"></div>
+      <div class="col-md-6">
+        <!-- Add Ministrante
+            <input type="radio" value="Sim" [(ngModel)]="novoProjeto.addMinistrante2" name="addMinistrante2"> -->
+        <label><strong>Adicionar outro Docente? </strong></label>
+        <div class="form-check form-check-inline ml-5">
+          <input class="form-check-input" type="radio" id="addDocente3s" value="Sim" [(ngModel)]="novoProjeto.addDocente3"
+            name="addDocente3">
+          <label class="form-check-label" for="addDocente3s">Sim</label>
+        </div>
+        <div class="form-check form-check-inline ml-5">
+          <input class="form-check-input" type="radio" id="addDocente3n" value="Não" [(ngModel)]="novoProjeto.addDocente3"
+            name="addDocente3">
+          <label class="form-check-label" for="addDocente3n">Não</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-row" [hidden]="novoProjeto.addDocente3 != 'Sim'">
+
+      <div class="col-md-12">
+        <hr>
+      </div>
+
+      <div class="col-md-4">
+        <label for="name"><strong>Docente envolvido (3): </strong></label>
+        <input class="form-control" type="text" name="docenteEnvolvido3" [(ngModel)]="novoProjeto.docenteEnvolvido3">
+        <p><i>Nome completo sem abreviatura.</i></p>
+      </div>
+
+      <div class="col-md-4">
+        <label for="cursoDocenteEnvolvido3"><strong>Curso: </strong></label>
+        <select class="form-control" name="cursoDocenteEnvolvido3" [(ngModel)]="novoProjeto.cursoDocenteEnvolvido3">
+          <option selected>Escolha...</option>
+          <option>Administração</option>
+          <option>Artes Visuais</option>
+          <option>Ciências Biológicas - Bacharelado</option>
+          <option>Ciências Biológicas - Licenciatura</option>
+          <option>Ciências Contábeis</option>
+          <option>Educação Física</option>
+          <option>Enfermagem</option>
+          <option>Engenharia Ambiental</option>
+          <option>Engenharia de Automação e Controle</option>
+          <option>Engenharia de Produção</option>
+          <option>Engenharia Elétrica</option>
+          <option>Engenharia Mecânica</option>
+          <option>Farmácia</option>
+          <option>Fisioterapia</option>
+          <option>História</option>
+          <option>Jornalismo</option>
+          <option>Letras</option>
+          <option>Medicina</option>
+          <option>Nutrição</option>
+          <option>Pedagogia</option>
+          <option>Psicologia</option>
+          <option>Publicidade e Propaganda</option>
+          <option>Sistemas de Informação</option>
+          <option>Superior de Tecnologia em Gastronomia</option>
+          <option>Superior de Tecnologia em Gestão da Produção Industrial</option>
+          <option>Superior de Tecnologia em Gestão da Qualidade</option>
+          <option>Superior de Tecnologia em Gestão de Recursos Humanos</option>
+          <option>Superior de Tecnologia em Logística</option>
+        </select>
+      </div>
+
+      <div class="col-md-4">
+        <label for="name"><strong>Função: </strong></label>
+        <input class="form-control" type="text" name="funcaoDocenteEnvolvido3" [(ngModel)]="novoProjeto.funcaoDocenteEnvolvido3">
+      </div>
+
+    </div>
 
     <div class="form-row">
+
+      <div class="col-md-12">
+        <hr>
+      </div>
+
       <div class="col-md-5">
         <label for="name"><strong>Discente envolvido: </strong></label>
         <input class="form-control" type="text" name="discenteEnvolvido1" [(ngModel)]="novoProjeto.discenteEnvolvido1">
@@ -832,6 +940,187 @@
         <input class="form-control" type="text" name="matriculaDiscenteEnvolvido1" mask="00000000" [(ngModel)]="novoProjeto.matriculaDiscenteEnvolvido1">
       </div>
 
+      <div class="col-md-12">
+        <hr>
+      </div>
+
+      <div class="col-md-6"></div>
+      <div class="col-md-6">
+        <!-- Add Ministrante
+              <input type="radio" value="Sim" [(ngModel)]="novoProjeto.addMinistrante2" name="addMinistrante2"> -->
+        <label><strong>Adicionar outro Discente? </strong></label>
+        <div class="form-check form-check-inline ml-5">
+          <input class="form-check-input" type="radio" id="addDiscente2s" value="Sim" [(ngModel)]="novoProjeto.addDiscente2"
+            name="addDiscente2">
+          <label class="form-check-label" for="addDiscente2s">Sim</label>
+        </div>
+        <div class="form-check form-check-inline ml-5">
+          <input class="form-check-input" type="radio" id="addDiscente2n" value="Não" [(ngModel)]="novoProjeto.addDiscente2"
+            name="addDiscente2">
+          <label class="form-check-label" for="addDiscente2n">Não</label>
+        </div>
+      </div>
+
+      <div class="col-md-12">
+        <hr>
+      </div>
+
+    </div>
+
+    <div class="form-row" [hidden]="novoProjeto.addDiscente2 != 'Sim'">
+      <div class="col-md-5">
+        <label for="name"><strong>Discente envolvido (2): </strong></label>
+        <input class="form-control" type="text" name="discenteEnvolvido2" [(ngModel)]="novoProjeto.discenteEnvolvido2">
+        <p><i>Nome completo sem abreviatura.</i></p>
+      </div>
+
+      <div class="col-md-3">
+        <label for="name"><strong>Curso: </strong></label>
+        <select class="form-control" name="cursoDiscenteEnvolvido2" [(ngModel)]="novoProjeto.cursoDiscenteEnvolvido2">
+          <option selected>Escolha...</option>
+          <option>Administração</option>
+          <option>Artes Visuais</option>
+          <option>Ciências Biológicas - Bacharelado</option>
+          <option>Ciências Biológicas - Licenciatura</option>
+          <option>Ciências Contábeis</option>
+          <option>Educação Física</option>
+          <option>Enfermagem</option>
+          <option>Engenharia Ambiental</option>
+          <option>Engenharia de Automação e Controle</option>
+          <option>Engenharia de Produção</option>
+          <option>Engenharia Elétrica</option>
+          <option>Engenharia Mecânica</option>
+          <option>Farmácia</option>
+          <option>Fisioterapia</option>
+          <option>História</option>
+          <option>Jornalismo</option>
+          <option>Letras</option>
+          <option>Medicina</option>
+          <option>Nutrição</option>
+          <option>Pedagogia</option>
+          <option>Psicologia</option>
+          <option>Publicidade e Propaganda</option>
+          <option>Sistemas de Informação</option>
+          <option>Superior de Tecnologia em Gastronomia</option>
+          <option>Superior de Tecnologia em Gestão da Produção Industrial</option>
+          <option>Superior de Tecnologia em Gestão da Qualidade</option>
+          <option>Superior de Tecnologia em Gestão de Recursos Humanos</option>
+          <option>Superior de Tecnologia em Logística</option>
+        </select>
+      </div>
+
+      <div class="col-md-2">
+        <label for="name"><strong>Período: </strong></label>
+        <select id="inputState" class="form-control" name="periodoDiscenteEnvolvido2" [(ngModel)]="novoProjeto.periodoDiscenteEnvolvido2">
+          <option selected>Escolha...</option>
+          <option>Primeiro (1º)</option>
+          <option>Segundo (2º)</option>
+          <option>Terceiro (3º)</option>
+          <option>Quarto (4º)</option>
+          <option>Quinto (5º)</option>
+          <option>Sexto (6º)</option>
+          <option>Sétimo (7º)</option>
+          <option>Oitavo (8º)</option>
+        </select>
+      </div>
+
+      <div class="col-md-2">
+        <label><strong>Nº de matrícula: </strong></label>
+        <input class="form-control" type="text" name="matriculaDiscenteEnvolvido2" mask="00000000" [(ngModel)]="novoProjeto.matriculaDiscenteEnvolvido2">
+      </div>
+
+      <div class="col-md-12">
+        <hr>
+      </div>
+
+      <div class="col-md-6"></div>
+      <div class="col-md-6">
+        <!-- Add Ministrante
+              <input type="radio" value="Sim" [(ngModel)]="novoProjeto.addMinistrante2" name="addMinistrante2"> -->
+        <label><strong>Adicionar outro Discente? </strong></label>
+        <div class="form-check form-check-inline ml-5">
+          <input class="form-check-input" type="radio" id="addDiscente3s" value="Sim" [(ngModel)]="novoProjeto.addDiscente3"
+            name="addDiscente3">
+          <label class="form-check-label" for="addDiscente3s">Sim</label>
+        </div>
+        <div class="form-check form-check-inline ml-5">
+          <input class="form-check-input" type="radio" id="addDiscente3n" value="Não" [(ngModel)]="novoProjeto.addDiscente3"
+            name="addDiscente3">
+          <label class="form-check-label" for="addDiscente3n">Não</label>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <hr>
+      </div>
+
+    </div>
+
+    <div class="form-row" [hidden]="novoProjeto.addDiscente3 != 'Sim'">
+      <div class="col-md-5">
+        <label for="name"><strong>Discente envolvido (3): </strong></label>
+        <input class="form-control" type="text" name="discenteEnvolvido3" [(ngModel)]="novoProjeto.discenteEnvolvido3">
+        <p><i>Nome completo sem abreviatura.</i></p>
+      </div>
+
+      <div class="col-md-3">
+        <label for="name"><strong>Curso: </strong></label>
+        <select class="form-control" name="cursoDiscenteEnvolvido3" [(ngModel)]="novoProjeto.cursoDiscenteEnvolvido3">
+          <option selected>Escolha...</option>
+          <option>Administração</option>
+          <option>Artes Visuais</option>
+          <option>Ciências Biológicas - Bacharelado</option>
+          <option>Ciências Biológicas - Licenciatura</option>
+          <option>Ciências Contábeis</option>
+          <option>Educação Física</option>
+          <option>Enfermagem</option>
+          <option>Engenharia Ambiental</option>
+          <option>Engenharia de Automação e Controle</option>
+          <option>Engenharia de Produção</option>
+          <option>Engenharia Elétrica</option>
+          <option>Engenharia Mecânica</option>
+          <option>Farmácia</option>
+          <option>Fisioterapia</option>
+          <option>História</option>
+          <option>Jornalismo</option>
+          <option>Letras</option>
+          <option>Medicina</option>
+          <option>Nutrição</option>
+          <option>Pedagogia</option>
+          <option>Psicologia</option>
+          <option>Publicidade e Propaganda</option>
+          <option>Sistemas de Informação</option>
+          <option>Superior de Tecnologia em Gastronomia</option>
+          <option>Superior de Tecnologia em Gestão da Produção Industrial</option>
+          <option>Superior de Tecnologia em Gestão da Qualidade</option>
+          <option>Superior de Tecnologia em Gestão de Recursos Humanos</option>
+          <option>Superior de Tecnologia em Logística</option>
+        </select>
+      </div>
+
+      <div class="col-md-2">
+        <label for="name"><strong>Período: </strong></label>
+        <select id="inputState" class="form-control" name="periodoDiscenteEnvolvido3" [(ngModel)]="novoProjeto.periodoDiscenteEnvolvido3">
+          <option selected>Escolha...</option>
+          <option>Primeiro (1º)</option>
+          <option>Segundo (2º)</option>
+          <option>Terceiro (3º)</option>
+          <option>Quarto (4º)</option>
+          <option>Quinto (5º)</option>
+          <option>Sexto (6º)</option>
+          <option>Sétimo (7º)</option>
+          <option>Oitavo (8º)</option>
+        </select>
+      </div>
+
+      <div class="col-md-2">
+        <label><strong>Nº de matrícula: </strong></label>
+        <input class="form-control" type="text" name="matriculaDiscenteEnvolvido3" mask="00000000" [(ngModel)]="novoProjeto.matriculaDiscenteEnvolvido3">
+      </div>
+
+      <div class="col-md-12">
+        <hr>
+      </div>
+
     </div>
 
     <div class="form-row">
@@ -861,7 +1150,7 @@
         <input class="form-control" type="number" name="receitaNumMinInsc" [(ngModel)]="novoProjeto.receitaNumMinInsc">
       </div>
       <div class="col-md-4 mb-2">
-        <label><strong>Total: R$ </strong></label>
+        <label><strong>Total: </strong></label>
         <input class="form-control" type="string" name="receitaNumMinInscTotal" [(ngModel)]="novoProjeto.receitaNumMinInscTotal"
           placeholder="R$">
       </div>
@@ -879,7 +1168,7 @@
         <input class="form-control" type="number" name="receitaNumMaxInsc" [(ngModel)]="novoProjeto.receitaNumMaxInsc">
       </div>
       <div class="col-md-4 mb-2">
-        <label><strong>Total: R$ </strong></label>
+        <label><strong>Total: </strong></label>
         <input class="form-control" type="string" name="receitaNumMaxInscTotal" [(ngModel)]="novoProjeto.receitaNumMaxInscTotal"
           placeholder="R$">
       </div>

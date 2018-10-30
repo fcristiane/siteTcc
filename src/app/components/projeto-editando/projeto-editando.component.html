@@ -1,217 +1,213 @@
 <div class="row">
-    <div class="col-md-12 order-md-1">
-      <br>
-      <h2 class="mb-3" id="texto-centro">Projetos em Construção</h2>
-      <hr>
-      <!-- <input class="form-control mb-2" name="searchString" type="text" placeholder="Search.." [(ngModel)]="searchString"> -->
-      <div class="table-responsive-sm">
-        <table class="table table-sm table-bordered">
-          <thead *ngFor="let perfil of perfils | async">
-            <tr class="thead-dark">
-              <th class="centro">Nº</th>
-              <th class="centro">Nome da Atividade</th>
-              <th class="centro" *ngIf="perfil.permissao != 1 && perfil.permissao != 2">Responsável</th>
-              <th class="centro">Classificação</th>
-              <th class="centro">Curso</th>
-              <th class="centro">Situação</th>
-              <th class="centro">Editar</th>
-              <th class="centro" *ngIf="perfil.permissao == 4"><span [innerHTML]="'thumbs-up' | feather:24:'#f1f1f1'"></span></th>
-              <th class="centro" *ngIf="perfil.permissao == 4"><span [innerHTML]="'thumbs-down' | feather:24:'#f1f1f1'"></span></th>
-              <th class="centro" *ngIf="perfil.permissao == 4"><span [innerHTML]="'x-circle' | feather:24:'#f1f1f1'"></span></th>
-            </tr>
-          </thead>
-          <!-- | filter : 'nome da atividade' : searchString; -->
-          <tbody *ngFor="let perfil of perfils | async">
-            <tr *ngFor="let project of projetos | async; let i = index">
-              <td class="centro"><strong>{{ i + 1 }}</strong></td>
-              <td class="centro">{{ project.nomeAtv }}</td>
-              <td *ngIf="perfil.permissao != 1 && perfil.permissao != 2" class="centro">{{ project.responsavel }}</td>
-              <td class="centro">{{ project.classificacao }}</td>
-              <td class="centro">{{ project.curso }}</td>
-              <td class="centro td-amarelo td-edicao" *ngIf="project.situacao == 5">
-                <strong>Em Edição</strong></td>              
-              <td class="centro"> <a [routerLink]="['/home/novo-projeto-editando',project.id]"><button type="button" class="btn btn-info btn-sm centro">Continuar edição</button></a>
-              </td>
-              <td class="centro" *ngIf="perfil.permissao == 4 && project.situacao != 1"> --- </td>
+  <div class="col-md-12 order-md-1">
+    <br>
+    <h2 class="mb-3" id="texto-centro">Projetos em Construção</h2>
+    <hr>
+    <!-- <input class="form-control mb-2" name="searchString" type="text" placeholder="Search.." [(ngModel)]="searchString"> -->
+    <div class="table-responsive-sm">
+      <table class="table table-sm table-bordered">
+        <thead *ngFor="let perfil of perfils | async">
+          <tr class="thead-dark">
+            <th class="centro">Nº</th>
+            <th class="centro">Nome da Atividade</th>
+            <th class="centro" *ngIf="perfil.permissao != 1 && perfil.permissao != 2">Responsável</th>
+            <th class="centro">Classificação</th>
+            <th class="centro">Curso</th>
+            <th class="centro">Situação</th>
+            <th class="centro">Editar</th>
+          </tr>
+        </thead>
+        <!-- | filter : 'nome da atividade' : searchString; -->
+        <tbody *ngFor="let perfil of perfils | async">
+          <tr *ngFor="let project of projetos | async; let i = index">
+            <td class="centro"><strong>{{ i + 1 }}</strong></td>
+            <td class="centro">{{ project.nomeAtv }}</td>
+            <td *ngIf="perfil.permissao != 1 && perfil.permissao != 2" class="centro">{{ project.responsavel }}</td>
+            <td class="centro">{{ project.classificacao }}</td>
+            <td class="centro">{{ project.curso }}</td>
+            <td class="centro td-amarelo td-edicao" *ngIf="project.situacao == 5">
+              <strong>Em Edição</strong></td>
+            <td class="centro" *ngIf="perfil.permissao != 4"> <a [routerLink]="['/home/novo-projeto-editando',project.id]"><button
+                  type="button" class="btn btn-info btn-sm centro">Continuar edição</button></a>
+            <td class="centro" *ngIf="perfil.permissao == 4 && project.situacao != 1"> --- </td>
 
-              <!-- routerLink="/home/projeto-detalhe" -->
-              <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalCenterTitle">Dados do Projeto</h5>
-                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                      </button>
-                    </div>
-                    <div class="modal-body">
-                      <div class="container-fluid">
-                        <div class="row">
-                          <div class="col-7">
-                            <p class="card-text"><strong>Nome da Atividade: </strong> {{ project.nomeAtv }}</p>
-                            <p class="card-text"><strong>Classificação: </strong> {{ project.classificacao }}</p>
-                            <p class="card-text"><strong>Área temática: </strong>Educação</p>
-                            <p class="card-text"><strong>Curso (Vínculo Acadêmico): </strong> {{ project.curso }}</p>
-                            <p class="card-text"><strong>Coordenador: </strong> {{ project.coordenador }}</p>
-                            <p class="card-text"><strong>Responsável pelo projeto: </strong> {{ project.responsavel }}</p>
-                            <p class="card-text"><strong>Área de Atuação: </strong> {{ project.areaAtuacao }}</p>
-                            <p class="card-text"><strong>Ministrante (s): </strong> {{ project.ministrante }} <strong>-
-                                CPF: </strong>{{ project.cpf }} </p>
-                            <p class="card-text"><strong>Docente da instituição: </strong>{{ project.docenteInstituicao
-                              }} <strong>- Função: </strong>{{ project.funcaoCargo }}</p>
-                            <p class="card-text"><strong>Titulação: </strong> {{ project.titulacao }}</p>
-                            <p class="card-text"><strong>Público alvo: </strong> Funcionários da Univás</p>
-                            <p class="card-text"><strong>Número de pessoas que serão atendidas: </strong> {{
-                              project.numPessoasEnvolvidas }}</p>
-                            <p class="card-text"><strong>Parceria, Apoio ou Convênio: </strong> {{ project.parceria }}</p>
-                            <p class="card-text"><strong>Nome das Instituições ou empresas: </strong> {{
-                              project.nomeInstituicaoApoio }}</p>
-  
-                          </div>
-                          <div class="col-5">
-  
-                            <p class="card-text"><strong>Período de: </strong>{{ project.periodoDe }}<strong> Até:</strong>{{
-                              project.periodoAte }} </p>
-                            <p class="card-text"><strong>Horário (Início): </strong>{{ project.horaInicio }} <strong>(Fim):
-                              </strong> {{ project.horaFim }} </p>
-                            <p class="card-text"><strong>Dia(s) da semana: </strong>{{ project.diasDaSemana }}</p>
-                            <p class="card-text"><strong>Carga Horária total: </strong>{{ project.cargaHoraria }} hora(s)</p>
-                            <p class="card-text"><strong>Campus: </strong> {{ project.campus }}</p>
-                            <p class="card-text"><strong>Local de realização: </strong> {{ project.local }}</p>
-  
-                          </div>
-  
-                          <div class="col-12">
-                            <hr class="mb-4">
-                            <p class="card-text"><strong>Objetivos: </strong>Proporcionar aos funcionários da Univás
-                              acesso a uma atividade que trabalha o desenvolvimento: motor, físico e cognitivo.</p>
-                            <p class="card-text"><strong>Justificativa: </strong> {{ project.justificativa }}</p>
-                            <p class="card-text"><strong>Metodologia / Procedimentos: </strong> {{
-                              project.metodologiaProcedimento }}</p>
-                          </div>
-  
-                          <div class="col-12">
-                            <hr class="mb-4">
-                            <h5 class="modal-title" id="exampleModalCenterTitle">Recursos Humanos:</h5>
-                            <hr class="mb-4">
-                          </div>
-  
-                          <div class="col-7">
-                            <p class="card-text"><strong>Docente (s) envolvido (s): </strong>{{ project.docenteEnvolvido1
-                              }}</p>
-                          </div>
-                          <div class="col-5">
-                            <p class="card-text"><strong>Curso: </strong>{{project.cursoDocenteEnvolvido1}}</p>
-                          </div>
-                          <div class="col-12">
-                            <p class="card-text"><strong>Função: </strong>{{ project.funcaoDocenteEnvolvido1 }}</p>
-                          </div>
-  
-                          <div class="col-12">
-                            <hr class="mb-4">
-                          </div>
-  
-                          <div class="col-7">
-                            <p class="card-text"><strong>Docente (s) envolvido (s): </strong>{{ project.docenteEnvolvido2
-                              }}</p>
-                          </div>
-                          <div class="col-5">
-                            <p class="card-text"><strong>Curso: </strong>{{project.cursoDocenteEnvolvido2}}</p>
-                          </div>
-                          <div class="col-12">
-                            <p class="card-text"><strong>Função: </strong>{{ project.funcaoDocenteEnvolvido2 }}</p>
-                          </div>
-  
-                          <div class="col-12">
-                            <hr class="mb-4">
-                          </div>
-  
-                          <div class="col-7">
-                            <p class="card-text"><strong>Discentes envolvidos: </strong>{{ project.discenteEnvolvido1 }}</p>
-                          </div>
-                          <div class="col-5">
-                            <p class="card-text"><strong>Curso: </strong>{{project.cursoDocenteEnvolvido1}}</p>
-                          </div>
-                          <div class="col-7">
-                            <p class="card-text"><strong>Série: </strong>{{ project.periodoDiscenteEnvolvido1 }} Período</p>
-                          </div>
-                          <div class="col-5">
-                            <p class="card-text"><strong>Nº Matrícula: </strong>{{ project.matriculaDiscenteEnvolvido1 }}</p>
-                          </div>
-  
-                          <div class="col-12">
-                            <hr class="mb-4">
-                          </div>
-  
-                          <div class="col-7">
-                            <p class="card-text"><strong>Discentes envolvidos: </strong>{{ project.discenteEnvolvido2 }}</p>
-                          </div>
-                          <div class="col-5">
-                            <p class="card-text"><strong>Curso: </strong>{{project.cursoDocenteEnvolvido2}}</p>
-                          </div>
-                          <div class="col-7">
-                            <p class="card-text"><strong>Série: </strong>{{ project.periodoDiscenteEnvolvido2 }}</p>
-                          </div>
-                          <div class="col-5">
-                            <p class="card-text"><strong>Nº Matrícula: </strong>{{ project.matriculaDiscenteEnvolvido2 }}</p>
-                          </div>
-  
-                          <div class="col-12">
-                            <hr class="mb-4">
-                          </div>
-  
-                          <div class="col-12">
-                            <p class="card-text"><strong>Cronograma: </strong> {{ project.cronograma }}</p>
-                          </div>
+            <!-- routerLink="/home/projeto-detalhe" -->
+            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle">Dados do Projeto</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="container-fluid">
+                      <div class="row">
+                        <div class="col-7">
+                          <p class="card-text"><strong>Nome da Atividade: </strong> {{ project.nomeAtv }}</p>
+                          <p class="card-text"><strong>Classificação: </strong> {{ project.classificacao }}</p>
+                          <p class="card-text"><strong>Área temática: </strong>Educação</p>
+                          <p class="card-text"><strong>Curso (Vínculo Acadêmico): </strong> {{ project.curso }}</p>
+                          <p class="card-text"><strong>Coordenador: </strong> {{ project.coordenador }}</p>
+                          <p class="card-text"><strong>Responsável pelo projeto: </strong> {{ project.responsavel }}</p>
+                          <p class="card-text"><strong>Área de Atuação: </strong> {{ project.areaAtuacao }}</p>
+                          <p class="card-text"><strong>Ministrante (s): </strong> {{ project.ministrante }} <strong>-
+                              CPF: </strong>{{ project.cpf }} </p>
+                          <p class="card-text"><strong>Docente da instituição: </strong>{{ project.docenteInstituicao
+                            }} <strong>- Função: </strong>{{ project.funcaoCargo }}</p>
+                          <p class="card-text"><strong>Titulação: </strong> {{ project.titulacao }}</p>
+                          <p class="card-text"><strong>Público alvo: </strong> Funcionários da Univás</p>
+                          <p class="card-text"><strong>Número de pessoas que serão atendidas: </strong> {{
+                            project.numPessoasEnvolvidas }}</p>
+                          <p class="card-text"><strong>Parceria, Apoio ou Convênio: </strong> {{ project.parceria }}</p>
+                          <p class="card-text"><strong>Nome das Instituições ou empresas: </strong> {{
+                            project.nomeInstituicaoApoio }}</p>
+
                         </div>
-  
+                        <div class="col-5">
+
+                          <p class="card-text"><strong>Período de: </strong>{{ project.periodoDe }}<strong> Até:</strong>{{
+                            project.periodoAte }} </p>
+                          <p class="card-text"><strong>Horário (Início): </strong>{{ project.horaInicio }} <strong>(Fim):
+                            </strong> {{ project.horaFim }} </p>
+                          <p class="card-text"><strong>Dia(s) da semana: </strong>{{ project.diasDaSemana }}</p>
+                          <p class="card-text"><strong>Carga Horária total: </strong>{{ project.cargaHoraria }} hora(s)</p>
+                          <p class="card-text"><strong>Campus: </strong> {{ project.campus }}</p>
+                          <p class="card-text"><strong>Local de realização: </strong> {{ project.local }}</p>
+
+                        </div>
+
+                        <div class="col-12">
+                          <hr class="mb-4">
+                          <p class="card-text"><strong>Objetivos: </strong>Proporcionar aos funcionários da Univás
+                            acesso a uma atividade que trabalha o desenvolvimento: motor, físico e cognitivo.</p>
+                          <p class="card-text"><strong>Justificativa: </strong> {{ project.justificativa }}</p>
+                          <p class="card-text"><strong>Metodologia / Procedimentos: </strong> {{
+                            project.metodologiaProcedimento }}</p>
+                        </div>
+
+                        <div class="col-12">
+                          <hr class="mb-4">
+                          <h5 class="modal-title" id="exampleModalCenterTitle">Recursos Humanos:</h5>
+                          <hr class="mb-4">
+                        </div>
+
+                        <div class="col-7">
+                          <p class="card-text"><strong>Docente (s) envolvido (s): </strong>{{ project.docenteEnvolvido1
+                            }}</p>
+                        </div>
+                        <div class="col-5">
+                          <p class="card-text"><strong>Curso: </strong>{{project.cursoDocenteEnvolvido1}}</p>
+                        </div>
+                        <div class="col-12">
+                          <p class="card-text"><strong>Função: </strong>{{ project.funcaoDocenteEnvolvido1 }}</p>
+                        </div>
+
+                        <div class="col-12">
+                          <hr class="mb-4">
+                        </div>
+
+                        <div class="col-7">
+                          <p class="card-text"><strong>Docente (s) envolvido (s): </strong>{{ project.docenteEnvolvido2
+                            }}</p>
+                        </div>
+                        <div class="col-5">
+                          <p class="card-text"><strong>Curso: </strong>{{project.cursoDocenteEnvolvido2}}</p>
+                        </div>
+                        <div class="col-12">
+                          <p class="card-text"><strong>Função: </strong>{{ project.funcaoDocenteEnvolvido2 }}</p>
+                        </div>
+
+                        <div class="col-12">
+                          <hr class="mb-4">
+                        </div>
+
+                        <div class="col-7">
+                          <p class="card-text"><strong>Discentes envolvidos: </strong>{{ project.discenteEnvolvido1 }}</p>
+                        </div>
+                        <div class="col-5">
+                          <p class="card-text"><strong>Curso: </strong>{{project.cursoDocenteEnvolvido1}}</p>
+                        </div>
+                        <div class="col-7">
+                          <p class="card-text"><strong>Série: </strong>{{ project.periodoDiscenteEnvolvido1 }} Período</p>
+                        </div>
+                        <div class="col-5">
+                          <p class="card-text"><strong>Nº Matrícula: </strong>{{ project.matriculaDiscenteEnvolvido1 }}</p>
+                        </div>
+
+                        <div class="col-12">
+                          <hr class="mb-4">
+                        </div>
+
+                        <div class="col-7">
+                          <p class="card-text"><strong>Discentes envolvidos: </strong>{{ project.discenteEnvolvido2 }}</p>
+                        </div>
+                        <div class="col-5">
+                          <p class="card-text"><strong>Curso: </strong>{{project.cursoDocenteEnvolvido2}}</p>
+                        </div>
+                        <div class="col-7">
+                          <p class="card-text"><strong>Série: </strong>{{ project.periodoDiscenteEnvolvido2 }}</p>
+                        </div>
+                        <div class="col-5">
+                          <p class="card-text"><strong>Nº Matrícula: </strong>{{ project.matriculaDiscenteEnvolvido2 }}</p>
+                        </div>
+
+                        <div class="col-12">
+                          <hr class="mb-4">
+                        </div>
+
+                        <div class="col-12">
+                          <p class="card-text"><strong>Cronograma: </strong> {{ project.cronograma }}</p>
+                        </div>
                       </div>
+
                     </div>
                   </div>
                 </div>
               </div>
-            </tr>
-  
-          </tbody>
-        </table>
-  
-        <!-- [routerLink]="[home/projeto-detalhe', project.id]" -->
-  
-        <div class="col-md-12">
-          <div class="row">
-            <a class="nav-link" routerLink="/home">
-              <span [innerHTML]="'arrow-left' | feather:35:'#212529'"></span>
-              <strong>Voltar</strong>
-            </a>
-          </div>
+            </div>
+          </tr>
+
+        </tbody>
+      </table>
+
+      <!-- [routerLink]="[home/projeto-detalhe', project.id]" -->
+
+      <div class="col-md-12">
+        <div class="row">
+          <a class="nav-link" routerLink="/home">
+            <span [innerHTML]="'arrow-left' | feather:35:'#212529'"></span>
+            <strong>Voltar</strong>
+          </a>
         </div>
-        <hr>
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModalCentro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-          aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalCenterTitle">Aprovação ou Reprovação do projeto</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                Tem certeza disso?
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-                <button type="button" class="btn btn-primary" (click)="update(project)">Sim</button>
-              </div>
+      </div>
+      <hr>
+      <!-- Modal -->
+      <div class="modal fade" id="exampleModalCentro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Aprovação ou Reprovação do projeto</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              Tem certeza disso?
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
+              <button type="button" class="btn btn-primary" (click)="update(project)">Sim</button>
             </div>
           </div>
         </div>
       </div>
-  
     </div>
-  
-  
+
   </div>
-  
+
+
+</div>

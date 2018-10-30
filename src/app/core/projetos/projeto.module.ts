@@ -35,11 +35,6 @@ export interface Projeto {
     docenteInstituicao2: string;
     funcaoCargo2: string;
     titulacao2: string;
-    publicoAlvo2: string;
-
-    numPessoasEnvolvidas2: number;
-    tipoParceria2: string;
-    nomeInstituicaoApoio2: string;
 
     addMinistrante3: string;
     ministrante3: string;
@@ -47,11 +42,6 @@ export interface Projeto {
     docenteInstituicao3: string;
     funcaoCargo3: string;
     titulacao3: string;
-    publicoAlvo3: string;
-
-    numPessoasEnvolvidas3: number;
-    tipoParceria3: string;
-    nomeInstituicaoApoio3: string;
 
     periodoDe: Date;
     periodoAte: Date;
@@ -62,27 +52,47 @@ export interface Projeto {
     campus: string;
     local: string;
 
+    //Dados específicos
     objetivos: string;
     justificativa: string;
     metodologiaProcedimento: string;
     
+
+    //Docentes
     docenteEnvolvido1: string;
     docenteEnvolvido2: string;
+    docenteEnvolvido3: string;
+
     cursoDocenteEnvolvido1: string;
     cursoDocenteEnvolvido2: string;
+    cursoDocenteEnvolvido3: string;
+
     funcaoDocenteEnvolvido1: string;
     funcaoDocenteEnvolvido2: string;
-    
+    funcaoDocenteEnvolvido3: string;
+
+
+    //Discentes
     discenteEnvolvido1: string;
     discenteEnvolvido2: string;
+    discenteEnvolvido3: string;
+
     cursoDiscenteEnvolvido1: string;
     cursoDiscenteEnvolvido2: string;
+    cursoDiscenteEnvolvido3: string;
+
     periodoDiscenteEnvolvido1: string;
     periodoDiscenteEnvolvido2: string;
+    periodoDiscenteEnvolvido3: string;
+
     matriculaDiscenteEnvolvido1: string;
     matriculaDiscenteEnvolvido2: string;
+    matriculaDiscenteEnvolvido3: string;
+
     cronograma: string;
 
+
+    //Dados receita
     receitaIncricao: string;
     receitaInicio: string;
     receitaTermino: string;

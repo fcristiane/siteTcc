@@ -1,164 +1,223 @@
 <div class="container mt-4">
-  <div class="row">
 
-    <div class="col-md-3 mb-0">
-
-    </div>
-
-    <div class="col-md-6 mb-0">
-      <h2 class="centro"><strong>Detalhes do Projeto</strong></h2>
-    </div>
-
-    <div class="col-md-3 mb-0" *ngIf="project.situacao == 2">
-      <h3 class="direita-aprovado"><strong>Aprovado</strong></h3>
-    </div>
-    <div class="col-md-3 mb-0" *ngIf="project.situacao == 1">
-      <h3 class="direita-analise"><strong>Em Análise</strong></h3>
-    </div>
-    <div class="col-md-3 mb-0" *ngIf="project.situacao == 3">
-      <h3 class="direita-indeferido"><strong>Indeferido</strong></h3>
-    </div>
+  <div class="col-md-12 fim">
+    <strong>Baixar Arquivo: </strong>
+    <a><button type="button" class="btn btn-dark my-2 my-sm-0" [innerHTML]="'download' | feather:24:'#2cbc59'" value="CPTURE"
+        (click)="captureScreen()" title="Baixar PDF"></button></a>
+    <hr class="hr-edit mb-2">
   </div>
 
-  <div class="row" *ngFor="let perfil of perfils | async">
+  <div class="col-md-12 mb-3" id="contentToConvert">
+    <div class="media border p-3">
+      <div class="media-body">
+        <div class="row">
 
-    <div class="col-md-12 mt-0">
-      <hr>
-    </div>
+          <div class="col-md-3 mb-0 mt-2"></div>
 
-    <div class="col-md-7">
-      <div class="media border p-3">
-        <div class="media-body">
-          <h4 class="centro"><strong>Dados Gerais</strong></h4>
-          <hr>
-          <h6><strong>Nome: </strong>{{ project.nomeAtv }}</h6>
-          <h6><strong>Responsável: </strong>{{ perfil.nome }}</h6>
-          <h6><strong>Data de criação: </strong>{{ project.dataCadastro | date: 'd/M/y, h:mm a' }}</h6>
-          <h6><strong>Coordenador: </strong>{{ project.coordenador }}</h6>
-          <h6><strong>Curso (Vínculo Acadêmico): </strong>{{ project.curso }}</h6>
-          <h6><strong>Campus: </strong>{{project.campus}}</h6>
-          <h6><strong>Local de realização: </strong>{{project.local}}</h6>
-          <h6><strong>Classificação: </strong>{{ project.classificacao }}</h6>
-          <h6><strong>Área temática: </strong>{{ project.areaTematica }}</h6>
-          <h6><strong>Área de atuação: </strong>{{ project.areaAtuacao }}</h6>
-          <hr>
-          <h4><strong>Dados ...</strong></h4>
-          <hr>
-          <h6><strong>Ministrante: </strong>{{ project.ministrante }}<strong>    CPF: </strong>{{ project.cpf |
-            mask: '000.000.000-00' }}</h6>
-          <h6><strong>Docente da Instituição: </strong>{{ project.docenteInstituicao }}<strong>    Função: </strong>{{ project.funcaoCargo }}</h6>
-          <h6><strong>Titulação: </strong>{{ project.titulacao }}</h6>
-          <h6><strong>Público alvo: </strong>{{ project.publicoAlvo }}</h6>
-          <h6><strong>Número de pessoas atendidas: </strong>{{ project.numPessoasEnvolvidas }}</h6>
-          <h6><strong>Nome das instituições / empresas envolvidas: </strong>{{project.nomeInstituicaoApoio}}</h6>
-          <h6><strong>Parceria / Apoio / Convênio: </strong>{{ project.tipoParceria }}</h6>
+          <div class="col-md-6 mb-0 mt-2">
+            <h2 class="centro"><strong>Detalhes do Projeto</strong></h2>
+          </div>
+
+          <div class="col-md-3 mb-0 mt-2" *ngIf="project.situacao == 2">
+            <h3 class="direita-aprovado"><strong>Aprovado</strong></h3>
+          </div>
+          <div class="col-md-3 mb-0 mt-2" *ngIf="project.situacao == 1">
+            <h3 class="direita-analise"><strong>Em Análise</strong></h3>
+          </div>
+          <div class="col-md-3 mb-0 mt-2" *ngIf="project.situacao == 3">
+            <h3 class="direita-indeferido"><strong>Indeferido</strong></h3>
+          </div>
         </div>
-      </div>
-    </div>
-    <hr>
-    <div class="col-md-5">
-      <div class="media border p-3">
-        <div class="media-body">
-          <h4 class="centro"><strong>Dados Técnicos</strong></h4>
-          <hr>
-          <h6><strong>Período de: </strong>{{project.periodoDe | mask: '00/00/0000'}}<strong> até </strong>{{project.periodoAte
-            | mask: '00/00/0000'}}</h6>
-          <h6><strong>Horário (Início): </strong>{{project.horaInicio | mask: '00:00'}}<strong> (Fim): </strong>{{project.horaFim
-            | mask: '00:00'}}</h6>
-          <h6><strong>Dia (s) da semana: </strong>{{project.diasDaSemana | mask: '00:00'}}</h6>
-          <h6><strong>Carga horária total: </strong>{{project.cargaHoraria}} hora (s)</h6>
-          <hr>
-          <h6><strong>Objetivos: </strong></h6>
-          <h6>{{ project.objetivos }}</h6>
-          <hr>
-          <h6><strong>Justificativa: </strong></h6>
-          <h6>{{project.justificativa}}</h6>
-          <hr>
-          <h6><strong>Metodologia / Procedimentos: </strong></h6>
-          <h6>{{project.metodologiaProcedimento}}</h6>
-        </div>
+        <hr>
+
+
+
       </div>
     </div>
 
-    <div class="col-md-7 mt-2">
-      <div class="media border p-3">
-        <div class="media-body">
-          <h4 class="centro"><strong>Recursos Humanos</strong></h4>
-          <hr>
-          <h6><strong>Docente envolvido: </strong>{{ project.docenteEnvolvido1 }}</h6>
-          <h6><strong>Curso: </strong>{{ project.cursoDocenteEnvolvido1}}</h6>
-          <h6><strong>Função: </strong>{{ project.funcaoDocenteEnvolvido1 }}</h6>
-          <hr>
-          <h6><strong>Discente envolvido: </strong>{{ project.discenteEnvolvido1 }}</h6>
-          <h6><strong>Curso: </strong>{{ project.cursoDiscenteEnvolvido1}}</h6>
-          <h6><strong>Período: </strong>{{ project.periodoDiscenteEnvolvido1 }}</h6>
-          <h6><strong>Nº de matrícula: </strong>{{ project.matriculaDiscenteEnvolvido1 }}</h6>
-          <hr>
-          <h6><strong>Cronograma: </strong>{{project.cronograma}}</h6>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-5 mt-2">
-      <div class="media border p-3">
-        <div class="media-body b">
-          <h4 class="centro"><strong>Previsão da Receita</strong></h4>
-          <hr>
-          <h6><strong>Inscrições: </strong>{{ project.receitaIncricao }}</h6>
-          <h6><strong>Início: </strong>{{ project.receitaInicio }}</h6>
-          <h6><strong>Término: </strong>{{ project.receitaTermino }}</h6>
-          <h6><strong>Nº mínimo de inscrições: </strong>{{ project.receitaNumMinInsc }}</h6>
-          <h6><strong>Total: </strong>R$ {{ project.receitaNumMinInscTotal }}</h6>
-          <h6><strong>Nº máximo de inscrições: </strong>{{ project.receitaNumMaxInsc }}</h6>
-          <h6><strong>Total: </strong>R$ {{ project.receitaNumMaxInscTotal }}</h6>
-          <hr>
-          <h6><strong>Valor (Docentes e Discentes Univás): </strong>{{ project.valorDiscenteDoscente }}</h6>
-          <h6><strong>Total de receita:</strong></h6>
-          <h6>Nº mínimo de inscrições: {{ project.receitaNumMinInscTotal }}</h6>
-          <h6>Nº máximo de inscrições: {{ project.receitaNumMaxInscTotal }}</h6>
-        </div>
-      </div>
-    </div>
 
-    <div class="col-md-7 mt-2">
+
+    <div class="row" *ngFor="let perfil of perfils | async">
+
+      
+
+      <div class="col-md-7">
         <div class="media border p-3">
-          
           <div class="media-body">
-              <h4 class="centro"><strong>Recursos</strong></h4>
-              <hr>
-              <h6><strong>Especificações:</strong></h6>
-              <h6><strong>1) </strong>{{ project.especificacaoRecursos1 }}</h6>
-              <h6><strong>Quantidade: </strong>{{ project.quantidadeRecursos1 }} - <strong>Valor unitário: </strong>{{ project.valorUnitarioRecursos1 }} - <strong>Total: </strong>{{ project.totalRecursos1 }}</h6>
-              <hr [hidden]="!project.especificacaoRecursos2">
-              <h6 [hidden]="!project.especificacaoRecursos2"><strong>2)</strong>{{ project.especificacaoRecursos2 }}</h6>
-              <h6 [hidden]="!project.especificacaoRecursos2"><strong>Quantidade: </strong>{{ project.quantidadeRecursos2 }} <strong>Valor unitário: </strong>{{ project.valorUnitarioRecursos2 }} <strong>Total: </strong>{{ project.totalRecursos2 }}</h6>
-              <hr [hidden]="!project.especificacaoRecursos3">
-              <h6 [hidden]="!project.especificacaoRecursos3"><strong>3)</strong>{{ project.especificacaoRecursos3 }}</h6>
-              <h6 [hidden]="!project.especificacaoRecursos3"><strong>Quantidade: </strong>{{ project.quantidadeRecursos3 }} <strong>Valor unitário: </strong>{{ project.valorUnitarioRecursos3 }} <strong>Total: </strong>{{ project.totalRecursos3 }}</h6>
-              <hr [hidden]="!project.especificacaoRecursos4">
-              <h6 [hidden]="!project.especificacaoRecursos4"><strong>4)</strong>{{ project.especificacaoRecursos4 }}</h6>
-              <h6 [hidden]="!project.especificacaoRecursos4"><strong>Quantidade: </strong>{{ project.quantidadeRecursos4 }} <strong>Valor unitário: </strong>{{ project.valorUnitarioRecursos4 }} <strong>Total: </strong>{{ project.totalRecursos4 }}</h6>
+            <h4 class="centro"><strong>Dados Gerais</strong></h4>
+            <hr>
+            <h5><strong>Nome: </strong>{{ project.nomeAtv }}</h5>
+            <h6><strong>Responsável: </strong>{{ perfil.nome }}</h6>
+            <h6><strong>Data de criação: </strong>{{ project.dataCadastro | date: 'd/M/y, h:mm a' }}</h6>
+            <h6><strong>Coordenador: </strong>{{ project.coordenador }}</h6>
+            <h6><strong>Curso (Vínculo Acadêmico): </strong>{{ project.curso }}</h6>
+            <h6><strong>Campus: </strong>{{project.campus}}</h6>
+            <h6><strong>Local de realização: </strong>{{project.local}}</h6>
+            <h6><strong>Classificação: </strong>{{ project.classificacao }}</h6>
+            <h6><strong>Área temática: </strong>{{ project.areaTematica }}</h6>
+            <h6><strong>Área de atuação: </strong>{{ project.areaAtuacao }}</h6>
+            <hr>
+            <h4 class="centro"><strong>Dados Palestrais</strong></h4>
+            <hr>
+            <h6 [hidden]="!project.ministrante"><strong>Ministrante (1): </strong>{{ project.ministrante }}<strong> -
+                CPF: </strong>{{ project.cpf |
+              mask: '000.000.000-00' }}</h6>
+            <h6 [hidden]="!project.ministrante"><strong>Docente da Instituição: </strong>{{ project.docenteInstituicao
+              }}<strong> - Função: </strong>{{
+              project.funcaoCargo }}</h6>
+            <h6 [hidden]="!project.ministrante"><strong>Titulação: </strong>{{ project.titulacao }}</h6>
+            <hr [hidden]="!project.ministrante">
+            <h6 [hidden]="!project.ministrante2"><strong>Ministrante (2): </strong>{{ project.ministrante2 }}<strong> -
+                CPF: </strong>{{ project.cpf2 |
+              mask: '000.000.000-00' }}</h6>
+            <h6 [hidden]="!project.ministrante2"><strong>Docente da Instituição: </strong>{{
+              project.docenteInstituicao2 }}<strong> - Função: </strong>{{
+              project.funcaoCargo2 }}</h6>
+            <h6 [hidden]="!project.ministrante2"><strong>Titulação: </strong>{{ project.titulacao2 }}</h6>
+            <hr [hidden]="!project.ministrante2">
+            <h6 [hidden]="!project.ministrante3"><strong>Ministrante (3): </strong>{{ project.ministrante3 }}<strong> -
+                CPF: </strong>{{ project.cpf3 |
+              mask: '000.000.000-00' }}</h6>
+            <h6 [hidden]="!project.ministrante3"><strong>Docente da Instituição: </strong>{{
+              project.docenteInstituicao3 }}<strong> - Função: </strong>{{
+              project.funcaoCargo3 }}</h6>
+            <h6 [hidden]="!project.ministrante3"><strong>Titulação: </strong>{{ project.titulacao3 }}</h6>
+            <hr [hidden]="!project.ministrante3">
+            <h6><strong>Público alvo: </strong>{{ project.publicoAlvo }}</h6>
+            <h6><strong>Número de pessoas atendidas: </strong>{{ project.numPessoasEnvolvidas }}</h6>
+            <h6><strong>Nome das instituições / empresas envolvidas: </strong>{{project.nomeInstituicaoApoio}}</h6>
+            <h6><strong>Parceria / Apoio / Convênio: </strong>{{ project.tipoParceria }}</h6>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="col-md-5">
+        <div class="media border p-3">
+          <div class="media-body">
+            <h4 class="centro"><strong>Dados Técnicos</strong></h4>
+            <hr>
+            <h6><strong>Período de: </strong>{{project.periodoDe | mask: '00/00/0000'}}<strong> até </strong>{{project.periodoAte
+              | mask: '00/00/0000'}}</h6>
+            <h6><strong>Horário (Início): </strong>{{project.horaInicio | mask: '00:00'}}<strong> (Fim): </strong>{{project.horaFim
+              | mask: '00:00'}}</h6>
+            <h6><strong>Dia (s) da semana: </strong>{{project.diasDaSemana | mask: '00:00'}}</h6>
+            <h6><strong>Carga horária total: </strong>{{project.cargaHoraria}} hora (s)</h6>
+            <hr>
+            <h6><strong>Objetivos: </strong></h6>
+            <h6>{{ project.objetivos }}</h6>
+            <hr>
+            <h6><strong>Justificativa: </strong></h6>
+            <h6>{{project.justificativa}}</h6>
+            <hr>
+            <h6><strong>Metodologia / Procedimentos: </strong></h6>
+            <h6>{{project.metodologiaProcedimento}}</h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-7 mt-2">
+        <div class="media border p-3">
+          <div class="media-body">
+            <h4 class="centro"><strong>Recursos Humanos</strong></h4>
+            <hr>
+            <h6><strong>Docente envolvido: </strong>{{ project.docenteEnvolvido1 }}</h6>
+            <h6><strong>Curso: </strong>{{ project.cursoDocenteEnvolvido1}}</h6>
+            <h6><strong>Função: </strong>{{ project.funcaoDocenteEnvolvido1 }}</h6>
+            <hr>
+            <h6><strong>Discente envolvido: </strong>{{ project.discenteEnvolvido1 }}</h6>
+            <h6><strong>Curso: </strong>{{ project.cursoDiscenteEnvolvido1}}</h6>
+            <h6><strong>Período: </strong>{{ project.periodoDiscenteEnvolvido1 }}</h6>
+            <h6><strong>Nº de matrícula: </strong>{{ project.matriculaDiscenteEnvolvido1 }}</h6>
+            <hr>
+            <h6><strong>Cronograma: </strong>{{project.cronograma}}</h6>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-5 mt-2">
+        <div class="media border p-3">
+          <div class="media-body b">
+            <h4 class="centro"><strong>Previsão da Receita</strong></h4>
+            <hr>
+            <h6><strong>Inscrições: </strong>{{ project.receitaIncricao }}</h6>
+            <h6><strong>Início: </strong>{{ project.receitaInicio }}</h6>
+            <h6><strong>Término: </strong>{{ project.receitaTermino }}</h6>
+            <h6><strong>Nº mínimo de inscrições: </strong>{{ project.receitaNumMinInsc }}</h6>
+            <h6><strong>Total: </strong>R$ {{ project.receitaNumMinInscTotal }}</h6>
+            <h6><strong>Nº máximo de inscrições: </strong>{{ project.receitaNumMaxInsc }}</h6>
+            <h6><strong>Total: </strong>R$ {{ project.receitaNumMaxInscTotal }}</h6>
+            <hr>
+            <h6><strong>Valor (Docentes e Discentes Univás): </strong>{{ project.valorDiscenteDoscente }}</h6>
+            <h6><strong>Total de receita:</strong></h6>
+            <h6>Nº mínimo de inscrições: {{ project.receitaNumMinInscTotal }}</h6>
+            <h6>Nº máximo de inscrições: {{ project.receitaNumMaxInscTotal }}</h6>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-7 mt-2">
+        <div class="media border p-3">
+
+          <div class="media-body">
+            <h4 class="centro"><strong>Recursos</strong></h4>
+            <hr>
+            <h6 [hidden]="project.especificacaoRecursos1">Não há recursos declarados.</h6>
+            <h6 [hidden]="!project.especificacaoRecursos1"><strong>Especificações:</strong></h6>
+            <h6 [hidden]="!project.especificacaoRecursos1"><strong>1) </strong>{{ project.especificacaoRecursos1 }}</h6>
+            <h6 [hidden]="!project.especificacaoRecursos1"><strong>Quantidade: </strong>{{ project.quantidadeRecursos1
+              }} - <strong>Valor unitário: </strong>{{
+              project.valorUnitarioRecursos1 }} - <strong>Total: </strong>{{ project.totalRecursos1 }}</h6>
+            <hr [hidden]="!project.especificacaoRecursos2">
+            <h6 [hidden]="!project.especificacaoRecursos2"><strong>2) </strong>{{ project.especificacaoRecursos2 }}</h6>
+            <h6 [hidden]="!project.especificacaoRecursos2"><strong>Quantidade: </strong>{{ project.quantidadeRecursos2
+              }}
+              <strong>Valor unitário: </strong>{{ project.valorUnitarioRecursos2 }} <strong>Total: </strong>{{
+              project.totalRecursos2 }}</h6>
+            <hr [hidden]="!project.especificacaoRecursos3">
+            <h6 [hidden]="!project.especificacaoRecursos3"><strong>3) </strong>{{ project.especificacaoRecursos3 }}</h6>
+            <h6 [hidden]="!project.especificacaoRecursos3"><strong>Quantidade: </strong>{{ project.quantidadeRecursos3
+              }}
+              <strong>Valor unitário: </strong>{{ project.valorUnitarioRecursos3 }} <strong>Total: </strong>{{
+              project.totalRecursos3 }}</h6>
+            <hr [hidden]="!project.especificacaoRecursos4">
+            <h6 [hidden]="!project.especificacaoRecursos4"><strong>4) </strong>{{ project.especificacaoRecursos4 }}</h6>
+            <h6 [hidden]="!project.especificacaoRecursos4"><strong>Quantidade: </strong>{{ project.quantidadeRecursos4
+              }}
+              <strong>Valor unitário: </strong>{{ project.valorUnitarioRecursos4 }} <strong>Total: </strong>{{
+              project.totalRecursos4 }}</h6>
+
+            <hr>
+
+            <h6 [hidden]="!project.totalDespesas"><strong>Total de despesas: </strong>{{ project.totalDespesas }}</h6>
           </div>
 
         </div>
       </div>
 
-    <div class="col-md-5 mt-2">
+      <div class="col-md-5 mt-2">
         <div class="media border p-3">
           <div class="media-body">
             <h4 class="centro"><strong>Dados de Atualização</strong></h4>
             <hr>
-            <h6 *ngIf=(project.atualizacaoAprovado)><strong>Aprovado em: </strong>{{ project.atualizacaoAprovado | date: 'd/M/y, H:mm' }}</h6>
-            <h6 *ngIf=(project.atualizacaoIndeferido)><strong>Indeferido em: </strong>{{ project.atualizacaoIndeferido | date: 'd/M/y, H:mm'}}</h6>
-            <h6 *ngIf=(project.atualizacaoEditado)><strong>Editado em: </strong>{{ project.atualizacaoEditado | date: 'd/M/y, H:mm'}}</h6>
-            <h6 *ngIf=(project.atualizacaoCancelado)><strong>Cancelado em: </strong>{{ project.atualizacaoCancelado | date: 'd/M/y, H:mm'}}</h6>
+            <h6 *ngIf=(project.atualizacaoAprovado)><strong>Aprovado em: </strong>{{ project.atualizacaoAprovado |
+              date:
+              'd/M/y, H:mm' }}</h6>
+            <h6 *ngIf=(project.atualizacaoIndeferido)><strong>Indeferido em: </strong>{{ project.atualizacaoIndeferido
+              |
+              date: 'd/M/y, H:mm'}}</h6>
+            <h6 *ngIf=(project.atualizacaoEditado)><strong>Editado em: </strong>{{ project.atualizacaoEditado | date:
+              'd/M/y, H:mm'}}</h6>
+            <h6 *ngIf=(project.atualizacaoCancelado)><strong>Cancelado em: </strong>{{ project.atualizacaoCancelado |
+              date: 'd/M/y, H:mm'}}</h6>
           </div>
         </div>
       </div>
-  
-  
-      
 
+
+
+
+    </div>
   </div>
+
 
   <div class="col-md-12">
     <hr>

@@ -4,6 +4,10 @@
 
 }
 
+body{
+  font-size: 10%;
+}
+
 .centro {
   text-align: center;
 }
@@ -37,4 +41,20 @@ background-color: #e6e6e6;
 .direita-indeferido {
   text-align: right;
   color: rgb(206, 7, 7);
+}
+
+.botao:hover{
+  color: #212529;
+  background-color: #2cbc59;
+  border-color: #212529;
+}
+
+.fim{
+  text-align: end;
+  align-items: flex-end;
+}
+
+.hr-edit{
+  border-width: 2px;
+  border-color: #3c443f;
 }

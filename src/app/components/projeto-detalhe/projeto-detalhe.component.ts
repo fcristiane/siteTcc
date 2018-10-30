@@ -6,6 +6,9 @@ import { Observable } from 'rxjs';
 import { PerfilService } from 'src/app/core/perfils/perfil.service';
 import { Perfil } from '../perfil/perfil.module';
 
+import * as jspdf from 'jspdf';
+import html2canvas from 'html2canvas';
+
 @Component({
   selector: 'app-projeto-detalhe',
   templateUrl: './projeto-detalhe.component.html',
@@ -13,7 +16,7 @@ import { Perfil } from '../perfil/perfil.module';
 })
 export class ProjetoDetalheComponent implements OnInit {
 
-  project : Projeto = {} as Projeto;
+  project: Projeto = {} as Projeto;
 
   perfil: Perfil = {} as Perfil;
   perfils: Observable<Perfil[]>;
@@ -24,17 +27,35 @@ export class ProjetoDetalheComponent implements OnInit {
     public perfilService: PerfilService
   ) {
     const id = this.route.snapshot.paramMap.get('id');
-    if(id) {
+    if (id) {
       this.projetoService.getProjetoById(id).subscribe((data) => {
         this.project = data[0];
       })
       console.log("!!!!!")
     }
-   }
+  }
 
-   ngOnInit() {
+  ngOnInit() {
     this.perfils = this.perfilService.getPerfil();
   }
+
+  public captureScreen(){
+    var data = document.getElementById('contentToConvert');
+    html2canvas(data).then(canvas => {
+      var imgWidth = 208;
+      var pageHeight = 295;
+      var imgHeight = canvas.height * imgWidth / canvas.width;  
+      var heightLeft = imgHeight;
+      
+      const contentDataURL = canvas.toDataURL('image/png')  
+      let pdf = new jspdf('p', 'mm', 'a4'); // A4 size page of PDF  
+      var position = 0;
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
+      pdf.save('pdf-projeto.pdf'); // Generated PDF 
+    });
+  }
+
+
 
   // getProjeto(){
   //   const id = +this.route.snapshot.paramMap.get('id');
