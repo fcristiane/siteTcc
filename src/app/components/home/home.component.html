@@ -1,6 +1,6 @@
 <!-- <ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="large" color="#2cbc59" type="ball-spin-fade"></ngx-spinner> -->
 
-<header>
+<header *ngFor="let perfil of perfils | async">
   <ng2-slim-loading-bar color="green"></ng2-slim-loading-bar>
   <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
     <a routerLink="/home/info">
@@ -14,7 +14,7 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/home" title="#">Início</a>
         </li>
-        <li class="nav-item">
+        <li [hidden]="perfil.permissao != 4" class="nav-item">
           <a class="nav-link" routerLink="#" title="#">Contatos</a>
         </li>
         <li class="nav-item">
@@ -23,7 +23,7 @@
       </ul>
     </div>
     <form class="form-inline my-2 my-lg-0">
-      <h6 id="bv" class="mr-2" *ngFor="let perfil of perfils | async">Bem vindo, {{ perfil.nome }}</h6>
+      <h6 id="bv" class="mr-2">Bem vindo, {{ perfil.nome }}</h6>
       <a routerLink="/home/perfil" title="Perfil"><span [innerHTML]="'user' | feather:24:'#2cbc59'" class="mr-2"></span></a>
       <a><button type="button" class="btn btn-outline-light my-2 my-sm-0 botao" (click)="logout()" routerLink="">Sair</button></a>
     </form>

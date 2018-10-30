@@ -127,16 +127,16 @@
               <hr>
               <h6><strong>Especificações:</strong></h6>
               <h6><strong>1) </strong>{{ project.especificacaoRecursos1 }}</h6>
-              <h6><strong>Quantidade: </strong>{{ project.QuantidadeRecursos1 }} - <strong>Valor unitário: </strong>{{ project.valorUnitarioRecursos1 }} - <strong>Total: </strong>{{ project.totalRecursos1 }}</h6>
-              <hr [hidden]="project.especificacaoRecursos2 == ''">
-              <h6 [hidden]="project.especificacaoRecursos2 == ''"><strong>2)</strong>{{ project.especificacaoRecursos2 }}</h6>
-              <h6 [hidden]="project.especificacaoRecursos2 == ''"><strong>Quantidade: </strong>{{ project.quantidadeRecursos2 }} <strong>Valor unitário: </strong>{{ project.valorUnitarioRecursos2 }} <strong>Total: </strong>{{ project.totalRecursos2 }}</h6>
-              <hr [hidden]="project.especificacaoRecursos3 == ''">
-              <h6 [hidden]="project.especificacaoRecursos3 == ''"><strong>3)</strong>{{ project.especificacaoRecursos3 }}</h6>
-              <h6 [hidden]="project.especificacaoRecursos3 == ''"><strong>Quantidade: </strong>{{ project.quantidadeRecursos3 }} <strong>Valor unitário: </strong>{{ project.valorUnitarioRecursos3 }} <strong>Total: </strong>{{ project.totalRecursos3 }}</h6>
-              <hr [hidden]="project.especificacaoRecursos4 == ''">
-              <h6 [hidden]="project.especificacaoRecursos4 == ''"><strong>4)</strong>{{ project.especificacaoRecursos4 }}</h6>
-              <h6 [hidden]="project.especificacaoRecursos4 == ''"><strong>Quantidade: </strong>{{ project.quantidadeRecursos4 }} <strong>Valor unitário: </strong>{{ project.valorUnitarioRecursos4 }} <strong>Total: </strong>{{ project.totalRecursos4 }}</h6>
+              <h6><strong>Quantidade: </strong>{{ project.quantidadeRecursos1 }} - <strong>Valor unitário: </strong>{{ project.valorUnitarioRecursos1 }} - <strong>Total: </strong>{{ project.totalRecursos1 }}</h6>
+              <hr [hidden]="!project.especificacaoRecursos2">
+              <h6 [hidden]="!project.especificacaoRecursos2"><strong>2)</strong>{{ project.especificacaoRecursos2 }}</h6>
+              <h6 [hidden]="!project.especificacaoRecursos2"><strong>Quantidade: </strong>{{ project.quantidadeRecursos2 }} <strong>Valor unitário: </strong>{{ project.valorUnitarioRecursos2 }} <strong>Total: </strong>{{ project.totalRecursos2 }}</h6>
+              <hr [hidden]="!project.especificacaoRecursos3">
+              <h6 [hidden]="!project.especificacaoRecursos3"><strong>3)</strong>{{ project.especificacaoRecursos3 }}</h6>
+              <h6 [hidden]="!project.especificacaoRecursos3"><strong>Quantidade: </strong>{{ project.quantidadeRecursos3 }} <strong>Valor unitário: </strong>{{ project.valorUnitarioRecursos3 }} <strong>Total: </strong>{{ project.totalRecursos3 }}</h6>
+              <hr [hidden]="!project.especificacaoRecursos4">
+              <h6 [hidden]="!project.especificacaoRecursos4"><strong>4)</strong>{{ project.especificacaoRecursos4 }}</h6>
+              <h6 [hidden]="!project.especificacaoRecursos4"><strong>Quantidade: </strong>{{ project.quantidadeRecursos4 }} <strong>Valor unitário: </strong>{{ project.valorUnitarioRecursos4 }} <strong>Total: </strong>{{ project.totalRecursos4 }}</h6>
           </div>
 
         </div>
