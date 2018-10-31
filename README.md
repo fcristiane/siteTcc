@@ -1,4 +1,4 @@
-# Site Gerenciamento de Projetos de Extensão
+# Site Gerenciamento de Projetos
 
 Trabalho para Desenvolvimento do Site de Gerenciamento de Projetos pela Universidade do Vale do Sapucaí, com o intuito de concluir o Trabalho de Conclusão de Curso pelo curso de Sistemas de Informação.
 __________________________________________________________________________________
