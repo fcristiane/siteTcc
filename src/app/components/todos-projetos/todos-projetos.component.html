@@ -1,12 +1,13 @@
 <div class="row">
-  <div class="col-md-12 order-md-1">
+  <div class="col-md-12 order-md-1" *ngFor="let perfil of perfils | async">
     <br>
-    <h2 class="mb-3" id="texto-centro">Seus Projetos</h2>
+    <h2 class="mb-3" id="texto-centro" *ngIf="perfil.permissao == 4">Todos os Projetos</h2>
+    <h2 class="mb-3" id="texto-centro" *ngIf="perfil.permissao != 4">Seus Projetos</h2>
     <hr>
     <!-- <input class="form-control mb-2" name="searchString" type="text" placeholder="Search.." [(ngModel)]="searchString"> -->
     <div class="table-responsive-sm">
       <table class="table table-sm table-bordered">
-        <thead *ngFor="let perfil of perfils | async">
+        <thead>
           <tr class="thead-dark">
             <th class="centro">Nº</th>
             <th class="centro">Nome da Atividade</th>
@@ -17,11 +18,12 @@
             <th class="centro">Detalhes</th>
             <th class="centro" *ngIf="perfil.permissao == 4"><span [innerHTML]="'thumbs-up' | feather:24:'#f1f1f1'"></span></th>
             <th class="centro" *ngIf="perfil.permissao == 4"><span [innerHTML]="'thumbs-down' | feather:24:'#f1f1f1'"></span></th>
-            <th class="centro" *ngIf="perfil.permissao == 4"><span [innerHTML]="'x-circle' | feather:24:'#f1f1f1'"></span></th>
+            <th class="centro" *ngIf="perfil.permissao == 4">Sugerir Alteração</th>
+            <th hidden class="centro" *ngIf="perfil.permissao == 4"><span [innerHTML]="'x-circle' | feather:24:'#f1f1f1'"></span></th>
           </tr>
         </thead>
         <!-- | filter : 'nome da atividade' : searchString; -->
-        <tbody *ngFor="let perfil of perfils | async">
+        <tbody>
           <tr *ngFor="let project of projetos | async; let i = index">
             <td class="centro"><strong>{{ i + 1 }}</strong></td>
             <td class="centro">{{ project.nomeAtv }}</td>
@@ -45,12 +47,16 @@
             <td class="centro" *ngIf="perfil.permissao == 4 && project.situacao != 3 && project.situacao != 2"><button
                 type="button" class="btn btn-success btn-sm centro" (click)="aprovar(project)">Aprovar</button></td>
             <td class="centro" *ngIf="perfil.permissao == 4 && project.situacao == 1"><button type="button" class="btn btn-danger btn-sm centro"
-                (click)="reprovar(project)">Reprovar</button></td>
-            <td class="centro" *ngIf="perfil.permissao == 4 && project.situacao != 1"><button type="button" class="btn btn-secondary btn-sm centro"
+                (click)="reprovar(project)">Indeferir</button></td>
+            <td hidden class="centro" *ngIf="perfil.permissao == 4 && project.situacao != 1"><button type="button" class="btn btn-secondary btn-sm centro"
                 (click)="reentrada(project)">Redefinir</button></td>
             <td class="centro" *ngIf="perfil.permissao == 4 && project.situacao != 1"> --- </td>
-            <td class="centro" *ngIf="perfil.permissao == 4"><button type="button" class="btn btn-dark btn-sm centro"
+            <td class="centro" *ngIf="perfil.permissao == 4 && project.situacao != 1 "> --- </td>
+            <td hidden class="centro" *ngIf="perfil.permissao == 4"><button type="button" class="btn btn-dark btn-sm centro"
                 (click)="deletar(project.id)">Deletar</button></td>
+            <td class="centro" *ngIf="perfil.permissao == 4 && project.situacao == 1"><button
+                type="button" class="btn btn-info btn-sm centro" (click)="sugerirAlteracao(project)">Sugerir</button></td>
+            <td class="centro" *ngIf="perfil.permissao == 4 && project.situacao != 1 "> --- </td>
           </tr>
 
         </tbody>

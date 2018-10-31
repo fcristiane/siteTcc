@@ -147,41 +147,44 @@
           <div class="col-md-6">
             <p><strong>Docentes envolvidos:</strong></p>
             <hr class="m-0">
-            <p><strong>Nome: </strong>{{ project.docenteEnvolvido1 }}</p>
-            <p><strong>Curso: </strong>{{ project.cursoDocenteEnvolvido1}} <strong> - Função: </strong>{{
+            <p [hidden]="project.docenteEnvolvido1"><i>(Não há Docentes envolvidos)</i></p>
+            <p [hidden]="!project.docenteEnvolvido1"><strong>Nome: </strong>{{ project.docenteEnvolvido1 }}</p>
+            <p [hidden]="!project.docenteEnvolvido1"><strong>Curso: </strong>{{ project.cursoDocenteEnvolvido1}} <strong> - Função: </strong>{{
               project.funcaoDocenteEnvolvido1 }}</p>
-            <hr class="m-0">
-            <p><strong>Nome: </strong>{{ project.docenteEnvolvido2 }}</p>
-            <p><strong>Curso: </strong>{{ project.cursoDocenteEnvolvido2}} <strong> - Função: </strong>{{
+            <hr class="m-0" [hidden]="!project.docenteEnvolvido1">
+            <p [hidden]="!project.docenteEnvolvido2"><strong>Nome: </strong>{{ project.docenteEnvolvido2 }}</p>
+            <p [hidden]="!project.docenteEnvolvido2"><strong>Curso: </strong>{{ project.cursoDocenteEnvolvido2}} <strong> - Função: </strong>{{
               project.funcaoDocenteEnvolvido2 }}</p>
-            <hr class="m-0">
-            <p><strong>Nome: </strong>{{ project.docenteEnvolvido3 }} </p>
-            <p><strong>Curso: </strong>{{ project.cursoDocenteEnvolvido3}} <strong> - Função: </strong>{{
+            <hr class="m-0" [hidden]="!project.docenteEnvolvido2">
+            <p [hidden]="!project.docenteEnvolvido3"><strong>Nome: </strong>{{ project.docenteEnvolvido3 }} </p>
+            <p [hidden]="!project.docenteEnvolvido3"><strong>Curso: </strong>{{ project.cursoDocenteEnvolvido3}} <strong> - Função: </strong>{{
               project.funcaoDocenteEnvolvido3 }}</p>
           </div>
 
           <div class="col-md-6">
             <p><strong>Discentes envolvidos:</strong></p>
             <hr class="m-0">
-            <p><strong>Nome: </strong>{{ project.discenteEnvolvido1 }} <strong>Nº Matrícula: </strong>{{
+            <p [hidden]="project.discenteEnvolvido1"><i>(Não há Discentes envolvidos)</i></p>
+            <p [hidden]="!project.discenteEnvolvido1"><strong>Nome: </strong>{{ project.discenteEnvolvido1 }} <strong> - Nº Matrícula: </strong>{{
               project.matriculaDiscenteEnvolvido1 }}</p>
-            <p><strong>Curso: </strong>{{ project.cursoDiscenteEnvolvido1}} <strong>Período: </strong>{{
+            <p [hidden]="!project.discenteEnvolvido1"><strong>Curso: </strong>{{ project.cursoDiscenteEnvolvido1}} <strong> - Período: </strong>{{
               project.periodoDiscenteEnvolvido1 }}</p>
-            <hr class="m-0">
-            <p><strong>Nome: </strong>{{ project.discenteEnvolvido2 }} <strong>Nº Matrícula: </strong>{{
+            <hr class="m-0" [hidden]="!project.discenteEnvolvido1">
+            <p [hidden]="!project.discenteEnvolvido2"><strong>Nome: </strong>{{ project.discenteEnvolvido2 }} <strong> - Nº Matrícula: </strong>{{
               project.matriculaDiscenteEnvolvido2 }}</p>
-            <p><strong>Curso: </strong>{{ project.cursoDiscenteEnvolvido2}} <strong>Período: </strong>{{
+            <p [hidden]="!project.discenteEnvolvido2"><strong>Curso: </strong>{{ project.cursoDiscenteEnvolvido2}} <strong> - Período: </strong>{{
               project.periodoDiscenteEnvolvido2 }}</p>
-            <hr class="m-0">
-            <p><strong>Nome: </strong>{{ project.discenteEnvolvido3 }} <strong>Nº Matrícula: </strong>{{
+            <hr class="m-0" [hidden]="!project.discenteEnvolvido2">
+            <p [hidden]="!project.discenteEnvolvido3"><strong>Nome: </strong>{{ project.discenteEnvolvido3 }} <strong> - Nº Matrícula: </strong>{{
               project.matriculaDiscenteEnvolvido3 }}</p>
-            <p><strong>Curso: </strong>{{ project.cursoDiscenteEnvolvido3}} <strong>Período: </strong>{{
+            <p [hidden]="!project.discenteEnvolvido3"><strong>Curso: </strong>{{ project.cursoDiscenteEnvolvido3}} <strong> - Período: </strong>{{
               project.periodoDiscenteEnvolvido3 }}</p>
           </div>
 
           <div class="col-md-12">
             <hr class="m-1">
             <h6><strong>Cronograma: </strong>{{project.cronograma}}</h6>
+            <p [hidden]="project.cronograma"><i>(Não declarado)</i></p>
           </div>
         </div>
 
@@ -257,16 +260,15 @@
   </div>
 
   <div class="row">
-    <div class="col-md-3">
-      <div class="row">
-        <a class="nav-link" routerLink="/home/todos-projetos">
-          <span [innerHTML]="'arrow-left' | feather:35:'#212529'"></span>
-          <strong>Voltar</strong>
-        </a>
-      </div>
+    <div class="col-md-12">
+      <hr class="hr-edit">
     </div>
 
-    <div class="col-md-9">
+    <div class="col-md-6">
+
+    </div>
+
+    <div class="col-md-6">
       <div class="media">
         <div class="media-body">
           <h4 class="centro"><strong>Dados de Atualização</strong></h4>
@@ -282,6 +284,22 @@
           <h6 *ngIf=(project.atualizacaoCancelado)><strong>Cancelado em: </strong>{{ project.atualizacaoCancelado |
             date: 'd/M/y, H:mm'}}</h6>
         </div>
+      </div>
+    </div>
+
+    <div class="col-md-12">
+      <hr class="hr-edit">
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="row">
+        <a class="nav-link" routerLink="/home/todos-projetos">
+          <span [innerHTML]="'arrow-left' | feather:35:'#212529'"></span>
+          <strong>Voltar</strong>
+        </a>
       </div>
     </div>
   </div>

@@ -112,4 +112,8 @@ export class TodosProjetosComponent implements OnInit {
     this.projetoService.cancelado(project);
   }
 
+  sugerirAlteracao(project: Projeto){
+    
+  }
+
 }
