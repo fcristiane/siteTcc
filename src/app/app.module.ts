@@ -35,6 +35,7 @@ import { FilterPipe } from './filter.pipe';
 import { NovoProjetoAuxComponent } from './components/novo-projeto-aux/novo-projeto-aux.component';
 import { ProjetoEditandoComponent } from './components/projeto-editando/projeto-editando.component';
 import { NovoProjetoEditandoComponent } from './components/novo-projeto-editando/novo-projeto-editando.component';
+import { NovoProjetoEditandoAuxComponent } from './components/novo-projeto-editando-aux/novo-projeto-editando-aux.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { NovoProjetoEditandoComponent } from './components/novo-projeto-editando
     FilterPipe,
     NovoProjetoAuxComponent,
     ProjetoEditandoComponent,
-    NovoProjetoEditandoComponent
+    NovoProjetoEditandoComponent,
+    NovoProjetoEditandoAuxComponent
   ],
   imports: [
     BrowserModule,

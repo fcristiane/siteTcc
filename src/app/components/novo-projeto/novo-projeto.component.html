@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<div class="container-fluid mt-4">
   <div class="row">
     <div class="col-lg-12">
       <h1 class="mb-3" id="texto-centro">Formulário de Atividade de Extensão</h1>
@@ -352,10 +352,10 @@
     <hr class="hr-edit">
 
     <div class="form-row">
-      <div class="col-md-3"></div>
-      <div class="col-md-6">
+      <div class="col-md-2"></div>
+      <div class="col-md-8">
 
-        <label><strong>Terá Palestras no Projeto? </strong></label>
+        <label><strong>Terá Palestras/Cursos/Workshops no Projeto? </strong></label>
         <div class="form-check form-check-inline ml-5">
           <input class="form-check-input" type="radio" id="inlineCheckbox1" value="Sim" [(ngModel)]="novoProjeto.palestra"
             name="palestra">
@@ -377,7 +377,7 @@
           </div> -->
 
       </div>
-      <div class="col-md-3"></div>
+      <div class="col-md-2"></div>
     </div>
 
     <div class="form-row" [hidden]="novoProjeto.palestra != 'Sim'">
