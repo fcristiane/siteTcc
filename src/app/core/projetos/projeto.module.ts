@@ -9,6 +9,8 @@ export interface Projeto {
     atualizacaoEditado: number;
     atualizacaoCancelado:number;
 
+    palestra: string;
+
     nomeAtv: string
     responsavel: string;
     dataCadastro: number;
@@ -60,7 +62,9 @@ export interface Projeto {
 
     //Docentes
     docenteEnvolvido1: string;
+    addDocente2: string;
     docenteEnvolvido2: string;
+    addDocente3: string;
     docenteEnvolvido3: string;
 
     cursoDocenteEnvolvido1: string;
@@ -74,7 +78,9 @@ export interface Projeto {
 
     //Discentes
     discenteEnvolvido1: string;
+    addDiscente2: string;
     discenteEnvolvido2: string;
+    addDiscente3: string;
     discenteEnvolvido3: string;
 
     cursoDiscenteEnvolvido1: string;

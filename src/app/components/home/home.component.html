@@ -43,7 +43,7 @@
 </header>
 
 
-<div class="container-fluid">
+<div class="container-fluid" *ngFor="let perfil of perfils | async">
   <div class="row">
     <nav class="col-md-2 d-none d-md-block bg-light sidebar">
       <div class="sidebar-sticky">
@@ -58,12 +58,12 @@
               Cadastrar projeto
             </a>
           </li>
-          <li class="nav-item">
-              <a class="nav-link" routerLink="/home/projeto-editando">
-                <span [innerHTML]="'edit' | feather:24:'#212529'"></span>
-                Projetos em edição
-              </a>
-            </li>
+          <li [hidden]="perfil.permissao == 4" class="nav-item">
+            <a class="nav-link" routerLink="/home/projeto-editando">
+              <span [innerHTML]="'edit' | feather:24:'#212529'"></span>
+              Projetos em edição
+            </a>
+          </li>
 
           <!-- <li class="nav-item">
             <a class="nav-link" routerLink="#">
@@ -139,7 +139,7 @@
 
     <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
       <router-outlet></router-outlet>
-      
+
     </main>
 
   </div>
@@ -166,7 +166,7 @@
   
         </footer> -->
 
-        <!-- <a class="nav-link">
+<!-- <a class="nav-link">
                           <span [innerHTML]="'twitter' | feather:24:'#818181'" title="Twitter"></span>
                         </a>
                         <a class="nav-link">
