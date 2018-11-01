@@ -1,0 +1,38 @@
+<div class="container-fluid mt-4">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="mb-3">Enviar Comentário</h1>
+      <hr class="mb-4">
+      <h6><strong>Projeto: </strong>{{ project.nomeAtv }}</h6>
+      <h6><strong>Responsável: </strong>{{ project.responsavel }}</h6>
+      <hr class="mb-4">
+    </div>
+  </div>
+
+  <div class="col-md-12 mb-3">
+    <div class="form">
+      <div class="form-row">
+          <div class="form-group">
+              <label for="exampleFormControlTextarea1">Escreva uma sugestão de mudanças, comentário ou qualquer informação que você queira enviar ao dono do projeto para que o mesmo atualize para a próxima análise:</label>
+              <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="comentario" [(ngModel)]="project.comentario"></textarea>
+            </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12">
+      <hr class="hr-edit">
+
+      <div class="form-row mt-2 mb-5 item">
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+          <button class="btn btn-success btn-lg btn-block" type="button" (click)="enviar(project)">Enviar comentário</button>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-danger btn-lg btn-block" type="button" (click)="emEdicao(novoProjeto)">Cancelar</button>
+        </div>
+        <div class="col-md-2"></div>
+      </div>
+  </div>
+
+</div>

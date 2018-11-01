@@ -4,9 +4,21 @@
     text-align: right;
 }
 
+.item-end {
+    text-align: end;
+    align-items: flex-end;
+    align-content: flex-end;
+}
+
 #texto-centro{
     text-align: center;
     position: relative;
+}
+
+.alerta{
+    background-color: #ff7d7dfd;
+    border: 1px solid rgb(65, 63, 63);
+    border-radius: 5px;
 }
 
 .hr-edit{

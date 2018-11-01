@@ -14,6 +14,7 @@ import { ManualDoUsuarioComponent } from './components/manual-do-usuario/manual-
 import { ProjetoDetalheComponent } from './components/projeto-detalhe/projeto-detalhe.component';
 import { ProjetoEditandoComponent } from './components/projeto-editando/projeto-editando.component';
 import { NovoProjetoEditandoComponent } from './components/novo-projeto-editando/novo-projeto-editando.component';
+import { EnviarComentarioComponent } from './components/enviar-comentario/enviar-comentario.component';
 
 
 export const rootRouterConfig: Routes = [
@@ -32,7 +33,8 @@ export const rootRouterConfig: Routes = [
         { path: 'projeto-detalhe/:id', component: ProjetoDetalheComponent },
         { path: 'manual-do-usuario', component: ManualDoUsuarioComponent },
         { path: 'projeto-editando', component: ProjetoEditandoComponent },
-        { path: 'novo-projeto-editando/:id', component: NovoProjetoEditandoComponent }
+        { path: 'novo-projeto-editando/:id', component: NovoProjetoEditandoComponent },
+        { path: 'enviar-comentario/:id', component: EnviarComentarioComponent }
 
       ]
     },

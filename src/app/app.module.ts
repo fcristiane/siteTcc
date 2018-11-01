@@ -36,6 +36,7 @@ import { NovoProjetoAuxComponent } from './components/novo-projeto-aux/novo-proj
 import { ProjetoEditandoComponent } from './components/projeto-editando/projeto-editando.component';
 import { NovoProjetoEditandoComponent } from './components/novo-projeto-editando/novo-projeto-editando.component';
 import { NovoProjetoEditandoAuxComponent } from './components/novo-projeto-editando-aux/novo-projeto-editando-aux.component';
+import { EnviarComentarioComponent } from './components/enviar-comentario/enviar-comentario.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { NovoProjetoEditandoAuxComponent } from './components/novo-projeto-edita
     NovoProjetoAuxComponent,
     ProjetoEditandoComponent,
     NovoProjetoEditandoComponent,
-    NovoProjetoEditandoAuxComponent
+    NovoProjetoEditandoAuxComponent,
+    EnviarComentarioComponent
   ],
   imports: [
     BrowserModule,

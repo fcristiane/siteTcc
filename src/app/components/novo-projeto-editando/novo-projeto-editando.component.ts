@@ -49,4 +49,8 @@ export class NovoProjetoEditandoComponent implements OnInit {
     this.router.navigate(['/home/todos-projetos']);
   }
 
+  finalizar(project: Projeto) {
+    this.projetoService.update(project);
+  }
+
 }

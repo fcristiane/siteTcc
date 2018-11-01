@@ -6,6 +6,7 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { PerfilService } from '../perfils/perfil.service';
 import { Perfil } from 'src/app/components/perfil/perfil.module';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -25,7 +26,8 @@ export class ProjetoService {
 
   constructor(private db: AngularFirestore,
     private auth: AngularFireAuth,
-    public perfil: PerfilService) { }
+    public perfil: PerfilService,
+    public router: Router) { }
 
   ngOnInit() {
     this.perfils = this.perfil.getPerfil();
@@ -97,6 +99,20 @@ export class ProjetoService {
     }
   }
 
+  enviarComentario(project: Projeto){
+    let perfil = this.perfils;
+    let today: number = Date.now();
+    project.dataComentario = today;
+    project.situacao = 5;
+    this.db.collection<Projeto>('project').doc(project.id).update(project).then((success) => {
+      console.log(success);
+      alert('Comentário enviado!!!');
+    }).catch((erro) => {
+      console.log(erro);
+      alert('Erro ao enviar comentário!!!');
+    })
+  }
+
   updateEdicao(project: Projeto) {
     if (project.id == null && project.userId == null) {
       let id = this.db.createId();
@@ -126,13 +142,14 @@ export class ProjetoService {
     }
   }
 
-  update(projeto: Projeto) {
+  update(project: Projeto) {
     let today: number = Date.now();
-    projeto.dataCadastro = today;
-    projeto.situacao = 1;
-    this.db.collection<Projeto>('project').doc(projeto.id).update(projeto).then((success) => {
+    project.dataCadastro = today;
+    project.situacao = 1;
+    this.db.collection<Projeto>('project').doc(project.id).update(project).then((success) => {
       console.log(success);
-      console.log('Update success')
+      console.log('Update success');
+      this.router.navigate(['/home/todos-projetos']);
     }).catch((erro) => {
       console.log(erro)
     })

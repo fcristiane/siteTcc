@@ -48,14 +48,14 @@
                 type="button" class="btn btn-success btn-sm centro" (click)="aprovar(project)">Aprovar</button></td>
             <td class="centro" *ngIf="perfil.permissao == 4 && project.situacao == 1"><button type="button" class="btn btn-danger btn-sm centro"
                 (click)="reprovar(project)">Indeferir</button></td>
-            <td hidden class="centro" *ngIf="perfil.permissao == 4 && project.situacao != 1"><button type="button" class="btn btn-secondary btn-sm centro"
-                (click)="reentrada(project)">Redefinir</button></td>
+            <td hidden class="centro" *ngIf="perfil.permissao == 4 && project.situacao != 1"><button type="button"
+                class="btn btn-secondary btn-sm centro" (click)="reentrada(project)">Redefinir</button></td>
             <td class="centro" *ngIf="perfil.permissao == 4 && project.situacao != 1"> --- </td>
             <td class="centro" *ngIf="perfil.permissao == 4 && project.situacao != 1 "> --- </td>
             <td hidden class="centro" *ngIf="perfil.permissao == 4"><button type="button" class="btn btn-dark btn-sm centro"
                 (click)="deletar(project.id)">Deletar</button></td>
-            <td class="centro" *ngIf="perfil.permissao == 4 && project.situacao == 1"><button
-                type="button" class="btn btn-info btn-sm centro" (click)="sugerirAlteracao(project)">Sugerir</button></td>
+            <td class="centro" *ngIf="perfil.permissao == 4 && project.situacao == 1"> <a [routerLink]="['/home/enviar-comentario',project.id]"><button
+              type="button" class="btn btn-info btn-sm centro" title="Clique aqui para enviar comentário">Sugerir</button></a>
             <td class="centro" *ngIf="perfil.permissao == 4 && project.situacao != 1 "> --- </td>
           </tr>
 

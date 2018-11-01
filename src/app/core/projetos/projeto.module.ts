@@ -9,16 +9,35 @@ export interface Projeto {
     atualizacaoEditado: number;
     atualizacaoCancelado:number;
 
+    comentario: string;
+    dataComentario: number;
+    autorComentario: string;
+
+
     palestra: string;
 
     nomeAtv: string
     responsavel: string;
     dataCadastro: number;
-    classificacao: string;
     areaTematica: string;
     curso: string;
     coordenador: string;
     areaAtuacao: string;
+
+    classificacao1: string;
+    classificacao2: string;
+    classificacao3: string;
+    classificacao4: string;
+    classificacao5: string;
+    classificacao6: string;
+    classificacao7: string;
+    classificacao8: string;
+    classificacao9: string;
+    classificacao10: string;
+    classificacao11: string;
+    classificacao12: string;
+    classificacao13: string;
+
 
     ministrante: string;
     cpf: string;
@@ -49,7 +68,14 @@ export interface Projeto {
     periodoAte: Date;
     horaInicio: string;
     horaFim: string;
-    diasDaSemana: Array<string>;
+    diasDaSemana1: string;
+    diasDaSemana2: string;
+    diasDaSemana3: string;
+    diasDaSemana4: string;
+    diasDaSemana5: string;
+    diasDaSemana6: string;
+    diasDaSemana7: string;
+
     cargaHoraria: number;
     campus: string;
     local: string;
