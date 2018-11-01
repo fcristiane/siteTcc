@@ -26,12 +26,15 @@ export class NovoProjetoComponent implements OnInit {
   novoProjetoLista: Array<Projeto> = [];
   showMessageError: boolean;
 
-  constructor(private db: AngularFirestore, private auth: AngularFireAuth, private projetoService: ProjetoService, public perfilService: PerfilService, public router: Router) {
+  constructor(private db: AngularFirestore,
+    private auth: AngularFireAuth,
+    private projetoService: ProjetoService,
+    public perfilService: PerfilService,
+    public router: Router) {
     if (firebase.auth().currentUser != null) {
-      console.log("user id: " + firebase.auth().currentUser.uid);
+      console.log('user id: ' + firebase.auth().currentUser.uid);
     }
-
-  }
+  };
 
   ngOnInit() {
     this.perfils = this.perfilService.getPerfil();
@@ -51,39 +54,33 @@ export class NovoProjetoComponent implements OnInit {
     //   cpf: ['', Validators.required],
     //   tipoParceria: ['', Validators.required],
     //   titulacao: ['', Validators.required]
-
-
     // });
   }
-
   // get f() { return this.registerForm.controls; }
-
-
   getLista() {
     this.db.collection<Projeto>('project').valueChanges().subscribe((data: Projeto[]) => {
       this.novoProjetoLista = data;
       console.log(this.novoProjeto);
     })
-  }
+  };
 
-  salvar(novoProjeto : Projeto) {
+  salvar(novoProjeto: Projeto) {
     console.log(novoProjeto);
     this.projetoService.create(novoProjeto);
     this.router.navigate(['/home/todos-projetos']);
-  }
-
+  };
 
   update(novoProjeto: Projeto) {
     this.projetoService.update(novoProjeto);
-  }
+  };
 
   delete(id: string) {
     this.projetoService.delete(id);
-  }
+  };
 
-  emEdicao(novoProjeto: Projeto){
+  emEdicao(novoProjeto: Projeto) {
     this.projetoService.emEdicao(novoProjeto);
     this.router.navigate(['/home/todos-projetos']);
-  }
+  };
 
 }

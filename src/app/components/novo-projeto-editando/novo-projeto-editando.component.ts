@@ -29,8 +29,8 @@ export class NovoProjetoEditandoComponent implements OnInit {
     if (id) {
       this.projetoService.getProjetoById(id).subscribe((data) => {
         this.project = data[0];
-      })
-      console.log("!!!!!")
+      });
+      console.log('!!!!!');
     }
   }
 
@@ -40,7 +40,7 @@ export class NovoProjetoEditandoComponent implements OnInit {
 
   update(projeto: Projeto) {
     console.log(projeto);
-    this.projetoService.update(projeto)
+    this.projetoService.update(projeto);
     this.router.navigate(['/home/todos-projetos']);
   }
 

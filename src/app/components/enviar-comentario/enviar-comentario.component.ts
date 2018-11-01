@@ -25,8 +25,8 @@ export class EnviarComentarioComponent implements OnInit {
     if (id) {
       this.projetoService.getProjetoById(id).subscribe((data) => {
         this.project = data[0];
-      })
-      console.log("!!!!!")
+      });
+      console.log('!!!!!');
     }
   }
 
@@ -34,7 +34,7 @@ export class EnviarComentarioComponent implements OnInit {
     this.perfils = this.perfilService.getPerfil();
   }
 
-  enviar(project: Projeto){
+  enviar(project: Projeto) {
     this.projetoService.enviarComentario(project);
   }
 

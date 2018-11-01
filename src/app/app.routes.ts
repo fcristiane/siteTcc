@@ -16,27 +16,27 @@ import { ProjetoEditandoComponent } from './components/projeto-editando/projeto-
 import { NovoProjetoEditandoComponent } from './components/novo-projeto-editando/novo-projeto-editando.component';
 import { EnviarComentarioComponent } from './components/enviar-comentario/enviar-comentario.component';
 
-
 export const rootRouterConfig: Routes = [
-    { path: '', redirectTo: 'login', pathMatch: 'full' },
-    { path: 'home', component: HomeComponent, canActivate: [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  {
+    path: 'home', component: HomeComponent, canActivate: [
       AuthGuard
     ],
-      children: [
-        { path: 'novo-projeto', component: NovoProjetoComponent },
-        { path: '', component: InfoComponent },
-        { path: 'todos-projetos', component: TodosProjetosComponent },
-        { path: 'todos-analise', component: TodosProjetosAnaliseComponent },
-        { path: 'todos-aceitos', component: TodosProjetosAceitosComponent },
-        { path: 'todos-reprovados', component: TodosProjetosReprovadosComponent },
-        { path: 'perfil', component: PerfilComponent },
-        { path: 'projeto-detalhe/:id', component: ProjetoDetalheComponent },
-        { path: 'manual-do-usuario', component: ManualDoUsuarioComponent },
-        { path: 'projeto-editando', component: ProjetoEditandoComponent },
-        { path: 'novo-projeto-editando/:id', component: NovoProjetoEditandoComponent },
-        { path: 'enviar-comentario/:id', component: EnviarComentarioComponent }
+    children: [
+      { path: 'novo-projeto', component: NovoProjetoComponent },
+      { path: '', component: InfoComponent },
+      { path: 'todos-projetos', component: TodosProjetosComponent },
+      { path: 'todos-analise', component: TodosProjetosAnaliseComponent },
+      { path: 'todos-aceitos', component: TodosProjetosAceitosComponent },
+      { path: 'todos-reprovados', component: TodosProjetosReprovadosComponent },
+      { path: 'perfil', component: PerfilComponent },
+      { path: 'projeto-detalhe/:id', component: ProjetoDetalheComponent },
+      { path: 'manual-do-usuario', component: ManualDoUsuarioComponent },
+      { path: 'projeto-editando', component: ProjetoEditandoComponent },
+      { path: 'novo-projeto-editando/:id', component: NovoProjetoEditandoComponent },
+      { path: 'enviar-comentario/:id', component: EnviarComentarioComponent }
 
-      ]
-    },
-    { path: 'login', component: LoginComponent },
-  ];
+    ]
+  },
+  { path: 'login', component: LoginComponent },
+];

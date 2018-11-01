@@ -12,10 +12,10 @@ import { AuthService } from '../../core/users/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  loginObject : Login = {} as Login;
+  loginObject: Login = {} as Login;
 
   loginForm: FormGroup;
-  errorMessage: string = '';
+  errorMessage: string;
 
   constructor(public router: Router, public authService: AuthService) { }
 
@@ -34,8 +34,7 @@ export class LoginComponent implements OnInit {
       console.log(err);
       this.errorMessage = err.message;
     })
-  }
-  
+  };
 
   logout() {
     this.authService.logout();

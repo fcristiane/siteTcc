@@ -74,7 +74,6 @@ import { EnviarComentarioComponent } from './components/enviar-comentario/enviar
     SlimLoadingBarModule,
     NgxSpinnerModule,
     NgxMaskModule.forRoot()
-    
   ],
 
   providers: [UserService, AuthGuard, ProjetoService, PerfilService],

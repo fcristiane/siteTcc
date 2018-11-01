@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
 
   logout() {
     this.authService.logout();
-    console.log("Deslogando...");
+    console.log('Deslogando...');
   }
 
 
