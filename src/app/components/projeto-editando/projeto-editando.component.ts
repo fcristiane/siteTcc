@@ -9,9 +9,7 @@ import { ProjetoService } from 'src/app/core/projetos/projeto.service';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { Router } from '@angular/router';
 
-
 export interface ProjetoId extends Projeto { id: string; }
-
 
 @Component({
   selector: 'app-projeto-editando',
@@ -31,7 +29,7 @@ export class ProjetoEditandoComponent implements OnInit {
 
   project: Projeto = {} as Projeto;
   projetosCollection: AngularFirestoreCollection<Projeto>;
-  projetos: Observable<Projeto[]>
+  projetos: Observable<Projeto[]>;
   projetosId: Observable<ProjetoId[]>;
 
   projetoDoc: AngularFirestoreDocument<Projeto>;
@@ -44,28 +42,28 @@ export class ProjetoEditandoComponent implements OnInit {
     private projetoService: ProjetoService,
     private spinner: NgxSpinnerService) {
     if (firebase.auth().currentUser != null) {
-      console.log("user id: " + firebase.auth().currentUser.uid)
+      console.log('user id: ' + firebase.auth().currentUser.uid);
     }
 
   }
 
   ngOnInit() {
-    let userId = firebase.auth().currentUser.uid;
+    const userId = firebase.auth().currentUser.uid;
     this.perfilColection = this.db.collection<Perfil>('perfil', ref => ref.where('userId', '==', userId));
     this.perfils = this.perfilColection.valueChanges();
 
     this.spinner.show();
- 
+
     setTimeout(() => {
         /** spinner ends after 5 seconds */
         this.spinner.hide();
     }, 2500);
-    
-    if (userId == 'WAJ7zsFtAUYq7qXv4tKNC6w9cnZ2') {
-      console.log("Retornou projetos");
+
+    if (userId === 'WAJ7zsFtAUYq7qXv4tKNC6w9cnZ2') {
+      console.log('Retornou projetos');
       return this.projetos = this.projetoService.filterByEditandoTodos();
     } else {
-      console.log("Retornou por id")
+      console.log('Retornou por id');
       return this.projetos = this.projetoService.filterByEditando();
     }
   }

@@ -17,23 +17,20 @@ export class PerfilService {
 
   constructor(private db: AngularFirestore) {
     if (firebase.auth().currentUser != null) {
-      console.log("User id: " + firebase.auth().currentUser.uid);
+      console.log('User id: ' + firebase.auth().currentUser.uid);
    }
   }
 
-  ngOnInit(){
-  }
-
-  getPerfil(): Observable<Perfil[]>{
-    let userId = firebase.auth().currentUser.uid;
+  getPerfil(): Observable<Perfil[]> {
+    const userId = firebase.auth().currentUser.uid;
     this.perfilColection = this.db.collection<Perfil>('perfil', ref => ref.where('userId', '==', userId));
     this.perfils = this.perfilColection.valueChanges();
     return this.perfils;
   }
 
   salvar(perfil: Perfil) {
-    let today: number = Date.now();
-    let id = this.db.createId();
+    const today: number = Date.now();
+    const id = this.db.createId();
     perfil.dataAtualizacao = today;
     perfil.email = this.user.email;
     perfil.id = id;
@@ -44,20 +41,20 @@ export class PerfilService {
     }).catch((erro) => {
       console.log(erro);
       console.log('Erro ao atualizar');
-    })
+    });
   }
 
-  update(perfil: Perfil){
-    let today: number = Date.now();
+  update(perfil: Perfil) {
+    const today: number = Date.now();
     perfil.dataAtualizacao = today;
     perfil.email = this.user.email;
     this.db.collection<Perfil>('perfil').doc(perfil.id).update(perfil).then((sucess) => {
       console.log(sucess);
-      alert('Atualizado com sucesso!!')
+      alert('Atualizado com sucesso!!');
     }).catch((erro) => {
       console.log(erro);
-      alert('Ocorreu algum erro!!')
-    })
+      alert('Ocorreu algum erro!!');
+    });
   }
 
 }

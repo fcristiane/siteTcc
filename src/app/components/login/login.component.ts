@@ -33,8 +33,8 @@ export class LoginComponent implements OnInit {
     }, err => {
       console.log(err);
       this.errorMessage = err.message;
-    })
-  };
+    });
+  }
 
   logout() {
     this.authService.logout();

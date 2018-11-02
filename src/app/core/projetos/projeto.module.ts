@@ -1,5 +1,5 @@
 export interface Projeto {
-    
+
     id: string;
     userId: string;
     situacao: number;
@@ -7,7 +7,7 @@ export interface Projeto {
     atualizacaoAprovado: number;
     atualizacaoIndeferido: number;
     atualizacaoEditado: number;
-    atualizacaoCancelado:number;
+    atualizacaoCancelado: number;
 
     comentario: string;
     dataComentario: number;
@@ -16,7 +16,7 @@ export interface Projeto {
 
     palestra: string;
 
-    nomeAtv: string
+    nomeAtv: string;
     responsavel: string;
     dataCadastro: number;
     areaTematica: string;
@@ -24,6 +24,7 @@ export interface Projeto {
     coordenador: string;
     areaAtuacao: string;
 
+    classificacao: string;
     classificacao1: string;
     classificacao2: string;
     classificacao3: string;
@@ -80,13 +81,12 @@ export interface Projeto {
     campus: string;
     local: string;
 
-    //Dados específicos
+    // Dados específicos
     objetivos: string;
     justificativa: string;
     metodologiaProcedimento: string;
-    
 
-    //Docentes
+    // Docentes
     docenteEnvolvido1: string;
     addDocente2: string;
     docenteEnvolvido2: string;
@@ -102,7 +102,7 @@ export interface Projeto {
     funcaoDocenteEnvolvido3: string;
 
 
-    //Discentes
+    // Discentes
     discenteEnvolvido1: string;
     addDiscente2: string;
     discenteEnvolvido2: string;
@@ -123,8 +123,7 @@ export interface Projeto {
 
     cronograma: string;
 
-
-    //Dados receita
+    // Dados receita
     receitaIncricao: string;
     receitaInicio: string;
     receitaTermino: string;
@@ -158,4 +157,4 @@ export interface Projeto {
     totalDespesas: string;
 
 
-}   
+}

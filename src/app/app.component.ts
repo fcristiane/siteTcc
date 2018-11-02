@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
 import {
   NavigationCancel,
@@ -15,7 +15,7 @@ import { NgxSpinnerService } from 'ngx-spinner';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'siteTcc';
   constructor(private _loadingBar: SlimLoadingBarService, private _router: Router, private spinner: NgxSpinnerService) {
     this._router.events.subscribe((event: Event) => {

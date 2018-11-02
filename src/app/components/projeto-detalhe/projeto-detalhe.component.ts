@@ -30,8 +30,8 @@ export class ProjetoDetalheComponent implements OnInit {
     if (id) {
       this.projetoService.getProjetoById(id).subscribe((data) => {
         this.project = data[0];
-      })
-      console.log("!!!!!")
+      });
+      console.log('!!!!!');
     }
   }
 
@@ -39,19 +39,18 @@ export class ProjetoDetalheComponent implements OnInit {
     this.perfils = this.perfilService.getPerfil();
   }
 
-  public captureScreen(){
-    var data = document.getElementById('contentToConvert');
+  public captureScreen() {
+    const data = document.getElementById('contentToConvert');
     html2canvas(data).then(canvas => {
-      var imgWidth = 208;
-      var pageHeight = 295;
-      var imgHeight = canvas.height * imgWidth / canvas.width;  
-      var heightLeft = imgHeight;
-      
-      const contentDataURL = canvas.toDataURL('image/png')  
-      let pdf = new jspdf('p', 'mm', 'a4'); // A4 size page of PDF  
-      var position = 0;
+      const imgWidth = 208;
+      const pageHeight = 295;
+      const imgHeight = canvas.height * imgWidth / canvas.width;
+      const heightLeft = imgHeight;
+      const contentDataURL = canvas.toDataURL('image/png');
+      const pdf = new jspdf('p', 'mm', 'a4');
+      const position = 0;
       pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight);
-      pdf.save('pdf-projeto.pdf'); // Generated PDF 
+      pdf.save('pdf-projeto.pdf');
     });
   }
 

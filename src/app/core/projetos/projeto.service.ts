@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit } from '@angular/core';
 import { AngularFirestoreCollection, AngularFirestore } from 'angularfire2/firestore';
 import { Projeto } from './projeto.module';
 import { Observable } from 'rxjs';
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-export class ProjetoService {
+export class ProjetoService implements OnInit {
 
   novoProjeto: Projeto = {} as Projeto;
   projetosCollection: AngularFirestoreCollection<Projeto>;
@@ -39,9 +39,9 @@ export class ProjetoService {
   }
 
   getByUserId(): Observable<Projeto[]> {
-    let userId = firebase.auth().currentUser.uid;
+    const userId = firebase.auth().currentUser.uid;
     this.projetosCollection = this.db.collection<Projeto>('project', ref => ref.where('userId', '==', userId));
-    console.log("Passou!");
+    console.log('Passou!');
     return this.projetos = this.projetosCollection.valueChanges();
     // let x = this.db.collection<Projeto>('project').doc(project.id);
     // return x;
@@ -55,8 +55,8 @@ export class ProjetoService {
   }
 
   create(novoProjeto: Projeto) {
-    let today: number = Date.now();
-    let id = this.db.createId();
+    const today: number = Date.now();
+    const id = this.db.createId();
     novoProjeto.dataCadastro = today;
     novoProjeto.id = id;
     novoProjeto.userId = this.user.uid;
@@ -66,15 +66,15 @@ export class ProjetoService {
       console.log('Salvo');
     }).catch((erro) => {
       console.log(erro);
-      console.log('Erro ao salvar')
-    })
+      console.log('Erro ao salvar');
+    });
   }
 
   emEdicao(novoProjeto: Projeto) {
     if (novoProjeto.id == null && novoProjeto.userId == null) {
-      let id = this.db.createId();
+      const id = this.db.createId();
       novoProjeto.id = id;
-      let today: number = Date.now();
+      const today: number = Date.now();
       novoProjeto.dataCadastro = today;
       novoProjeto.userId = this.user.uid;
       novoProjeto.situacao = 5;
@@ -83,10 +83,10 @@ export class ProjetoService {
         console.log('Salvo');
       }).catch((erro) => {
         console.log(erro);
-        console.log('Erro ao salvar')
-      })
-    }else {
-      let today: number = Date.now();
+        console.log('Erro ao salvar');
+      });
+    } else {
+      const today: number = Date.now();
       novoProjeto.dataCadastro = today;
       novoProjeto.situacao = 5;
       this.db.collection<Projeto>('project').doc(novoProjeto.id).update(novoProjeto).then((success) => {
@@ -94,14 +94,14 @@ export class ProjetoService {
         console.log('Salvo');
       }).catch((erro) => {
         console.log(erro);
-        console.log('Erro ao salvar')
-      })
+        console.log('Erro ao salvar');
+      });
     }
   }
 
-  enviarComentario(project: Projeto){
-    let perfil = this.perfils;
-    let today: number = Date.now();
+  enviarComentario(project: Projeto) {
+    const perfil = this.perfils;
+    const today: number = Date.now();
     project.dataComentario = today;
     project.situacao = 5;
     this.db.collection<Projeto>('project').doc(project.id).update(project).then((success) => {
@@ -110,14 +110,14 @@ export class ProjetoService {
     }).catch((erro) => {
       console.log(erro);
       alert('Erro ao enviar comentário!!!');
-    })
+    });
   }
 
   updateEdicao(project: Projeto) {
     if (project.id == null && project.userId == null) {
-      let id = this.db.createId();
+      const id = this.db.createId();
       project.id = id;
-      let today: number = Date.now();
+      const today: number = Date.now();
       project.dataCadastro = today;
       project.userId = this.user.uid;
       project.situacao = 5;
@@ -126,10 +126,10 @@ export class ProjetoService {
         console.log('Salvo');
       }).catch((erro) => {
         console.log(erro);
-        console.log('Erro ao salvar')
-      })
-    }else {
-      let today: number = Date.now();
+        console.log('Erro ao salvar');
+      });
+    } else {
+      const today: number = Date.now();
       project.dataCadastro = today;
       project.situacao = 5;
       this.db.collection<Projeto>('project').doc(project.id).update(project).then((success) => {
@@ -137,13 +137,13 @@ export class ProjetoService {
         console.log('Salvo');
       }).catch((erro) => {
         console.log(erro);
-        console.log('Erro ao salvar')
-      })
+        console.log('Erro ao salvar');
+      });
     }
   }
 
   update(project: Projeto) {
-    let today: number = Date.now();
+    const today: number = Date.now();
     project.dataCadastro = today;
     project.situacao = 1;
     this.db.collection<Projeto>('project').doc(project.id).update(project).then((success) => {
@@ -151,8 +151,8 @@ export class ProjetoService {
       console.log('Update success');
       this.router.navigate(['/home/todos-projetos']);
     }).catch((erro) => {
-      console.log(erro)
-    })
+      console.log(erro);
+    });
   }
 
   delete(id: string) {
@@ -162,12 +162,12 @@ export class ProjetoService {
     }).catch((erro) => {
       console.log(erro);
       alert('Erro ao deletar projeto!!!');
-    })
-    console.log(this.novoProjeto)
+    });
+    console.log(this.novoProjeto);
   }
 
   aprovar(project: Projeto) {
-    let today: number = Date.now();
+    const today: number = Date.now();
     project.atualizacaoAprovado = today;
     project.situacao = 2;
     this.db.collection<Projeto>('project').doc(project.id).update(project).then((success) => {
@@ -176,11 +176,11 @@ export class ProjetoService {
     }).catch((erro) => {
       console.log(erro);
       alert('Erro ao aceitar projeto!!!');
-    })
+    });
   }
 
   reprovar(project: Projeto) {
-    let today: number = Date.now();
+    const today: number = Date.now();
     project.atualizacaoIndeferido = today;
     project.situacao = 3;
     this.db.collection<Projeto>('project').doc(project.id).update(project).then((success) => {
@@ -189,11 +189,11 @@ export class ProjetoService {
     }).catch((erro) => {
       console.log(erro);
       alert('Erro ao reprovar projeto!!!');
-    })
+    });
   }
 
   reentrada(project: Projeto) {
-    let today: number = Date.now();
+    const today: number = Date.now();
     project.atualizacaoEditado = today;
     project.situacao = 1;
     this.db.collection<Projeto>('project').doc(project.id).update(project).then((success) => {
@@ -202,11 +202,11 @@ export class ProjetoService {
     }).catch((erro) => {
       console.log(erro);
       alert('Erro!!!');
-    })
+    });
   }
 
   cancelado(project: Projeto) {
-    let today: number = Date.now();
+    const today: number = Date.now();
     project.atualizacaoCancelado = today;
     project.situacao = 5;
     this.db.collection<Projeto>('project').doc(project.id).update(project).then((success) => {
@@ -215,23 +215,23 @@ export class ProjetoService {
     }).catch((erro) => {
       console.log(erro);
       alert('Erro!!!');
-    })
+    });
   }
 
   filterByAceitos(): Observable<Projeto[]> {
-    let userId = firebase.auth().currentUser.uid;
+    const userId = firebase.auth().currentUser.uid;
     this.projetosCollection = this.db.collection<Projeto>('project', ref => ref.where('situacao', '==', 2).where('userId', '==', userId));
     return this.projetos = this.projetosCollection.valueChanges();
   }
 
   filterByAnalise(): Observable<Projeto[]> {
-    let userId = firebase.auth().currentUser.uid;
+    const userId = firebase.auth().currentUser.uid;
     this.projetosCollection = this.db.collection<Projeto>('project', ref => ref.where('situacao', '==', 1).where('userId', '==', userId));
     return this.projetos = this.projetosCollection.valueChanges();
   }
 
   filterByReprovados(): Observable<Projeto[]> {
-    let userId = firebase.auth().currentUser.uid;
+    const userId = firebase.auth().currentUser.uid;
     this.projetosCollection = this.db.collection<Projeto>('project', ref => ref.where('situacao', '==', 3).where('userId', '==', userId));
     return this.projetos = this.projetosCollection.valueChanges();
   }

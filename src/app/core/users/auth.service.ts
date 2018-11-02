@@ -18,10 +18,10 @@ export class AuthService {
     return new Promise<any>((resolve, reject) => {
       firebase.auth().signInWithEmailAndPassword(value.email, value.password)
       .then(res => {
-        
+
         resolve(res);
-      }, err => reject(err))
-    })
+      }, err => reject(err));
+    });
   }
 
   logout() {

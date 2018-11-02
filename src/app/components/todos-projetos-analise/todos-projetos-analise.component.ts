@@ -22,7 +22,7 @@ export class TodosProjetosAnaliseComponent implements OnInit {
   perfilColection: AngularFirestoreCollection<Perfil>;
   perfils: Observable<Perfil[]>;
 
-  projetos: Observable<Projeto[]>
+  projetos: Observable<Projeto[]>;
 
   projetoDoc: AngularFirestoreDocument<Projeto>;
   projeto: Observable<Projeto>;
@@ -32,28 +32,28 @@ export class TodosProjetosAnaliseComponent implements OnInit {
     private auth: AngularFireAuth,
     private projetoService: ProjetoService, ) {
     if (firebase.auth().currentUser != null) {
-      console.log("user id: " + firebase.auth().currentUser.uid)
+      console.log('user id: ' + firebase.auth().currentUser.uid);
     }
   }
 
-  ngOnInit(){
+  ngOnInit() {
 
-    let userId = firebase.auth().currentUser.uid;
+    const userId = firebase.auth().currentUser.uid;
     this.perfilColection = this.db.collection<Perfil>('perfil', ref => ref.where('userId', '==', userId));
     this.perfils = this.perfilColection.valueChanges();
 
-    if (userId == 'WAJ7zsFtAUYq7qXv4tKNC6w9cnZ2') {
-      console.log("Retornou projetos");
+    if (userId === 'WAJ7zsFtAUYq7qXv4tKNC6w9cnZ2') {
+      console.log('Retornou projetos');
       return this.projetos = this.projetoService.filterByAnaliseTodos();
     } else {
-      console.log("Retornou por id")
+      console.log('Retornou por id');
       return this.projetos = this.projetoService.filterByAnalise();
     }
 
   }
 
   detalhes(projectId) {
-    this.projetoDoc = this.db.doc('project/'+projectId);
+    this.projetoDoc = this.db.doc('project/' + projectId);
     this.projeto = this.projetoDoc.valueChanges();
   }
 

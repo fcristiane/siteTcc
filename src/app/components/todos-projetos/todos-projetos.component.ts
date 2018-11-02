@@ -30,7 +30,7 @@ export class TodosProjetosComponent implements OnInit {
 
   project: Projeto = {} as Projeto;
   projetosCollection: AngularFirestoreCollection<Projeto>;
-  projetos: Observable<Projeto[]>
+  projetos: Observable<Projeto[]>;
   projetosId: Observable<ProjetoId[]>;
 
   projetoDoc: AngularFirestoreDocument<Projeto>;
@@ -41,44 +41,43 @@ export class TodosProjetosComponent implements OnInit {
   public dadosItem: Projeto;
   public searchString: string;
 
-  constructor(public router: Router,private db: AngularFirestore,
+  constructor(public router: Router, private db: AngularFirestore,
     private auth: AngularFireAuth,
     private projetoService: ProjetoService,
     private spinner: NgxSpinnerService
   ) {
     if (firebase.auth().currentUser != null) {
-      console.log("user id: " + firebase.auth().currentUser.uid)
+      console.log('user id: ' + firebase.auth().currentUser.uid);
     }
 
   }
 
   ngOnInit() {
 
-    let userId = firebase.auth().currentUser.uid;
+    const userId = firebase.auth().currentUser.uid;
     this.perfilColection = this.db.collection<Perfil>('perfil', ref => ref.where('userId', '==', userId));
     this.perfils = this.perfilColection.valueChanges();
 
     this.spinner.show();
- 
+
     setTimeout(() => {
         /** spinner ends after 5 seconds */
         this.spinner.hide();
     }, 2500);
-    
-    if (userId == 'WAJ7zsFtAUYq7qXv4tKNC6w9cnZ2') {
-      console.log("Retornou projetos");
+
+    if (userId === 'WAJ7zsFtAUYq7qXv4tKNC6w9cnZ2') {
+      console.log('Retornou projetos');
       return this.projetos = this.projetoService.getProjetos();
     } else {
-      console.log("Retornou por id")
+      console.log('Retornou por id');
       return this.projetos = this.projetoService.getByUserId();
     }
   }
 
   detalhes(projectId) {
-    this.projetoDoc = this.db.doc('project/'+projectId);
+    this.projetoDoc = this.db.doc('project/' + projectId);
     this.projeto = this.projetoDoc.valueChanges();
   }
-  
 
   // getProjetoById() {
   //   this.projetosCollection = this.db.collection<Projeto>('project');
@@ -92,7 +91,7 @@ export class TodosProjetosComponent implements OnInit {
 
   // }
 
-  deletar(id: string){
+  deletar(id: string) {
     this.projetoService.delete(id);
   }
 
@@ -108,7 +107,7 @@ export class TodosProjetosComponent implements OnInit {
     this.projetoService.reentrada(project);
   }
 
-  cancelado(project: Projeto){
+  cancelado(project: Projeto) {
     this.projetoService.cancelado(project);
   }
 

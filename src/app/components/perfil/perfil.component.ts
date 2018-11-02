@@ -22,8 +22,8 @@ export class PerfilComponent implements OnInit {
 
   constructor(private db: AngularFirestore, private auth: AngularFireAuth, public perfilService: PerfilService) {
     if (firebase.auth().currentUser != null) {
-      console.log("User id: " + firebase.auth().currentUser.uid);
-      console.log("Email: " + firebase.auth().currentUser.email);
+      console.log('User id: ' + firebase.auth().currentUser.uid);
+      console.log('Email: ' + firebase.auth().currentUser.email);
     }
   }
 
@@ -37,7 +37,7 @@ export class PerfilComponent implements OnInit {
     this.perfilService.salvar(perfil);
   }
 
-  update(perfil: Perfil){
+  update(perfil: Perfil) {
     console.log(perfil);
     this.perfilService.update(perfil);
   }
