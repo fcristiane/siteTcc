@@ -54,14 +54,14 @@ export class ProjetoService implements OnInit {
     return this.projetos = this.projetosCollection.valueChanges();
   }
 
-  create(novoProjeto: Projeto) {
+  create(formulario) {
     const today: number = Date.now();
     const id = this.db.createId();
-    novoProjeto.dataCadastro = today;
-    novoProjeto.id = id;
-    novoProjeto.userId = this.user.uid;
-    novoProjeto.situacao = 1;
-    this.db.collection<Projeto>('project').doc(id).set(novoProjeto).then((success) => {
+    formulario.dataCadastro = today;
+    formulario.id = id;
+    formulario.userId = this.user.uid;
+    formulario.situacao = 1;
+    this.db.collection<Projeto>('project').doc(id).set(formulario).then((success) => {
       console.log(success);
       console.log('Salvo');
     }).catch((erro) => {

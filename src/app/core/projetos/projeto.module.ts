@@ -13,7 +13,6 @@ export interface Projeto {
     dataComentario: number;
     autorComentario: string;
 
-
     palestra: string;
 
     nomeAtv: string;
@@ -69,7 +68,7 @@ export interface Projeto {
     periodoAte: Date;
     horaInicio: string;
     horaFim: string;
-    diasDaSemana1: string;
+    diasDaSemana: string;
     diasDaSemana2: string;
     diasDaSemana3: string;
     diasDaSemana4: string;
