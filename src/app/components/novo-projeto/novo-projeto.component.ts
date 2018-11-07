@@ -156,7 +156,7 @@ export class NovoProjetoComponent implements OnInit {
   }
   // get f() { return this.registerForm.controls; }
 
-  onSubmit(){
+  onSubmit() {
     console.log(this.formulario);
   }
 

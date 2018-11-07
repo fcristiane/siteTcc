@@ -1,5 +1,4 @@
 import { Injectable, OnInit } from '@angular/core';
-
 import { AngularFirestore } from 'angularfire2/firestore';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
@@ -10,8 +9,7 @@ export class UserService implements OnInit {
   constructor(
    public db: AngularFirestore,
    public afAuth: AngularFireAuth
- ) {
- }
+ ) {}
 
   getCurrentUser() {
     return new Promise<any>((resolve, reject) => {
