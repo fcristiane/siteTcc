@@ -6,7 +6,7 @@ import { AngularFirestore } from 'angularfire2/firestore';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { ProjetoService } from 'src/app/core/projetos/projeto.service';
 import { PerfilService } from 'src/app/core/perfils/perfil.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormArray, FormControl } from '@angular/forms';
 import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
 
@@ -33,26 +33,29 @@ export class NovoProjetoAuxComponent implements OnInit {
     private projetoService: ProjetoService,
     public perfilService: PerfilService,
     public router: Router,
-    private formBuilder: FormBuilder) {
+    private fb: FormBuilder) {
     if (firebase.auth().currentUser != null) {
       console.log('user id: ' + firebase.auth().currentUser.uid);
     }
   }
 
+  classificacoes = ['Concurso', 'Curso', 'Encontro', 'Exposição', 'Jornada', 'Oficina', 'Palestra', 'Projeto', 'Publicação', 'Seminario', 'Simpósio', 'Viagem', 'Workshop'];
+  areasTematicas = ['Comunicação', 'Cultura', 'Direitos Humanos', 'Educação', 'Meio Ambiente', 'Saúde', 'Tecnologia', 'Trabalho'];
+  diasDaSemana = ['Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado', 'Domingo'];
+
   ngOnInit() {
     this.perfils = this.perfilService.getPerfil();
     this.showMessageError = false;
 
-    this.formulario = this.formBuilder.group({
-      nome: [null],
-      responsavel: [null],
+    this.formulario = this.fb.group({
       nomeAtv: [null],
+      curso: '',
+      responsavel: [null],
       coordenador: [null],
       palestra: [null],
-      areaTematica: [null],
-      curso: [null],
+      areasTematicas: this.buildAreasTematicas(),
       areaAtuacao: [null],
-      classificacao: [null],
+      classificacoes: this.buildClassificacao(),
       ministrante: [null],
       cpf: [null],
       docenteInstituicao: [null],
@@ -78,9 +81,9 @@ export class NovoProjetoAuxComponent implements OnInit {
       periodoAte: [null],
       horaInicio: [null],
       horaFim: [null],
-      diasDaSemana: [null],
+      diasDaSemana: this.buildDiasDaSemana(),
       cargaHoraria: [null],
-      campus: [null],
+      campus: [''],
       local: [null],
       objetivos: [null],
       justificativa: [null],
@@ -139,6 +142,10 @@ export class NovoProjetoAuxComponent implements OnInit {
       totalDespesas: [null],
     });
 
+    this.formulario.valueChanges.subscribe(console.log);
+
+    
+
     // this.registerForm = this.formBuilder.group({
     //   nomeAtv: ['', Validators.required],
     //   curso: ['', Validators.required],
@@ -155,6 +162,21 @@ export class NovoProjetoAuxComponent implements OnInit {
     //   tipoParceria: ['', Validators.required],
     //   titulacao: ['', Validators.required]
     // });
+  }
+
+  buildClassificacao() {
+    const values = this.classificacoes.map(v => new FormControl(false));
+    return this.fb.array(values);
+  }
+
+  buildAreasTematicas() {
+    const values = this.areasTematicas.map(v => new FormControl(false));
+    return this.fb.array(values);
+  }
+
+  buildDiasDaSemana() {
+    const values = this.diasDaSemana.map(v => new FormControl(false));
+    return this.fb.array(values);
   }
   // get f() { return this.registerForm.controls; }
 

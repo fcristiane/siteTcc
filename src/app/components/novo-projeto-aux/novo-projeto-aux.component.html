@@ -12,8 +12,8 @@
         social.</i>
     </p>
   </div>
-
-  <form *ngFor="let perfil of perfils | async" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  <!-- (ngSubmit)="onSubmit()" -->
+  <form *ngFor="let perfil of perfils | async" [formGroup]="formulario">
     <hr class="mb-3 hr-edit mt-5">
     <div class="form-row">
       <div class="col-md-12" id="texto-centro">
@@ -98,69 +98,9 @@
       <div class="form-group col-md-8">
         <label for="classficacao"><strong>Classificação: </strong></label>
         <br>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="classificacao" id="inlineCheckbox12" value="Concurso">
-          <label class="form-check-label" for="classificacao">Concurso</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="classificacao" id="inlineCheckbox2" value="Curso">
-          <label class="form-check-label" for="classificacao">Curso</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="classificacao" id="inlineCheckbox3" value="Encontro">
-          <label class="form-check-label">Encontro</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="classificacao" id="inlineCheckbox5" value="Exposição">
-          <label class="form-check-label" for="classificacao">Exposição</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="classificacao" id="inlineCheckbox4" value="Jornada">
-          <label class="form-check-label" for="classificacao">Jornada</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="classificacao" id="inlineCheckbox6" value="Oficina">
-          <label class="form-check-label" for="classificacao">Oficina</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="classificacao" id="inlineCheckbox8" value="Palestra">
-          <label class="form-check-label" for="classificacao">Palestra</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="classificacao" id="inlineCheckbox1" value="Projeto">
-          <label class="form-check-label" for="classificacao">Projeto</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="classificacao" id="inlineCheckbox1" value="Publicacao">
-          <label class="form-check-label" for="classificacao">Publicação</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="classificacao" id="inlineCheckbox7" value="Seminario">
-          <label class="form-check-label" for="classificacao">Seminário</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="classificacao" id="inlineCheckbox9" value="Simpósio">
-          <label class="form-check-label" for="classificacao">Simpósio</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="classificacao" id="inlineCheckbox13" value="Viagem">
-          <label class="form-check-label" for="classificacao">Viagem</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="classificacao" id="inlineCheckbox10" value="Workshop">
-          <label class="form-check-label" for="classificacao">Workshop</label>
+        <div class="form-check form-check-inline" formArrayName="classificacoes" *ngFor="let item of formulario.get('classificacoes').controls; let i = index">
+          <input class="form-check-input" type="checkbox" [formArrayName]="i">
+          <label class="form-check-label" for="classificacao1">{{ classificacoes[i] }}</label>
         </div>
 
       </div>
@@ -177,44 +117,9 @@
       <div class="form-group col-md-8 mb-2">
         <label for="areaTematica"><strong>Área temática: </strong></label>
         <br>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="areaTematica" value="Comunicação">
-          <label class="form-check-label" for="areaTematica">Comunicação</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="areaTematica" value="Cultura">
-          <label class="form-check-label" for="areaTematica">Cultura</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="areaTematica" value="Direitos Humanos">
-          <label class="form-check-label" for="areaTematica">Direitos Humanos</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="areaTematica" value="Educação">
-          <label class="form-check-label" for="areaTematica">Educação</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="areaTematica" value="Meio Ambiente">
-          <label class="form-check-label" for="areaTematica">Meio Ambiente</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="areaTematica" value="Saúde">
-          <label class="form-check-label" for="areaTematica">Saúde</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="areaTematica" value="Tecnologia">
-          <label class="form-check-label" for="areaTematica">Tecnologia</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="areaTematica" value="Trabalho">
-          <label class="form-check-label" for="areaTematica">Trabalho</label>
+        <div class="form-check form-check-inline" formArrayName="areasTematicas" *ngFor="let item of formulario.get('areasTematicas').controls; let i = index">
+          <input class="form-check-input" type="checkbox" [formArrayName]="i">
+          <label class="form-check-label" for="areaTematica">{{ areasTematicas[i] }}</label>
         </div>
 
       </div>
@@ -280,39 +185,9 @@
       <div class="form-check col-md-6 mb-2">
         <label><strong>Dias da semana: </strong></label>
         <br>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="diasDaSemana" value="Segunda-feira">
-          <label class="form-check-label">Segunda-feira</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="diasDaSemana" value="Terça-feira">
-          <label class="form-check-label">Terça-feira</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="diasDaSemana" value="Quarta-feira">
-          <label class="form-check-label">Quarta-feira</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="diasDaSemana" value="Quinta-feira">
-          <label class="form-check-label">Quinta-feira</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="diasDaSemana" value="Sexta-feira">
-          <label class="form-check-label">Sexta-feira</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="diasDaSemana" value="Sábado">
-          <label class="form-check-label">Sábado</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" formControlName="diasDaSemana" value="Domingo">
-          <label class="form-check-label">Domingo</label>
+        <div class="form-check form-check-inline" formArrayName="diasDaSemana" *ngFor="let item of formulario.get('diasDaSemana').controls; let i = index">
+          <input class="form-check-input" type="checkbox" [formArrayName]="i">
+          <label class="form-check-label">{{ diasDaSemana[i] }}</label>
         </div>
       </div>
     </div>
