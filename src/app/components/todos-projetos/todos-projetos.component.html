@@ -1,3 +1,4 @@
+<ng2-slim-loading-bar color="green"></ng2-slim-loading-bar>
 <div class="row">
   <div class="col-md-12 order-md-1" *ngFor="let perfil of perfils | async">
     <br>
@@ -31,13 +32,13 @@
             <td class="centro">{{ project.classificacao }}</td>
             <td class="centro">{{ project.curso }}</td>
             <td class="centro td-edicao" *ngIf="project.situacao == 5">
-              <strong>Em Edição</strong></td>
+              <strong id="p1">EDIÇÃO</strong></td>
             <td class="centro td-amarelo" *ngIf="project.situacao == 1">
-              <strong>Em Análise</strong></td>
+              <strong id="p1">ANÁLISE</strong></td>
             <td class="centro td-verde" *ngIf="project.situacao == 2">
-              <strong>Aprovado</strong></td>
+              <strong id="p1">APROVADO</strong></td>
             <td class="centro td-vermelho" *ngIf="project.situacao == 3">
-              <strong>Indeferido</strong></td>
+              <strong id="p1">INDEFERIDO</strong></td>
             <td class="centro" *ngIf="project.situacao == 5"> <a [routerLink]="['/home/novo-projeto-editando',project.id]"><button
                   type="button" class="btn btn-info btn-sm centro">Continuar edição</button></a>
             </td>
@@ -45,7 +46,7 @@
                   type="button" class="btn btn-primary btn-sm centro">Detalhes</button></a>
             </td>
             <td class="centro" *ngIf="perfil.permissao == 4 && project.situacao != 3 && project.situacao != 2"><button
-                type="button" class="btn btn-success btn-sm centro" (click)="aprovar(project)">Aprovar</button></td>
+                type="button" class="btn btn-success btn-sm centro" data-toggle="modal" data-target="#modalAprovar">Aprovar</button></td>
             <td class="centro" *ngIf="perfil.permissao == 4 && project.situacao == 1"><button type="button" class="btn btn-danger btn-sm centro"
                 (click)="reprovar(project)">Indeferir</button></td>
             <td hidden class="centro" *ngIf="perfil.permissao == 4 && project.situacao != 1"><button type="button"
@@ -61,7 +62,7 @@
 
         </tbody>
       </table>
-
+      <!-- (click)="aprovar(project)" -->
       <!-- [routerLink]="[home/projeto-detalhe', project.id]" -->
 
       <div class="col-md-12">
@@ -73,27 +74,31 @@
         </div>
       </div>
       <hr>
+
       <!-- Modal -->
-      <!-- <div class="modal fade" id="exampleModalCentro" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+      <div class="modal fade" id="modalAprovar" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
         aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalCenterTitle">Aprovação do Projeto</h5>
+              <h5 class="modal-title" id="exampleModalCenterTitle"><strong>Aprovação do Projeto</strong></h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              Tem certeza disso?
+              <div class="form-group">
+                <label for="exampleFormControlTextarea1">Envie um comentário (opcional):</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Não</button>
-              <button type="button" class="btn btn-primary" (click)="update(project)">Sim</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-success" (click)="update(project)">Aprovar</button>
             </div>
           </div>
         </div>
-      </div> -->
+      </div>
       <!-- routerLink="/home/projeto-detalhe" -->
       <!-- <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
       aria-hidden="true">

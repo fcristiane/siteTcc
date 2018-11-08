@@ -1,3 +1,7 @@
+hr { 
+    display: block;
+    border-width: 1px;
+} 
 
 #texto{
     position: relative;
@@ -14,9 +18,18 @@
     border-color: #3c443f;
 }
 
+.hr-edit2{
+    border-color: #2cbc59;
+}
+
 .texto-centro2{
     text-align: center;
     padding: 40px 0;
+}
+
+.direita{
+    text-align: right;
+    align-items: flex-end;
 }
 
 .item{

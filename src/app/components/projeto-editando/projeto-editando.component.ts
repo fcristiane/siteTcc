@@ -57,7 +57,7 @@ export class ProjetoEditandoComponent implements OnInit {
     setTimeout(() => {
         /** spinner ends after 5 seconds */
         this.spinner.hide();
-    }, 2500);
+    }, 2000);
 
     if (userId === 'WAJ7zsFtAUYq7qXv4tKNC6w9cnZ2') {
       console.log('Retornou projetos');

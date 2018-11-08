@@ -1,8 +1,9 @@
+<ng2-slim-loading-bar color="green"></ng2-slim-loading-bar>
 <div class="container-fluid mt-4">
   <div class="row">
     <div class="col-lg-12">
-      <h1 class="mb-3" id="texto-centro">Formulário de Atividade de Extensão Aux</h1>
-      <hr class="mb-4">
+      <h1 class="mb-3" id="texto-centro">Formulário de Atividade de Extensão</h1>
+      <hr class="mb-4 hr-edit2">
     </div>
   </div>
   <div class="col-md-12" id="texto-centro">
@@ -25,13 +26,13 @@
     <div class="form-row">
       <div class="form-group col-md-8 mb-2">
         <label for="nomeAtv"><strong>Nome da atividade:</strong></label>
-        <input type="text" class="form-control" formControlName="nomeAtv">
+        <input type="text" class="form-control" formControlName="nomeAtv" autofocus>
       </div>
 
       <div class="form-group col-md-4 mb-2">
 
-        <label for="campus"><strong>Curso (Vínculo Acadêmico): </strong></label>
-        <select class="form-control" formControlName="curso">
+        <label for="inlineFormCustomSelectPref"><strong>Curso (Vínculo Acadêmico): </strong></label>
+        <select class="custom-select" id="inlineFormCustomSelectPref" formControlName="curso">
           <option selected>Escolha...</option>
           <option>Administração</option>
           <option>Artes Visuais</option>
@@ -81,8 +82,8 @@
       </div>
 
       <div class="form-group col-md-4 mb-2">
-        <label for="campus"><strong>Campus: </strong></label>
-        <select class="form-control" formControlName="campus">
+        <label for="inlineFormCustomSelectPref"><strong>Campus: </strong></label>
+        <select class="custom-select" id="inlineFormCustomSelectPref" formControlName="campus">
           <option selected>Escolha...</option>
           <option>Fátima</option>
           <option>Central</option>
@@ -125,8 +126,8 @@
       </div>
 
       <div class="form-group col-md-4">
-        <label for="areaAtuacao"><strong>Área de atuação: </strong></label>
-        <select class="form-control" formControlName="areaAtuacao">
+        <label for="inlineFormCustomSelectPref"><strong>Área de atuação: </strong></label>
+        <select class="custom-select" id="inlineFormCustomSelectPref" formControlName="areaAtuacao">
           <option selected>Escolha...</option>
           <option>Ciências Biológicas</option>
           <option>Ciências da Saúde</option>
@@ -199,18 +200,20 @@
 
         <label><strong>Terá Palestras/Cursos/Workshops no Projeto? </strong></label>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="inlineCheckbox1" value="Sim" formControlName="palestra">
+          <input class="form-check-input" type="radio" id="inlineCheckbox1" value="Sim" formControlName="palestra"
+            [(ngModel)]="valueMinistrante1">
           <label class="form-check-label" for="inlineCheckbox1">Sim</label>
         </div>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="inlineCheckbox2" value="Não" formControlName="palestra">
+          <input class="form-check-input" type="radio" id="inlineCheckbox2" value="Não" formControlName="palestra"
+            [(ngModel)]="valueMinistrante1">
           <label class="form-check-label" for="inlineCheckbox2">Não</label>
         </div>
       </div>
       <div class="col-md-4"></div>
     </div>
 
-    <div class="form-row" [hidden]="novoProjeto.palestra != 'Sim'">
+    <div class="form-row" [hidden]="valueMinistrante1 != 'Sim'">
 
 
       <div class="col-md-12" id="texto-centro">
@@ -233,7 +236,8 @@
         <label><strong>Docente da Instituição? </strong></label><br>
         <div class="form-check form-check-inline">
           <div class="custom-control custom-radio">
-            <input type="radio" formControlName="docenteInstituicao" id="radio1" class="custom-control-input" value="Sim" checked>
+            <input type="radio" formControlName="docenteInstituicao" id="radio1" class="custom-control-input" value="Sim"
+              checked>
             <label class="custom-control-label" for="radio1">Sim</label>
           </div>
           <div class="custom-control custom-radio ml-2">
@@ -250,7 +254,7 @@
 
       <div class="form-group col-md-4">
         <label for="titulacao"><strong>Titulação: </strong></label>
-        <select class="form-control" formControlName="titulacao">
+        <select class="custom-select" formControlName="titulacao">
           <option selected>Escolha...</option>
           <option>Graduado</option>
           <option>Especializado</option>
@@ -261,7 +265,7 @@
       </div>
 
       <div class="col-md-12">
-        <hr>
+        <hr class="hr-edit2">
       </div>
 
       <div class="col-md-6">
@@ -269,11 +273,13 @@
         <input type="radio" value="Sim" [(ngModel)]="novoProjeto.addMinistrante2" formControlName="addMinistrante2"> -->
         <label><strong>Adicionar Segundo Ministrante? </strong></label>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addMinistrante1" value="Sim" formControlName="addMinistrante2">
+          <input class="form-check-input" type="radio" id="addMinistrante1" value="Sim" formControlName="addMinistrante2"
+            [(ngModel)]="valueMinistrante2">
           <label class="form-check-label" for="addMinistrante1">Sim</label>
         </div>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addMinistrante2" value="Não" formControlName="addMinistrante2">
+          <input class="form-check-input" type="radio" id="addMinistrante2" value="Não" formControlName="addMinistrante2"
+            [(ngModel)]="valueMinistrante2">
           <label class="form-check-label" for="addMinistrante2">Não</label>
         </div>
       </div>
@@ -281,10 +287,10 @@
 
 
       <div class="col-md-12">
-        <hr>
+        <hr class="hr-edit2">
       </div>
 
-      <div class="form-row" [hidden]="novoProjeto.addMinistrante2 != 'Sim'">
+      <div class="form-row" [hidden]="valueMinistrante2 != 'Sim'">
 
         <div class="form-group col-md-8">
           <label for="ministrante2"><strong>Ministrante 2:</strong></label>
@@ -300,7 +306,8 @@
           <label><strong>Docente da Instituição? </strong></label><br>
           <div class="form-check form-check-inline">
             <div class="custom-control custom-radio">
-              <input type="radio" formControlName="docenteInstituicao2" id="radio3" class="custom-control-input" value="Sim" checked>
+              <input type="radio" formControlName="docenteInstituicao2" id="radio3" class="custom-control-input" value="Sim"
+                checked>
               <label class="custom-control-label" for="radio3">Sim</label>
             </div>
             <div class="custom-control custom-radio ml-2">
@@ -317,7 +324,7 @@
 
         <div class="form-group col-md-4">
           <label for="titulacao2"><strong>Titulação: </strong></label>
-          <select class="form-control" formControlName="titulacao2">
+          <select class="custom-select" formControlName="titulacao2">
             <option selected>Escolha...</option>
             <option>Graduado</option>
             <option>Especializado</option>
@@ -328,7 +335,7 @@
         </div>
 
         <div class="col-md-12">
-          <hr>
+          <hr class="hr-edit2">
         </div>
 
         <div class="col-md-6">
@@ -336,23 +343,25 @@
           <input type="radio" value="Sim" [(ngModel)]="novoProjeto.addMinistrante2" formControlName="addMinistrante2"> -->
           <label><strong>Adicionar Terceiro Ministrante? </strong></label>
           <div class="form-check form-check-inline ml-5">
-            <input class="form-check-input" type="radio" id="addMinistrante" value="Sim" formControlName="addMinistrante3">
+            <input class="form-check-input" type="radio" id="addMinistrante" value="Sim" formControlName="addMinistrante3"
+              [(ngModel)]="valueMinistrante3">
             <label class="form-check-label" for="addMinistrante3">Sim</label>
           </div>
           <div class="form-check form-check-inline ml-5">
-            <input class="form-check-input" type="radio" id="addMinistrante1" value="Não" formControlName="addMinistrante3">
+            <input class="form-check-input" type="radio" id="addMinistrante1" value="Não" formControlName="addMinistrante3"
+              [(ngModel)]="valueMinistrante3">
             <label class="form-check-label" for="addMinistrante3">Não</label>
           </div>
         </div>
         <div class="col-md-6"></div>
 
         <div class="col-md-12">
-          <hr>
+          <hr class="hr-edit2">
         </div>
 
       </div>
 
-      <div class="form-row" [hidden]="novoProjeto.addMinistrante3 != 'Sim'">
+      <div class="form-row" [hidden]="valueMinistrante3 != 'Sim'">
 
         <div class="form-group col-md-8">
           <label for="ministrante3"><strong>Ministrante 3:</strong></label>
@@ -368,7 +377,8 @@
           <label><strong>Docente da Instituição? </strong></label><br>
           <div class="form-check form-check-inline">
             <div class="custom-control custom-radio">
-              <input type="radio" formControlName="docenteInstituicao3" id="radio5" class="custom-control-input" value="Sim" checked>
+              <input type="radio" formControlName="docenteInstituicao3" id="radio5" class="custom-control-input" value="Sim"
+                checked>
               <label class="custom-control-label" for="radio5">Sim</label>
             </div>
             <div class="custom-control custom-radio ml-2">
@@ -385,7 +395,7 @@
 
         <div class="form-group col-md-4">
           <label for="titulacao3"><strong>Titulação: </strong></label>
-          <select class="form-control" formControlName="titulacao3">
+          <select class="custom-select" formControlName="titulacao3">
             <option selected>Escolha...</option>
             <option>Graduado</option>
             <option>Especializado</option>
@@ -396,7 +406,7 @@
         </div>
 
         <div class="col-md-12">
-          <hr>
+          <hr class="hr-edit2">
         </div>
 
       </div>
@@ -419,7 +429,7 @@
 
       <div class="form-group col-md-4">
         <label for="tipoParceria"><strong>Tipo: </strong></label>
-        <select class="form-control" formControlName="tipoParceria">
+        <select class="custom-select" formControlName="tipoParceria">
           <option selected>Escolha...</option>
           <option>Parceria</option>
           <option>Apoio</option>
@@ -499,7 +509,7 @@
 
       <div class="col-md-4">
         <label for="cursoDocenteEnvolvido1"><strong>Curso: </strong></label>
-        <select class="form-control" formControlName="cursoDocenteEnvolvido1">
+        <select class="custom-select" formControlName="cursoDocenteEnvolvido1">
           <option selected>Escolha...</option>
           <option>Administração</option>
           <option>Artes Visuais</option>
@@ -538,7 +548,7 @@
       </div>
 
       <div class="col-md-12">
-        <hr>
+        <hr class="hr-edit2">
       </div>
 
       <div class="col-md-6">
@@ -546,11 +556,13 @@
           <input type="radio" value="Sim" [(ngModel)]="novoProjeto.addMinistrante2" formControlName="addMinistrante2"> -->
         <label><strong>Adicionar outro Docente? </strong></label>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addDocente2s" value="Sim" formControlName="addDocente2">
+          <input class="form-check-input" type="radio" id="addDocente2s" value="Sim" formControlName="addDocente2"
+            [(ngModel)]="valueDocente2">
           <label class="form-check-label" for="addDocente2s">Sim</label>
         </div>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addDocente2n" value="Não" formControlName="addDocente2">
+          <input class="form-check-input" type="radio" id="addDocente2n" value="Não" formControlName="addDocente2"
+            [(ngModel)]="valueDocente2">
           <label class="form-check-label" for="addDocente2n">Não</label>
         </div>
       </div>
@@ -558,10 +570,10 @@
 
     </div>
 
-    <div class="form-row" [hidden]="novoProjeto.addDocente2 != 'Sim'">
+    <div class="form-row" [hidden]="valueDocente2 != 'Sim'">
 
       <div class="col-md-12">
-        <hr>
+        <hr class="hr-edit2">
       </div>
 
       <div class="col-md-4">
@@ -572,7 +584,7 @@
 
       <div class="col-md-4">
         <label for="cursoDocenteEnvolvido2"><strong>Curso: </strong></label>
-        <select class="form-control" formControlName="cursoDocenteEnvolvido2">
+        <select class="custom-select" formControlName="cursoDocenteEnvolvido2">
           <option selected>Escolha...</option>
           <option>Administração</option>
           <option>Artes Visuais</option>
@@ -611,7 +623,7 @@
       </div>
 
       <div class="col-md-12">
-        <hr>
+        <hr class="hr-edit2">
       </div>
 
       <div class="col-md-6">
@@ -619,11 +631,13 @@
             <input type="radio" value="Sim" [(ngModel)]="novoProjeto.addMinistrante2" formControlName="addMinistrante2"> -->
         <label><strong>Adicionar outro Docente? </strong></label>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addDocente3s" value="Sim" formControlName="addDocente3">
+          <input class="form-check-input" type="radio" id="addDocente3s" value="Sim" formControlName="addDocente3"
+            [(ngModel)]="valueDocente3">
           <label class="form-check-label" for="addDocente3s">Sim</label>
         </div>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addDocente3n" value="Não" formControlName="addDocente3">
+          <input class="form-check-input" type="radio" id="addDocente3n" value="Não" formControlName="addDocente3"
+            [(ngModel)]="valueDocente3">
           <label class="form-check-label" for="addDocente3n">Não</label>
         </div>
       </div>
@@ -631,10 +645,10 @@
 
     </div>
 
-    <div class="form-row" [hidden]="novoProjeto.addDocente3 != 'Sim'">
+    <div class="form-row" [hidden]="valueDocente3 != 'Sim'">
 
       <div class="col-md-12">
-        <hr>
+        <hr class="hr-edit2">
       </div>
 
       <div class="col-md-4">
@@ -645,7 +659,7 @@
 
       <div class="col-md-4">
         <label for="cursoDocenteEnvolvido3"><strong>Curso: </strong></label>
-        <select class="form-control" formControlName="cursoDocenteEnvolvido3">
+        <select class="custom-select" formControlName="cursoDocenteEnvolvido3">
           <option selected>Escolha...</option>
           <option>Administração</option>
           <option>Artes Visuais</option>
@@ -688,7 +702,7 @@
     <div class="form-row">
 
       <div class="col-md-12">
-        <hr>
+        <hr class="hr-edit2">
       </div>
 
       <div class="col-md-5">
@@ -699,7 +713,7 @@
 
       <div class="col-md-3">
         <label for="name"><strong>Curso: </strong></label>
-        <select class="form-control" formControlName="cursoDiscenteEnvolvido1">
+        <select class="custom-select" formControlName="cursoDiscenteEnvolvido1">
           <option selected>Escolha...</option>
           <option>Administração</option>
           <option>Artes Visuais</option>
@@ -734,7 +748,7 @@
 
       <div class="col-md-2">
         <label for="name"><strong>Período: </strong></label>
-        <select id="inputState" class="form-control" formControlName="periodoDiscenteEnvolvido1">
+        <select id="inputState" class="custom-select" formControlName="periodoDiscenteEnvolvido1">
           <option selected>Escolha...</option>
           <option>Primeiro (1º)</option>
           <option>Segundo (2º)</option>
@@ -753,7 +767,7 @@
       </div>
 
       <div class="col-md-12">
-        <hr>
+        <hr class="hr-edit2">
       </div>
 
       <div class="col-md-6">
@@ -761,23 +775,25 @@
               <input type="radio" value="Sim" [(ngModel)]="novoProjeto.addMinistrante2" formControlName="addMinistrante2"> -->
         <label><strong>Adicionar outro Discente? </strong></label>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addDiscente2s" value="Sim" formControlName="addDiscente2">
+          <input class="form-check-input" type="radio" id="addDiscente2s" value="Sim" formControlName="addDiscente2"
+            [(ngModel)]="valueDiscente2">
           <label class="form-check-label" for="addDiscente2s">Sim</label>
         </div>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addDiscente2n" value="Não" formControlName="addDiscente2">
+          <input class="form-check-input" type="radio" id="addDiscente2n" value="Não" formControlName="addDiscente2"
+            [(ngModel)]="valueDiscente2">
           <label class="form-check-label" for="addDiscente2n">Não</label>
         </div>
       </div>
       <div class="col-md-6"></div>
 
       <div class="col-md-12">
-        <hr>
+        <hr class="hr-edit2">
       </div>
 
     </div>
 
-    <div class="form-row" [hidden]="novoProjeto.addDiscente2 != 'Sim'">
+    <div class="form-row" [hidden]="valueDiscente2 != 'Sim'">
       <div class="col-md-5">
         <label for="name"><strong>Discente envolvido (2): </strong></label>
         <input class="form-control" type="text" formControlName="discenteEnvolvido2">
@@ -786,7 +802,7 @@
 
       <div class="col-md-3">
         <label for="name"><strong>Curso: </strong></label>
-        <select class="form-control" formControlName="cursoDiscenteEnvolvido2">
+        <select class="custom-select" formControlName="cursoDiscenteEnvolvido2">
           <option selected>Escolha...</option>
           <option>Administração</option>
           <option>Artes Visuais</option>
@@ -821,7 +837,7 @@
 
       <div class="col-md-2">
         <label for="name"><strong>Período: </strong></label>
-        <select id="inputState" class="form-control" formControlName="periodoDiscenteEnvolvido2">
+        <select id="inputState" class="custom-select" formControlName="periodoDiscenteEnvolvido2">
           <option selected>Escolha...</option>
           <option>Primeiro (1º)</option>
           <option>Segundo (2º)</option>
@@ -840,7 +856,7 @@
       </div>
 
       <div class="col-md-12">
-        <hr>
+        <hr class="hr-edit2">
       </div>
 
       <div class="col-md-6">
@@ -848,23 +864,25 @@
               <input type="radio" value="Sim" [(ngModel)]="novoProjeto.addMinistrante2" formControlName="addMinistrante2"> -->
         <label><strong>Adicionar outro Discente? </strong></label>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addDiscente3s" value="Sim" formControlName="addDiscente3">
+          <input class="form-check-input" type="radio" id="addDiscente3s" value="Sim" formControlName="addDiscente3"
+            [(ngModel)]="valueDiscente3">
           <label class="form-check-label" for="addDiscente3s">Sim</label>
         </div>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addDiscente3n" value="Não" formControlName="addDiscente3">
+          <input class="form-check-input" type="radio" id="addDiscente3n" value="Não" formControlName="addDiscente3"
+            [(ngModel)]="valueDiscente3">
           <label class="form-check-label" for="addDiscente3n">Não</label>
         </div>
       </div>
       <div class="col-md-6"></div>
 
       <div class="col-md-12">
-        <hr>
+        <hr class="hr-edit2">
       </div>
 
     </div>
 
-    <div class="form-row" [hidden]="novoProjeto.addDiscente3 != 'Sim'">
+    <div class="form-row" [hidden]="valueDiscente3 != 'Sim'">
       <div class="col-md-5">
         <label for="name"><strong>Discente envolvido (3): </strong></label>
         <input class="form-control" type="text" formControlName="discenteEnvolvido3">
@@ -873,7 +891,7 @@
 
       <div class="col-md-3">
         <label for="name"><strong>Curso: </strong></label>
-        <select class="form-control" formControlName="cursoDiscenteEnvolvido3">
+        <select class="custom-select" formControlName="cursoDiscenteEnvolvido3">
           <option selected>Escolha...</option>
           <option>Administração</option>
           <option>Artes Visuais</option>
@@ -908,7 +926,7 @@
 
       <div class="col-md-2">
         <label for="name"><strong>Período: </strong></label>
-        <select id="inputState" class="form-control" formControlName="periodoDiscenteEnvolvido3">
+        <select id="inputState" class="custom-select" formControlName="periodoDiscenteEnvolvido3">
           <option selected>Escolha...</option>
           <option>Primeiro (1º)</option>
           <option>Segundo (2º)</option>
@@ -927,7 +945,7 @@
       </div>
 
       <div class="col-md-12">
-        <hr>
+        <hr class="hr-edit2">
       </div>
 
     </div>
@@ -949,55 +967,62 @@
       </div>
     </div>
 
-    <div class="form-row">
-      <div class="col-md-4 mb-2">
+    <div class="form-row justify-content-center">
+      <div class="col-md-3 mb-2">
         <label><strong>Inscrições: </strong></label>
         <input class="form-control" type="number" formControlName="receitaIncricao">
       </div>
-      <div class="col-md-4 mb-2">
-        <label><strong>Número mínimo de inscrições: </strong></label>
-        <input class="form-control" type="number" formControlName="receitaNumMinInsc">
-      </div>
-      <div class="col-md-4 mb-2">
-        <label><strong>Total: </strong></label>
-        <input class="form-control" type="string" formControlName="receitaNumMinInscTotal" placeholder="R$">
-      </div>
+      <div class="col-md-8 mb-2"></div>
     </div>
 
-    <div class="form-row">
-      <div class="form-group col-md-3 mb-2">
+    <div class="form-row justify-content-center">
+
+      <div class="col-md-3 mb-2">
         <label for="inicio"><strong>Início: </strong></label>
         <input type="text" class="form-control" formControlName="receitaInicio" mask="00/00/0000" placeholder="dd/mm/aaaa">
       </div>
       <div class="col-md-1 mb-2"></div>
-      <div class="col-md-4 mb-2">
-        <label><strong>Número máximo de inscrições: </strong></label>
-        <input class="form-control" type="number" formControlName="receitaNumMaxInsc">
+      <div class="col-md-3 mb-2">
+        <label><strong>Número mínimo de inscrições: </strong></label>
+        <input class="form-control" type="number" formControlName="receitaNumMinInsc">
       </div>
-      <div class="col-md-4 mb-2">
+      <div class="col-md-1 mb-2"></div>
+      <div class="col-md-2 mb-2">
         <label><strong>Total: </strong></label>
-        <input class="form-control" type="string" formControlName="receitaNumMaxInscTotal" placeholder="R$">
+        <input class="form-control" type="string" formControlName="receitaNumMinInscTotal" placeholder="R$">
       </div>
-
+      <div class="col-md-1 mb-2"></div>
     </div>
 
-    <div class="form-row">
-      <div class="form-group col-md-3 mb-2">
+    <div class="form-row justify-content-center">
+      <div class="col-md-3 mb-2">
         <label for="fim"><strong>Término: </strong></label>
         <input type="text" class="form-control" formControlName="receitaTermino" mask="00/00/0000" placeholder="dd/mm/aaaa">
       </div>
       <div class="col-md-1 mb-2"></div>
-      <div class="col-md-4">
-        <label><strong>Valor (Docentes e Discentes Univás): </strong></label>
-        <input class="form-control" type="string" formControlName="valorDiscenteDoscente" placeholder="R$">
+      <div class="col-md-3 mb-2">
+        <label><strong>Número máximo de inscrições: </strong></label>
+        <input class="form-control" type="number" formControlName="receitaNumMaxInsc">
       </div>
-      <div class="col-md-4">
-        <label><strong>Outros valores: </strong></label>
-        <input class="form-control" type="string" formControlName="outrosValores" placeholder="R$">
+      <div class="col-md-1 mb-2"></div>
+      <div class="col-md-2 mb-2">
+        <label><strong>Total: </strong></label>
+        <input class="form-control" type="string" formControlName="receitaNumMaxInscTotal" placeholder="R$">
+      </div>
+      <div class="col-md-1 mb-2"></div>
+
+    </div>
+    <hr>
+    <div class="form-row form-inline justify-content-center">
+      <div class="form-group">
+        <label class="my-1 mr-2"><strong>Valor (Docentes e Discentes Univás): </strong></label>
+        <input class="form-control my-1 mr-sm-2" type="string" formControlName="valorDiscenteDoscente" placeholder="R$">
+        <label class="my-1 mr-2"><strong>Outros valores: </strong></label>
+        <input class="form-control my-1 mr-sm-2" type="string" formControlName="outrosValores" placeholder="R$">
       </div>
     </div>
 
-    <hr>
+    <hr class="hr-edit2">
 
     <div class="form-row">
       <div class="col-md-12" id="texto-centro">
@@ -1032,7 +1057,8 @@
       <div class="col-md-2 mb-2">
         <input class="form-control" type="number" formControlName="quantidadeRecursos2">
       </div>
-      <div class="col-md-2 mb-2"><input class="form-control" type="string" formControlName="valorUnitarioRecursos2" placeholder="R$"></div>
+      <div class="col-md-2 mb-2"><input class="form-control" type="string" formControlName="valorUnitarioRecursos2"
+          placeholder="R$"></div>
       <div class="col-md-2 mb-2">
         <input class="form-control" type="string" formControlName="totalRecursos2" placeholder="R$">
       </div>
@@ -1045,7 +1071,8 @@
       <div class="col-md-2 mb-2">
         <input class="form-control" type="number" formControlName="quantidadeRecursos3">
       </div>
-      <div class="col-md-2 mb-2"><input class="form-control" type="string" formControlName="valorUnitarioRecursos3" placeholder="R$"></div>
+      <div class="col-md-2 mb-2"><input class="form-control" type="string" formControlName="valorUnitarioRecursos3"
+          placeholder="R$"></div>
       <div class="col-md-2 mb-2">
         <input class="form-control" type="string" formControlName="totalRecursos3" placeholder="R$">
       </div>
@@ -1058,7 +1085,8 @@
       <div class="col-md-2 mb-2">
         <input class="form-control" type="number" formControlName="quantidadeRecursos4">
       </div>
-      <div class="col-md-2 mb-2"><input class="form-control" type="string" formControlName="valorUnitarioRecursos4" placeholder="R$"></div>
+      <div class="col-md-2 mb-2"><input class="form-control" type="string" formControlName="valorUnitarioRecursos4"
+          placeholder="R$"></div>
       <div class="col-md-2 mb-2">
         <input class="form-control" type="string" formControlName="totalRecursos4" placeholder="R$">
       </div>
@@ -1080,17 +1108,38 @@
 
     <hr class="hr-edit">
 
-    <div class="form-row mt-2 mb-5 item">
-      <div class="col-md-2"></div>
+    <div class="form-row mt-2 mb-5 item justify-content-center">
+      <div class="col-md-1"></div>
       <div class="col-md-4">
         <button class="btn btn-primary btn-lg btn-block" type="submit">Finalizar</button>
       </div>
-      <!-- <div class="col-md-4">
-        <button class="btn btn-warning btn-lg btn-block" type="button" (click)="emEdicao(novoProjeto)">Continuar mais
+      <div class="col-md-1"></div>
+      <div class="col-md-4">
+        <button class="btn btn-warning btn-lg btn-block" type="button">Continuar mais
           tarde</button>
-      </div> -->
-      <div class="col-md-2"></div>
+      </div>
+      <div class="col-md-1 mb-3 direita">
+          <a title="Ao escolher a opção 'Finalizar', você estará concordando que seu projeto está pronto para análise de um superior. Caso ainda não tenha certeza se as informações preenchidas estão corretas, você pode clicar em 'Continuar mais tarde' para salvar e editar quando quiser."><span [innerHTML]="'info' | feather:30:'#212529'"></span></a>
+      </div>
     </div>
+
+    <!-- <form class="form-inline my-2 my-lg-0">
+        <h6 id="bv" class="mr-2">Bem vindo, {{ perfil.nome }}</h6>
+        <a routerLink="/home/perfil" title="Perfil"><span [innerHTML]="'user' | feather:24:'#2cbc59'" class="mr-2"></span></a>
+        <a><button type="button" class="btn btn-outline-light my-2 my-sm-0 botao" (click)="logout()" routerLink="">Sair</button></a>
+      </form> -->
+
+    <!-- <div class="form-row mt-2 mb-5 item">
+        <div class="col-md-2"></div>
+        <div class="col-md-4">
+          <button class="btn btn-primary btn-lg btn-block" type="button" (click)="salvar(novoProjeto)">Finalizar</button>
+        </div>
+        <div class="col-md-4">
+          <button class="btn btn-warning btn-lg btn-block" type="button" (click)="emEdicao(novoProjeto)">Continuar mais
+            tarde</button>
+        </div>
+        <div class="col-md-2"></div>
+      </div> -->
 
 
 

@@ -3,7 +3,7 @@ import { Projeto } from 'src/app/core/projetos/projeto.module';
 import { Perfil } from '../perfil/perfil.module';
 import { Observable } from 'rxjs';
 import { PerfilService } from 'src/app/core/perfils/perfil.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProjetoService } from 'src/app/core/projetos/projeto.service';
 
 @Component({
@@ -20,7 +20,8 @@ export class EnviarComentarioComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private projetoService: ProjetoService,
-    public perfilService: PerfilService) {
+    public perfilService: PerfilService,
+    public router: Router) {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.projetoService.getProjetoById(id).subscribe((data) => {
@@ -36,6 +37,10 @@ export class EnviarComentarioComponent implements OnInit {
 
   enviar(project: Projeto) {
     this.projetoService.enviarComentario(project);
+  }
+
+  cancelar(){
+    this.router.navigate(['/home/todos-projetos']);
   }
 
 }

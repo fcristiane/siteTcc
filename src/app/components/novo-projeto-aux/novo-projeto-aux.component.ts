@@ -49,10 +49,10 @@ export class NovoProjetoAuxComponent implements OnInit {
 
     this.formulario = this.fb.group({
       nomeAtv: [null],
-      curso: '',
+      curso: [null],
       responsavel: [null],
       coordenador: [null],
-      palestra: [null],
+      palestra: [],
       areasTematicas: this.buildAreasTematicas(),
       areaAtuacao: [null],
       classificacoes: this.buildClassificacao(),

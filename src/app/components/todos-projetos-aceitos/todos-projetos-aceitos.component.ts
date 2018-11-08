@@ -8,6 +8,7 @@ import { ProjetoService } from 'src/app/core/projetos/projeto.service';
 import { Observable } from 'rxjs';
 import { Projeto } from 'src/app/core/projetos/projeto.module';
 import * as firebase from 'firebase/app';
+import { NgxSpinnerService } from 'ngx-spinner';
 
 
 @Component({
@@ -31,7 +32,8 @@ export class TodosProjetosAceitosComponent implements OnInit {
 
   constructor(public router: Router, private db: AngularFirestore,
     private auth: AngularFireAuth,
-    private projetoService: ProjetoService, ) {
+    private projetoService: ProjetoService,
+    private spinner: NgxSpinnerService ) {
     if (firebase.auth().currentUser != null) {
       console.log('user id: ' + firebase.auth().currentUser.uid);
     }
@@ -42,6 +44,13 @@ export class TodosProjetosAceitosComponent implements OnInit {
     const userId = firebase.auth().currentUser.uid;
     this.perfilColection = this.db.collection<Perfil>('perfil', ref => ref.where('userId', '==', userId));
     this.perfils = this.perfilColection.valueChanges();
+
+    this.spinner.show();
+
+    setTimeout(() => {
+        /** spinner ends after 2 seconds */
+        this.spinner.hide();
+    }, 2000);
 
     if (userId === 'WAJ7zsFtAUYq7qXv4tKNC6w9cnZ2') {
       console.log('Retornou projetos');

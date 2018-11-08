@@ -13,7 +13,7 @@
     <div class="form">
       <div class="form-row">
           <div class="form-group">
-              <label for="exampleFormControlTextarea1">Escreva uma sugestão de mudanças, comentário ou qualquer informação que você queira enviar ao dono do projeto para que o mesmo atualize para a próxima análise:</label>
+              <label for="exampleFormControlTextarea1">Escreva um comentário, uma sugestão de mudança ou qualquer informação que você queira enviar ao dono do projeto para que o mesmo atualize para a próxima análise:</label>
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="comentario" [(ngModel)]="project.comentario"></textarea>
             </div>
       </div>
@@ -29,7 +29,7 @@
           <button class="btn btn-success btn-lg btn-block" type="button" (click)="enviar(project)">Enviar comentário</button>
         </div>
         <div class="col-md-4">
-          <button class="btn btn-danger btn-lg btn-block" type="button" (click)="emEdicao(novoProjeto)">Cancelar</button>
+          <button class="btn btn-danger btn-lg btn-block" type="button" (click)="cancelar()">Cancelar</button>
         </div>
         <div class="col-md-2"></div>
       </div>
