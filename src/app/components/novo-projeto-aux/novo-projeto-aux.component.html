@@ -114,14 +114,10 @@
       <div class="form-group col-md-8">
         <label for="classficacao"><strong>Classificação: </strong></label>
         <br>
-        <div class="form-check form-check-inline" formArrayName="classificacoes" *ngFor="let item of formulario.get('classificacoes').controls; let i = index" [ngClass]="{ 'is-invalid': f.classificacoes.touched && f.classificacoes.errors }">
+        <div class="form-check form-check-inline" formArrayName="classificacoes" *ngFor="let item of formulario.get('classificacoes').controls; let i = index">
           <input class="form-check-input" type="checkbox" [formArrayName]="i">
           <label class="form-check-label" for="classificacao1">{{ classificacoes[i] }}</label>
-          <div *ngIf="f.classificacoes.touched && f.classificacoes.errors" class="invalid-feedback">
-            <div *ngIf="f.classificacoes.errors.required">Campo obrigatório</div>
-          </div>
         </div>
-       
 
       </div>
 
@@ -194,7 +190,8 @@
 
       <div class="form-group col-md-3 mb-2">
         <label for="periodoDe"><strong>Período de: </strong></label>
-        <input type="text" class="form-control" formControlName="periodoDe" mask="00/00/0000" placeholder="dd/mm/aaaa" [ngClass]="{ 'is-invalid': f.periodoDe.touched && f.periodoDe.errors }">
+        <input type="text" class="form-control" formControlName="periodoDe" mask="00/00/0000" placeholder="dd/mm/aaaa"
+          [ngClass]="{ 'is-invalid': f.periodoDe.touched && f.periodoDe.errors }">
         <div *ngIf="f.periodoDe.touched && f.periodoDe.errors" class="invalid-feedback">
           <div *ngIf="f.periodoDe.errors.required">Campo obrigatório</div>
         </div>
@@ -202,7 +199,8 @@
 
       <div class="form-group col-md-3 mb-2">
         <label for="periodoAte"><strong>Até:</strong></label>
-        <input type="text" class="form-control" mask="00/00/0000" placeholder="dd/mm/aaaa" formControlName="periodoAte" [ngClass]="{ 'is-invalid': f.periodoAte.touched && f.periodoAte.errors }">
+        <input type="text" class="form-control" mask="00/00/0000" placeholder="dd/mm/aaaa" formControlName="periodoAte"
+          [ngClass]="{ 'is-invalid': f.periodoAte.touched && f.periodoAte.errors }">
         <div *ngIf="f.periodoAte.touched && f.periodoAte.errors" class="invalid-feedback">
           <div *ngIf="f.periodoAte.errors.required">Campo obrigatório</div>
         </div>
@@ -309,18 +307,14 @@
       </div>
 
       <div class="col-md-6">
-        <!-- Add Ministrante
-        <input type="radio" value="Sim" [(ngModel)]="novoProjeto.addMinistrante2" formControlName="addMinistrante2"> -->
         <label><strong>Adicionar Segundo Ministrante? </strong></label>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addMinistrante1" value="Sim" formControlName="addMinistrante2"
-            [(ngModel)]="valueMinistrante2">
-          <label class="form-check-label" for="addMinistrante1">Sim</label>
+          <input class="form-check-input" type="radio" value="Sim" [(ngModel)]="valueMinistrante2" [ngModelOptions]="{standalone: true}">
+          <label class="form-check-label">Sim</label>
         </div>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addMinistrante2" value="Não" formControlName="addMinistrante2"
-            [(ngModel)]="valueMinistrante2">
-          <label class="form-check-label" for="addMinistrante2">Não</label>
+          <input class="form-check-input" type="radio" value="Não" [(ngModel)]="valueMinistrante2" [ngModelOptions]="{standalone: true}">
+          <label class="form-check-label">Não</label>
         </div>
       </div>
       <div class="col-md-6"></div>
@@ -383,13 +377,13 @@
           <input type="radio" value="Sim" [(ngModel)]="novoProjeto.addMinistrante2" formControlName="addMinistrante2"> -->
           <label><strong>Adicionar Terceiro Ministrante? </strong></label>
           <div class="form-check form-check-inline ml-5">
-            <input class="form-check-input" type="radio" id="addMinistrante" value="Sim" formControlName="addMinistrante3"
-              [(ngModel)]="valueMinistrante3">
+            <input class="form-check-input" type="radio" id="addMinistrante" value="Sim" [(ngModel)]="valueMinistrante3"
+              [ngModelOptions]="{standalone: true}">
             <label class="form-check-label" for="addMinistrante3">Sim</label>
           </div>
           <div class="form-check form-check-inline ml-5">
-            <input class="form-check-input" type="radio" id="addMinistrante1" value="Não" formControlName="addMinistrante3"
-              [(ngModel)]="valueMinistrante3">
+            <input class="form-check-input" type="radio" id="addMinistrante1" value="Não" [(ngModel)]="valueMinistrante3"
+              [ngModelOptions]="{standalone: true}">
             <label class="form-check-label" for="addMinistrante3">Não</label>
           </div>
         </div>
@@ -605,13 +599,13 @@
           <input type="radio" value="Sim" [(ngModel)]="novoProjeto.addMinistrante2" formControlName="addMinistrante2"> -->
         <label><strong>Adicionar outro Docente? </strong></label>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addDocente2s" value="Sim" formControlName="addDocente2"
-            [(ngModel)]="valueDocente2">
+          <input class="form-check-input" type="radio" id="addDocente2s" value="Sim" [(ngModel)]="valueDocente2"
+            [ngModelOptions]="{standalone: true}">
           <label class="form-check-label" for="addDocente2s">Sim</label>
         </div>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addDocente2n" value="Não" formControlName="addDocente2"
-            [(ngModel)]="valueDocente2">
+          <input class="form-check-input" type="radio" id="addDocente2n" value="Não" [(ngModel)]="valueDocente2"
+            [ngModelOptions]="{standalone: true}">
           <label class="form-check-label" for="addDocente2n">Não</label>
         </div>
       </div>
@@ -680,13 +674,13 @@
             <input type="radio" value="Sim" [(ngModel)]="novoProjeto.addMinistrante2" formControlName="addMinistrante2"> -->
         <label><strong>Adicionar outro Docente? </strong></label>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addDocente3s" value="Sim" formControlName="addDocente3"
-            [(ngModel)]="valueDocente3">
+          <input class="form-check-input" type="radio" id="addDocente3s" value="Sim" [(ngModel)]="valueDocente3"
+            [ngModelOptions]="{standalone: true}">
           <label class="form-check-label" for="addDocente3s">Sim</label>
         </div>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addDocente3n" value="Não" formControlName="addDocente3"
-            [(ngModel)]="valueDocente3">
+          <input class="form-check-input" type="radio" id="addDocente3n" value="Não" [(ngModel)]="valueDocente3"
+            [ngModelOptions]="{standalone: true}">
           <label class="form-check-label" for="addDocente3n">Não</label>
         </div>
       </div>
@@ -824,13 +818,13 @@
               <input type="radio" value="Sim" [(ngModel)]="novoProjeto.addMinistrante2" formControlName="addMinistrante2"> -->
         <label><strong>Adicionar outro Discente? </strong></label>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addDiscente2s" value="Sim" formControlName="addDiscente2"
-            [(ngModel)]="valueDiscente2">
+          <input class="form-check-input" type="radio" id="addDiscente2s" value="Sim" [(ngModel)]="valueDiscente2"
+            [ngModelOptions]="{standalone: true}">
           <label class="form-check-label" for="addDiscente2s">Sim</label>
         </div>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addDiscente2n" value="Não" formControlName="addDiscente2"
-            [(ngModel)]="valueDiscente2">
+          <input class="form-check-input" type="radio" id="addDiscente2n" value="Não" [(ngModel)]="valueDiscente2"
+            [ngModelOptions]="{standalone: true}">
           <label class="form-check-label" for="addDiscente2n">Não</label>
         </div>
       </div>
@@ -909,17 +903,15 @@
       </div>
 
       <div class="col-md-6">
-        <!-- Add Ministrante
-              <input type="radio" value="Sim" [(ngModel)]="novoProjeto.addMinistrante2" formControlName="addMinistrante2"> -->
         <label><strong>Adicionar outro Discente? </strong></label>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addDiscente3s" value="Sim" formControlName="addDiscente3"
-            [(ngModel)]="valueDiscente3">
+          <input class="form-check-input" type="radio" id="addDiscente3s" value="Sim" [(ngModel)]="valueDiscente3"
+            [ngModelOptions]="{standalone: true}">
           <label class="form-check-label" for="addDiscente3s">Sim</label>
         </div>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addDiscente3n" value="Não" formControlName="addDiscente3"
-            [(ngModel)]="valueDiscente3">
+          <input class="form-check-input" type="radio" id="addDiscente3n" value="Não" [(ngModel)]="valueDiscente3"
+            [ngModelOptions]="{standalone: true}">
           <label class="form-check-label" for="addDiscente3n">Não</label>
         </div>
       </div>

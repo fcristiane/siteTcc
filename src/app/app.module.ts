@@ -64,7 +64,7 @@ import { EnviarComentarioComponent } from './components/enviar-comentario/enviar
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule.withConfig({warnOnNgModelWithFormControl: 'never'}),
     FormsModule,
     RouterModule.forRoot(rootRouterConfig, { useHash: false }),
     AngularFireModule.initializeApp(environment.firebase),

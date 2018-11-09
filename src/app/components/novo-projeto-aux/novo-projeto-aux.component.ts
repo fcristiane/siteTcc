@@ -52,31 +52,30 @@ export class NovoProjetoAuxComponent implements OnInit {
       curso: ['', Validators.required],
       responsavel: ['', Validators.required],
       coordenador: ['', Validators.required],
-      palestra: ['', Validators.required],
+      palestra: [''],
       areasTematicas: this.buildAreasTematicas(),
       areaAtuacao: ['', Validators.required],
       classificacoes: this.buildClassificacao(),
-      ministrante: ['', Validators.required],
-      cpf: ['', Validators.minLength(11)],
-      docenteInstituicao: ['', Validators.required],
-      funcaoCargo: ['', Validators.required],
-      titulacao: ['', Validators.required],
-      publicoAlvo: ['', Validators.required],
-      numPessoasEnvolvidas: ['', Validators.required],
-      tipoParceria: ['', Validators.required],
-      nomeInstituicaoApoio: ['', Validators.required],
-      addMinistrante2: ['', Validators.required],
-      ministrante2: ['', Validators.required],
-      cpf2: ['', Validators.required],
-      funcaoCargo2: ['', Validators.required],
-      titulacao2: ['', Validators.required],
-      docenteInstituicao2: ['', Validators.required],
-      addMinistrante3: ['', Validators.required],
-      ministrante3: ['', Validators.required],
-      cpf3: ['', Validators.required],
-      docenteInstituicao3: ['', Validators.required],
-      funcaoCargo3: ['', Validators.required],
-      titulacao3: ['', Validators.required],
+      ministrante: [''],
+      cpf: [''],
+      docenteInstituicao: [''],
+      funcaoCargo: [''],
+      titulacao: [''],
+      publicoAlvo: [''],
+      numPessoasEnvolvidas: [''],
+      tipoParceria: [''],
+      nomeInstituicaoApoio: [''],
+      ministrante2: [''],
+      cpf2: [''],
+      funcaoCargo2: [''],
+      titulacao2: [''],
+      docenteInstituicao2: [''],
+      addMinistrante3: [''],
+      ministrante3: [''],
+      cpf3: [''],
+      docenteInstituicao3: [''],
+      funcaoCargo3: [''],
+      titulacao3: [''],
       periodoDe: ['', Validators.required],
       periodoAte: ['', Validators.required],
       horaInicio: ['', Validators.required],
@@ -88,61 +87,61 @@ export class NovoProjetoAuxComponent implements OnInit {
       objetivos: ['', Validators.required],
       justificativa: ['', Validators.required],
       metodologiaProcedimento: ['', Validators.required],
-      docenteEnvolvido1: ['', Validators.required],
-      addDocente2: ['', Validators.required],
-      docenteEnvolvido2: ['', Validators.required],
-      addDocente3: ['', Validators.required],
-      docenteEnvolvido3: ['', Validators.required],
-      cursoDocenteEnvolvido1: ['', Validators.required],
-      cursoDocenteEnvolvido2: ['', Validators.required],
-      cursoDocenteEnvolvido3: ['', Validators.required],
-      funcaoDocenteEnvolvido1: ['', Validators.required],
-      funcaoDocenteEnvolvido2: ['', Validators.required],
-      funcaoDocenteEnvolvido3: ['', Validators.required],
-      discenteEnvolvido1: ['', Validators.required],
-      addDiscente2: ['', Validators.required],
-      discenteEnvolvido2: ['', Validators.required],
-      addDiscente3: ['', Validators.required],
-      discenteEnvolvido3: ['', Validators.required],
-      cursoDiscenteEnvolvido1: ['', Validators.required],
-      cursoDiscenteEnvolvido2: ['', Validators.required],
-      cursoDiscenteEnvolvido3: ['', Validators.required],
-      periodoDiscenteEnvolvido1: ['', Validators.required],
-      periodoDiscenteEnvolvido2: ['', Validators.required],
-      periodoDiscenteEnvolvido3: ['', Validators.required],
-      matriculaDiscenteEnvolvido1: ['', Validators.required],
-      matriculaDiscenteEnvolvido2: ['', Validators.required],
-      matriculaDiscenteEnvolvido3: ['', Validators.required],
-      cronograma: ['', Validators.required],
-      receitaIncricao: ['', Validators.required],
-      receitaInicio: ['', Validators.required],
-      receitaTermino: ['', Validators.required],
-      receitaNumMinInsc: ['', Validators.required],
-      receitaNumMinInscTotal: ['', Validators.required],
-      receitaNumMaxInsc: ['', Validators.required],
-      receitaNumMaxInscTotal: ['', Validators.required],
-      valorDiscenteDoscente: ['', Validators.required],
-      outrosValores: ['', Validators.required],
-      especificacaoRecursos1: ['', Validators.required],
-      quantidadeRecursos1: ['', Validators.required],
-      valorUnitarioRecursos1: ['', Validators.required],
-      totalRecursos1: ['', Validators.required],
-      especificacaoRecursos2: ['', Validators.required],
-      quantidadeRecursos2: ['', Validators.required],
-      valorUnitarioRecursos2: ['', Validators.required],
-      totalRecursos2: ['', Validators.required],
-      especificacaoRecursos3: ['', Validators.required],
-      quantidadeRecursos3: ['', Validators.required],
-      valorUnitarioRecursos3: ['', Validators.required],
-      totalRecursos3: ['', Validators.required],
-      especificacaoRecursos4: ['', Validators.required],
-      quantidadeRecursos4: ['', Validators.required],
-      valorUnitarioRecursos4: ['', Validators.required],
-      totalRecursos4: ['', Validators.required],
-      totalDespesas: ['', Validators.required],
+      docenteEnvolvido1: [''],
+      addDocente2: [''],
+      docenteEnvolvido2: [''],
+      addDocente3: [''],
+      docenteEnvolvido3: [''],
+      cursoDocenteEnvolvido1: [''],
+      cursoDocenteEnvolvido2: [''],
+      cursoDocenteEnvolvido3: [''],
+      funcaoDocenteEnvolvido1: [''],
+      funcaoDocenteEnvolvido2: [''],
+      funcaoDocenteEnvolvido3: [''],
+      discenteEnvolvido1: [''],
+      addDiscente2: [''],
+      discenteEnvolvido2: [''],
+      addDiscente3: [''],
+      discenteEnvolvido3: [''],
+      cursoDiscenteEnvolvido1: [''],
+      cursoDiscenteEnvolvido2: [''],
+      cursoDiscenteEnvolvido3: [''],
+      periodoDiscenteEnvolvido1: [''],
+      periodoDiscenteEnvolvido2: [''],
+      periodoDiscenteEnvolvido3: [''],
+      matriculaDiscenteEnvolvido1: [''],
+      matriculaDiscenteEnvolvido2: [''],
+      matriculaDiscenteEnvolvido3: [''],
+      cronograma: [''],
+      receitaIncricao: [''],
+      receitaInicio: [''],
+      receitaTermino: [''],
+      receitaNumMinInsc: [''],
+      receitaNumMinInscTotal: [''],
+      receitaNumMaxInsc: [''],
+      receitaNumMaxInscTotal: [''],
+      valorDiscenteDoscente: [''],
+      outrosValores: [''],
+      especificacaoRecursos1: [''],
+      quantidadeRecursos1: [''],
+      valorUnitarioRecursos1: [''],
+      totalRecursos1: [''],
+      especificacaoRecursos2: [''],
+      quantidadeRecursos2: [''],
+      valorUnitarioRecursos2: [''],
+      totalRecursos2: [''],
+      especificacaoRecursos3: [''],
+      quantidadeRecursos3: [''],
+      valorUnitarioRecursos3: [''],
+      totalRecursos3: [''],
+      especificacaoRecursos4: [''],
+      quantidadeRecursos4: [''],
+      valorUnitarioRecursos4: [''],
+      totalRecursos4: [''],
+      totalDespesas: [''],
     });
 
-    // this.formulario.valueChanges.subscribe(console.log);
+     this.formulario.valueChanges.subscribe(console.log);
 
   }
 
@@ -152,9 +151,14 @@ export class NovoProjetoAuxComponent implements OnInit {
     console.log(this.formulario);
     this.submitted = true;
     if(this.formulario.invalid) {
+      console.log('Formulário inválido');
+      alert('Preencha todos os campos obrigatórios!');
       return;
-    }
-    alert('Sucesso!')
+    } 
+      this.novoProjeto = this.formulario.value;
+      this.salvar(this.novoProjeto);
+      alert('Sucesso!');
+    
     // if (this.formulario.valid) {
     //   this.projetoService.create(this.formulario);
     //   this.formulario.reset();
@@ -169,20 +173,20 @@ export class NovoProjetoAuxComponent implements OnInit {
     
   }
 
-  varificaValidTouched(campo){
-    return !this.formulario.get(campo).valid && this.formulario.get(campo).touched;
-  }
+  // varificaValidTouched(campo){
+  //   return !this.formulario.get(campo).valid && this.formulario.get(campo).touched;
+  // }
 
-  aplicaCssErro(campo){
-    return {
-      'has-error': this.varificaValidTouched(campo),
-      'has-feedback': this.varificaValidTouched(campo)
-    }
-  }
+  // aplicaCssErro(campo){
+  //   return {
+  //     'has-error': this.varificaValidTouched(campo),
+  //     'has-feedback': this.varificaValidTouched(campo)
+  //   }
+  // }
 
   buildClassificacao() {
     const values = this.classificacoes.map(v => new FormControl(false));
-    return this.fb.array(values, this.requiredMinCheckbox(1));
+    return this.fb.array(values);
   }
 
   buildAreasTematicas() {
