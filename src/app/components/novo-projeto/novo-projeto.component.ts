@@ -4,7 +4,7 @@ import * as firebase from 'firebase/app';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { AngularFireAuth } from 'angularfire2/auth';
 import { ProjetoService } from '../../core/projetos/projeto.service';
-import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormControl, FormArray } from '@angular/forms';
 import { Perfil } from '../perfil/perfil.module';
 import { Observable } from 'rxjs';
 import { PerfilService } from 'src/app/core/perfils/perfil.service';

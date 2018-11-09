@@ -57,7 +57,9 @@
                   | mask: '00/00/0000'}}</p>
                 <p><strong>Horário (Início): </strong>{{project.horaInicio | mask: '00:00'}}<strong> (Fim): </strong>{{project.horaFim
                   | mask: '00:00'}}</p>
-                <p><strong>Dia (s) da semana: </strong>{{project.diasDaSemana1 }}, {{project.diasDaSemana2 }}, {{project.diasDaSemana3 }}, {{project.diasDaSemana4 }}, {{project.diasDaSemana5 }}, {{project.diasDaSemana6}}, {{project.diasDaSemana7}}</p>
+                <p><strong>Dia (s) da semana: </strong>{{project.diasDaSemana1 }}, {{project.diasDaSemana2 }},
+                  {{project.diasDaSemana3 }}, {{project.diasDaSemana4 }}, {{project.diasDaSemana5 }},
+                  {{project.diasDaSemana6}}, {{project.diasDaSemana7}}</p>
                 <p><strong>Carga horária total: </strong>{{project.cargaHoraria}} hora (s)</p>
               </div>
             </div>
@@ -149,15 +151,18 @@
             <hr class="m-0">
             <p [hidden]="project.docenteEnvolvido1"><i>(Não há Docentes envolvidos)</i></p>
             <p [hidden]="!project.docenteEnvolvido1"><strong>Nome: </strong>{{ project.docenteEnvolvido1 }}</p>
-            <p [hidden]="!project.docenteEnvolvido1"><strong>Curso: </strong>{{ project.cursoDocenteEnvolvido1}} <strong> - Função: </strong>{{
+            <p [hidden]="!project.docenteEnvolvido1"><strong>Curso: </strong>{{ project.cursoDocenteEnvolvido1}}
+              <strong> - Função: </strong>{{
               project.funcaoDocenteEnvolvido1 }}</p>
             <hr class="m-0" [hidden]="!project.docenteEnvolvido1">
             <p [hidden]="!project.docenteEnvolvido2"><strong>Nome: </strong>{{ project.docenteEnvolvido2 }}</p>
-            <p [hidden]="!project.docenteEnvolvido2"><strong>Curso: </strong>{{ project.cursoDocenteEnvolvido2}} <strong> - Função: </strong>{{
+            <p [hidden]="!project.docenteEnvolvido2"><strong>Curso: </strong>{{ project.cursoDocenteEnvolvido2}}
+              <strong> - Função: </strong>{{
               project.funcaoDocenteEnvolvido2 }}</p>
             <hr class="m-0" [hidden]="!project.docenteEnvolvido2">
             <p [hidden]="!project.docenteEnvolvido3"><strong>Nome: </strong>{{ project.docenteEnvolvido3 }} </p>
-            <p [hidden]="!project.docenteEnvolvido3"><strong>Curso: </strong>{{ project.cursoDocenteEnvolvido3}} <strong> - Função: </strong>{{
+            <p [hidden]="!project.docenteEnvolvido3"><strong>Curso: </strong>{{ project.cursoDocenteEnvolvido3}}
+              <strong> - Função: </strong>{{
               project.funcaoDocenteEnvolvido3 }}</p>
           </div>
 
@@ -165,19 +170,25 @@
             <p><strong>Discentes envolvidos:</strong></p>
             <hr class="m-0">
             <p [hidden]="project.discenteEnvolvido1"><i>(Não há Discentes envolvidos)</i></p>
-            <p [hidden]="!project.discenteEnvolvido1"><strong>Nome: </strong>{{ project.discenteEnvolvido1 }} <strong> - Nº Matrícula: </strong>{{
+            <p [hidden]="!project.discenteEnvolvido1"><strong>Nome: </strong>{{ project.discenteEnvolvido1 }} <strong>
+                - Nº Matrícula: </strong>{{
               project.matriculaDiscenteEnvolvido1 }}</p>
-            <p [hidden]="!project.discenteEnvolvido1"><strong>Curso: </strong>{{ project.cursoDiscenteEnvolvido1}} <strong> - Período: </strong>{{
+            <p [hidden]="!project.discenteEnvolvido1"><strong>Curso: </strong>{{ project.cursoDiscenteEnvolvido1}}
+              <strong> - Período: </strong>{{
               project.periodoDiscenteEnvolvido1 }}</p>
             <hr class="m-0" [hidden]="!project.discenteEnvolvido1">
-            <p [hidden]="!project.discenteEnvolvido2"><strong>Nome: </strong>{{ project.discenteEnvolvido2 }} <strong> - Nº Matrícula: </strong>{{
+            <p [hidden]="!project.discenteEnvolvido2"><strong>Nome: </strong>{{ project.discenteEnvolvido2 }} <strong>
+                - Nº Matrícula: </strong>{{
               project.matriculaDiscenteEnvolvido2 }}</p>
-            <p [hidden]="!project.discenteEnvolvido2"><strong>Curso: </strong>{{ project.cursoDiscenteEnvolvido2}} <strong> - Período: </strong>{{
+            <p [hidden]="!project.discenteEnvolvido2"><strong>Curso: </strong>{{ project.cursoDiscenteEnvolvido2}}
+              <strong> - Período: </strong>{{
               project.periodoDiscenteEnvolvido2 }}</p>
             <hr class="m-0" [hidden]="!project.discenteEnvolvido2">
-            <p [hidden]="!project.discenteEnvolvido3"><strong>Nome: </strong>{{ project.discenteEnvolvido3 }} <strong> - Nº Matrícula: </strong>{{
+            <p [hidden]="!project.discenteEnvolvido3"><strong>Nome: </strong>{{ project.discenteEnvolvido3 }} <strong>
+                - Nº Matrícula: </strong>{{
               project.matriculaDiscenteEnvolvido3 }}</p>
-            <p [hidden]="!project.discenteEnvolvido3"><strong>Curso: </strong>{{ project.cursoDiscenteEnvolvido3}} <strong> - Período: </strong>{{
+            <p [hidden]="!project.discenteEnvolvido3"><strong>Curso: </strong>{{ project.cursoDiscenteEnvolvido3}}
+              <strong> - Período: </strong>{{
               project.periodoDiscenteEnvolvido3 }}</p>
           </div>
 

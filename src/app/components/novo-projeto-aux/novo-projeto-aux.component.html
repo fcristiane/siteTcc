@@ -14,7 +14,7 @@
     </p>
   </div>
   <!-- (ngSubmit)="onSubmit()" -->
-  <form *ngFor="let perfil of perfils | async" [formGroup]="formulario">
+  <form *ngFor="let perfil of perfils | async" [formGroup]="formulario" (ngSubmit)="onSubmit()">
     <hr class="mb-3 hr-edit mt-5">
     <div class="form-row">
       <div class="col-md-12" id="texto-centro">
@@ -25,14 +25,17 @@
 
     <div class="form-row">
       <div class="form-group col-md-8 mb-2">
-        <label for="nomeAtv"><strong>Nome da atividade:</strong></label>
-        <input type="text" class="form-control" formControlName="nomeAtv" autofocus>
+        <label><strong>Nome da atividade:</strong></label>
+        <input type="text" class="form-control" formControlName="nomeAtv" [ngClass]="{ 'is-invalid': f.nomeAtv.touched && f.nomeAtv.errors }" />
+        <div *ngIf="f.nomeAtv.touched && f.nomeAtv.errors" class="invalid-feedback">
+          <div *ngIf="f.nomeAtv.errors.required">Campo obrigatório</div>
+        </div>
       </div>
 
       <div class="form-group col-md-4 mb-2">
 
         <label for="inlineFormCustomSelectPref"><strong>Curso (Vínculo Acadêmico): </strong></label>
-        <select class="custom-select" id="inlineFormCustomSelectPref" formControlName="curso">
+        <select class="custom-select" id="inlineFormCustomSelectPref" formControlName="curso" [ngClass]="{ 'is-invalid': f.curso.touched && f.curso.errors }">
           <option selected>Escolha...</option>
           <option>Administração</option>
           <option>Artes Visuais</option>
@@ -64,6 +67,10 @@
           <option>Superior de Tecnologia em Logística</option>
         </select>
 
+        <div *ngIf="f.curso.touched && f.curso.errors" class="invalid-feedback">
+          <div *ngIf="f.curso.errors.required">Campo obrigatório</div>
+        </div>
+
       </div>
 
     </div>
@@ -72,22 +79,30 @@
 
       <div class="form-group col-md-4 mb-2">
         <label for="responsavel"><strong>Responsável pelo projeto:</strong></label>
-        <input type="text" class="form-control" formControlName="responsavel">
-
+        <input type="text" class="form-control" formControlName="responsavel" [ngClass]="{ 'is-invalid': f.responsavel.touched && f.responsavel.errors }">
+        <div *ngIf="f.responsavel.touched && f.responsavel.errors" class="invalid-feedback">
+          <div *ngIf="f.responsavel.errors.required">Campo obrigatório</div>
+        </div>
       </div>
 
       <div class="form-group col-md-4 mb-2">
         <label for="coordenador"><strong>Coordenador:</strong></label>
-        <input type="text" class="form-control" formControlName="coordenador">
+        <input type="text" class="form-control" formControlName="coordenador" [ngClass]="{ 'is-invalid': f.coordenador.touched && f.coordenador.errors }">
+        <div *ngIf="f.coordenador.touched && f.coordenador.errors" class="invalid-feedback">
+          <div *ngIf="f.coordenador.errors.required">Campo obrigatório</div>
+        </div>
       </div>
 
       <div class="form-group col-md-4 mb-2">
         <label for="inlineFormCustomSelectPref"><strong>Campus: </strong></label>
-        <select class="custom-select" id="inlineFormCustomSelectPref" formControlName="campus">
+        <select class="custom-select" id="inlineFormCustomSelectPref" formControlName="campus" [ngClass]="{ 'is-invalid': f.campus.touched && f.campus.errors }">
           <option selected>Escolha...</option>
           <option>Fátima</option>
           <option>Central</option>
         </select>
+        <div *ngIf="f.campus.touched && f.campus.errors" class="invalid-feedback">
+          <div *ngIf="f.campus.errors.required">Campo obrigatório</div>
+        </div>
       </div>
 
 
@@ -99,16 +114,23 @@
       <div class="form-group col-md-8">
         <label for="classficacao"><strong>Classificação: </strong></label>
         <br>
-        <div class="form-check form-check-inline" formArrayName="classificacoes" *ngFor="let item of formulario.get('classificacoes').controls; let i = index">
+        <div class="form-check form-check-inline" formArrayName="classificacoes" *ngFor="let item of formulario.get('classificacoes').controls; let i = index" [ngClass]="{ 'is-invalid': f.classificacoes.touched && f.classificacoes.errors }">
           <input class="form-check-input" type="checkbox" [formArrayName]="i">
           <label class="form-check-label" for="classificacao1">{{ classificacoes[i] }}</label>
+          <div *ngIf="f.classificacoes.touched && f.classificacoes.errors" class="invalid-feedback">
+            <div *ngIf="f.classificacoes.errors.required">Campo obrigatório</div>
+          </div>
         </div>
+       
 
       </div>
 
       <div class="form-group col-md-4">
         <label><strong>Local de Realização:</strong></label>
-        <input type="text" class="form-control" formControlName="local">
+        <input type="text" class="form-control" formControlName="local" [ngClass]="{ 'is-invalid': f.local.touched && f.local.errors }">
+        <div *ngIf="f.local.touched && f.local.errors" class="invalid-feedback">
+          <div *ngIf="f.local.errors.required">Campo obrigatório</div>
+        </div>
       </div>
 
     </div>
@@ -127,7 +149,7 @@
 
       <div class="form-group col-md-4">
         <label for="inlineFormCustomSelectPref"><strong>Área de atuação: </strong></label>
-        <select class="custom-select" id="inlineFormCustomSelectPref" formControlName="areaAtuacao">
+        <select class="custom-select" id="inlineFormCustomSelectPref" formControlName="areaAtuacao" [ngClass]="{ 'is-invalid': f.areaAtuacao.touched && f.areaAtuacao.errors }">
           <option selected>Escolha...</option>
           <option>Ciências Biológicas</option>
           <option>Ciências da Saúde</option>
@@ -136,6 +158,9 @@
           <option>Comunicação</option>
           <option>Educação</option>
         </select>
+        <div *ngIf="f.areaAtuacao.touched && f.areaAtuacao.errors" class="invalid-feedback">
+          <div *ngIf="f.areaAtuacao.errors.required">Campo obrigatório</div>
+        </div>
       </div>
 
       <div class="col-md-12">
@@ -153,22 +178,34 @@
 
       <div class="form-group col-md-3 mb-2">
         <label for="horaInicio"><strong>Horário (Início): </strong></label>
-        <input type="text" class="form-control" formControlName="horaInicio" mask="00:00" placeholder="hh:mm">
+        <input type="text" class="form-control" formControlName="horaInicio" mask="00:00" placeholder="hh:mm" [ngClass]="{ 'is-invalid': f.horaInicio.touched && f.horaInicio.errors }">
+        <div *ngIf="f.horaInicio.touched && f.horaInicio.errors" class="invalid-feedback">
+          <div *ngIf="f.horaInicio.errors.required">Campo obrigatório</div>
+        </div>
       </div>
 
       <div class="form-group col-md-3 mb-2">
         <label for="horaFim"><strong>Horário (Fim):</strong></label>
-        <input type="text" class="form-control" formControlName="horaFim" mask="00:00" placeholder="hh:mm">
+        <input type="text" class="form-control" formControlName="horaFim" mask="00:00" placeholder="hh:mm" [ngClass]="{ 'is-invalid': f.horaFim.touched && f.horaFim.errors }">
+        <div *ngIf="f.horaFim.touched && f.horaFim.errors" class="invalid-feedback">
+          <div *ngIf="f.horaFim.errors.required">Campo obrigatório</div>
+        </div>
       </div>
 
       <div class="form-group col-md-3 mb-2">
         <label for="periodoDe"><strong>Período de: </strong></label>
-        <input type="text" class="form-control" formControlName="periodoDe" mask="00/00/0000" placeholder="dd/mm/aaaa">
+        <input type="text" class="form-control" formControlName="periodoDe" mask="00/00/0000" placeholder="dd/mm/aaaa" [ngClass]="{ 'is-invalid': f.periodoDe.touched && f.periodoDe.errors }">
+        <div *ngIf="f.periodoDe.touched && f.periodoDe.errors" class="invalid-feedback">
+          <div *ngIf="f.periodoDe.errors.required">Campo obrigatório</div>
+        </div>
       </div>
 
       <div class="form-group col-md-3 mb-2">
         <label for="periodoAte"><strong>Até:</strong></label>
-        <input type="text" class="form-control" mask="00/00/0000" placeholder="dd/mm/aaaa" formControlName="periodoAte">
+        <input type="text" class="form-control" mask="00/00/0000" placeholder="dd/mm/aaaa" formControlName="periodoAte" [ngClass]="{ 'is-invalid': f.periodoAte.touched && f.periodoAte.errors }">
+        <div *ngIf="f.periodoAte.touched && f.periodoAte.errors" class="invalid-feedback">
+          <div *ngIf="f.periodoAte.errors.required">Campo obrigatório</div>
+        </div>
       </div>
 
     </div>
@@ -176,7 +213,10 @@
     <div class="form-row">
       <div class="form-group col-md-3 mb-2">
         <label for="cargaHoraria"><strong>Carga horária total:</strong></label>
-        <input type="number" class="form-control" formControlName="cargaHoraria" placeholder="Hora(s)">
+        <input type="number" class="form-control" formControlName="cargaHoraria" placeholder="Hora(s)" [ngClass]="{ 'is-invalid': f.cargaHoraria.touched && f.cargaHoraria.errors }">
+        <div *ngIf="f.cargaHoraria.touched && f.cargaHoraria.errors" class="invalid-feedback">
+          <div *ngIf="f.cargaHoraria.errors.required">Campo obrigatório</div>
+        </div>
       </div>
 
       <div class="form-group col-md-3 mb-2">
@@ -452,7 +492,10 @@
         <label>
           <h5><strong>Objetivos:</strong></h5>
         </label>
-        <textarea class="form-control" rows="4" formControlName="objetivos"></textarea>
+        <textarea class="form-control" rows="4" formControlName="objetivos" [ngClass]="{ 'is-invalid': f.objetivos.touched && f.objetivos.errors }"></textarea>
+        <div *ngIf="f.objetivos.touched && f.objetivos.errors" class="invalid-feedback">
+          <div *ngIf="f.objetivos.errors.required">Campo obrigatório</div>
+        </div>
         <p><i>Discriminar os objetivos gerais e específicos em termos de contribuição esperada para o desenvolvimento
             da comunidade, bem como retornos esperados ao aluno, ao ensino e à pesquisa; Assegurar a coerência entre
             as
@@ -468,7 +511,10 @@
         <label for="justificativa">
           <h5><strong>Justificativa:</strong></h5>
         </label>
-        <textarea class="form-control" rows="4" formControlName="justificativa"></textarea>
+        <textarea class="form-control" rows="4" formControlName="justificativa" [ngClass]="{ 'is-invalid': f.justificativa.touched && f.justificativa.errors }"></textarea>
+        <div *ngIf="f.justificativa.touched && f.justificativa.errors" class="invalid-feedback">
+          <div *ngIf="f.justificativa.errors.required">Campo obrigatório</div>
+        </div>
         <p><i>Explicitar as razões do projeto; Situação/problema que originou a proposição do projeto; Delimitação da
             proposta básica de trabalho e possibilidade de operar mudanças frente à problemática descrita da
             comunidade; outros dados que julgar relevantes (ex, caracterização da comunidade, experiências
@@ -485,7 +531,10 @@
         <label for="metodologiaProcedimento">
           <h5><strong>Metodologia / Procedimentos:</strong></h5>
         </label>
-        <textarea class="form-control" rows="4" formControlName="metodologiaProcedimento"></textarea>
+        <textarea class="form-control" rows="4" formControlName="metodologiaProcedimento" [ngClass]="{ 'is-invalid': f.metodologiaProcedimento.touched && f.metodologiaProcedimento.errors }"></textarea>
+        <div *ngIf="f.metodologiaProcedimento.touched && f.metodologiaProcedimento.errors" class="invalid-feedback">
+          <div *ngIf="f.metodologiaProcedimento.errors.required">Campo obrigatório</div>
+        </div>
         <p><i>Descrever detalhadamente as atividades a serem desenvolvidas.</i></p>
       </div>
 
@@ -1108,10 +1157,10 @@
 
     <hr class="hr-edit">
 
-    <div class="form-row mt-2 mb-5 item justify-content-center">
+    <div class="form-row form-group mt-2 mb-5 item justify-content-center">
       <div class="col-md-1"></div>
       <div class="col-md-4">
-        <button class="btn btn-primary btn-lg btn-block" type="submit">Finalizar</button>
+        <button class="btn btn-primary btn-lg btn-block">Finalizar</button>
       </div>
       <div class="col-md-1"></div>
       <div class="col-md-4">
@@ -1119,7 +1168,8 @@
           tarde</button>
       </div>
       <div class="col-md-1 mb-3 direita">
-          <a title="Ao escolher a opção 'Finalizar', você estará concordando que seu projeto está pronto para análise de um superior. Caso ainda não tenha certeza se as informações preenchidas estão corretas, você pode clicar em 'Continuar mais tarde' para salvar e editar quando quiser."><span [innerHTML]="'info' | feather:30:'#212529'"></span></a>
+        <a title="Ao escolher a opção 'Finalizar', você estará concordando que seu projeto está pronto para análise de um superior. Caso ainda não tenha certeza se as informações preenchidas estão corretas, você pode clicar em 'Continuar mais tarde' para salvar e editar quando quiser."><span
+            [innerHTML]="'info' | feather:30:'#212529'"></span></a>
       </div>
     </div>
 

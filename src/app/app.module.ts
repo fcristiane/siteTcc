@@ -30,7 +30,7 @@ import { TodosProjetosAnaliseComponent } from './components/todos-projetos-anali
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { PerfilService } from './core/perfils/perfil.service';
 import { ManualDoUsuarioComponent } from './components/manual-do-usuario/manual-do-usuario.component';
-import {NgxMaskModule} from 'ngx-mask';
+import { NgxMaskModule } from 'ngx-mask';
 import { FilterPipe } from './filter.pipe';
 import { NovoProjetoAuxComponent } from './components/novo-projeto-aux/novo-projeto-aux.component';
 import { ProjetoEditandoComponent } from './components/projeto-editando/projeto-editando.component';
