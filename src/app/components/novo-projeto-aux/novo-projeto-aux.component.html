@@ -36,35 +36,37 @@
 
         <label for="inlineFormCustomSelectPref"><strong>Curso (Vínculo Acadêmico): </strong></label>
         <select class="custom-select" id="inlineFormCustomSelectPref" formControlName="curso" [ngClass]="{ 'is-invalid': f.curso.touched && f.curso.errors }">
-          <option selected>Escolha...</option>
-          <option>Administração</option>
-          <option>Artes Visuais</option>
-          <option>Ciências Biológicas - Bacharelado</option>
-          <option>Ciências Biológicas - Licenciatura</option>
-          <option>Ciências Contábeis</option>
-          <option>Educação Física</option>
-          <option>Enfermagem</option>
-          <option>Engenharia Ambiental</option>
-          <option>Engenharia de Automação e Controle</option>
-          <option>Engenharia de Produção</option>
-          <option>Engenharia Elétrica</option>
-          <option>Engenharia Mecânica</option>
-          <option>Farmácia</option>
-          <option>Fisioterapia</option>
-          <option>História</option>
-          <option>Jornalismo</option>
-          <option>Letras</option>
-          <option>Medicina</option>
-          <option>Nutrição</option>
-          <option>Pedagogia</option>
-          <option>Psicologia</option>
-          <option>Publicidade e Propaganda</option>
-          <option>Sistemas de Informação</option>
-          <option>Superior de Tecnologia em Gastronomia</option>
-          <option>Superior de Tecnologia em Gestão da Produção Industrial</option>
-          <option>Superior de Tecnologia em Gestão da Qualidade</option>
-          <option>Superior de Tecnologia em Gestão de Recursos Humanos</option>
-          <option>Superior de Tecnologia em Logística</option>
+          <option selected value="">Escolha...</option>
+          <option value="Administração">Administração</option>
+          <option value="Artes Visuais">Artes Visuais</option>
+          <option value="Ciências Biológicas - Bacharelado">Ciências Biológicas - Bacharelado</option>
+          <option value="Ciências Biológicas - Licenciatura">Ciências Biológicas - Licenciatura</option>
+          <option value="Ciências Contábeis">Ciências Contábeis</option>
+          <option value="Educação Física">Educação Física</option>
+          <option value="Enfermagem">Enfermagem</option>
+          <option value="Engenharia Ambiental">Engenharia Ambiental</option>
+          <option value="Engenharia de Automação e Controle">Engenharia de Automação e Controle</option>
+          <option value="Engenharia de Produção">Engenharia de Produção</option>
+          <option value="Engenharia Elétrica">Engenharia Elétrica</option>
+          <option value="Engenharia Mecânica">Engenharia Mecânica</option>
+          <option value="Farmácia">Farmácia</option>
+          <option value="Fisioterapia">Fisioterapia</option>
+          <option value="História">História</option>
+          <option value="Jornalismo">Jornalismo</option>
+          <option value="Letras">Letras</option>
+          <option value="Medicina">Medicina</option>
+          <option value="Nutrição">Nutrição</option>
+          <option value="Pedagogia">Pedagogia</option>
+          <option value="Psicologia">Psicologia</option>
+          <option value="Publicidade e Propaganda">Publicidade e Propaganda</option>
+          <option value="Sistemas de Informação">Sistemas de Informação</option>
+          <option value="Superior de Tecnologia em Gastronomia">Superior de Tecnologia em Gastronomia</option>
+          <option value="Superior de Tecnologia em Gestão da Produção Industrial">Superior de Tecnologia em Gestão da
+            Produção Industrial</option>
+          <option value="Superior de Tecnologia em Gestão da Qualidade">Superior de Tecnologia em Gestão da Qualidade</option>
+          <option value="Superior de Tecnologia em Gestão de Recursos Humanos">Superior de Tecnologia em Gestão de
+            Recursos Humanos</option>
+          <option value="Superior de Tecnologia em Logística">Superior de Tecnologia em Logística</option>
         </select>
 
         <div *ngIf="f.curso.touched && f.curso.errors" class="invalid-feedback">
@@ -96,9 +98,9 @@
       <div class="form-group col-md-4 mb-2">
         <label for="inlineFormCustomSelectPref"><strong>Campus: </strong></label>
         <select class="custom-select" id="inlineFormCustomSelectPref" formControlName="campus" [ngClass]="{ 'is-invalid': f.campus.touched && f.campus.errors }">
-          <option selected>Escolha...</option>
-          <option>Fátima</option>
-          <option>Central</option>
+          <option selected value="">Escolha...</option>
+          <option value="Fátima">Fátima</option>
+          <option value="Central">Central</option>
         </select>
         <div *ngIf="f.campus.touched && f.campus.errors" class="invalid-feedback">
           <div *ngIf="f.campus.errors.required">Campo obrigatório</div>
@@ -123,7 +125,8 @@
 
       <div class="form-group col-md-4">
         <label><strong>Local de Realização:</strong></label>
-        <input type="text" class="form-control" formControlName="local" [ngClass]="{ 'is-invalid': f.local.touched && f.local.errors }">
+        <input type="text" class="form-control" formControlName="local" placeholder="Ex: Auditório; Sala de aula..."
+          [ngClass]="{ 'is-invalid': f.local.touched && f.local.errors }">
         <div *ngIf="f.local.touched && f.local.errors" class="invalid-feedback">
           <div *ngIf="f.local.errors.required">Campo obrigatório</div>
         </div>
@@ -146,13 +149,13 @@
       <div class="form-group col-md-4">
         <label for="inlineFormCustomSelectPref"><strong>Área de atuação: </strong></label>
         <select class="custom-select" id="inlineFormCustomSelectPref" formControlName="areaAtuacao" [ngClass]="{ 'is-invalid': f.areaAtuacao.touched && f.areaAtuacao.errors }">
-          <option selected>Escolha...</option>
-          <option>Ciências Biológicas</option>
-          <option>Ciências da Saúde</option>
-          <option>Ciências Empresariais</option>
-          <option>Ciências Exatas</option>
-          <option>Comunicação</option>
-          <option>Educação</option>
+          <option selected value="">Escolha...</option>
+          <option value="Ciências Biológicas">Ciências Biológicas</option>
+          <option value="Ciências da Saúde">Ciências da Saúde</option>
+          <option value="Ciências Empresariais">Ciências Empresariais</option>
+          <option value="Ciências Exatas">Ciências Exatas</option>
+          <option value="Comunicação">Comunicação</option>
+          <option value="Educação">Educação</option>
         </select>
         <div *ngIf="f.areaAtuacao.touched && f.areaAtuacao.errors" class="invalid-feedback">
           <div *ngIf="f.areaAtuacao.errors.required">Campo obrigatório</div>
@@ -293,12 +296,12 @@
       <div class="form-group col-md-4">
         <label for="titulacao"><strong>Titulação: </strong></label>
         <select class="custom-select" formControlName="titulacao">
-          <option selected>Escolha...</option>
-          <option>Graduado</option>
-          <option>Especializado</option>
-          <option>Mestrado</option>
-          <option>Doutorado</option>
-          <option>Pós-Doutorado</option>
+          <option selected value="">Escolha...</option>
+          <option value="Graduado">Graduado</option>
+          <option value="Especializado">Especializado</option>
+          <option value="Mestrado">Mestrado</option>
+          <option value="Doutorado">Doutorado</option>
+          <option value="Pós-Doutorado">Pós-Doutorado</option>
         </select>
       </div>
 
@@ -309,12 +312,14 @@
       <div class="col-md-6">
         <label><strong>Adicionar Segundo Ministrante? </strong></label>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" value="Sim" [(ngModel)]="valueMinistrante2" [ngModelOptions]="{standalone: true}">
-          <label class="form-check-label">Sim</label>
+          <input class="form-check-input" type="radio" value="Sim" id="inlineCheck3" formControlName="addMinistrante2"
+            [(ngModel)]="valueMinistrante2">
+          <label class="form-check-label" for="inlineCheck3">Sim</label>
         </div>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" value="Não" [(ngModel)]="valueMinistrante2" [ngModelOptions]="{standalone: true}">
-          <label class="form-check-label">Não</label>
+          <input class="form-check-input" type="radio" value="Não" id="inlineCheck4" formControlName="addMinistrante2"
+            [(ngModel)]="valueMinistrante2">
+          <label class="form-check-label" for="inlineCheck4">Não</label>
         </div>
       </div>
       <div class="col-md-6"></div>
@@ -359,12 +364,12 @@
         <div class="form-group col-md-4">
           <label for="titulacao2"><strong>Titulação: </strong></label>
           <select class="custom-select" formControlName="titulacao2">
-            <option selected>Escolha...</option>
-            <option>Graduado</option>
-            <option>Especializado</option>
-            <option>Mestrado</option>
-            <option>Doutorado</option>
-            <option>Pós-Doutorado</option>
+            <option selected value="">Escolha...</option>
+            <option value="Graduado">Graduado</option>
+            <option value="Especializado">Especializado</option>
+            <option value="Mestrado">Mestrado</option>
+            <option value="Doutorado">Doutorado</option>
+            <option value="Pós-Doutorado">Pós-Doutorado</option>
           </select>
         </div>
 
@@ -373,18 +378,16 @@
         </div>
 
         <div class="col-md-6">
-          <!-- Add Ministrante
-          <input type="radio" value="Sim" [(ngModel)]="novoProjeto.addMinistrante2" formControlName="addMinistrante2"> -->
           <label><strong>Adicionar Terceiro Ministrante? </strong></label>
           <div class="form-check form-check-inline ml-5">
-            <input class="form-check-input" type="radio" id="addMinistrante" value="Sim" [(ngModel)]="valueMinistrante3"
-              [ngModelOptions]="{standalone: true}">
-            <label class="form-check-label" for="addMinistrante3">Sim</label>
+            <input class="form-check-input" type="radio" id="inlineCheck1" value="Sim" formControlName="addMinistrante3"
+              [(ngModel)]="valueMinistrante3">
+            <label class="form-check-label" for="inlineCheck1">Sim</label>
           </div>
           <div class="form-check form-check-inline ml-5">
-            <input class="form-check-input" type="radio" id="addMinistrante1" value="Não" [(ngModel)]="valueMinistrante3"
-              [ngModelOptions]="{standalone: true}">
-            <label class="form-check-label" for="addMinistrante3">Não</label>
+            <input class="form-check-input" type="radio" id="inlineCheck2" value="Não" formControlName="addMinistrante3"
+              [(ngModel)]="valueMinistrante3">
+            <label class="form-check-label" for="inlineCheck2">Não</label>
           </div>
         </div>
         <div class="col-md-6"></div>
@@ -430,12 +433,12 @@
         <div class="form-group col-md-4">
           <label for="titulacao3"><strong>Titulação: </strong></label>
           <select class="custom-select" formControlName="titulacao3">
-            <option selected>Escolha...</option>
-            <option>Graduado</option>
-            <option>Especializado</option>
-            <option>Mestrado</option>
-            <option>Doutorado</option>
-            <option>Pós-Doutorado</option>
+            <option selected value="">Escolha...</option>
+            <option value="Graduado">Graduado</option>
+            <option value="Especializado">Especializado</option>
+            <option value="Mestrado">Mestrado</option>
+            <option value="Doutorado">Doutorado</option>
+            <option value="Pós-Doutorado">Pós-Doutorado</option>
           </select>
         </div>
 
@@ -464,10 +467,10 @@
       <div class="form-group col-md-4">
         <label for="tipoParceria"><strong>Tipo: </strong></label>
         <select class="custom-select" formControlName="tipoParceria">
-          <option selected>Escolha...</option>
-          <option>Parceria</option>
-          <option>Apoio</option>
-          <option>Convênio</option>
+          <option selected value="">Escolha...</option>
+          <option value="Parceria">Parceria</option>
+          <option value="Apoio">Apoio</option>
+          <option value="Convênio">Convênio</option>
         </select>
       </div>
 
@@ -553,35 +556,37 @@
       <div class="col-md-4">
         <label for="cursoDocenteEnvolvido1"><strong>Curso: </strong></label>
         <select class="custom-select" formControlName="cursoDocenteEnvolvido1">
-          <option selected>Escolha...</option>
-          <option>Administração</option>
-          <option>Artes Visuais</option>
-          <option>Ciências Biológicas - Bacharelado</option>
-          <option>Ciências Biológicas - Licenciatura</option>
-          <option>Ciências Contábeis</option>
-          <option>Educação Física</option>
-          <option>Enfermagem</option>
-          <option>Engenharia Ambiental</option>
-          <option>Engenharia de Automação e Controle</option>
-          <option>Engenharia de Produção</option>
-          <option>Engenharia Elétrica</option>
-          <option>Engenharia Mecânica</option>
-          <option>Farmácia</option>
-          <option>Fisioterapia</option>
-          <option>História</option>
-          <option>Jornalismo</option>
-          <option>Letras</option>
-          <option>Medicina</option>
-          <option>Nutrição</option>
-          <option>Pedagogia</option>
-          <option>Psicologia</option>
-          <option>Publicidade e Propaganda</option>
-          <option>Sistemas de Informação</option>
-          <option>Superior de Tecnologia em Gastronomia</option>
-          <option>Superior de Tecnologia em Gestão da Produção Industrial</option>
-          <option>Superior de Tecnologia em Gestão da Qualidade</option>
-          <option>Superior de Tecnologia em Gestão de Recursos Humanos</option>
-          <option>Superior de Tecnologia em Logística</option>
+          <option selected value="">Escolha...</option>
+          <option value="Administração">Administração</option>
+          <option value="Artes Visuais">Artes Visuais</option>
+          <option value="Ciências Biológicas - Bacharelado">Ciências Biológicas - Bacharelado</option>
+          <option value="Ciências Biológicas - Licenciatura">Ciências Biológicas - Licenciatura</option>
+          <option value="Ciências Contábeis">Ciências Contábeis</option>
+          <option value="Educação Física">Educação Física</option>
+          <option value="Enfermagem">Enfermagem</option>
+          <option value="Engenharia Ambiental">Engenharia Ambiental</option>
+          <option value="Engenharia de Automação e Controle">Engenharia de Automação e Controle</option>
+          <option value="Engenharia de Produção">Engenharia de Produção</option>
+          <option value="Engenharia Elétrica">Engenharia Elétrica</option>
+          <option value="Engenharia Mecânica">Engenharia Mecânica</option>
+          <option value="Farmácia">Farmácia</option>
+          <option value="Fisioterapia">Fisioterapia</option>
+          <option value="História">História</option>
+          <option value="Jornalismo">Jornalismo</option>
+          <option value="Letras">Letras</option>
+          <option value="Medicina">Medicina</option>
+          <option value="Nutrição">Nutrição</option>
+          <option value="Pedagogia">Pedagogia</option>
+          <option value="Psicologia">Psicologia</option>
+          <option value="Publicidade e Propaganda">Publicidade e Propaganda</option>
+          <option value="Sistemas de Informação">Sistemas de Informação</option>
+          <option value="Superior de Tecnologia em Gastronomia">Superior de Tecnologia em Gastronomia</option>
+          <option value="Superior de Tecnologia em Gestão da Produção Industrial">Superior de Tecnologia em Gestão da
+            Produção Industrial</option>
+          <option value="Superior de Tecnologia em Gestão da Qualidade">Superior de Tecnologia em Gestão da Qualidade</option>
+          <option value="Superior de Tecnologia em Gestão de Recursos Humanos">Superior de Tecnologia em Gestão de
+            Recursos Humanos</option>
+          <option value="Superior de Tecnologia em Logística">Superior de Tecnologia em Logística</option>
         </select>
       </div>
 
@@ -595,17 +600,15 @@
       </div>
 
       <div class="col-md-6">
-        <!-- Add Ministrante
-          <input type="radio" value="Sim" [(ngModel)]="novoProjeto.addMinistrante2" formControlName="addMinistrante2"> -->
         <label><strong>Adicionar outro Docente? </strong></label>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addDocente2s" value="Sim" [(ngModel)]="valueDocente2"
-            [ngModelOptions]="{standalone: true}">
+          <input class="form-check-input" type="radio" id="addDocente2s" value="Sim" formControlName="addDocente2"
+            [(ngModel)]="valueDocente2">
           <label class="form-check-label" for="addDocente2s">Sim</label>
         </div>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addDocente2n" value="Não" [(ngModel)]="valueDocente2"
-            [ngModelOptions]="{standalone: true}">
+          <input class="form-check-input" type="radio" id="addDocente2n" value="Não" formControlName="addDocente2"
+            [(ngModel)]="valueDocente2">
           <label class="form-check-label" for="addDocente2n">Não</label>
         </div>
       </div>
@@ -628,35 +631,37 @@
       <div class="col-md-4">
         <label for="cursoDocenteEnvolvido2"><strong>Curso: </strong></label>
         <select class="custom-select" formControlName="cursoDocenteEnvolvido2">
-          <option selected>Escolha...</option>
-          <option>Administração</option>
-          <option>Artes Visuais</option>
-          <option>Ciências Biológicas - Bacharelado</option>
-          <option>Ciências Biológicas - Licenciatura</option>
-          <option>Ciências Contábeis</option>
-          <option>Educação Física</option>
-          <option>Enfermagem</option>
-          <option>Engenharia Ambiental</option>
-          <option>Engenharia de Automação e Controle</option>
-          <option>Engenharia de Produção</option>
-          <option>Engenharia Elétrica</option>
-          <option>Engenharia Mecânica</option>
-          <option>Farmácia</option>
-          <option>Fisioterapia</option>
-          <option>História</option>
-          <option>Jornalismo</option>
-          <option>Letras</option>
-          <option>Medicina</option>
-          <option>Nutrição</option>
-          <option>Pedagogia</option>
-          <option>Psicologia</option>
-          <option>Publicidade e Propaganda</option>
-          <option>Sistemas de Informação</option>
-          <option>Superior de Tecnologia em Gastronomia</option>
-          <option>Superior de Tecnologia em Gestão da Produção Industrial</option>
-          <option>Superior de Tecnologia em Gestão da Qualidade</option>
-          <option>Superior de Tecnologia em Gestão de Recursos Humanos</option>
-          <option>Superior de Tecnologia em Logística</option>
+          <option selected value="">Escolha...</option>
+          <option value="Administração">Administração</option>
+          <option value="Artes Visuais">Artes Visuais</option>
+          <option value="Ciências Biológicas - Bacharelado">Ciências Biológicas - Bacharelado</option>
+          <option value="Ciências Biológicas - Licenciatura">Ciências Biológicas - Licenciatura</option>
+          <option value="Ciências Contábeis">Ciências Contábeis</option>
+          <option value="Educação Física">Educação Física</option>
+          <option value="Enfermagem">Enfermagem</option>
+          <option value="Engenharia Ambiental">Engenharia Ambiental</option>
+          <option value="Engenharia de Automação e Controle">Engenharia de Automação e Controle</option>
+          <option value="Engenharia de Produção">Engenharia de Produção</option>
+          <option value="Engenharia Elétrica">Engenharia Elétrica</option>
+          <option value="Engenharia Mecânica">Engenharia Mecânica</option>
+          <option value="Farmácia">Farmácia</option>
+          <option value="Fisioterapia">Fisioterapia</option>
+          <option value="História">História</option>
+          <option value="Jornalismo">Jornalismo</option>
+          <option value="Letras">Letras</option>
+          <option value="Medicina">Medicina</option>
+          <option value="Nutrição">Nutrição</option>
+          <option value="Pedagogia">Pedagogia</option>
+          <option value="Psicologia">Psicologia</option>
+          <option value="Publicidade e Propaganda">Publicidade e Propaganda</option>
+          <option value="Sistemas de Informação">Sistemas de Informação</option>
+          <option value="Superior de Tecnologia em Gastronomia">Superior de Tecnologia em Gastronomia</option>
+          <option value="Superior de Tecnologia em Gestão da Produção Industrial">Superior de Tecnologia em Gestão da
+            Produção Industrial</option>
+          <option value="Superior de Tecnologia em Gestão da Qualidade">Superior de Tecnologia em Gestão da Qualidade</option>
+          <option value="Superior de Tecnologia em Gestão de Recursos Humanos">Superior de Tecnologia em Gestão de
+            Recursos Humanos</option>
+          <option value="Superior de Tecnologia em Logística">Superior de Tecnologia em Logística</option>
         </select>
       </div>
 
@@ -670,17 +675,15 @@
       </div>
 
       <div class="col-md-6">
-        <!-- Add Ministrante
-            <input type="radio" value="Sim" [(ngModel)]="novoProjeto.addMinistrante2" formControlName="addMinistrante2"> -->
         <label><strong>Adicionar outro Docente? </strong></label>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addDocente3s" value="Sim" [(ngModel)]="valueDocente3"
-            [ngModelOptions]="{standalone: true}">
+          <input class="form-check-input" type="radio" id="addDocente3s" value="Sim" formControlName="addDocente3"
+            [(ngModel)]="valueDocente3">
           <label class="form-check-label" for="addDocente3s">Sim</label>
         </div>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addDocente3n" value="Não" [(ngModel)]="valueDocente3"
-            [ngModelOptions]="{standalone: true}">
+          <input class="form-check-input" type="radio" id="addDocente3n" value="Não" formControlName="addDocente3"
+            [(ngModel)]="valueDocente3">
           <label class="form-check-label" for="addDocente3n">Não</label>
         </div>
       </div>
@@ -703,35 +706,37 @@
       <div class="col-md-4">
         <label for="cursoDocenteEnvolvido3"><strong>Curso: </strong></label>
         <select class="custom-select" formControlName="cursoDocenteEnvolvido3">
-          <option selected>Escolha...</option>
-          <option>Administração</option>
-          <option>Artes Visuais</option>
-          <option>Ciências Biológicas - Bacharelado</option>
-          <option>Ciências Biológicas - Licenciatura</option>
-          <option>Ciências Contábeis</option>
-          <option>Educação Física</option>
-          <option>Enfermagem</option>
-          <option>Engenharia Ambiental</option>
-          <option>Engenharia de Automação e Controle</option>
-          <option>Engenharia de Produção</option>
-          <option>Engenharia Elétrica</option>
-          <option>Engenharia Mecânica</option>
-          <option>Farmácia</option>
-          <option>Fisioterapia</option>
-          <option>História</option>
-          <option>Jornalismo</option>
-          <option>Letras</option>
-          <option>Medicina</option>
-          <option>Nutrição</option>
-          <option>Pedagogia</option>
-          <option>Psicologia</option>
-          <option>Publicidade e Propaganda</option>
-          <option>Sistemas de Informação</option>
-          <option>Superior de Tecnologia em Gastronomia</option>
-          <option>Superior de Tecnologia em Gestão da Produção Industrial</option>
-          <option>Superior de Tecnologia em Gestão da Qualidade</option>
-          <option>Superior de Tecnologia em Gestão de Recursos Humanos</option>
-          <option>Superior de Tecnologia em Logística</option>
+          <option selected value="">Escolha...</option>
+          <option value="Administração">Administração</option>
+          <option value="Artes Visuais">Artes Visuais</option>
+          <option value="Ciências Biológicas - Bacharelado">Ciências Biológicas - Bacharelado</option>
+          <option value="Ciências Biológicas - Licenciatura">Ciências Biológicas - Licenciatura</option>
+          <option value="Ciências Contábeis">Ciências Contábeis</option>
+          <option value="Educação Física">Educação Física</option>
+          <option value="Enfermagem">Enfermagem</option>
+          <option value="Engenharia Ambiental">Engenharia Ambiental</option>
+          <option value="Engenharia de Automação e Controle">Engenharia de Automação e Controle</option>
+          <option value="Engenharia de Produção">Engenharia de Produção</option>
+          <option value="Engenharia Elétrica">Engenharia Elétrica</option>
+          <option value="Engenharia Mecânica">Engenharia Mecânica</option>
+          <option value="Farmácia">Farmácia</option>
+          <option value="Fisioterapia">Fisioterapia</option>
+          <option value="História">História</option>
+          <option value="Jornalismo">Jornalismo</option>
+          <option value="Letras">Letras</option>
+          <option value="Medicina">Medicina</option>
+          <option value="Nutrição">Nutrição</option>
+          <option value="Pedagogia">Pedagogia</option>
+          <option value="Psicologia">Psicologia</option>
+          <option value="Publicidade e Propaganda">Publicidade e Propaganda</option>
+          <option value="Sistemas de Informação">Sistemas de Informação</option>
+          <option value="Superior de Tecnologia em Gastronomia">Superior de Tecnologia em Gastronomia</option>
+          <option value="Superior de Tecnologia em Gestão da Produção Industrial">Superior de Tecnologia em Gestão da
+            Produção Industrial</option>
+          <option value="Superior de Tecnologia em Gestão da Qualidade">Superior de Tecnologia em Gestão da Qualidade</option>
+          <option value="Superior de Tecnologia em Gestão de Recursos Humanos">Superior de Tecnologia em Gestão de
+            Recursos Humanos</option>
+          <option value="Superior de Tecnologia em Logística">Superior de Tecnologia em Logística</option>
         </select>
       </div>
 
@@ -757,50 +762,52 @@
       <div class="col-md-3">
         <label for="name"><strong>Curso: </strong></label>
         <select class="custom-select" formControlName="cursoDiscenteEnvolvido1">
-          <option selected>Escolha...</option>
-          <option>Administração</option>
-          <option>Artes Visuais</option>
-          <option>Ciências Biológicas - Bacharelado</option>
-          <option>Ciências Biológicas - Licenciatura</option>
-          <option>Ciências Contábeis</option>
-          <option>Educação Física</option>
-          <option>Enfermagem</option>
-          <option>Engenharia Ambiental</option>
-          <option>Engenharia de Automação e Controle</option>
-          <option>Engenharia de Produção</option>
-          <option>Engenharia Elétrica</option>
-          <option>Engenharia Mecânica</option>
-          <option>Farmácia</option>
-          <option>Fisioterapia</option>
-          <option>História</option>
-          <option>Jornalismo</option>
-          <option>Letras</option>
-          <option>Medicina</option>
-          <option>Nutrição</option>
-          <option>Pedagogia</option>
-          <option>Psicologia</option>
-          <option>Publicidade e Propaganda</option>
-          <option>Sistemas de Informação</option>
-          <option>Superior de Tecnologia em Gastronomia</option>
-          <option>Superior de Tecnologia em Gestão da Produção Industrial</option>
-          <option>Superior de Tecnologia em Gestão da Qualidade</option>
-          <option>Superior de Tecnologia em Gestão de Recursos Humanos</option>
-          <option>Superior de Tecnologia em Logística</option>
+          <option selected value="">Escolha...</option>
+          <option value="Administração">Administração</option>
+          <option value="Artes Visuais">Artes Visuais</option>
+          <option value="Ciências Biológicas - Bacharelado">Ciências Biológicas - Bacharelado</option>
+          <option value="Ciências Biológicas - Licenciatura">Ciências Biológicas - Licenciatura</option>
+          <option value="Ciências Contábeis">Ciências Contábeis</option>
+          <option value="Educação Física">Educação Física</option>
+          <option value="Enfermagem">Enfermagem</option>
+          <option value="Engenharia Ambiental">Engenharia Ambiental</option>
+          <option value="Engenharia de Automação e Controle">Engenharia de Automação e Controle</option>
+          <option value="Engenharia de Produção">Engenharia de Produção</option>
+          <option value="Engenharia Elétrica">Engenharia Elétrica</option>
+          <option value="Engenharia Mecânica">Engenharia Mecânica</option>
+          <option value="Farmácia">Farmácia</option>
+          <option value="Fisioterapia">Fisioterapia</option>
+          <option value="História">História</option>
+          <option value="Jornalismo">Jornalismo</option>
+          <option value="Letras">Letras</option>
+          <option value="Medicina">Medicina</option>
+          <option value="Nutrição">Nutrição</option>
+          <option value="Pedagogia">Pedagogia</option>
+          <option value="Psicologia">Psicologia</option>
+          <option value="Publicidade e Propaganda">Publicidade e Propaganda</option>
+          <option value="Sistemas de Informação">Sistemas de Informação</option>
+          <option value="Superior de Tecnologia em Gastronomia">Superior de Tecnologia em Gastronomia</option>
+          <option value="Superior de Tecnologia em Gestão da Produção Industrial">Superior de Tecnologia em Gestão da
+            Produção Industrial</option>
+          <option value="Superior de Tecnologia em Gestão da Qualidade">Superior de Tecnologia em Gestão da Qualidade</option>
+          <option value="Superior de Tecnologia em Gestão de Recursos Humanos">Superior de Tecnologia em Gestão de
+            Recursos Humanos</option>
+          <option value="Superior de Tecnologia em Logística">Superior de Tecnologia em Logística</option>
         </select>
       </div>
 
       <div class="col-md-2">
         <label for="name"><strong>Período: </strong></label>
         <select id="inputState" class="custom-select" formControlName="periodoDiscenteEnvolvido1">
-          <option selected>Escolha...</option>
-          <option>Primeiro (1º)</option>
-          <option>Segundo (2º)</option>
-          <option>Terceiro (3º)</option>
-          <option>Quarto (4º)</option>
-          <option>Quinto (5º)</option>
-          <option>Sexto (6º)</option>
-          <option>Sétimo (7º)</option>
-          <option>Oitavo (8º)</option>
+          <option selected value="">Escolha...</option>
+          <option value=">Primeiro (1º)">Primeiro (1º)</option>
+          <option value="Segundo (2º)">Segundo (2º)</option>
+          <option value="Terceiro (3º)">Terceiro (3º)</option>
+          <option value="Quarto (4º)">Quarto (4º)</option>
+          <option value="Quinto (5º)">Quinto (5º)</option>
+          <option value="Sexto (6º)">Sexto (6º)</option>
+          <option value="Sétimo (7º)">Sétimo (7º)</option>
+          <option value="Oitavo (8º)">Oitavo (8º)</option>
         </select>
       </div>
 
@@ -814,17 +821,15 @@
       </div>
 
       <div class="col-md-6">
-        <!-- Add Ministrante
-              <input type="radio" value="Sim" [(ngModel)]="novoProjeto.addMinistrante2" formControlName="addMinistrante2"> -->
         <label><strong>Adicionar outro Discente? </strong></label>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addDiscente2s" value="Sim" [(ngModel)]="valueDiscente2"
-            [ngModelOptions]="{standalone: true}">
+          <input class="form-check-input" type="radio" id="addDiscente2s" value="Sim" formControlName="addDiscente2"
+            [(ngModel)]="valueDiscente2">
           <label class="form-check-label" for="addDiscente2s">Sim</label>
         </div>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addDiscente2n" value="Não" [(ngModel)]="valueDiscente2"
-            [ngModelOptions]="{standalone: true}">
+          <input class="form-check-input" type="radio" id="addDiscente2n" value="Não" formControlName="addDiscente2"
+            [(ngModel)]="valueDiscente2">
           <label class="form-check-label" for="addDiscente2n">Não</label>
         </div>
       </div>
@@ -846,50 +851,52 @@
       <div class="col-md-3">
         <label for="name"><strong>Curso: </strong></label>
         <select class="custom-select" formControlName="cursoDiscenteEnvolvido2">
-          <option selected>Escolha...</option>
-          <option>Administração</option>
-          <option>Artes Visuais</option>
-          <option>Ciências Biológicas - Bacharelado</option>
-          <option>Ciências Biológicas - Licenciatura</option>
-          <option>Ciências Contábeis</option>
-          <option>Educação Física</option>
-          <option>Enfermagem</option>
-          <option>Engenharia Ambiental</option>
-          <option>Engenharia de Automação e Controle</option>
-          <option>Engenharia de Produção</option>
-          <option>Engenharia Elétrica</option>
-          <option>Engenharia Mecânica</option>
-          <option>Farmácia</option>
-          <option>Fisioterapia</option>
-          <option>História</option>
-          <option>Jornalismo</option>
-          <option>Letras</option>
-          <option>Medicina</option>
-          <option>Nutrição</option>
-          <option>Pedagogia</option>
-          <option>Psicologia</option>
-          <option>Publicidade e Propaganda</option>
-          <option>Sistemas de Informação</option>
-          <option>Superior de Tecnologia em Gastronomia</option>
-          <option>Superior de Tecnologia em Gestão da Produção Industrial</option>
-          <option>Superior de Tecnologia em Gestão da Qualidade</option>
-          <option>Superior de Tecnologia em Gestão de Recursos Humanos</option>
-          <option>Superior de Tecnologia em Logística</option>
+          <option selected value="">Escolha...</option>
+          <option value="Administração">Administração</option>
+          <option value="Artes Visuais">Artes Visuais</option>
+          <option value="Ciências Biológicas - Bacharelado">Ciências Biológicas - Bacharelado</option>
+          <option value="Ciências Biológicas - Licenciatura">Ciências Biológicas - Licenciatura</option>
+          <option value="Ciências Contábeis">Ciências Contábeis</option>
+          <option value="Educação Física">Educação Física</option>
+          <option value="Enfermagem">Enfermagem</option>
+          <option value="Engenharia Ambiental">Engenharia Ambiental</option>
+          <option value="Engenharia de Automação e Controle">Engenharia de Automação e Controle</option>
+          <option value="Engenharia de Produção">Engenharia de Produção</option>
+          <option value="Engenharia Elétrica">Engenharia Elétrica</option>
+          <option value="Engenharia Mecânica">Engenharia Mecânica</option>
+          <option value="Farmácia">Farmácia</option>
+          <option value="Fisioterapia">Fisioterapia</option>
+          <option value="História">História</option>
+          <option value="Jornalismo">Jornalismo</option>
+          <option value="Letras">Letras</option>
+          <option value="Medicina">Medicina</option>
+          <option value="Nutrição">Nutrição</option>
+          <option value="Pedagogia">Pedagogia</option>
+          <option value="Psicologia">Psicologia</option>
+          <option value="Publicidade e Propaganda">Publicidade e Propaganda</option>
+          <option value="Sistemas de Informação">Sistemas de Informação</option>
+          <option value="Superior de Tecnologia em Gastronomia">Superior de Tecnologia em Gastronomia</option>
+          <option value="Superior de Tecnologia em Gestão da Produção Industrial">Superior de Tecnologia em Gestão da
+            Produção Industrial</option>
+          <option value="Superior de Tecnologia em Gestão da Qualidade">Superior de Tecnologia em Gestão da Qualidade</option>
+          <option value="Superior de Tecnologia em Gestão de Recursos Humanos">Superior de Tecnologia em Gestão de
+            Recursos Humanos</option>
+          <option value="Superior de Tecnologia em Logística">Superior de Tecnologia em Logística</option>
         </select>
       </div>
 
       <div class="col-md-2">
         <label for="name"><strong>Período: </strong></label>
         <select id="inputState" class="custom-select" formControlName="periodoDiscenteEnvolvido2">
-          <option selected>Escolha...</option>
-          <option>Primeiro (1º)</option>
-          <option>Segundo (2º)</option>
-          <option>Terceiro (3º)</option>
-          <option>Quarto (4º)</option>
-          <option>Quinto (5º)</option>
-          <option>Sexto (6º)</option>
-          <option>Sétimo (7º)</option>
-          <option>Oitavo (8º)</option>
+          <option selected value="">Escolha...</option>
+          <option value=">Primeiro (1º)">Primeiro (1º)</option>
+          <option value="Segundo (2º)">Segundo (2º)</option>
+          <option value="Terceiro (3º)">Terceiro (3º)</option>
+          <option value="Quarto (4º)">Quarto (4º)</option>
+          <option value="Quinto (5º)">Quinto (5º)</option>
+          <option value="Sexto (6º)">Sexto (6º)</option>
+          <option value="Sétimo (7º)">Sétimo (7º)</option>
+          <option value="Oitavo (8º)">Oitavo (8º)</option>
         </select>
       </div>
 
@@ -905,13 +912,13 @@
       <div class="col-md-6">
         <label><strong>Adicionar outro Discente? </strong></label>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addDiscente3s" value="Sim" [(ngModel)]="valueDiscente3"
-            [ngModelOptions]="{standalone: true}">
+          <input class="form-check-input" type="radio" id="addDiscente3s" value="Sim" formControlName="addDiscente3"
+            [(ngModel)]="valueDiscente3">
           <label class="form-check-label" for="addDiscente3s">Sim</label>
         </div>
         <div class="form-check form-check-inline ml-5">
-          <input class="form-check-input" type="radio" id="addDiscente3n" value="Não" [(ngModel)]="valueDiscente3"
-            [ngModelOptions]="{standalone: true}">
+          <input class="form-check-input" type="radio" id="addDiscente3n" value="Não" formControlName="addDiscente3"
+            [(ngModel)]="valueDiscente3">
           <label class="form-check-label" for="addDiscente3n">Não</label>
         </div>
       </div>
@@ -933,50 +940,52 @@
       <div class="col-md-3">
         <label for="name"><strong>Curso: </strong></label>
         <select class="custom-select" formControlName="cursoDiscenteEnvolvido3">
-          <option selected>Escolha...</option>
-          <option>Administração</option>
-          <option>Artes Visuais</option>
-          <option>Ciências Biológicas - Bacharelado</option>
-          <option>Ciências Biológicas - Licenciatura</option>
-          <option>Ciências Contábeis</option>
-          <option>Educação Física</option>
-          <option>Enfermagem</option>
-          <option>Engenharia Ambiental</option>
-          <option>Engenharia de Automação e Controle</option>
-          <option>Engenharia de Produção</option>
-          <option>Engenharia Elétrica</option>
-          <option>Engenharia Mecânica</option>
-          <option>Farmácia</option>
-          <option>Fisioterapia</option>
-          <option>História</option>
-          <option>Jornalismo</option>
-          <option>Letras</option>
-          <option>Medicina</option>
-          <option>Nutrição</option>
-          <option>Pedagogia</option>
-          <option>Psicologia</option>
-          <option>Publicidade e Propaganda</option>
-          <option>Sistemas de Informação</option>
-          <option>Superior de Tecnologia em Gastronomia</option>
-          <option>Superior de Tecnologia em Gestão da Produção Industrial</option>
-          <option>Superior de Tecnologia em Gestão da Qualidade</option>
-          <option>Superior de Tecnologia em Gestão de Recursos Humanos</option>
-          <option>Superior de Tecnologia em Logística</option>
+          <option selected value="">Escolha...</option>
+          <option value="Administração">Administração</option>
+          <option value="Artes Visuais">Artes Visuais</option>
+          <option value="Ciências Biológicas - Bacharelado">Ciências Biológicas - Bacharelado</option>
+          <option value="Ciências Biológicas - Licenciatura">Ciências Biológicas - Licenciatura</option>
+          <option value="Ciências Contábeis">Ciências Contábeis</option>
+          <option value="Educação Física">Educação Física</option>
+          <option value="Enfermagem">Enfermagem</option>
+          <option value="Engenharia Ambiental">Engenharia Ambiental</option>
+          <option value="Engenharia de Automação e Controle">Engenharia de Automação e Controle</option>
+          <option value="Engenharia de Produção">Engenharia de Produção</option>
+          <option value="Engenharia Elétrica">Engenharia Elétrica</option>
+          <option value="Engenharia Mecânica">Engenharia Mecânica</option>
+          <option value="Farmácia">Farmácia</option>
+          <option value="Fisioterapia">Fisioterapia</option>
+          <option value="História">História</option>
+          <option value="Jornalismo">Jornalismo</option>
+          <option value="Letras">Letras</option>
+          <option value="Medicina">Medicina</option>
+          <option value="Nutrição">Nutrição</option>
+          <option value="Pedagogia">Pedagogia</option>
+          <option value="Psicologia">Psicologia</option>
+          <option value="Publicidade e Propaganda">Publicidade e Propaganda</option>
+          <option value="Sistemas de Informação">Sistemas de Informação</option>
+          <option value="Superior de Tecnologia em Gastronomia">Superior de Tecnologia em Gastronomia</option>
+          <option value="Superior de Tecnologia em Gestão da Produção Industrial">Superior de Tecnologia em Gestão da
+            Produção Industrial</option>
+          <option value="Superior de Tecnologia em Gestão da Qualidade">Superior de Tecnologia em Gestão da Qualidade</option>
+          <option value="Superior de Tecnologia em Gestão de Recursos Humanos">Superior de Tecnologia em Gestão de
+            Recursos Humanos</option>
+          <option value="Superior de Tecnologia em Logística">Superior de Tecnologia em Logística</option>
         </select>
       </div>
 
       <div class="col-md-2">
         <label for="name"><strong>Período: </strong></label>
         <select id="inputState" class="custom-select" formControlName="periodoDiscenteEnvolvido3">
-          <option selected>Escolha...</option>
-          <option>Primeiro (1º)</option>
-          <option>Segundo (2º)</option>
-          <option>Terceiro (3º)</option>
-          <option>Quarto (4º)</option>
-          <option>Quinto (5º)</option>
-          <option>Sexto (6º)</option>
-          <option>Sétimo (7º)</option>
-          <option>Oitavo (8º)</option>
+          <option selected value="">Escolha...</option>
+          <option value=">Primeiro (1º)">Primeiro (1º)</option>
+          <option value="Segundo (2º)">Segundo (2º)</option>
+          <option value="Terceiro (3º)">Terceiro (3º)</option>
+          <option value="Quarto (4º)">Quarto (4º)</option>
+          <option value="Quinto (5º)">Quinto (5º)</option>
+          <option value="Sexto (6º)">Sexto (6º)</option>
+          <option value="Sétimo (7º)">Sétimo (7º)</option>
+          <option value="Oitavo (8º)">Oitavo (8º)</option>
         </select>
       </div>
 

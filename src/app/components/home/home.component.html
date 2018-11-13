@@ -53,7 +53,7 @@
             <hr>
           </li>
           <li class="nav-item">
-            <a class="nav-link" routerLink="/home/novo-projeto-aux">
+            <a [hidden]="perfil.permissao == 4" class="nav-link" routerLink="/home/novo-projeto-aux">
               <span [innerHTML]="'file-plus' | feather:24:'#212529'"></span>
               Cadastrar projeto
             </a>
@@ -73,11 +73,15 @@
           </li> -->
         </ul>
 
-        <div class="col-12">
+        <div [hidden]="perfil.permissao == 4" class="col-12">
           <hr>
         </div>
 
-        <label class="inactive" style="margin-left:8%">
+        <label [hidden]="perfil.permissao != 4" class="inactive" style="margin-left:8%">
+          <span [innerHTML]="'folder' | feather:24:'#212529'"></span>
+          Projetos<span class="sr-only">(current)</span>
+        </label>
+        <label [hidden]="perfil.permissao == 4" class="inactive" style="margin-left:8%">
           <span [innerHTML]="'folder' | feather:24:'#212529'"></span>
           Seus projetos<span class="sr-only">(current)</span>
         </label>

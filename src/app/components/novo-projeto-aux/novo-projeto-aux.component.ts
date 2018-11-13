@@ -139,6 +139,7 @@ export class NovoProjetoAuxComponent implements OnInit {
       valorUnitarioRecursos4: [''],
       totalRecursos4: [''],
       totalDespesas: [''],
+      addMinistrante2: [''],      
     });
 
      this.formulario.valueChanges.subscribe(console.log);

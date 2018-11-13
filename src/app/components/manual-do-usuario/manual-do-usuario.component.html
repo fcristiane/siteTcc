@@ -1,6 +1,17 @@
 <div class="row justify-content-md-center mt-4">
   <div class="col-md-5 centralizar">
     <h1>Manual do Usuário</h1>
-    <span [innerHTML]="'x' | feather:24:'#818181'" title="Manutenção"></span>Em construção...
+
+    <div class="col-md-12 mt-2 mb-3 alerta">
+      <p class="m-3"><strong>Baixo:</strong></p>
+      <hr class="m-1">
+      <p class="m-3">Autor: </p>
+      <p class="m-3">Data: {{ project.dataComentario | date: 'd/M/y, h:mm a' }}</p>
+      <hr class="m-1">
+      <p class="m-3">{{ project.comentario }}</p>
+    </div>
+    <a href="src/assets/arquivos/manual-do-usuario.pdf" download>
+      <span [innerHTML]="'download' | feather:40:'#2cbc59'" class="mr-2"></span>
+    </a>
   </div>
 </div>
