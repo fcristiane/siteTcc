@@ -9,6 +9,7 @@ import { PerfilService } from 'src/app/core/perfils/perfil.service';
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
 import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
+import mail from 'src/app/core/mail/mail';
 
 @Component({
   selector: 'app-novo-projeto-aux',
@@ -222,6 +223,13 @@ export class NovoProjetoAuxComponent implements OnInit {
     console.log(novoProjeto);
     this.projetoService.create(novoProjeto);
     this.router.navigate(['/home/todos-projetos']);
+    // const message = Object.assign({});     
+            
+    //         mail.to = message.to;
+    //         mail.subject = message.subject;
+    //         mail.message = message.message;
+    //         let result = mail.sendMail();
+    //         console.log(result);
   }
 
   update(novoProjeto: Projeto) {

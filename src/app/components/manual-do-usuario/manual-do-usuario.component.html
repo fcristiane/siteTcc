@@ -1,17 +1,25 @@
-<div class="row justify-content-md-center mt-4">
-  <div class="col-md-5 centralizar">
+<div class="row justify-content-md-center centralizar mt-4">
+  <div class="col-md-12">
     <h1>Manual do Usuário</h1>
-
-    <div class="col-md-12 mt-2 mb-3 alerta">
-      <p class="m-3"><strong>Baixo:</strong></p>
-      <hr class="m-1">
-      <p class="m-3">Autor: </p>
-      <p class="m-3">Data: {{ project.dataComentario | date: 'd/M/y, h:mm a' }}</p>
-      <hr class="m-1">
-      <p class="m-3">{{ project.comentario }}</p>
+    <hr>
+    <div class="row mt-3 mb-3">
+      <div class="col-md-3"></div>
+      <div class="col-md-6 ">
+        <h6>No pdf abaixo você encontrará algumas instruções de como utilizar corretamente as principais
+          funcionalidades de nosso site, e também conhecer um pouco sobre cada etapa.</h6>
+      </div>
+      <div class="col-md-3"></div>
     </div>
-    <a href="src/assets/arquivos/manual-do-usuario.pdf" download>
-      <span [innerHTML]="'download' | feather:40:'#2cbc59'" class="mr-2"></span>
-    </a>
+    <hr>
+    <div class="row">
+      <div class="col-md-12 mt-2 mb-3 alerta">
+        <p class="m-3"><strong>Download de Pdf:</strong></p>
+        <a href="src/assets/arquivos/manual-do-usuario.pdf" download>
+          <span [innerHTML]="'download' | feather:100:'#2cbc59'"></span>
+        </a>
+        <p><i>Clique aqui!</i></p>
+      </div>
+    </div>
+
   </div>
 </div>
