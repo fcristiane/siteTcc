@@ -161,30 +161,8 @@ export class NovoProjetoAuxComponent implements OnInit {
       this.salvar(this.novoProjeto);
       alert('Sucesso!');
     
-    // if (this.formulario.valid) {
-    //   this.projetoService.create(this.formulario);
-    //   this.formulario.reset();
-    // } else {
-    //   console.log('Formulário inválido!');
-    //   Object.keys(this.formulario.controls).forEach(campo => {
-    //   console.log(campo);
-    //   const controle = this.formulario.get(campo);
-    //   controle.markAsDirty();
-    //   });
-    // }
     
   }
-
-  // varificaValidTouched(campo){
-  //   return !this.formulario.get(campo).valid && this.formulario.get(campo).touched;
-  // }
-
-  // aplicaCssErro(campo){
-  //   return {
-  //     'has-error': this.varificaValidTouched(campo),
-  //     'has-feedback': this.varificaValidTouched(campo)
-  //   }
-  // }
 
   buildClassificacao() {
     const values = this.classificacoes.map(v => new FormControl(false));
@@ -200,7 +178,6 @@ export class NovoProjetoAuxComponent implements OnInit {
     const values = this.diasDaSemana.map(v => new FormControl(false));
     return this.fb.array(values);
   }
-  // get f() { return this.registerForm.controls; }
 
   requiredMinCheckbox(min = 1){
     const validator = (formArray: FormArray) => {
