@@ -9,7 +9,6 @@ import { PerfilService } from 'src/app/core/perfils/perfil.service';
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
 import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
-import mail from 'src/app/core/mail/mail';
 
 @Component({
   selector: 'app-novo-projeto-aux',
@@ -140,28 +139,28 @@ export class NovoProjetoAuxComponent implements OnInit {
       valorUnitarioRecursos4: [''],
       totalRecursos4: [''],
       totalDespesas: [''],
-      addMinistrante2: [''],      
+      addMinistrante2: [''],
     });
 
-     this.formulario.valueChanges.subscribe(console.log);
+    this.formulario.valueChanges.subscribe(console.log);
 
   }
 
-  get f() {return this.formulario.controls; }
+  get f() { return this.formulario.controls; }
 
   onSubmit() {
     console.log(this.formulario);
     this.submitted = true;
-    if(this.formulario.invalid) {
+    if (this.formulario.invalid) {
       console.log('Formulário inválido');
       alert('Preencha todos os campos obrigatórios!');
       return;
-    } 
-      this.novoProjeto = this.formulario.value;
-      this.salvar(this.novoProjeto);
-      alert('Sucesso!');
-    
-    
+    }
+    this.novoProjeto = this.formulario.value;
+    this.salvar(this.novoProjeto);
+    alert('Sucesso!');
+
+
   }
 
   buildClassificacao() {
@@ -179,14 +178,14 @@ export class NovoProjetoAuxComponent implements OnInit {
     return this.fb.array(values);
   }
 
-  requiredMinCheckbox(min = 1){
+  requiredMinCheckbox(min = 1) {
     const validator = (formArray: FormArray) => {
       const totalChecked = formArray.controls
         .map(v => v.value)
-        .reduce((total, current) => current ? total + current: total, 0);
+        .reduce((total, current) => current ? total + current : total, 0);
       return totalChecked >= min ? null : { required: true };
     };
-    return validator;    
+    return validator;
   }
 
   getLista() {
@@ -200,13 +199,6 @@ export class NovoProjetoAuxComponent implements OnInit {
     console.log(novoProjeto);
     this.projetoService.create(novoProjeto);
     this.router.navigate(['/home/todos-projetos']);
-    // const message = Object.assign({});     
-            
-    //         mail.to = message.to;
-    //         mail.subject = message.subject;
-    //         mail.message = message.message;
-    //         let result = mail.sendMail();
-    //         console.log(result);
   }
 
   update(novoProjeto: Projeto) {
@@ -222,3 +214,11 @@ export class NovoProjetoAuxComponent implements OnInit {
     this.router.navigate(['/home/todos-projetos']);
   }
 }
+
+// const message = Object.assign({});     
+
+    //         mail.to = message.to;
+    //         mail.subject = message.subject;
+    //         mail.message = message.message;
+    //         let result = mail.sendMail();
+    //         console.log(result);
