@@ -185,7 +185,7 @@ export class NovoProjetoAuxComponent implements OnInit {
     console.log(valueSubmit);
     this.novoProjeto = valueSubmit;
     this.salvar(this.novoProjeto);
-    alert('Sucesso!');
+    alert('Finalizado com sucesso!');
   }
 
   finishLater() {
@@ -221,7 +221,7 @@ export class NovoProjetoAuxComponent implements OnInit {
 
     this.novoProjeto = valueSubmit;
     this.emEdicao(this.novoProjeto);
-    alert('Sucesso!');
+    alert('Salvo com sucesso!');
     // this.router.navigate(['/home/todos-projetos']);
   }
 
