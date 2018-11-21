@@ -14,7 +14,7 @@
     </p>
   </div>
   <!-- (ngSubmit)="onSubmit()" -->
-  <form *ngFor="let perfil of perfils | async" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+  <form *ngFor="let perfil of perfils | async" [formGroup]="formulario">
     <hr class="mb-3 hr-edit mt-5">
     <div class="form-row">
       <div class="col-md-12" id="texto-centro">
@@ -164,7 +164,9 @@
         </div>
       </div>
 
-      <div class="col-md-12 direita"><p><i>(*) Campos obrigatórios</i></p></div>
+      <div class="col-md-12 direita">
+        <p><i>(*) Campos obrigatórios</i></p>
+      </div>
 
       <div class="col-md-12 mt-0">
         <hr class="hr-edit">
@@ -238,7 +240,9 @@
         </div>
       </div>
 
-      <div class="col-md-12 direita"><p><i>(*) Campos obrigatórios</i></p></div>
+      <div class="col-md-12 direita">
+        <p><i>(*) Campos obrigatórios</i></p>
+      </div>
 
     </div>
 
@@ -545,7 +549,9 @@
 
     </div>
 
-    <div class="col-md-12 direita"><p><i>(*) Campos obrigatórios</i></p></div>
+    <div class="col-md-12 direita">
+      <p><i>(*) Campos obrigatórios</i></p>
+    </div>
 
     <hr class="hr-edit mt-0">
 
@@ -1171,12 +1177,11 @@
     <div class="form-row form-group mt-2 mb-5 item justify-content-center">
       <div class="col-md-1"></div>
       <div class="col-md-4">
-        <button class="btn btn-primary btn-lg btn-block">Finalizar</button>
+        <button class="btn btn-primary btn-lg btn-block" type="button" (click)="finish()">Finalizar</button>
       </div>
       <div class="col-md-1"></div>
       <div class="col-md-4">
-        <button class="btn btn-warning btn-lg btn-block" type="button" (click)="emEdicao()">Continuar mais
-          tarde</button>
+        <button class="btn btn-warning btn-lg btn-block" type="button" (click)="finishLater()">Continuar mais tarde</button>
       </div>
       <div class="col-md-1 mb-3 direita">
         <a title="Ao escolher a opção 'Finalizar', você estará concordando que seu projeto está pronto para análise de um superior. Caso ainda não tenha certeza se as informações preenchidas estão corretas, você pode clicar em 'Continuar mais tarde' para salvar e editar quando quiser."><span
@@ -1184,30 +1189,6 @@
       </div>
     </div>
 
-    <!-- <form class="form-inline my-2 my-lg-0">
-        <h6 id="bv" class="mr-2">Bem vindo, {{ perfil.nome }}</h6>
-        <a routerLink="/home/perfil" title="Perfil"><span [innerHTML]="'user' | feather:24:'#2cbc59'" class="mr-2"></span></a>
-        <a><button type="button" class="btn btn-outline-light my-2 my-sm-0 botao" (click)="logout()" routerLink="">Sair</button></a>
-      </form> -->
-
-    <!-- <div class="form-row mt-2 mb-5 item">
-        <div class="col-md-2"></div>
-        <div class="col-md-4">
-          <button class="btn btn-primary btn-lg btn-block" type="button" (click)="salvar(novoProjeto)">Finalizar</button>
-        </div>
-        <div class="col-md-4">
-          <button class="btn btn-warning btn-lg btn-block" type="button" (click)="emEdicao(novoProjeto)">Continuar mais
-            tarde</button>
-        </div>
-        <div class="col-md-2"></div>
-      </div> -->
-
-
-
-
-
   </form>
-
-
 
 </div>

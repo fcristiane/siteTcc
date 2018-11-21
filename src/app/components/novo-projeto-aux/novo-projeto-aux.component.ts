@@ -147,9 +147,13 @@ export class NovoProjetoAuxComponent implements OnInit {
 
   }
 
-  get f() { return this.formulario.controls; }
+  finish() {
 
-  onSubmit() {
+    // for(let i in this.formulario.controls){
+    //   console.log(this.formulario.controls[i].value)
+    // }
+    // this.formulario.get("nomeAtv").value
+
     console.log(this.formulario);
     this.submitted = true;
     if (this.formulario.invalid) {
@@ -162,19 +166,19 @@ export class NovoProjetoAuxComponent implements OnInit {
 
     valueSubmit = Object.assign(valueSubmit, {
       classificacoes: valueSubmit.classificacoes
-        .map((v, i) => v ? this.classificacoes[i] : null )
+        .map((v, i) => v ? this.classificacoes[i] : null)
         .filter(v => v !== null)
     });
 
     valueSubmit = Object.assign(valueSubmit, {
       areaTematica: valueSubmit.areaTematica
-        .map((v, i) => v ? this.areaTematica[i] : null )
+        .map((v, i) => v ? this.areaTematica[i] : null)
         .filter(v => v !== null)
     });
 
     valueSubmit = Object.assign(valueSubmit, {
       diasDaSemana: valueSubmit.diasDaSemana
-        .map((v, i) => v ? this.diasDaSemana[i] : null )
+        .map((v, i) => v ? this.diasDaSemana[i] : null)
         .filter(v => v !== null)
     });
 
@@ -183,9 +187,84 @@ export class NovoProjetoAuxComponent implements OnInit {
     this.novoProjeto = valueSubmit;
     this.salvar(this.novoProjeto);
     alert('Sucesso!');
-
-
   }
+
+  finishLater() {
+    console.log(this.formulario);
+    this.submitted = true;
+    if (this.formulario.invalid) {
+      console.log('Formulário inválido');
+      alert('Preencha todos os campos obrigatórios!');
+      return;
+    }
+
+    let valueSubmit = Object.assign({}, this.formulario.value);
+
+    valueSubmit = Object.assign(valueSubmit, {
+      classificacoes: valueSubmit.classificacoes
+        .map((v, i) => v ? this.classificacoes[i] : null)
+        .filter(v => v !== null)
+    });
+
+    valueSubmit = Object.assign(valueSubmit, {
+      areaTematica: valueSubmit.areaTematica
+        .map((v, i) => v ? this.areaTematica[i] : null)
+        .filter(v => v !== null)
+    });
+
+    valueSubmit = Object.assign(valueSubmit, {
+      diasDaSemana: valueSubmit.diasDaSemana
+        .map((v, i) => v ? this.diasDaSemana[i] : null)
+        .filter(v => v !== null)
+    });
+
+    console.log(valueSubmit);
+
+    this.novoProjeto = valueSubmit;
+    this.emEdicao(this.novoProjeto);
+    alert('Sucesso!');
+    // this.router.navigate(['/home/todos-projetos']);
+  }
+
+  get f() { return this.formulario.controls; }
+
+  // onSubmit() {
+  //   console.log(this.formulario);
+  //   this.submitted = true;
+  //   if (this.formulario.invalid) {
+  //     console.log('Formulário inválido');
+  //     alert('Preencha todos os campos obrigatórios!');
+  //     return;
+  //   }
+
+  //   let valueSubmit = Object.assign({}, this.formulario.value);
+
+  //   valueSubmit = Object.assign(valueSubmit, {
+  //     classificacoes: valueSubmit.classificacoes
+  //       .map((v, i) => v ? this.classificacoes[i] : null)
+  //       .filter(v => v !== null)
+  //   });
+
+  //   valueSubmit = Object.assign(valueSubmit, {
+  //     areaTematica: valueSubmit.areaTematica
+  //       .map((v, i) => v ? this.areaTematica[i] : null)
+  //       .filter(v => v !== null)
+  //   });
+
+  //   valueSubmit = Object.assign(valueSubmit, {
+  //     diasDaSemana: valueSubmit.diasDaSemana
+  //       .map((v, i) => v ? this.diasDaSemana[i] : null)
+  //       .filter(v => v !== null)
+  //   });
+
+  //   console.log(valueSubmit);
+
+  //   this.novoProjeto = valueSubmit;
+  //   this.salvar(this.novoProjeto);
+  //   alert('Sucesso!');
+
+
+  // }
 
   buildClassificacao() {
     const values = this.classificacoes.map(v => new FormControl(false));
@@ -222,6 +301,12 @@ export class NovoProjetoAuxComponent implements OnInit {
   salvar(novoProjeto: Projeto) {
     console.log(novoProjeto);
     this.projetoService.create(novoProjeto);
+    this.router.navigate(['/home/todos-projetos']);
+  }
+
+  emEdicao(novoProjeto: Projeto) {
+    console.log(novoProjeto);
+    this.projetoService.emEdicao(novoProjeto);
     this.router.navigate(['/home/todos-projetos']);
   }
 

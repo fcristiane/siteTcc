@@ -3,21 +3,21 @@ import { Projeto } from 'src/app/core/projetos/projeto.module';
 import { Perfil } from '../perfil/perfil.module';
 import { Observable } from 'rxjs';
 import { PerfilService } from 'src/app/core/perfils/perfil.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import { ProjetoService } from 'src/app/core/projetos/projeto.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-enviar-comentario',
-  templateUrl: './enviar-comentario.component.html',
-  styleUrls: ['./enviar-comentario.component.css']
+  selector: 'app-aprovar-projeto',
+  templateUrl: './aprovar-projeto.component.html',
+  styleUrls: ['./aprovar-projeto.component.css']
 })
-export class EnviarComentarioComponent implements OnInit {
+export class AprovarProjetoComponent implements OnInit {
 
   project: Projeto = {} as Projeto;
 
   perfil: Perfil = {} as Perfil;
   perfils: Observable<Perfil[]>;
-
+  
   constructor(private route: ActivatedRoute,
     private projetoService: ProjetoService,
     public perfilService: PerfilService,
@@ -35,8 +35,8 @@ export class EnviarComentarioComponent implements OnInit {
     this.perfils = this.perfilService.getPerfil();
   }
 
-  enviar(project: Projeto) {
-    this.projetoService.enviarComentario(project);
+  salvar(project: Projeto) {
+    this.projetoService.aprovar(project);
     this.router.navigate(['/home/todos-projetos']);
   }
 

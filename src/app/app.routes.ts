@@ -16,6 +16,8 @@ import { ProjetoEditandoComponent } from './components/projeto-editando/projeto-
 import { NovoProjetoEditandoComponent } from './components/novo-projeto-editando/novo-projeto-editando.component';
 import { EnviarComentarioComponent } from './components/enviar-comentario/enviar-comentario.component';
 import { NovoProjetoAuxComponent } from './components/novo-projeto-aux/novo-projeto-aux.component';
+import { AprovarProjetoComponent } from './components/aprovar-projeto/aprovar-projeto.component';
+import { ContatosComponent } from './components/contatos/contatos.component';
 
 export const rootRouterConfig: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -36,7 +38,9 @@ export const rootRouterConfig: Routes = [
       { path: 'projeto-editando', component: ProjetoEditandoComponent },
       { path: 'novo-projeto-editando/:id', component: NovoProjetoEditandoComponent },
       { path: 'enviar-comentario/:id', component: EnviarComentarioComponent },
-      { path: 'novo-projeto-aux', component: NovoProjetoAuxComponent }
+      { path: 'novo-projeto-aux', component: NovoProjetoAuxComponent },
+      { path: 'aprovar-projeto/:id', component: AprovarProjetoComponent},
+      { path: 'contatos', component: ContatosComponent},
 
     ]
   },

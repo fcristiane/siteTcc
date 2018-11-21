@@ -19,12 +19,9 @@
     <div class="form-row" [hidden]="!project.comentario">
 
       <div class="col-md-12 mt-2 mb-3 alerta">
-        <p class="m-3"><strong>Você recebeu uma mensagem para atualização de seu projeto:</strong></p>
+        <p class="m-3">Você recebeu uma mensagem de <strong>{{ project.autorComentario }}</strong> para atualização de seu projeto no dia <strong>{{ project.dataComentario | date: 'd/M/y, h:mm a' }}.</strong></p>
         <hr class="m-1">
-        <p class="m-3">Autor: </p>
-        <p class="m-3">Data: {{ project.dataComentario | date: 'd/M/y, h:mm a' }}</p>
-        <hr class="m-1">
-        <p class="m-3">{{ project.comentario }}</p>
+        <p class="m-3">Comentário: {{ project.comentario }}</p>
       </div>
 
       <div class="col-md-12">
@@ -112,238 +109,21 @@
 
     </div>
 
-    <!-- <div class="form-row">
-      <div class="col-md-2">
-          <label><strong>Classificação:</strong></label>
-      </div>
-    </div>
-
-
     <div class="form-row">
-
-        <div class="form-group col-md-2">
-
-          <div class="custom-control custom-radio">
-            <input type="radio" name="classificacao12" id="radio01" class="custom-control-input" value="Concurso/"
-              [(ngModel)]="project.classificacao12" ng-checked="all">
-            <label class="custom-control-label" for="radio01">Concurso</label>
-          </div>
-
-          <div class="custom-control custom-radio">
-            <input type="radio" name="classificacao2" id="radio02" class="custom-control-input" value="Curso/"
-              [(ngModel)]="project.classificacao2" ng-checked="all">
-            <label class="custom-control-label" for="radio02">Curso</label>
-          </div>
-
-          <div class="custom-control custom-radio">
-            <input type="radio" name="classificacao3" id="radio03" class="custom-control-input" value="Encontro/"
-              [(ngModel)]="project.classificacao3" ng-checked="all">
-            <label class="custom-control-label" for="radio03">Encontro</label>
-          </div>
-
-          <div class="custom-control custom-radio">
-            <input type="radio" name="classificacao5" id="radio04" class="custom-control-input" value="Exposição/"
-              [(ngModel)]="project.classificacao5" ng-checked="all">
-            <label class="custom-control-label" for="radio04">Exposição</label>
-          </div>
-
-        </div>
-        <div class="form-group col-md-2">
-
-          <div class="custom-control custom-radio">
-            <input type="radio" name="classificacao4" id="radio05" class="custom-control-input" value="Jornada/"
-              [(ngModel)]="project.classificacao4" ng-checked="all">
-            <label class="custom-control-label" for="radio05">Jornada</label>
-          </div>
-
-          <div class="custom-control custom-radio">
-            <input type="radio" name="classificacao6" id="radio06" class="custom-control-input" value="Oficina/"
-              [(ngModel)]="project.classificacao6" ng-checked="all">
-            <label class="custom-control-label" for="radio06">Oficina</label>
-          </div>
-          <div class="custom-control custom-radio">
-            <input type="radio" name="classificacao8" id="radio07" class="custom-control-input" value="Palestra/"
-              [(ngModel)]="project.classificacao8" ng-checked="all"> 
-            <label class="custom-control-label" for="radio07">Palestra</label>
-          </div>
-
-          <div class="custom-control custom-radio">
-            <input type="radio" name="classificacao1" id="radio08" class="custom-control-input" value="Projeto/"
-              [(ngModel)]="project.classificacao1" ng-checked="all">
-            <label class="custom-control-label" for="radio08">Projeto</label>
-          </div>
-        </div>
-
-        <div class="form-group col-md-2">
-
-
-          <div class="custom-control custom-radio">
-            <input type="radio" name="classificacao11" id="radio09" class="custom-control-input" value="Publicacao/"
-              [(ngModel)]="project.classificacao11" ng-checked="all">
-            <label class="custom-control-label" for="radio09">Publicacao</label>
-          </div>
-
-          <div class="custom-control custom-radio">
-            <input type="radio" name="classificacao7" id="radio010" class="custom-control-input" value="Seminario/"
-              [(ngModel)]="project.classificacao7" ng-checked="all">
-            <label class="custom-control-label" for="radio010">Seminario</label>
-          </div>
-
-          <div class="custom-control custom-radio">
-            <input type="radio" name="classificacao9" id="radio011" class="custom-control-input" value="Simpósio/"
-              [(ngModel)]="project.classificacao9" ng-checked="all">
-            <label class="custom-control-label" for="radio011">Simpósio</label>
-          </div>
-
-          <div class="custom-control custom-radio">
-            <input type="radio" name="classificacao13" id="radio012" class="custom-control-input" value="Viagem/"
-              [(ngModel)]="project.classificacao13" ng-checked="all">
-            <label class="custom-control-label" for="radio012">Viagem</label>
-          </div>
-
-        </div>
-
-        <div class="form-group col-md-2">
-
-          <div class="custom-control custom-radio">
-            <input type="radio" name="classificacao10" id="radio013" class="custom-control-input" value="Workshop"
-              [(ngModel)]="project.classificacao10" ng-checked="all">
-            <label class="custom-control-label" for="radio013">Workshop</label>
-          </div>
-
-          <div class="custom-control custom-radio">
-              <input type="radio" name="all" id="radio014" class="custom-control-input"
-              ng-model="all">
-              <label class="custom-control-label" for="radio014">Desmarcar Todos</label>
-            </div>
-        </div> -->
-
-
-    <div class="form-row">
-
-      <div class="form-group col-md-8">
-        <label for="classficacao"><strong>Classificação: </strong></label>
-        <br>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="classificacao12" value="Concurso" [(ngModel)]="project.classificacao12">
-          <label class="form-check-label" for="classificacao12">Concurso</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="classificacao2" value="Curso" [(ngModel)]="project.classificacao2">
-          <label class="form-check-label" for="classificacao2">Curso</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="classificacao3" value="Encontro" [(ngModel)]="project.classificacao3">
-          <label class="form-check-label" for="classificacao3">Encontro</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="classificacao5" value="Exposição" [(ngModel)]="project.classificacao5">
-          <label class="form-check-label" for="classificacao5">Exposição</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="classificacao4" value="Jornada" [(ngModel)]="project.classificacao4">
-          <label class="form-check-label" for="classificacao4">Jornada</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="classificacao6" value="Oficina" [(ngModel)]="project.classificacao6">
-          <label class="form-check-label" for="classificacao6">Oficina</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="classificacao8" value="Palestra" [(ngModel)]="project.classificacao8">
-          <label class="form-check-label" for="classificacao8">Palestra</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="classificacao1" value="Projeto" [(ngModel)]="project.classificacao1">
-          <label class="form-check-label" for="classificacao1">Projeto</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="classificacao11" value="Publicacao" [(ngModel)]="project.classificacao11">
-          <label class="form-check-label" for="classificacao11">Publicação</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="classificacao7" value="Seminario" [(ngModel)]="project.classificacao7">
-          <label class="form-check-label" for="classificacao7">Seminário</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="classificacao9" value="Simpósio" [(ngModel)]="project.classificacao9">
-          <label class="form-check-label" for="classificacao9">Simpósio</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="classificacao13" value="Viagem" [(ngModel)]="project.classificacao13">
-          <label class="form-check-label" for="classificacao13">Viagem</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="classificacao10" value="Workshop" [(ngModel)]="project.classificacao10">
-          <label class="form-check-label" for="classificacao10">Workshop</label>
-        </div>
-
-      </div>
 
       <div class="form-group col-md-4">
         <label><strong>Local de Realização:</strong></label>
         <input type="text" class="form-control" name="local" [(ngModel)]="project.local">
       </div>
 
+      <div class="col-md-8">
+        <label><strong>Classificação:</strong></label>
+        <input type="text" class="form-control" name="classificacoes" [(ngModel)]="project.classificacoes" disabled>
+      </div>
+
     </div>
 
     <div class="form-row">
-
-      <div class="form-group col-md-8 mb-2">
-        <label for="areaTematica"><strong>Área temática: </strong></label>
-        <br>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="areaTematica" value="Comunicação" [(ngModel)]="project.areaTematica">
-          <label class="form-check-label" for="areaTematica">Comunicação</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="areaTematica" value="Cultura" [(ngModel)]="project.areaTematica">
-          <label class="form-check-label" for="areaTematica">Cultura</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="areaTematica" value="Direitos Humanos" [(ngModel)]="project.areaTematica">
-          <label class="form-check-label" for="areaTematica">Direitos Humanos</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="areaTematica" value="Educação" [(ngModel)]="project.areaTematica">
-          <label class="form-check-label" for="areaTematica">Educação</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="areaTematica" value="Meio Ambiente" [(ngModel)]="project.areaTematica">
-          <label class="form-check-label" for="areaTematica">Meio Ambiente</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="areaTematica" value="Saúde" [(ngModel)]="project.areaTematica">
-          <label class="form-check-label" for="areaTematica">Saúde</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="areaTematica" value="Tecnologia" [(ngModel)]="project.areaTematica">
-          <label class="form-check-label" for="areaTematica">Tecnologia</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="areaTematica" value="Trabalho" [(ngModel)]="project.areaTematica">
-          <label class="form-check-label" for="areaTematica">Trabalho</label>
-        </div>
-
-      </div>
 
       <div class="form-group col-md-4">
         <label for="areaAtuacao"><strong>Área de atuação: </strong></label>
@@ -356,6 +136,11 @@
           <option value="Comunicação">Comunicação</option>
           <option value="Educação">Educação</option>
         </select>
+      </div>
+
+      <div class="col-md-8">
+        <label><strong>Área temática:</strong></label>
+        <input type="text" class="form-control" name="areaTematica" [(ngModel)]="project.areaTematica" disabled>
       </div>
 
       <div class="col-md-12">
@@ -400,65 +185,11 @@
         <input type="number" class="form-control" name="cargaHoraria" [(ngModel)]="project.cargaHoraria" placeholder="Hora(s)">
       </div>
 
-      <div class="form-group col-md-3 mb-2">
-
+      <div class="col-md-9 mb-2">
+        <label><strong>Dias da Semana:</strong></label>
+        <input type="text" class="form-control" name="diasDaSemana" [(ngModel)]="project.diasDaSemana" disabled>
       </div>
 
-      <div class="form-check col-md-6 mb-2">
-        <label><strong>Dias da semana: </strong></label>
-        <br>
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="diasDaSemana1" value="Segunda-feira" [(ngModel)]="project.diasDaSemana1">
-          <label class="form-check-label">Segunda-feira</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="diasDaSemana2" value="Terça-feira" [(ngModel)]="project.diasDaSemana2">
-          <label class="form-check-label">Terça-feira</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="diasDaSemana3" value="Quarta-feira" [(ngModel)]="project.diasDaSemana3">
-          <label class="form-check-label">Quarta-feira</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="diasDaSemana4" value="Quinta-feira" [(ngModel)]="project.diasDaSemana4">
-          <label class="form-check-label">Quinta-feira</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="diasDaSemana5" value="Sexta-feira" [(ngModel)]="project.diasDaSemana5">
-          <label class="form-check-label">Sexta-feira</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="diasDaSemana6" value="Sábado" [(ngModel)]="project.diasDaSemana6">
-          <label class="form-check-label">Sábado</label>
-        </div>
-
-        <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" name="diasDaSemana7" value="Domingo" [(ngModel)]="project.diasDaSemana7">
-          <label class="form-check-label">Domingo</label>
-        </div>
-
-        <!-- <div class="form-group col-md-3">
-          <label><strong>Docente da Instituição? </strong></label><br>
-          <div class="form-check form-check-inline">
-            <div class="custom-control custom-radio">
-              <input type="radio" name="docenteInstituicao" id="customRadio1" class="custom-control-input" value="Sim"
-                [(ngModel)]="project.docenteInstituicao" checked>
-              <label class="custom-control-label" for="customRadio1">Sim</label>
-            </div>
-            <div class="custom-control custom-radio ml-2">
-              <input type="radio" name="docenteInstituicao" id="customRadio2" class="custom-control-input" value="Não"
-                [(ngModel)]="project.docenteInstituicao">
-              <label class="custom-control-label" for="customRadio2">Não</label>
-            </div>
-          </div>
-        </div> -->
-
-      </div>
     </div>
 
     <hr class="hr-edit">

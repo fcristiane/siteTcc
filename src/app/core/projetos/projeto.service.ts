@@ -22,16 +22,15 @@ export class ProjetoService implements OnInit {
   showMessageError: boolean;
 
   perfils: Observable<Perfil[]>;
-
   user = firebase.auth().currentUser;
 
   constructor(private db: AngularFirestore,
     private auth: AngularFireAuth,
-    public perfil: PerfilService,
+    public perfilService: PerfilService,
     public router: Router) { }
 
   ngOnInit() {
-    this.perfils = this.perfil.getPerfil();
+    this.perfils = this.perfilService.getPerfil();
   }
 
   getProjetos(): Observable<Projeto[]> {
@@ -65,7 +64,12 @@ export class ProjetoService implements OnInit {
     this.db.collection<Projeto>('project').doc(id).set(formulario).then((success) => {
       console.log(success);
       console.log('Salvo');
-      emailjs.send('danielsimoes1964@gmail.com', 'template_8RGNGecJ', 'user_Nqf2Vk94Xmq9jo3YBWrMf')
+      let templateParams = {
+        name: 'James',
+        notes: 'Check this out!'
+    }
+      emailjs.init('user_Nqf2Vk94Xmq9jo3YBWrMf');
+      emailjs.send('gmail', 'template_8RGNGecJ', templateParams)
         .then((response) => {
           console.log('SUCCESS!', response.status, response.text);
         }, (err) => {
@@ -108,9 +112,9 @@ export class ProjetoService implements OnInit {
   }
 
   enviarComentario(project: Projeto) {
-    const perfil = this.perfils;
     const today: number = Date.now();
     project.dataComentario = today;
+    project.atualizacaoEditado = today;
     project.situacao = 5;
     this.db.collection<Projeto>('project').doc(project.id).update(project).then((success) => {
       console.log(success);

@@ -9,12 +9,23 @@
     </div>
   </div>
 
-  <div class="col-md-12 mb-3">
+  <div class="col-md-12 mb-0">
     <div class="form">
       <div class="form-row">
           <div class="form-group">
               <label for="exampleFormControlTextarea1">Escreva um comentário, uma sugestão de mudança ou qualquer informação que você queira enviar ao dono do projeto para que o mesmo atualize para a próxima análise:</label>
               <textarea class="form-control" id="exampleFormControlTextarea1" rows="5" name="comentario" [(ngModel)]="project.comentario"></textarea>
+            </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-12 mb-1">
+    <div class="form">
+      <div class="form-row">
+          <div class="form-group">
+              <label for="autor">Seu nome: </label>
+              <input type="text" class="form-control" id="autor" name="comentario" [(ngModel)]="project.autorComentario">
             </div>
       </div>
     </div>

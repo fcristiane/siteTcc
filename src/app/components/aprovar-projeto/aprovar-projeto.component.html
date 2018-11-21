@@ -1,0 +1,38 @@
+<div class="container-fluid mt-4">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="mb-3">Aprovar Projeto</h1>
+      <hr class="mb-4">
+      <h6><strong>Projeto: </strong>{{ project.nomeAtv }}</h6>
+      <h6><strong>Responsável: </strong>{{ project.responsavel }}</h6>
+      <hr class="mb-4">
+    </div>
+  </div>
+
+  <div class="form-row">
+
+      <div class="col-md-12">
+        <label for="metodologiaProcedimento">
+          <h5><strong>Envie um comentário (opicional):</strong></h5>
+        </label>
+        <textarea class="form-control" rows="4" name="coment" [(ngModel)]="project.comentAprovar"></textarea>
+      </div>
+
+    </div>
+
+  <div class="col-md-12">
+    <hr class="hr-edit">
+
+    <div class="form-row mt-2 mb-5 item">
+      <div class="col-md-2"></div>
+      <div class="col-md-4">
+        <button class="btn btn-success btn-lg btn-block" type="button" (click)="salvar(project)">Aprovar</button>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-danger btn-lg btn-block" type="button" (click)="cancelar()">Cancelar</button>
+      </div>
+      <div class="col-md-2"></div>
+    </div>
+  </div>
+
+</div>

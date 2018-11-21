@@ -14,7 +14,7 @@
             <th class="centro">Curso</th>
             <th class="centro">Situação</th>
             <th class="centro">Detalhes</th>
-            <th class="centro" *ngIf="perfil.permissao == 4">Redefinir Aprovação</th>
+            <th class="centro" *ngIf="perfil.permissao == 4">Redefinir</th>
           </tr>
         </thead>
         <tbody *ngFor="let perfil of perfils | async">

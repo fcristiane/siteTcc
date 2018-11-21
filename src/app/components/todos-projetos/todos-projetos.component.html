@@ -45,8 +45,9 @@
             <td class="centro" *ngIf="project.situacao != 5"> <a [routerLink]="['/home/projeto-detalhe',project.id]"><button
                   type="button" class="btn btn-primary btn-sm centro">Detalhes</button></a>
             </td>
-            <td class="centro" *ngIf="perfil.permissao == 4 && project.situacao != 3 && project.situacao != 2"><button
-                type="button" class="btn btn-success btn-sm centro" data-toggle="modal" data-target="#modalAprovar">Aprovar</button></td>
+            <td class="centro" *ngIf="perfil.permissao == 4 && project.situacao != 3 && project.situacao != 2"><a
+                [routerLink]="['/home/aprovar-projeto',project.id]"><button type="button" class="btn btn-success btn-sm centro">Aprovar</button></a>
+            </td>
             <td class="centro" *ngIf="perfil.permissao == 4 && project.situacao == 1"><button type="button" class="btn btn-danger btn-sm centro"
                 (click)="reprovar(project)">Indeferir</button></td>
             <td hidden class="centro" *ngIf="perfil.permissao == 4 && project.situacao != 1"><button type="button"
@@ -56,7 +57,7 @@
             <td hidden class="centro" *ngIf="perfil.permissao == 4"><button type="button" class="btn btn-dark btn-sm centro"
                 (click)="deletar(project.id)">Deletar</button></td>
             <td class="centro" *ngIf="perfil.permissao == 4 && project.situacao == 1"> <a [routerLink]="['/home/enviar-comentario',project.id]"><button
-              type="button" class="btn btn-info btn-sm centro" title="Clique aqui para enviar comentário">Sugerir</button></a>
+                  type="button" class="btn btn-info btn-sm centro" title="Clique aqui para enviar comentário">Sugerir</button></a>
             <td class="centro" *ngIf="perfil.permissao == 4 && project.situacao != 1 "> --- </td>
           </tr>
 
