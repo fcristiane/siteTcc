@@ -183,7 +183,6 @@ export class NovoProjetoAuxComponent implements OnInit {
     });
 
     console.log(valueSubmit);
-
     this.novoProjeto = valueSubmit;
     this.salvar(this.novoProjeto);
     alert('Sucesso!');
@@ -227,44 +226,6 @@ export class NovoProjetoAuxComponent implements OnInit {
   }
 
   get f() { return this.formulario.controls; }
-
-  // onSubmit() {
-  //   console.log(this.formulario);
-  //   this.submitted = true;
-  //   if (this.formulario.invalid) {
-  //     console.log('Formulário inválido');
-  //     alert('Preencha todos os campos obrigatórios!');
-  //     return;
-  //   }
-
-  //   let valueSubmit = Object.assign({}, this.formulario.value);
-
-  //   valueSubmit = Object.assign(valueSubmit, {
-  //     classificacoes: valueSubmit.classificacoes
-  //       .map((v, i) => v ? this.classificacoes[i] : null)
-  //       .filter(v => v !== null)
-  //   });
-
-  //   valueSubmit = Object.assign(valueSubmit, {
-  //     areaTematica: valueSubmit.areaTematica
-  //       .map((v, i) => v ? this.areaTematica[i] : null)
-  //       .filter(v => v !== null)
-  //   });
-
-  //   valueSubmit = Object.assign(valueSubmit, {
-  //     diasDaSemana: valueSubmit.diasDaSemana
-  //       .map((v, i) => v ? this.diasDaSemana[i] : null)
-  //       .filter(v => v !== null)
-  //   });
-
-  //   console.log(valueSubmit);
-
-  //   this.novoProjeto = valueSubmit;
-  //   this.salvar(this.novoProjeto);
-  //   alert('Sucesso!');
-
-
-  // }
 
   buildClassificacao() {
     const values = this.classificacoes.map(v => new FormControl(false));
@@ -318,34 +279,4 @@ export class NovoProjetoAuxComponent implements OnInit {
     this.projetoService.delete(id);
   }
 
-  // emEdicao() {
-  //   this.submitted = true;
-
-  //   let valueSubmit = Object.assign({}, this.formulario.value);
-
-  //   valueSubmit = Object.assign(valueSubmit, {
-  //     classificacoes: valueSubmit.classificacoes
-  //       .map((v, i) => v ? this.classificacoes[i] : null )
-  //       .filter(v => v !== null)
-  //   });
-
-  //   valueSubmit = Object.assign(valueSubmit, {
-  //     areaTematica: valueSubmit.areaTematica
-  //       .map((v, i) => v ? this.areaTematica[i] : null )
-  //       .filter(v => v !== null)
-  //   });
-
-  //   valueSubmit = Object.assign(valueSubmit, {
-  //     diasDaSemana: valueSubmit.diasDaSemana
-  //       .map((v, i) => v ? this.diasDaSemana[i] : null )
-  //       .filter(v => v !== null)
-  //   });
-
-  //   console.log(valueSubmit);
-
-  //   this.novoProjeto = valueSubmit;
-  //   alert('Sucesso!');
-  //   this.projetoService.emEdicao(novoProjeto);
-  //   this.router.navigate(['/home/todos-projetos']);
-  // }
 }

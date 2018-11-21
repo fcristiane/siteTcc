@@ -67,7 +67,7 @@ export class ProjetoService implements OnInit {
       let templateParams = {
         name: 'James',
         notes: 'Check this out!'
-    }
+      }
       emailjs.init('user_Nqf2Vk94Xmq9jo3YBWrMf');
       emailjs.send('gmail', 'template_8RGNGecJ', templateParams)
         .then((response) => {
