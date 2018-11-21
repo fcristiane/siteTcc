@@ -24,7 +24,7 @@
             <td class="centro">{{ project.nomeAtv }}</td>
             <td class="centro" *ngIf="perfil.permissao != 1 && perfil.permissao != 2" class="centro">{{
               project.responsavel }}</td>
-            <td class="centro">{{ project.classificacao }}</td>
+            <td class="centro">{{ project.classificacoes }}</td>
             <td class="centro">{{ project.curso }}</td>
             <td class="centro td-amarelo" *ngIf="project.situacao == 1">
               <strong>Em Análise</strong></td>

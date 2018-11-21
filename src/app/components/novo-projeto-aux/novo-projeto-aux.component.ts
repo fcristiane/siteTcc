@@ -9,6 +9,7 @@ import { PerfilService } from 'src/app/core/perfils/perfil.service';
 import { FormBuilder, FormGroup, FormArray, FormControl, Validators } from '@angular/forms';
 import * as firebase from 'firebase/app';
 import { Router } from '@angular/router';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-novo-projeto-aux',
@@ -40,7 +41,7 @@ export class NovoProjetoAuxComponent implements OnInit {
   }
 
   classificacoes = ['Concurso', 'Curso', 'Encontro', 'Exposição', 'Jornada', 'Oficina', 'Palestra', 'Projeto', 'Publicação', 'Seminario', 'Simpósio', 'Viagem', 'Workshop'];
-  areasTematicas = ['Comunicação', 'Cultura', 'Direitos Humanos', 'Educação', 'Meio Ambiente', 'Saúde', 'Tecnologia', 'Trabalho'];
+  areaTematica = ['Comunicação', 'Cultura', 'Direitos Humanos', 'Educação', 'Meio Ambiente', 'Saúde', 'Tecnologia', 'Trabalho'];
   diasDaSemana = ['Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado', 'Domingo'];
 
   ngOnInit() {
@@ -53,7 +54,7 @@ export class NovoProjetoAuxComponent implements OnInit {
       responsavel: ['', Validators.required],
       coordenador: ['', Validators.required],
       palestra: [''],
-      areasTematicas: this.buildAreasTematicas(),
+      areaTematica: this.buildAreasTematicas(),
       areaAtuacao: ['', Validators.required],
       classificacoes: this.buildClassificacao(),
       ministrante: [''],
@@ -156,7 +157,30 @@ export class NovoProjetoAuxComponent implements OnInit {
       alert('Preencha todos os campos obrigatórios!');
       return;
     }
-    this.novoProjeto = this.formulario.value;
+
+    let valueSubmit = Object.assign({}, this.formulario.value);
+
+    valueSubmit = Object.assign(valueSubmit, {
+      classificacoes: valueSubmit.classificacoes
+        .map((v, i) => v ? this.classificacoes[i] : null )
+        .filter(v => v !== null)
+    });
+
+    valueSubmit = Object.assign(valueSubmit, {
+      areaTematica: valueSubmit.areaTematica
+        .map((v, i) => v ? this.areaTematica[i] : null )
+        .filter(v => v !== null)
+    });
+
+    valueSubmit = Object.assign(valueSubmit, {
+      diasDaSemana: valueSubmit.diasDaSemana
+        .map((v, i) => v ? this.diasDaSemana[i] : null )
+        .filter(v => v !== null)
+    });
+
+    console.log(valueSubmit);
+
+    this.novoProjeto = valueSubmit;
     this.salvar(this.novoProjeto);
     alert('Sucesso!');
 
@@ -169,7 +193,7 @@ export class NovoProjetoAuxComponent implements OnInit {
   }
 
   buildAreasTematicas() {
-    const values = this.areasTematicas.map(v => new FormControl(false));
+    const values = this.areaTematica.map(v => new FormControl(false));
     return this.fb.array(values);
   }
 
@@ -209,16 +233,34 @@ export class NovoProjetoAuxComponent implements OnInit {
     this.projetoService.delete(id);
   }
 
-  emEdicao(novoProjeto: Projeto) {
-    this.projetoService.emEdicao(novoProjeto);
-    this.router.navigate(['/home/todos-projetos']);
-  }
+  // emEdicao() {
+  //   this.submitted = true;
+
+  //   let valueSubmit = Object.assign({}, this.formulario.value);
+
+  //   valueSubmit = Object.assign(valueSubmit, {
+  //     classificacoes: valueSubmit.classificacoes
+  //       .map((v, i) => v ? this.classificacoes[i] : null )
+  //       .filter(v => v !== null)
+  //   });
+
+  //   valueSubmit = Object.assign(valueSubmit, {
+  //     areaTematica: valueSubmit.areaTematica
+  //       .map((v, i) => v ? this.areaTematica[i] : null )
+  //       .filter(v => v !== null)
+  //   });
+
+  //   valueSubmit = Object.assign(valueSubmit, {
+  //     diasDaSemana: valueSubmit.diasDaSemana
+  //       .map((v, i) => v ? this.diasDaSemana[i] : null )
+  //       .filter(v => v !== null)
+  //   });
+
+  //   console.log(valueSubmit);
+
+  //   this.novoProjeto = valueSubmit;
+  //   alert('Sucesso!');
+  //   this.projetoService.emEdicao(novoProjeto);
+  //   this.router.navigate(['/home/todos-projetos']);
+  // }
 }
-
-// const message = Object.assign({});     
-
-    //         mail.to = message.to;
-    //         mail.subject = message.subject;
-    //         mail.message = message.message;
-    //         let result = mail.sendMail();
-    //         console.log(result);

@@ -7,6 +7,7 @@ import * as firebase from 'firebase/app';
 import { PerfilService } from '../perfils/perfil.service';
 import { Perfil } from 'src/app/components/perfil/perfil.module';
 import { Router } from '@angular/router';
+import * as emailjs from 'emailjs-com';
 
 
 @Injectable({
@@ -64,6 +65,13 @@ export class ProjetoService implements OnInit {
     this.db.collection<Projeto>('project').doc(id).set(formulario).then((success) => {
       console.log(success);
       console.log('Salvo');
+      emailjs.send('danielsimoes1964@gmail.com', 'template_8RGNGecJ', 'user_Nqf2Vk94Xmq9jo3YBWrMf')
+        .then((response) => {
+          console.log('SUCCESS!', response.status, response.text);
+        }, (err) => {
+          console.log('FAILED...', err);
+        });
+
     }).catch((erro) => {
       console.log(erro);
       console.log('Erro ao salvar');

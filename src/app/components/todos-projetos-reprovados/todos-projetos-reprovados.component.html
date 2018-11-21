@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-12 order-md-1">
     <br>
-    <h2 class="mb-3" id="texto-centro">Projetos Reprovados</h2>
+    <h2 class="mb-3" id="texto-centro">Projetos Indeferidos</h2>
     <hr>
     <div class="table-responsive-sm">
       <table class="table table-sm table-bordered table-hover">
@@ -23,7 +23,7 @@
             <td class="centro">{{ project.nomeAtv }}</td>
             <td class="centro" *ngIf="perfil.permissao != 1 && perfil.permissao != 2">{{
               project.responsavel }}</td>
-            <td class="centro">{{ project.classificacao }}</td>
+            <td class="centro">{{ project.classificacoes }}</td>
             <td class="centro">{{ project.curso }}</td>
             <td class="centro td-vermelho" *ngIf="project.situacao == 3">
               <strong>Indeferido</strong></td>

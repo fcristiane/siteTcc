@@ -25,16 +25,16 @@
 
     <div class="form-row">
       <div class="form-group col-md-8 mb-2">
-        <label><strong>Nome da atividade:</strong></label>
+        <label><strong>* Nome da atividade:</strong></label>
         <input type="text" class="form-control" formControlName="nomeAtv" [ngClass]="{ 'is-invalid': f.nomeAtv.touched && f.nomeAtv.errors }" />
         <div *ngIf="f.nomeAtv.touched && f.nomeAtv.errors" class="invalid-feedback">
-          <div *ngIf="f.nomeAtv.errors.required">Campo obrigatório</div>
+          <div *ngIf="f.nomeAtv.errors.required">Favor inserir o nome da atividade</div>
         </div>
       </div>
 
       <div class="form-group col-md-4 mb-2">
 
-        <label for="inlineFormCustomSelectPref"><strong>Curso (Vínculo Acadêmico): </strong></label>
+        <label for="inlineFormCustomSelectPref"><strong>* Curso (Vínculo Acadêmico): </strong></label>
         <select class="custom-select" id="inlineFormCustomSelectPref" formControlName="curso" [ngClass]="{ 'is-invalid': f.curso.touched && f.curso.errors }">
           <option selected value="">Escolha...</option>
           <option value="Administração">Administração</option>
@@ -70,7 +70,7 @@
         </select>
 
         <div *ngIf="f.curso.touched && f.curso.errors" class="invalid-feedback">
-          <div *ngIf="f.curso.errors.required">Campo obrigatório</div>
+          <div *ngIf="f.curso.errors.required">Escolha um curso</div>
         </div>
 
       </div>
@@ -80,30 +80,30 @@
     <div class="form-row">
 
       <div class="form-group col-md-4 mb-2">
-        <label for="responsavel"><strong>Responsável pelo projeto:</strong></label>
+        <label for="responsavel"><strong>* Responsável pelo projeto:</strong></label>
         <input type="text" class="form-control" formControlName="responsavel" [ngClass]="{ 'is-invalid': f.responsavel.touched && f.responsavel.errors }">
         <div *ngIf="f.responsavel.touched && f.responsavel.errors" class="invalid-feedback">
-          <div *ngIf="f.responsavel.errors.required">Campo obrigatório</div>
+          <div *ngIf="f.responsavel.errors.required">Favor inserir o nome completo</div>
         </div>
       </div>
 
       <div class="form-group col-md-4 mb-2">
-        <label for="coordenador"><strong>Coordenador:</strong></label>
+        <label for="coordenador"><strong>* Coordenador:</strong></label>
         <input type="text" class="form-control" formControlName="coordenador" [ngClass]="{ 'is-invalid': f.coordenador.touched && f.coordenador.errors }">
         <div *ngIf="f.coordenador.touched && f.coordenador.errors" class="invalid-feedback">
-          <div *ngIf="f.coordenador.errors.required">Campo obrigatório</div>
+          <div *ngIf="f.coordenador.errors.required">Inserir nome do Coordenador</div>
         </div>
       </div>
 
       <div class="form-group col-md-4 mb-2">
-        <label for="inlineFormCustomSelectPref"><strong>Campus: </strong></label>
+        <label for="inlineFormCustomSelectPref"><strong>* Campus: </strong></label>
         <select class="custom-select" id="inlineFormCustomSelectPref" formControlName="campus" [ngClass]="{ 'is-invalid': f.campus.touched && f.campus.errors }">
           <option selected value="">Escolha...</option>
           <option value="Fátima">Fátima</option>
           <option value="Central">Central</option>
         </select>
         <div *ngIf="f.campus.touched && f.campus.errors" class="invalid-feedback">
-          <div *ngIf="f.campus.errors.required">Campo obrigatório</div>
+          <div *ngIf="f.campus.errors.required">Escolha um campus</div>
         </div>
       </div>
 
@@ -114,21 +114,22 @@
     <div class="form-row">
 
       <div class="form-group col-md-8">
-        <label for="classficacao"><strong>Classificação: </strong></label>
+        <label for="classificacoes"><strong>* Classificação: </strong></label>
         <br>
         <div class="form-check form-check-inline" formArrayName="classificacoes" *ngFor="let item of formulario.get('classificacoes').controls; let i = index">
-          <input class="form-check-input" type="checkbox" [formArrayName]="i">
-          <label class="form-check-label" for="classificacao1">{{ classificacoes[i] }}</label>
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" [formControlName]="i">{{ classificacoes[i] }}
+          </label>
         </div>
 
       </div>
 
       <div class="form-group col-md-4">
-        <label><strong>Local de Realização:</strong></label>
+        <label><strong>* Local de Realização:</strong></label>
         <input type="text" class="form-control" formControlName="local" placeholder="Ex: Auditório; Sala de aula..."
           [ngClass]="{ 'is-invalid': f.local.touched && f.local.errors }">
         <div *ngIf="f.local.touched && f.local.errors" class="invalid-feedback">
-          <div *ngIf="f.local.errors.required">Campo obrigatório</div>
+          <div *ngIf="f.local.errors.required">Escolha um local</div>
         </div>
       </div>
 
@@ -137,17 +138,18 @@
     <div class="form-row">
 
       <div class="form-group col-md-8 mb-2">
-        <label for="areaTematica"><strong>Área temática: </strong></label>
+        <label for="areaTematica"><strong>* Área temática: </strong></label>
         <br>
-        <div class="form-check form-check-inline" formArrayName="areasTematicas" *ngFor="let item of formulario.get('areasTematicas').controls; let i = index">
-          <input class="form-check-input" type="checkbox" [formArrayName]="i">
-          <label class="form-check-label" for="areaTematica">{{ areasTematicas[i] }}</label>
+        <div class="form-check form-check-inline" formArrayName="areaTematica" *ngFor="let item of formulario.get('areaTematica').controls; let i = index">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" [formControlName]="i">{{ areaTematica[i] }}
+          </label>
         </div>
 
       </div>
 
       <div class="form-group col-md-4">
-        <label for="inlineFormCustomSelectPref"><strong>Área de atuação: </strong></label>
+        <label for="inlineFormCustomSelectPref"><strong>* Área de atuação: </strong></label>
         <select class="custom-select" id="inlineFormCustomSelectPref" formControlName="areaAtuacao" [ngClass]="{ 'is-invalid': f.areaAtuacao.touched && f.areaAtuacao.errors }">
           <option selected value="">Escolha...</option>
           <option value="Ciências Biológicas">Ciências Biológicas</option>
@@ -158,11 +160,13 @@
           <option value="Educação">Educação</option>
         </select>
         <div *ngIf="f.areaAtuacao.touched && f.areaAtuacao.errors" class="invalid-feedback">
-          <div *ngIf="f.areaAtuacao.errors.required">Campo obrigatório</div>
+          <div *ngIf="f.areaAtuacao.errors.required">Escolha uma área</div>
         </div>
       </div>
 
-      <div class="col-md-12">
+      <div class="col-md-12 direita"><p><i>(*) Campos obrigatórios</i></p></div>
+
+      <div class="col-md-12 mt-0">
         <hr class="hr-edit">
       </div>
 
@@ -176,7 +180,7 @@
       </div>
 
       <div class="form-group col-md-3 mb-2">
-        <label for="horaInicio"><strong>Horário (Início): </strong></label>
+        <label for="horaInicio"><strong>* Horário (Início): </strong></label>
         <input type="text" class="form-control" formControlName="horaInicio" mask="00:00" placeholder="hh:mm" [ngClass]="{ 'is-invalid': f.horaInicio.touched && f.horaInicio.errors }">
         <div *ngIf="f.horaInicio.touched && f.horaInicio.errors" class="invalid-feedback">
           <div *ngIf="f.horaInicio.errors.required">Campo obrigatório</div>
@@ -184,7 +188,7 @@
       </div>
 
       <div class="form-group col-md-3 mb-2">
-        <label for="horaFim"><strong>Horário (Fim):</strong></label>
+        <label for="horaFim"><strong>* Horário (Fim):</strong></label>
         <input type="text" class="form-control" formControlName="horaFim" mask="00:00" placeholder="hh:mm" [ngClass]="{ 'is-invalid': f.horaFim.touched && f.horaFim.errors }">
         <div *ngIf="f.horaFim.touched && f.horaFim.errors" class="invalid-feedback">
           <div *ngIf="f.horaFim.errors.required">Campo obrigatório</div>
@@ -192,7 +196,7 @@
       </div>
 
       <div class="form-group col-md-3 mb-2">
-        <label for="periodoDe"><strong>Período de: </strong></label>
+        <label for="periodoDe"><strong>* Período de: </strong></label>
         <input type="text" class="form-control" formControlName="periodoDe" mask="00/00/0000" placeholder="dd/mm/aaaa"
           [ngClass]="{ 'is-invalid': f.periodoDe.touched && f.periodoDe.errors }">
         <div *ngIf="f.periodoDe.touched && f.periodoDe.errors" class="invalid-feedback">
@@ -201,7 +205,7 @@
       </div>
 
       <div class="form-group col-md-3 mb-2">
-        <label for="periodoAte"><strong>Até:</strong></label>
+        <label for="periodoAte"><strong>* Até:</strong></label>
         <input type="text" class="form-control" mask="00/00/0000" placeholder="dd/mm/aaaa" formControlName="periodoAte"
           [ngClass]="{ 'is-invalid': f.periodoAte.touched && f.periodoAte.errors }">
         <div *ngIf="f.periodoAte.touched && f.periodoAte.errors" class="invalid-feedback">
@@ -213,7 +217,7 @@
 
     <div class="form-row">
       <div class="form-group col-md-3 mb-2">
-        <label for="cargaHoraria"><strong>Carga horária total:</strong></label>
+        <label for="cargaHoraria"><strong>* Carga horária total:</strong></label>
         <input type="number" class="form-control" formControlName="cargaHoraria" placeholder="Hora(s)" [ngClass]="{ 'is-invalid': f.cargaHoraria.touched && f.cargaHoraria.errors }">
         <div *ngIf="f.cargaHoraria.touched && f.cargaHoraria.errors" class="invalid-feedback">
           <div *ngIf="f.cargaHoraria.errors.required">Campo obrigatório</div>
@@ -225,16 +229,20 @@
       </div>
 
       <div class="form-check col-md-6 mb-2">
-        <label><strong>Dias da semana: </strong></label>
+        <label><strong>* Dias da semana: </strong></label>
         <br>
         <div class="form-check form-check-inline" formArrayName="diasDaSemana" *ngFor="let item of formulario.get('diasDaSemana').controls; let i = index">
-          <input class="form-check-input" type="checkbox" [formArrayName]="i">
-          <label class="form-check-label">{{ diasDaSemana[i] }}</label>
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" [formControlName]="i">{{ diasDaSemana[i] }}
+          </label>
         </div>
       </div>
+
+      <div class="col-md-12 direita"><p><i>(*) Campos obrigatórios</i></p></div>
+
     </div>
 
-    <hr class="hr-edit">
+    <hr class="hr-edit mt-0">
 
     <div class="form-row">
       <div class="col-md-8">
@@ -247,7 +255,7 @@
         </div>
         <div class="form-check form-check-inline ml-5">
           <input class="form-check-input" type="radio" id="inlineCheckbox2" value="Não" formControlName="palestra"
-            [(ngModel)]="valueMinistrante1">
+            [(ngModel)]="valueMinistrante1" checked>
           <label class="form-check-label" for="inlineCheckbox2">Não</label>
         </div>
       </div>
@@ -318,7 +326,7 @@
         </div>
         <div class="form-check form-check-inline ml-5">
           <input class="form-check-input" type="radio" value="Não" id="inlineCheck4" formControlName="addMinistrante2"
-            [(ngModel)]="valueMinistrante2">
+            [(ngModel)]="valueMinistrante2" checked>
           <label class="form-check-label" for="inlineCheck4">Não</label>
         </div>
       </div>
@@ -386,7 +394,7 @@
           </div>
           <div class="form-check form-check-inline ml-5">
             <input class="form-check-input" type="radio" id="inlineCheck2" value="Não" formControlName="addMinistrante3"
-              [(ngModel)]="valueMinistrante3">
+              [(ngModel)]="valueMinistrante3" checked>
             <label class="form-check-label" for="inlineCheck2">Não</label>
           </div>
         </div>
@@ -487,7 +495,7 @@
 
       <div class="col-md-12">
         <label>
-          <h5><strong>Objetivos:</strong></h5>
+          <h5><strong>* Objetivos:</strong></h5>
         </label>
         <textarea class="form-control" rows="4" formControlName="objetivos" [ngClass]="{ 'is-invalid': f.objetivos.touched && f.objetivos.errors }"></textarea>
         <div *ngIf="f.objetivos.touched && f.objetivos.errors" class="invalid-feedback">
@@ -506,7 +514,7 @@
 
       <div class="col-md-12">
         <label for="justificativa">
-          <h5><strong>Justificativa:</strong></h5>
+          <h5><strong>* Justificativa:</strong></h5>
         </label>
         <textarea class="form-control" rows="4" formControlName="justificativa" [ngClass]="{ 'is-invalid': f.justificativa.touched && f.justificativa.errors }"></textarea>
         <div *ngIf="f.justificativa.touched && f.justificativa.errors" class="invalid-feedback">
@@ -526,7 +534,7 @@
 
       <div class="col-md-12">
         <label for="metodologiaProcedimento">
-          <h5><strong>Metodologia / Procedimentos:</strong></h5>
+          <h5><strong>* Metodologia / Procedimentos:</strong></h5>
         </label>
         <textarea class="form-control" rows="4" formControlName="metodologiaProcedimento" [ngClass]="{ 'is-invalid': f.metodologiaProcedimento.touched && f.metodologiaProcedimento.errors }"></textarea>
         <div *ngIf="f.metodologiaProcedimento.touched && f.metodologiaProcedimento.errors" class="invalid-feedback">
@@ -537,7 +545,9 @@
 
     </div>
 
-    <hr class="hr-edit">
+    <div class="col-md-12 direita"><p><i>(*) Campos obrigatórios</i></p></div>
+
+    <hr class="hr-edit mt-0">
 
     <div class="form-row">
       <div class="col-md-12" id="texto-centro">
@@ -1165,7 +1175,7 @@
       </div>
       <div class="col-md-1"></div>
       <div class="col-md-4">
-        <button class="btn btn-warning btn-lg btn-block" type="button">Continuar mais
+        <button class="btn btn-warning btn-lg btn-block" type="button" (click)="emEdicao()">Continuar mais
           tarde</button>
       </div>
       <div class="col-md-1 mb-3 direita">

@@ -18,26 +18,12 @@ export interface Projeto {
     nomeAtv: string;
     responsavel: string;
     dataCadastro: number;
-    areaTematica: string;
+    areaTematica: Array<String>;
     curso: string;
     coordenador: string;
     areaAtuacao: string;
 
-    classificacao: string;
-    classificacao1: string;
-    classificacao2: string;
-    classificacao3: string;
-    classificacao4: string;
-    classificacao5: string;
-    classificacao6: string;
-    classificacao7: string;
-    classificacao8: string;
-    classificacao9: string;
-    classificacao10: string;
-    classificacao11: string;
-    classificacao12: string;
-    classificacao13: string;
-
+    classificacoes: Array<String>;
 
     ministrante: string;
     cpf: string;

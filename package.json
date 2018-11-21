@@ -24,6 +24,7 @@
     "angularfire2": "^5.0.0-rc.12",
     "body-parser": "^1.18.3",
     "core-js": "^2.5.4",
+    "emailjs-com": "^2.2.4",
     "express": "^4.16.4",
     "feather-icons": "^4.7.3",
     "firebase": "^5.4.2",
